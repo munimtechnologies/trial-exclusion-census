@@ -88,11 +88,36 @@ to consider (for example, read-aloud or large-print consent instead of excluding
 
 Standard library only (Python 3.9+). No API key.
 
+## Measuring what the rules miss
+
+`sample_items.csv` measures precision: of the items flagged, how many really exclude by
+disability. It cannot show what the rules miss. `recall_sample.py` does that:
+
+```
+python recall_sample.py draw --cache ctgov.jsonl.gz --out-dir recall
+#   label recall/labels.csv by hand while reading recall/blind.md
+python recall_sample.py score --sample recall/sample.jsonl --labels recall/labels.csv
+```
+
+`draw` takes two seeded random samples of trials with an exclusion section, without looking at
+the flags. The first (150 trials) is any trial. The second (75) is trials the rules did not flag
+whose criteria still use a loose word such as "walk", "hearing" or "understand". It is only used
+to find misses quickly, never as an estimate. `blind.md` shows each trial's full criteria in
+shuffled order with no flags, so the labeller cannot see what the rules said.
+
+Each trial gets one mark per category: `x` if the exclusion criteria shut people out for that
+kind of disability, `i` if the inclusion criteria require an ability that does (for example
+"able to walk 100 m unaided"), or both. The census reads only the exclusion section, so the `i`
+marks show how much an exclusion-only count cannot see. `score` reports per-category precision
+and recall on the random sample, with Wilson 95% intervals, and lists every miss. It re-runs the
+current rules on the same trials, so a revised rule set can be compared on the same sample.
+
 ## Limits
 
 - A word list, not a reader. It flags what a criterion says, not whether that exclusion is
   justified for the study. It misses exclusions worded in ways it does not know, and it can flag
-  items that mention a word in passing. `sample_items.csv` exists to measure this.
+  items that mention a word in passing. `sample_items.csv` and `recall_sample.py` exist to
+  measure this.
 - "Condition-related" is a rough match between word lists and the trial's own condition and title.
 - Registry text is what sponsors entered, which is often a summary of the full protocol.
 - Information only. It is not medical, legal or IRB advice.
