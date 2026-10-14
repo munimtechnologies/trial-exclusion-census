@@ -11,6 +11,12 @@ authorized representative, an interpreter, large print and the like), and
 whether a flagged exclusion matches the trial's own condition (excluding
 vision loss from a glaucoma trial is not the same as from a diabetes trial).
 
+Since 0.2.0 it also reads the inclusion criteria for ability requirements in
+the same six categories ("able to walk 100 m unaided", "normal or
+corrected-to-normal vision", "able to read and write", "able to provide
+informed consent" with no representative allowed). These shut people out as
+surely as an exclusion does, but an exclusion-only count cannot see them.
+
 Earlier work coded samples by hand: 97 protocols in four areas (DeCormier
 Plosky et al., Health Affairs 2022) and 2,710 trials for ten conditions,
 2010-2020 (scoping review, 2023). This is the whole registry, by year, with
@@ -44,7 +50,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 API = "https://clinicaltrials.gov/api/v2/studies"
 UA = "trial-exclusion-census/%s (Munim, Inc.; munimversion2@gmail.com)" % __version__
@@ -123,6 +129,43 @@ PATTERNS = {
 }
 RULES = {cat: [re.compile(p, re.I) for p in pats] for cat, pats in PATTERNS.items()}
 
+# Ability requirements in the inclusion criteria ("able to walk", "normal hearing").
+# "unable" never matches: there is no word boundary inside it.
+_ABLE = r"\b(?:able|ability|capable|capacity)(?:\s+and\s+willing)?\s+(?:to|of)\s+(?:\w+ly\s+)?"
+# The whole item names no one who can consent for the participant.
+_NO_PROXY = r"^(?!.*\b(?:representatives?|LAR|surrogates?|guardians?|prox(?:y|ies)|parents?)\b).*?"
+REQUIRE_PATTERNS = {
+    "cognitive": [
+        r"\bcognitively\s+(?:intact|normal|unimpaired|healthy)\b",
+        r"\b(?:normal|intact|preserved)\s+cognit",
+        r"\b(?:mmse|mini[- ]mental|moca|montreal cognitive)\b[^.;\n]{0,40}"
+        r"(?:≥|>=|>|\bat least\b|\bor (?:higher|greater|more|above)\b|\bgreater than\b|\babove\b)"],
+    "consent_capacity": [
+        _NO_PROXY + _ABLE + r"(?:provid|giv|sign)\w*\s+(?:\w+\s+){0,2}?(?:informed\s+)?consent\b",
+        _NO_PROXY + r"\bcapacity to (?:give |provide )?(?:informed )?consent\b",
+        _ABLE + r"(?:understand|comprehend)\w*\b" + _NOT_LANG],
+    "visual": [
+        r"\b(?:normal|adequate|sufficient|intact|good)\s+(?:or\s+corrected[- ](?:to[- ]normal\s+)?)?"
+        r"(?:vision|eyesight|visual acuity)\b",
+        r"\bcorrected[- ]to[- ]normal\s+(?:vision|visual acuity|eyesight)\b",
+        _ABLE + r"see\b",
+        r"\bvisual acuity\b[^.;\n]{0,40}\bor better\b"],
+    "hearing": [
+        r"\b(?:normal|adequate|sufficient|intact|good)\s+hearing\b",
+        _ABLE + r"hear\b"],
+    "communication": [
+        _ABLE + r"(?:speak|communicat|read|writ|verbali[sz])\w*\b" + _NOT_LANG,
+        r"\b(?:functionally\s+)?literate\b" + _NOT_LANG,
+        r"\b(?:fluent|intelligible)\s+speech\b"],
+    "mobility": [
+        _ABLE + r"(?:walk(?:s|ing)?|ambulat(?:e|ing)|stand(?:ing)?)\b",
+        r"\b(?:independently|fully|freely)\s+ambulat",
+        r"\bambulat(?:ory|e|ing)\s+(?:without|with or without|independently|unaided|unassisted)\b",
+        r"\bwalk(?:s|ing)?\s+(?:independently|unaided|unassisted|without (?:assistance|help|an? (?:assistive|walking) (?:device|aid)))"],
+}
+REQUIRE_RULES = {cat: [re.compile(p, re.I) for p in pats] for cat, pats in REQUIRE_PATTERNS.items()}
+REQUIRED = tuple("required_" + cat for cat in CORE)
+
 ACCOMMODATION = re.compile(
     r"\baccommodat(?:e|ed|es|ion|ions)\b|\bassistive (?:device|technolog)|"
     r"\blegally (?:authori[sz]ed|acceptable) representative|\bLAR\b|\bsign language\b|"
@@ -163,6 +206,15 @@ SUGGESTIONS = {
     "english_only": "Consider translated materials and interpreters.",
 }
 
+REQUIRE_SUGGESTIONS = {
+    "cognitive": "If the outcome needs this level of cognition, name the measure and the reason; otherwise allow a supporter and easy-read materials.",
+    "consent_capacity": "Allow consent by a legally authorized representative with the participant's own assent, unless the study cannot be done that way.",
+    "visual": "Unless a task needs sight, accept blind and low-vision participants and adapt the materials (large print, screen reader, read aloud).",
+    "hearing": "Unless a task needs hearing, accept deaf and hard-of-hearing participants and provide interpreters, captions and written instructions.",
+    "communication": "Accept answers by AAC, writing, typing or pointing, and read documents aloud for people who do not read print.",
+    "mobility": "Unless walking or standing is the outcome or a safety need, accept wheelchair users and people who use walking aids.",
+}
+
 HEADER = re.compile(
     r"^[^\w\n]*(?:(?:key|main|major|general|specific|additional|principal|other)\s+)?"
     r"(inclusion|exclusion|eligibility)(?:\s+criteri\w*)?[\s*_]*(?::|$)", re.I | re.M)
@@ -170,21 +222,39 @@ INLINE_EXCLUSION = re.compile(r"\bexclusion\s+criteri\w*\s*:?", re.I)
 BULLET = re.compile(r"^\s*(?:[*\-•●▪·]+|\(?\d{1,2}[.)]|\(?[a-z][.)])\s+", re.I)
 
 
+def _headed(text, kind):
+    """The text under every header of this kind ("inclusion" or "exclusion"), or None."""
+    heads = list(HEADER.finditer(text))
+    parts = []
+    for i, h in enumerate(heads):
+        if h.group(1).lower() != kind:
+            continue
+        end = heads[i + 1].start() if i + 1 < len(heads) else len(text)
+        parts.append(text[h.end():end])
+    return "\n".join(parts) if parts else None
+
+
 def exclusion_section(text):
     """The exclusion criteria part of an eligibility text, or None if it has none."""
     if not text:
         return None
-    heads = list(HEADER.finditer(text))
-    if any(h.group(1).lower() == "exclusion" for h in heads):
-        parts = []
-        for i, h in enumerate(heads):
-            if h.group(1).lower() != "exclusion":
-                continue
-            end = heads[i + 1].start() if i + 1 < len(heads) else len(text)
-            parts.append(text[h.end():end])
-        return "\n".join(parts)
+    section = _headed(text, "exclusion")
+    if section is not None:
+        return section
     m = INLINE_EXCLUSION.search(text)
     return text[m.end():] if m else None
+
+
+def inclusion_section(text):
+    """The inclusion criteria part of an eligibility text (up to any inline
+    "Exclusion criteria"), or None if it has no inclusion header."""
+    if not text:
+        return None
+    section = _headed(text, "inclusion")
+    if section is None:
+        return None
+    m = INLINE_EXCLUSION.search(section)
+    return section[:m.start()] if m else section
 
 
 def split_items(section):
@@ -204,6 +274,11 @@ def classify(item):
     return {cat for cat, rules in RULES.items() if any(r.search(item) for r in rules)}
 
 
+def requirements(item):
+    """The core categories whose ability an inclusion item requires."""
+    return {cat for cat, rules in REQUIRE_RULES.items() if any(r.search(item) for r in rules)}
+
+
 def analyze(rec):
     """Flags for one trial record (see extract)."""
     crit = rec.get("criteria") or ""
@@ -212,29 +287,50 @@ def analyze(rec):
     for item in split_items(section):
         for cat in classify(item):
             hits.setdefault(cat, []).append(item)
+    reqs = {}
+    for item in split_items(inclusion_section(crit)):
+        for cat in requirements(item):
+            reqs.setdefault(cat, []).append(item)
     subject = " ".join(rec.get("conditions") or []) + " " + (rec.get("title") or "")
     related = {cat for cat in hits if cat in CONDITION_RELATED and CONDITION_RELATED[cat].search(subject)}
+    related_req = {cat for cat in reqs if CONDITION_RELATED[cat].search(subject)}
     return {"has_exclusion": section is not None, "hits": hits, "related": related,
+            "requires": reqs, "related_req": related_req,
             "accommodation": bool(ACCOMMODATION.search(crit))}
 
 
 def check_text(text):
-    """Human-readable report of the flagged exclusion items in one trial's criteria."""
+    """Human-readable report of the flagged items in one trial's criteria."""
     a = analyze({"criteria": text})
-    if not a["has_exclusion"]:
+    if not a["has_exclusion"] and not a["requires"]:
         return "No exclusion criteria section found."
     lines = []
-    for item in split_items(exclusion_section(text)):
-        cats = sorted(classify(item), key=CATEGORIES.index)
+    if a["has_exclusion"]:
+        for item in split_items(exclusion_section(text)):
+            cats = sorted(classify(item), key=CATEGORIES.index)
+            if not cats:
+                continue
+            lines.append("- " + item)
+            lines.append("  categories: " + ", ".join(cats))
+            for cat in cats:
+                if cat in SUGGESTIONS:
+                    lines.append("  consider: " + SUGGESTIONS[cat])
+        if not lines:
+            lines.append("No disability-related exclusion items found by these word rules.")
+    else:
+        lines.append("No exclusion criteria section found.")
+    required = []
+    for item in split_items(inclusion_section(text)):
+        cats = sorted(requirements(item), key=CORE.index)
         if not cats:
             continue
-        lines.append("- " + item)
-        lines.append("  categories: " + ", ".join(cats))
+        required.append("- " + item)
+        required.append("  requires: " + ", ".join(cats))
         for cat in cats:
-            if cat in SUGGESTIONS:
-                lines.append("  consider: " + SUGGESTIONS[cat])
-    if not lines:
-        lines.append("No disability-related exclusion items found by these word rules.")
+            required.append("  consider: " + REQUIRE_SUGGESTIONS[cat])
+    if required:
+        lines.append("Inclusion items that require an ability:")
+        lines.extend(required)
     lines.append("Accommodation mentioned anywhere in the criteria: %s" % ("yes" if a["accommodation"] else "no"))
     lines.append("Word rules only: a flag is not a judgment that an exclusion is unjustified.")
     return "\n".join(lines)
@@ -372,7 +468,8 @@ def phase_label(phases):
 
 
 class Tally:
-    """Counts of trials with an exclusion section, per category, any-core and accommodation."""
+    """Counts of trials with an exclusion section, per category, any-core and accommodation,
+    and the ability requirements in their inclusion criteria."""
 
     def __init__(self):
         self.n = 0
@@ -380,6 +477,8 @@ class Tally:
         self.cat_unrelated = collections.Counter()
         self.any_core = self.any_core_unrelated = self.any_sensory_physical = 0
         self.accommodation = self.accommodation_if_core = 0
+        self.req = collections.Counter()
+        self.any_req = self.req_only = self.any_barrier = 0
 
     def add(self, a):
         if not a["has_exclusion"]:
@@ -401,6 +500,15 @@ class Tally:
             self.any_sensory_physical += 1
         if a["accommodation"]:
             self.accommodation += 1
+        required = set(a.get("requires") or ())
+        for cat in required:
+            self.req[cat] += 1
+        if required:
+            self.any_req += 1
+            if not core:
+                self.req_only += 1
+        if required or core:
+            self.any_barrier += 1
 
     def row(self):
         pct = lambda k: round(100.0 * k / self.n, 2) if self.n else None
@@ -414,11 +522,16 @@ class Tally:
             r[cat + "_pct"] = pct(self.cat[cat])
         for cat in CORE:
             r[cat + "_unrelated_pct"] = pct(self.cat_unrelated[cat])
+        r["any_required_pct"] = pct(self.any_req)
+        r["required_only_pct"] = pct(self.req_only)
+        r["any_barrier_pct"] = pct(self.any_barrier)
+        for cat in CORE:
+            r[cat + "_required_pct"] = pct(self.req[cat])
         return r
 
 
 TRIAL_COLUMNS = ("nct", "start_year", "sponsor_class", "phase", "status", "categories",
-                 "condition_related", "accommodation")
+                 "condition_related", "accommodation", "required")
 
 
 def census(records, sample_per_cat=60, seed=2026):
@@ -427,7 +540,7 @@ def census(records, sample_per_cat=60, seed=2026):
     by_year, by_sponsor, by_phase, by_area = (collections.defaultdict(Tally) for _ in range(4))
     rng = random.Random(seed)
     seen = collections.Counter()
-    samples = {cat: [] for cat in CATEGORIES}
+    samples = {key: [] for key in CATEGORIES + REQUIRED}
     trials = []
     n_records = n_criteria = 0
     for rec in records:
@@ -446,20 +559,22 @@ def census(records, sample_per_cat=60, seed=2026):
         for area, rx in PLOSKY_AREAS.items():
             if rx.search(subject):
                 by_area[area].add(a)
-        for cat, items in a["hits"].items():
+        flagged = list(a["hits"].items()) + [("required_" + c, items) for c, items in a["requires"].items()]
+        for key, items in flagged:
             for item in items:
-                seen[cat] += 1
-                s = samples[cat]
+                seen[key] += 1
+                s = samples[key]
                 if len(s) < sample_per_cat:
                     s.append((rec.get("nct"), item))
                 else:
-                    j = rng.randrange(seen[cat])
+                    j = rng.randrange(seen[key])
                     if j < sample_per_cat:
                         s[j] = (rec.get("nct"), item)
         if a["has_exclusion"]:
             trials.append((rec.get("nct"), y, rec.get("sponsor_class"), phase_label(rec.get("phases")),
                            rec.get("status"), "|".join(sorted(a["hits"], key=CATEGORIES.index)),
-                           "|".join(sorted(a["related"], key=CATEGORIES.index)), int(a["accommodation"])))
+                           "|".join(sorted(a["related"], key=CATEGORIES.index)), int(a["accommodation"]),
+                           "|".join(sorted(a["requires"], key=CORE.index))))
     return {
         "records": n_records, "with_criteria": n_criteria,
         "total": total.row(),
@@ -509,6 +624,22 @@ def report_md(res, fetched_at):
         "Accommodation mentioned: %s%% of all trials; %s%% of trials with a disability exclusion."
         % (t["accommodation_pct"], t["accommodation_if_core_pct"]),
         "",
+        "## Ability requirements in the inclusion criteria",
+        "",
+        "Inclusion criteria can shut people out too (\"able to walk 100 m unaided\", \"normal hearing\",",
+        "\"able to provide informed consent\" with no representative allowed). Same trials as above.",
+        "",
+        "| Category | % of trials requiring it |",
+        "|---|---|",
+    ]
+    for cat in CORE:
+        lines.append("| %s | %s |" % (cat, t[cat + "_required_pct"]))
+    lines += [
+        "| any disability category | %s |" % t["any_required_pct"],
+        "",
+        "Trials with a disability barrier in either section: %s%%. With one only in the inclusion"
+        " criteria (invisible to an exclusion-only count): %s%%." % (t["any_barrier_pct"], t["required_only_pct"]),
+        "",
         "## By start year",
         "",
         "| Year | Trials | Any disability % | Unrelated % | Cognitive % | Consent % | Visual % | Hearing % | Communication % | Mobility % | Accommodation % |",
@@ -519,6 +650,11 @@ def report_md(res, fetched_at):
             y, r["trials"], r["any_core_pct"], r["any_core_unrelated_pct"], r["cognitive_pct"],
             r["consent_capacity_pct"], r["visual_pct"], r["hearing_pct"], r["communication_pct"],
             r["mobility_pct"], r["accommodation_pct"]))
+    lines += ["", "## Inclusion-criteria requirements by start year", "",
+              "| Year | Trials | Requires any % | Requirement only % | Any barrier % |", "|---|---|---|---|---|"]
+    for y, r in res["by_year"].items():
+        lines.append("| %s | %d | %s | %s | %s |" % (
+            y, r["trials"], r["any_required_pct"], r["required_only_pct"], r["any_barrier_pct"]))
     lines += ["", "## By lead sponsor class", "",
               "| Sponsor | Trials | Any disability % | Unrelated % | Discretion % | Accommodation % |",
               "|---|---|---|---|---|---|"]
@@ -556,7 +692,7 @@ def write_outputs(res, out_dir, fetched_at):
     with open(os.path.join(out_dir, "sample_items.csv"), "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["category", "nct", "item", "correct"])
-        for cat in CATEGORIES:
+        for cat in CATEGORIES + REQUIRED:
             for nct, item in res["samples"][cat]:
                 w.writerow([cat, nct, item, ""])
     with gzip.open(os.path.join(out_dir, "trials.csv.gz"), "wt", newline="", encoding="utf-8") as f:

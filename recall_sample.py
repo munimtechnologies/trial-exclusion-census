@@ -26,6 +26,8 @@ see.
 `score` reports, per category, trial-level precision and recall of the rules
 on the random sample with Wilson 95% intervals, the share of trials whose
 only barrier is in the inclusion criteria, and every miss in both samples.
+Since 0.2.0 it scores the census's inclusion-criteria requirement rules
+against the i marks the same way.
 
 Standard library only. Apache-2.0 licensed.
 Made by MV2 of Munim, Inc. with AI agents.
@@ -42,7 +44,7 @@ import sys
 
 import exclusion_census as ec
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 CORE = ec.CORE
 BROAD = re.compile(
@@ -113,11 +115,12 @@ def write_sample(rows, seen, out_dir, seed=2026):
             w.writerow([r["label"], r.get("nct"), ""] + [""] * len(CORE) + [""])
     with open(os.path.join(out_dir, "flags.csv"), "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        w.writerow(("label", "nct", "stratum") + CORE + ("related",))
+        w.writerow(("label", "nct", "stratum") + CORE + ("related", "required"))
         for r in rows:
             a = ec.analyze(r)
             w.writerow([r["label"], r.get("nct"), r["stratum"]] + [int(c in a["hits"]) for c in CORE]
-                       + ["|".join(sorted(a["related"] & set(CORE), key=CORE.index))])
+                       + ["|".join(sorted(a["related"] & set(CORE), key=CORE.index)),
+                          "|".join(sorted(a["requires"], key=CORE.index))])
     with open(os.path.join(out_dir, "sample_info.json"), "w", encoding="utf-8") as f:
         json.dump({"version": __version__, "census_version": ec.__version__, "seed": seed,
                    "drawn_from": seen, "trials": len(rows),
@@ -153,35 +156,49 @@ def wilson(k, n, z=1.96):
     return max(0.0, c - h), min(1.0, c + h)
 
 
+def _tally(counts, got, want):
+    """Add one trial's flagged (got) and labelled (want) categories to per-category counts."""
+    for c, g, w in [(c, c in got, c in want) for c in CORE] + [("any", bool(got), bool(want))]:
+        if g and w:
+            counts[c]["tp"] += 1
+        elif g:
+            counts[c]["fp"] += 1
+        elif w:
+            counts[c]["fn"] += 1
+
+
 def score(rows, labels):
-    """Trial-level counts of the current rules against hand labels."""
+    """Trial-level counts of the current rules against hand labels: the exclusion rules
+    against the x marks, and the inclusion-criteria requirement rules against the i marks."""
     counts = {c: {"tp": 0, "fp": 0, "fn": 0} for c in CORE + ("any",)}
+    req_counts = {c: {"tp": 0, "fp": 0, "fn": 0} for c in CORE + ("any",)}
     n = {"random": 0, "broad": 0}
-    misses = []
+    misses, req_misses = [], []
     inclusion_any = inclusion_only = 0
     for r in rows:
         lab = labels.get(r["label"])
         if not lab:
             continue
         n[r["stratum"]] += 1
-        flagged = set(ec.analyze(r)["hits"]) & set(CORE)
+        a = ec.analyze(r)
+        flagged = set(a["hits"]) & set(CORE)
+        required = set(a["requires"]) & set(CORE)
         excl = {c for c in CORE if marks(lab.get(c))[0]}
         incl = {c for c in CORE if marks(lab.get(c))[1]}
         for c in sorted(excl - flagged, key=CORE.index):
             misses.append({"label": r["label"], "nct": r.get("nct"), "stratum": r["stratum"],
                            "category": c, "notes": lab.get("notes") or ""})
+        for c in sorted(incl - required, key=CORE.index):
+            req_misses.append({"label": r["label"], "nct": r.get("nct"), "stratum": r["stratum"],
+                               "category": c, "notes": lab.get("notes") or ""})
         if r["stratum"] != "random":
             continue
         inclusion_any += bool(incl)
         inclusion_only += bool(incl) and not excl
-        for c, got, want in [(c, c in flagged, c in excl) for c in CORE] + [("any", bool(flagged), bool(excl))]:
-            if got and want:
-                counts[c]["tp"] += 1
-            elif got:
-                counts[c]["fp"] += 1
-            elif want:
-                counts[c]["fn"] += 1
+        _tally(counts, flagged, excl)
+        _tally(req_counts, required, incl)
     return {"labelled": n, "counts": counts, "misses": misses,
+            "req_counts": req_counts, "req_misses": req_misses,
             "inclusion_any": inclusion_any, "inclusion_only": inclusion_only}
 
 
@@ -192,24 +209,36 @@ def _rate(k, n):
     return "%d/%d = %.0f%% (%.0f-%.0f%%)" % (k, n, 100.0 * k / n, 100 * lo, 100 * hi)
 
 
+def _table(counts, labelled):
+    lines = ["| Category | %s | Flagged | Precision | Recall |" % labelled, "|---|---|---|---|---|"]
+    for c in CORE + ("any",):
+        k = counts[c]
+        lines.append("| %s | %d | %d | %s | %s |" % (
+            c, k["tp"] + k["fn"], k["tp"] + k["fp"], _rate(k["tp"], k["tp"] + k["fp"]), _rate(k["tp"], k["tp"] + k["fn"])))
+    return lines
+
+
+def _miss_lines(misses):
+    lines = ["- %s %s (%s) %s: %s" % (m["label"], m["nct"], m["stratum"], m["category"], m["notes"])
+             for m in misses]
+    return lines or ["None."]
+
+
 def score_md(res):
     n = res["labelled"]["random"]
     lines = ["# Recall and precision of the word rules (hand-labelled sample)", "",
              "census rules %s; labelled trials: %d random, %d broad." % (ec.__version__, n, res["labelled"]["broad"]),
-             "Trial level: a trial counts once per category. Wilson 95% intervals.", "",
-             "| Category | Labelled excluded | Flagged | Precision | Recall |", "|---|---|---|---|---|"]
-    for c in CORE + ("any",):
-        k = res["counts"][c]
-        lines.append("| %s | %d | %d | %s | %s |" % (
-            c, k["tp"] + k["fn"], k["tp"] + k["fp"], _rate(k["tp"], k["tp"] + k["fp"]), _rate(k["tp"], k["tp"] + k["fn"])))
+             "Trial level: a trial counts once per category. Wilson 95% intervals.", ""]
+    lines += _table(res["counts"], "Labelled excluded")
     lines += ["", "Random-sample trials with a disability barrier in the inclusion criteria: %s; "
               "with one only there (invisible to an exclusion-only count): %s." % (
                   _rate(res["inclusion_any"], n), _rate(res["inclusion_only"], n)),
-              "", "## Misses (labelled excluded, not flagged)", ""]
-    for m in res["misses"]:
-        lines.append("- %s %s (%s) %s: %s" % (m["label"], m["nct"], m["stratum"], m["category"], m["notes"]))
-    if not res["misses"]:
-        lines.append("None.")
+              "", "## Inclusion-criteria requirement rules against the i marks", ""]
+    lines += _table(res["req_counts"], "Labelled required")
+    lines += ["", "## Misses (labelled excluded, not flagged)", ""]
+    lines += _miss_lines(res["misses"])
+    lines += ["", "## Requirement misses (labelled i, not flagged)", ""]
+    lines += _miss_lines(res["req_misses"])
     lines.append("")
     return "\n".join(lines)
 

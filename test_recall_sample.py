@@ -63,6 +63,20 @@ class ScoreTests(unittest.TestCase):
         self.assertEqual(res["inclusion_only"], 1)
         self.assertEqual([(m["nct"], m["category"]) for m in res["misses"]], [("B", "hearing")])
 
+    def test_requirement_counts(self):
+        rows, labels, lab = self.labelled()
+        res = rs.score(rows, labels)
+        self.assertEqual(res["req_counts"]["mobility"], {"tp": 1, "fp": 0, "fn": 0})
+        self.assertEqual(res["req_counts"]["any"], {"tp": 1, "fp": 0, "fn": 0})
+        self.assertEqual(res["req_misses"], [])
+        labels[lab["A"]]["hearing"] = "i"
+        res = rs.score(rows, labels)
+        self.assertEqual(res["req_counts"]["hearing"], {"tp": 0, "fp": 0, "fn": 1})
+        self.assertEqual([(m["nct"], m["category"]) for m in res["req_misses"]], [("A", "hearing")])
+        md = rs.score_md(res)
+        self.assertIn("Inclusion-criteria requirement rules against the i marks", md)
+        self.assertIn("| mobility | 1 | 1 | 1/1 = 100%", md)
+
     def test_unlabelled_rows_skipped(self):
         rows, labels, lab = self.labelled()
         del labels[lab["B"]]
@@ -120,6 +134,7 @@ class FileTests(unittest.TestCase):
                 flags = {row["nct"]: row for row in csv.DictReader(f)}
             self.assertEqual(flags["A"]["visual"], "1")
             self.assertEqual(flags["C"]["mobility"], "0")
+            self.assertEqual(flags["C"]["required"], "mobility")
 
 
 if __name__ == "__main__":

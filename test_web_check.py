@@ -14,6 +14,8 @@ def expected_rules():
     rows.append(("accommodation", "-", ec.ACCOMMODATION.pattern))
     rows += [("related", k, v.pattern) for k, v in ec.CONDITION_RELATED.items()]
     rows += [("suggest", k, v) for k, v in ec.SUGGESTIONS.items()]
+    rows += [("require", cat, p) for cat, pats in ec.REQUIRE_PATTERNS.items() for p in pats]
+    rows += [("reqsuggest", k, v) for k, v in ec.REQUIRE_SUGGESTIONS.items()]
     rows += [("header", "-", ec.HEADER.pattern), ("inline", "-", ec.INLINE_EXCLUSION.pattern),
              ("bullet", "-", ec.BULLET.pattern)]
     return rows
@@ -31,7 +33,10 @@ class WebCheckTests(unittest.TestCase):
         return [tuple(line.split(" ", 2)) for line in m.group(1).splitlines() if line.strip()]
 
     def test_rules_match_python(self):
-        self.assertEqual(self.page_rules(), expected_rules())
+        page, want = self.page_rules(), expected_rules()
+        for i, (got, exp) in enumerate(zip(page, want)):
+            self.assertEqual(got, exp, "rules block line %d" % (i + 1))
+        self.assertEqual(len(page), len(want))
 
     def test_categories_in_order(self):
         cats = []

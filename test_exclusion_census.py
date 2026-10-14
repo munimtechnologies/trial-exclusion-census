@@ -46,6 +46,20 @@ class SectionTests(unittest.TestCase):
     def test_split_items_strips_bullets(self):
         self.assertEqual(ec.split_items("\n* one item\n2. second item\n\n"), ["one item", "second item"])
 
+    def test_inclusion_section(self):
+        text = ("Inclusion Criteria:\n\n* Age 18 or older\n* Type 2 diabetes\n\n"
+                "Exclusion Criteria:\n\n* Legally blind\n")
+        sec = ec.inclusion_section(text)
+        self.assertIn("diabetes", sec)
+        self.assertNotIn("blind", sec)
+        self.assertIsNone(ec.inclusion_section("Adults with asthma."))
+        self.assertIsNone(ec.inclusion_section(""))
+
+    def test_inclusion_section_stops_at_inline_exclusion(self):
+        sec = ec.inclusion_section("Inclusion criteria: adults able to walk. Exclusion criteria: unable to read.")
+        self.assertIn("able to walk", sec)
+        self.assertNotIn("read", sec)
+
 
 class ClassifyTests(unittest.TestCase):
     def test_categories(self):
@@ -77,6 +91,62 @@ class ClassifyTests(unittest.TestCase):
         self.assertIn("investigator_discretion", ec.classify("Excluded at the investigator’s judgement"))
 
 
+class RequirementTests(unittest.TestCase):
+    def test_requirements(self):
+        cases = {
+            "Able to walk 100 m without assistance": {"mobility"},
+            "Ambulatory without a walking aid": {"mobility"},
+            "Willing and able to provide written informed consent": {"consent_capacity"},
+            "Normal or corrected-to-normal vision": {"visual"},
+            "Normal hearing": {"hearing"},
+            "Able to read and write": {"communication"},
+            "MMSE score of 24 or higher": {"cognitive"},
+            "Cognitively intact": {"cognitive"},
+        }
+        for item, want in cases.items():
+            with self.subTest(item=item):
+                self.assertEqual(ec.requirements(item), want)
+
+    def test_not_required(self):
+        for item in ("Able to read and write English",
+                     "Able to provide informed consent, or consent from a legally authorized representative",
+                     "Parent or guardian able to provide informed consent",
+                     "Ambulatory blood pressure above 130/80",
+                     "Stable dose of medication for 3 months",
+                     "Unable to walk",
+                     "Able to comply with study procedures",
+                     "Age 18 or older"):
+            with self.subTest(item=item):
+                self.assertEqual(ec.requirements(item), set())
+
+    def test_analyze_reads_both_sections(self):
+        a = ec.analyze({"criteria": "Inclusion Criteria:\n* Able to walk 6 minutes unaided\n"
+                                    "Exclusion Criteria:\n* Legally blind",
+                        "conditions": ["Heart Failure"]})
+        self.assertEqual(set(a["hits"]), {"visual"})
+        self.assertEqual(a["requires"], {"mobility": ["Able to walk 6 minutes unaided"]})
+        self.assertEqual(a["related_req"], set())
+
+    def test_inline_both(self):
+        a = ec.analyze({"criteria": "Inclusion criteria: adults able to walk. Exclusion criteria: unable to read."})
+        self.assertEqual(set(a["requires"]), {"mobility"})
+        self.assertIn("communication", a["hits"])
+
+    def test_related_requirement(self):
+        a = ec.analyze({"criteria": "Inclusion Criteria:\n* Able to walk 10 m\nExclusion Criteria:\n* Pregnancy",
+                        "conditions": ["Stroke"]})
+        self.assertEqual(a["related_req"], {"mobility"})
+
+    def test_check_text_lists_requirements(self):
+        out = ec.check_text("Inclusion Criteria:\n* Normal hearing\n* Adults\nExclusion Criteria:\n* Pregnancy")
+        self.assertIn("No disability-related exclusion items found", out)
+        self.assertIn("Inclusion items that require an ability:", out)
+        self.assertIn("- Normal hearing", out)
+        self.assertIn("  requires: hearing", out)
+        self.assertIn(ec.REQUIRE_SUGGESTIONS["hearing"], out)
+        self.assertNotIn("- Adults", out)
+
+
 class AnalyzeTests(unittest.TestCase):
     def test_accommodation(self):
         a = ec.analyze({"criteria": "Inclusion Criteria:\n* Adults; a legally authorized representative may consent\n"
@@ -102,7 +172,11 @@ class AnalyzeTests(unittest.TestCase):
         self.assertIn("hearing", out)
         self.assertIn("consider:", out)
         self.assertNotIn("Pregnancy", out)
+        self.assertNotIn("Inclusion items", out)
         self.assertIn("Accommodation mentioned anywhere in the criteria: no", out)
+
+    def test_check_text_nothing(self):
+        self.assertEqual(ec.check_text("Adults with asthma."), "No exclusion criteria section found.")
 
 
 class ApiTests(unittest.TestCase):
@@ -189,6 +263,29 @@ class CensusTests(unittest.TestCase):
         self.assertEqual(res["samples"]["visual"], [("NCT1", "Legally blind")])
         self.assertEqual(len(res["trials"]), 2)
 
+    def test_requirement_aggregates(self):
+        recs = [
+            {"nct": "N1", "start": "2020-01", "conditions": ["Asthma"],
+             "criteria": "Inclusion Criteria:\n* Able to walk 6 minutes unaided\nExclusion Criteria:\n* Pregnancy"},
+            {"nct": "N2", "start": "2020-02", "conditions": ["Asthma"],
+             "criteria": "Inclusion Criteria:\n* Adults\nExclusion Criteria:\n* Legally blind"},
+        ]
+        res = ec.census(recs)
+        t = res["total"]
+        self.assertEqual(t["trials"], 2)
+        self.assertEqual(t["any_core_pct"], 50.0)
+        self.assertEqual(t["any_required_pct"], 50.0)
+        self.assertEqual(t["mobility_required_pct"], 50.0)
+        self.assertEqual(t["visual_required_pct"], 0.0)
+        self.assertEqual(t["required_only_pct"], 50.0)
+        self.assertEqual(t["any_barrier_pct"], 100.0)
+        self.assertEqual(res["by_year"][2020]["any_required_pct"], 50.0)
+        self.assertEqual(res["samples"]["required_mobility"], [("N1", "Able to walk 6 minutes unaided")])
+        rows = {r[0]: r for r in res["trials"]}
+        self.assertEqual(rows["N1"][-1], "mobility")
+        self.assertEqual(rows["N2"][-1], "")
+        self.assertEqual(len(ec.TRIAL_COLUMNS), len(rows["N1"]))
+
     def test_outputs(self):
         res = ec.census(self.records())
         with tempfile.TemporaryDirectory() as d:
@@ -201,7 +298,9 @@ class CensusTests(unittest.TestCase):
             self.assertEqual(summary["version"], ec.__version__)
             self.assertEqual(summary["total"]["trials"], 2)
             with open(os.path.join(d, "results.md"), encoding="utf-8") as f:
-                self.assertIn("Disability-related exclusion criteria", f.read())
+                md = f.read()
+            self.assertIn("Disability-related exclusion criteria", md)
+            self.assertIn("Ability requirements in the inclusion criteria", md)
 
 
 if __name__ == "__main__":

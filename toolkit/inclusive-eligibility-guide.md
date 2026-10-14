@@ -1,6 +1,6 @@
 # Writing eligibility criteria that do not shut out disabled people
 
-A working guide for study teams, sponsors and IRB reviewers. Draft 0.2, October 2026.
+A working guide for study teams, sponsors and IRB reviewers. Draft 0.3, October 2026.
 
 By MV2 of Munim, Inc. Drafted with AI agents and checked against the sources listed at the end. **This draft has not yet been reviewed by people with lived experience of disability.** That review is the next step, and the guide will change because of it. Comments are welcome as issues at https://github.com/munimtechnologies/trial-exclusion-census or by email to munimversion2@gmail.com.
 
@@ -21,14 +21,15 @@ When an exclusion is not needed, results apply less well to the people who will 
 
 ## How to use this guide
 
-1. Paste your draft criteria into the checker (see "The checker" below). It flags items that touch disability and offers an alternative to consider.
+1. Paste your draft criteria into the checker (see "The checker" below). It flags exclusion items that touch disability and inclusion items that require an ability, and offers an alternative to consider for each.
 2. For each flagged item, go to its section and answer the **three questions**:
    - **Safety:** would taking part put this person at real, specific extra risk that an accommodation cannot remove?
    - **Science:** does the outcome measure itself depend on this function (for example, a walking test, or a visual acuity endpoint)?
    - **Procedure:** or is the barrier only how the study is run (the forms, the site, the format of a questionnaire), which an accommodation can fix?
 3. If the answer is "procedure", remove the exclusion and write the accommodation into the protocol. If it is "safety" or "science", keep a **narrow** exclusion: name the measure and the cut-off, and write the reason in the protocol.
 4. Replace open-ended discretion ("any condition that, in the investigator's opinion...") with the specific safety reasons you have in mind.
-5. Budget for the accommodations (see the plan template at the end).
+5. Read the inclusion criteria the same way (section 11). "Able to walk 100 m" excludes wheelchair users as surely as "wheelchair users are excluded".
+6. Budget for the accommodations (see the plan template at the end).
 
 An exclusion that is justified for one study can be unjustified in the next. A cataract trial must screen vision, but a diabetes trial need not. The checker marks items in the same category as the trial's own condition so reviewers can tell these apart.
 
@@ -164,6 +165,20 @@ Language rules are not disability rules, but they often exclude deaf people who 
 
 These scales score how much a person does unaided, including walking, so a wheelchair user who is otherwise well can score as "limited". ASCO and Friends of Cancer Research recommend including ECOG 2 unless there is a specific reason not to. Write a note for assessors: score the person's disease-related function, not a long-standing disability.
 
+## 11. Ability requirements in the inclusion criteria
+
+**Often seen:** "able to walk 100 m unaided", "ambulatory without assistance", "normal or corrected-to-normal vision", "normal hearing", "able to read and write", "cognitively intact", "MMSE of 24 or higher", "able to provide written informed consent".
+
+**The problem:** an inclusion requirement excludes everyone who does not meet it, but it does not look like an exclusion, so reviewers who read only the exclusion list miss it. Many are copied from earlier protocols and were never needed.
+
+**Ask the same three questions.** A 6-minute walk test as the primary outcome needs walking. A study that only needs participants to fill in a questionnaire does not need "able to read and write"; it needs a way to answer, which can be read-aloud or AAC. A visual task needs sight; a blood-pressure trial does not need "normal vision".
+
+**If a requirement is needed, narrow it:** name the task and why it needs that ability, for example "able to walk 10 m with or without a walking aid, because the primary outcome is gait speed". Allow walking aids, glasses, hearing aids and other devices unless there is a specific reason not to.
+
+**For consent:** "able to provide informed consent" shuts out people who need a legally authorized representative. If the study can include them (section 2), write "able to provide informed consent, or consent by a legally authorized representative with the participant's assent".
+
+**Protocol wording to adapt:** "Participants may use their usual mobility aids, glasses, hearing aids or communication devices for all study tasks. Study documents can be read aloud, and answers may be given by speech, writing, typing, pointing or AAC."
+
 ---
 
 ## Other resources, and how this guide differs
@@ -175,13 +190,13 @@ What this guide adds is narrow. It is organised by the kind of exclusion that a 
 
 ## The checker
 
-`check` (in trial-exclusion-census, Apache-2.0) runs the same open word rules used for the registry-wide census on one study's criteria. It lists each flagged item, its category and an alternative to consider. A browser version runs inside the page at https://munimv2.github.io/inclusive-criteria/, and nothing you paste is sent anywhere.
+`check` (in trial-exclusion-census, Apache-2.0) runs the same open word rules used for the registry-wide census on one study's criteria. It lists each flagged exclusion item and each inclusion item that requires an ability, with its category and an alternative to consider. A browser version runs inside the page at https://munimv2.github.io/inclusive-criteria/, and nothing you paste is sent anywhere.
 
-What it is not: it reads words, not meaning. It flags what a criterion says, not whether the exclusion is justified, and it misses exclusions worded in ways it does not know. It reads only the exclusion section, so an inclusion criterion such as "able to walk 100 m unaided" is not flagged. Its precision and recall for each category are being measured by hand on random samples, and the results will be published with the census.
+What it is not: it reads words, not meaning. It flags what a criterion says, not whether the exclusion or requirement is justified, and it misses criteria worded in ways it does not know. It finds inclusion criteria only under an "Inclusion Criteria" heading. Its precision and recall for each category are being measured by hand on random samples, and the results will be published with the census. The inclusion-requirement rules (added in October 2026) have not been measured yet.
 
 ## Accessibility plan: a one-page template for the protocol
 
-1. **Who might be excluded:** list each criterion that touches disability and its justification (safety, science or none).
+1. **Who might be excluded:** list each criterion that touches disability, in both the inclusion and the exclusion criteria, and its justification (safety, science or none).
 2. **Accommodations offered:** formats of documents (large print, braille, screen-reader accessible, easy-read, captioned video, sign language), communication support (interpreters, AAC, communication partner), physical access (site, equipment, home or remote visits, transport), and time (longer visits, breaks, flexible scheduling).
 3. **How people ask for them:** a named contact. Ask every participant about access needs at screening. Do not wait for them to disclose a disability.
 4. **Consent:** accessible formats, supported decision-making, capacity assessment, LAR and assent rules, respecting dissent.
@@ -207,5 +222,6 @@ What it is not: it reads words, not meaning. It flags what a criterion says, not
 
 ## Changes
 
+- 0.3 (2026-10-14): new section 11 on ability requirements in the inclusion criteria; the checker now flags them too. The accessibility plan asks for both lists.
 - 0.2 (2026-10-14): added the MRCT Center toolkit, the National Council on Disability report and a recent community survey, and said plainly what the checker does not read (inclusion criteria). No change to the advice.
 - 0.1 (2026-10-14): first draft.
