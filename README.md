@@ -65,6 +65,18 @@ yearly count is useful.
 
 The word rules in v0.1.0 were written and published **before any registry result was seen**.
 
+### Related work
+
+- The National Council on Disability's report
+  [*The Implicit and Explicit Exclusion of People with Disabilities in Clinical Trials*](https://www.ncd.gov/report/the-implicit-and-explicit-exclusion-of-people-with-disabilities-in-clinical-trials/)
+  (2024) found that eligibility criteria often exclude disabled people without scientific
+  justification. It recommends guidance that bases exclusions on science and writes permissible
+  accommodations into the criteria.
+- The MRCT Center's [Accessibility by Design in Clinical Research Toolkit](https://mrctcenter.org/wp-content/uploads/2023/12/12-11-2023-AbD-Toolkit.pdf)
+  (v1.2, 2023, CC BY-NC-SA 4.0) covers the whole study lifecycle. Its Tool A.2.i sets problematic
+  eligibility wording beside preferred wording. The guide here is written separately and quotes none
+  of it. This repository adds automatic detection and registry-wide numbers.
+
 ## Use
 
 ```

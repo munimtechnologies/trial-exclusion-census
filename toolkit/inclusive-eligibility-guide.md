@@ -1,6 +1,6 @@
 # Writing eligibility criteria that do not shut out disabled people
 
-A working guide for study teams, sponsors and IRB reviewers. Draft 0.1, October 2026.
+A working guide for study teams, sponsors and IRB reviewers. Draft 0.2, October 2026.
 
 By MV2 of Munim, Inc. Drafted with AI agents and checked against the sources listed at the end. **This draft has not yet been reviewed by people with lived experience of disability.** That review is the next step, and the guide will change because of it. Comments are welcome as issues at https://github.com/munimtechnologies/trial-exclusion-census or by email to munimversion2@gmail.com.
 
@@ -13,6 +13,9 @@ People with disabilities are often left out of clinical research. Sometimes it i
 - Of 97 ClinicalTrials.gov protocols in four common conditions, 42% excluded people for cognitive or intellectual disability, 34% for visual, 10% for hearing, 9% for mobility and 3% for communication disability. Only 18% allowed any accommodation, and 85% let investigators exclude anyone at their discretion. A documented justification was given for only 24% of the exclusions (DeCormier Plosky et al., Health Affairs 2022).
 - 74.6% of NIH-funded Phase 2-4 trials of working-age US adults had criteria that could exclude adults with intellectual disability: about a third directly and 64.5% indirectly, through reading and writing requirements, functional capacity or staff discretion (McDonald, Schwartz and Sabatello, Disability and Health Journal 2022).
 - In 2,710 trials from 2010-2020, 35.3% excluded disabled people explicitly and 44.5% implicitly ("Being disabled" as an exclusion criterion, scoping review, 2023, PMC10626873).
+- People notice. In a survey of adults with disabilities and caregivers reached through the Cerebral Palsy Foundation's network, 22.6% of adults and 30.2% of caregivers said they or their child had been excluded from a study because of disability. They still rated inclusion as highly important (PMC13025233).
+
+The National Council on Disability (2024) found that eligibility criteria often exclude disabled people without scientific justification. It recommended guidance that bases exclusions on science, reduces investigator subjectivity and writes permissible accommodations into the criteria themselves. This guide is a practical way to do that for one protocol at a time.
 
 When an exclusion is not needed, results apply less well to the people who will actually use the treatment, and disabled people lose access to the benefits of taking part.
 
@@ -163,11 +166,18 @@ These scales score how much a person does unaided, including walking, so a wheel
 
 ---
 
+## Other resources, and how this guide differs
+
+- **The MRCT Center's Accessibility by Design in Clinical Research Toolkit** (v1.2, 2023) is the most complete resource on the whole study lifecycle. Its Tool A.2.i sets problematic eligibility wording beside preferred wording, for sponsors, IRBs and people with disabilities. Use it alongside this guide. It is licensed CC BY-NC-SA 4.0, so this CC BY guide does not reproduce any of its text. Everything here was written separately.
+- **The National Council on Disability's report** *The Implicit and Explicit Exclusion of People with Disabilities in Clinical Trials* (2024) sets out the policy case and the federal recommendations.
+
+What this guide adds is narrow. It is organised by the kind of exclusion that a reviewer actually finds in a protocol, and each section pairs the three questions with narrowing and accommodation options. It is also tied to an open checker that finds those items automatically, using the same rules as a registry-wide count. That way a study team can see how its criteria compare with the field.
+
 ## The checker
 
-`check` (in trial-exclusion-census, Apache-2.0) runs the same open word rules used for the registry-wide census on one study's criteria. It lists each flagged item, its category and an alternative to consider. A browser version runs inside the page, and nothing you paste is sent anywhere.
+`check` (in trial-exclusion-census, Apache-2.0) runs the same open word rules used for the registry-wide census on one study's criteria. It lists each flagged item, its category and an alternative to consider. A browser version runs inside the page at https://munimv2.github.io/inclusive-criteria/, and nothing you paste is sent anywhere.
 
-What it is not: it reads words, not meaning. It flags what a criterion says, not whether the exclusion is justified, and it misses exclusions worded in ways it does not know. Its precision for each category is being measured by hand on random samples, and the results will be published with the census.
+What it is not: it reads words, not meaning. It flags what a criterion says, not whether the exclusion is justified, and it misses exclusions worded in ways it does not know. It reads only the exclusion section, so an inclusion criterion such as "able to walk 100 m unaided" is not flagged. Its precision and recall for each category are being measured by hand on random samples, and the results will be published with the census.
 
 ## Accessibility plan: a one-page template for the protocol
 
@@ -185,9 +195,17 @@ What it is not: it reads words, not meaning. It flags what a criterion says, not
 - DeCormier Plosky W, et al. Excluding people with disabilities from clinical research: eligibility criteria lack clarity and justification. Health Affairs. 2022;41(10). doi:10.1377/hlthaff.2022.00520
 - McDonald KE, Schwartz AE, Sabatello M. Eligibility criteria in NIH-funded clinical trials: can adults with intellectual disability get in? Disability and Health Journal. 2022;15(4):101368. doi:10.1016/j.dhjo.2022.101368
 - "Being disabled" as an exclusion criterion for clinical trials: a scoping review. 2023. https://pmc.ncbi.nlm.nih.gov/articles/PMC10626873/
-- Equitable inclusion of people with disabilities in clinical trials: a scoping review. BMJ Open. doi:10.1136/bmjopen-2025-108550 (69 guidance documents, 2019-2025: universal design, multi-format materials, supported decision-making, accommodations budgets, disabled IRB members.)
+- Disability community perspectives on participation in research and studying positive health. https://pmc.ncbi.nlm.nih.gov/articles/PMC13025233/ (survey run with a disability advisory board recruited through the Cerebral Palsy Foundation)
+- Equitable inclusion of people with disabilities in clinical trials: a scoping review. BMJ Open, 2026. doi:10.1136/bmjopen-2025-108550, https://pmc.ncbi.nlm.nih.gov/articles/PMC12878309/ (69 guidance documents, 2019-2025: universal design, multi-format materials, supported decision-making, accommodations budgets, disabled IRB members.)
+- MRCT Center of Brigham and Women's Hospital and Harvard. Accessibility by Design in Clinical Research Toolkit, v1.2. 2023. CC BY-NC-SA 4.0. https://mrctcenter.org/wp-content/uploads/2023/12/12-11-2023-AbD-Toolkit.pdf
+- National Council on Disability. The Implicit and Explicit Exclusion of People with Disabilities in Clinical Trials. August 2024. https://www.ncd.gov/report/the-implicit-and-explicit-exclusion-of-people-with-disabilities-in-clinical-trials/
 - US FDA. Enhancing the Diversity of Clinical Trial Populations: Eligibility Criteria, Enrollment Practices, and Trial Designs. Guidance for Industry, November 2020.
 - ASCO and Friends of Cancer Research. Modernizing clinical trial eligibility criteria (recommendations, 2017 and 2021, including performance status).
 - US HHS. Protection of Human Subjects, 45 CFR 46 (including 46.102 on legally authorized representatives and 46.111(b) on additional safeguards); FDA, 21 CFR 50.
 - Washington Group on Disability Statistics. Short Set on Functioning.
 - NIH challenge: Advancing the Inclusion of People with Disabilities in Clinical Research (2026), which names restrictive eligibility, inaccessible procedures and assumptions about consent capacity as the barriers to address.
+
+## Changes
+
+- 0.2 (2026-10-14): added the MRCT Center toolkit, the National Council on Disability report and a recent community survey, and said plainly what the checker does not read (inclusion criteria). No change to the advice.
+- 0.1 (2026-10-14): first draft.
