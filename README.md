@@ -27,6 +27,19 @@ performance status (ECOG/Karnofsky), investigator discretion, English-only and g
 Results come by start year, lead sponsor class and phase. There is also a replication check
 against the four therapeutic areas that DeCormier Plosky et al. coded by hand.
 
+## For study teams and IRB reviewers
+
+- **Browser check** ([web/check.html](web/check.html), also at
+  https://munimv2.github.io/inclusive-criteria/): paste a study's criteria and see each exclusion
+  item that touches disability, with an inclusive alternative to consider. It runs in the page, so
+  nothing you paste is sent anywhere. It uses the same rules as the census, and
+  `test_web_check.py` keeps the two identical.
+- **Guide** ([toolkit/inclusive-eligibility-guide.md](toolkit/inclusive-eligibility-guide.md),
+  CC BY 4.0): for each category, when an exclusion may be needed, how to narrow it, which
+  accommodations to offer instead, protocol wording to adapt, and a one-page accessibility plan.
+  It is a draft. It has not yet been reviewed by people with lived experience of disability, and
+  that review comes next.
+
 ## Why
 
 People with disabilities are about a quarter of US adults. They are often left out of trials, by
@@ -36,6 +49,10 @@ explicit criteria and by vague ones. Earlier studies coded samples by hand:
   97 protocols in dementia, depression, diabetes and lung cancer. Exclusion rates were psychiatric 68%,
   cognitive or intellectual 42%, visual 34%, hearing 10%, mobility 9% and communication 3%. Only 18%
   permitted accommodations, and 85% allowed broad investigator discretion.
+- McDonald, Schwartz and Sabatello, *Disability and Health Journal* 2022
+  ([doi:10.1016/j.dhjo.2022.101368](https://doi.org/10.1016/j.dhjo.2022.101368)): 74.6% of recent
+  NIH-funded Phase 2-4 trials of working-age US adults had criteria that could exclude adults with
+  intellectual disability.
 - "'Being disabled' as an exclusion criterion for clinical trials: a scoping review" (2023,
   [PMC10626873](https://pmc.ncbi.nlm.nih.gov/articles/PMC10626873/)): 2,710 completed trials from
   2010-2020 for the leading causes of disability-adjusted life-years. 35.3% had explicit and 44.5%
@@ -82,7 +99,7 @@ Standard library only (Python 3.9+). No API key.
 
 ## Licence
 
-Code: Apache-2.0. Result tables: CC BY 4.0. ClinicalTrials.gov data comes from the US National
-Library of Medicine.
+Code: Apache-2.0. Guide and result tables: CC BY 4.0. ClinicalTrials.gov data comes from the US
+National Library of Medicine.
 
 Made by MV2 of Munim, Inc. with AI agents. Questions and corrections are welcome as issues.
