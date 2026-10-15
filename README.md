@@ -10,8 +10,8 @@ exclusion criteria and flags items that exclude people by disability:
 |---|---|
 | cognitive | dementia, cognitive impairment, intellectual or developmental disability, learning difficulties, MMSE/MoCA cut-offs |
 | consent_capacity | "unable to provide informed consent", lack of decision-making capacity, decisionally impaired, adults under guardianship or curatorship |
-| visual | blindness, visual impairment, low vision, visual acuity limits (not "double-blind", and since 0.3.0 not eye findings that only matter to an eye exam) |
-| hearing | deafness, hearing loss, hearing aids, cochlear implants |
+| visual | blindness, visual impairment, low vision, visual acuity limits (not "double-blind", and since 0.3.0 not eye findings that only matter to an eye exam), and since 0.5.0 large print or braille named in an exclusion ("unable to read large print") |
+| hearing | deafness, hearing loss, hearing aids, cochlear implants, and since 0.5.0 sign language use ("requires use of sign language interpreter", "primary use of American Sign Language") |
 | communication | aphasia, dysarthria, illiteracy, "unable to speak/read/write" (but not "...English") |
 | mobility | wheelchair use, non-ambulatory, "unable to walk", paralysis, amputation (since 0.3.0 not a planned amputation), motor deficits, spasticity |
 
@@ -22,8 +22,9 @@ It also counts the domains that earlier manual studies reported: psychiatric, su
 performance status (ECOG/Karnofsky), investigator discretion, English-only and general
 "disability". Then it notes two things for each trial:
 
-- **Accommodation**: whether the criteria mention any, such as an assistive device, a legally
-  authorized representative, an interpreter, large print or a screen reader.
+- **Accommodation**: whether an item of the criteria offers one, such as consent by a legally
+  authorized representative for an adult, "with or without an assistive device", an interpreter
+  provided, or a nurse available to read. Since 0.5.0 a word alone is not enough (see below).
 - **Condition-related**: whether a flagged exclusion matches the trial's own condition.
   Excluding vision loss from a glaucoma trial is not the same as excluding it from a diabetes trial.
 
@@ -59,16 +60,25 @@ section. The rules were published before any of these numbers were seen.
   disability categories. The figure is **17.9%** when exclusions that match the trial's own
   condition are left out. By category: cognitive 9.7%, consent capacity 7.0%, mobility 2.6%,
   communication 1.9%, visual 1.9% and hearing 1.7%.
-- Only **7.0%** of the trials with a disability exclusion mention any accommodation anywhere in
-  their criteria, such as a legally authorized representative, an interpreter or an assistive device.
 - **The share rose over time.** Among trials that started from 2000 to 2008, 11.5% to 14.1% had a
   disability exclusion each year. The figure was 20.0% for 2016 starts and 24.9% for 2025 starts.
   Over the same years, substance-use exclusions fell from 18.7% to 15.8%, so not every kind of
   exclusion grew. Trials that start in 2026 are still being registered, and that year reads 27.5%.
 - By lead sponsor class: other (mostly academic) 22.8%, industry 12.4%, NIH 14.7%, and other US
-  federal agencies 38.3% (4,174 trials). NIH-led trials mention an accommodation most often (14.9%).
+  federal agencies 38.3% (4,174 trials).
 - By phase: trials with no phase (devices, behavioural studies, procedures) 25.7%; phase 1 10.7%,
   phase 2 14.1% and phase 3 13.5%.
+
+**Correction to the accommodation figure.** Earlier versions of this page said that only 7.0% of
+the trials with a disability exclusion mention any accommodation, and that NIH-led trials mention
+one most often (14.9%). That flag counted any accommodation *word* anywhere in the criteria. A
+hand check of the 16 trials in the random recall sample that it flagged found only **5** that
+offer an accommodation (31%; Wilson 95% interval 14% to 56%). The other 11 were a parent's or
+guardian's consent for a child (7), an eye's "accommodation", a catheter sheath "to accommodate",
+"communication without an interpreter", and an exclusion of "consent obtained through a surrogate"
+([results/recall/ACCOMMODATION.md](results/recall/ACCOMMODATION.md)). So those two numbers are
+not a measure of accommodation and should not be quoted. 0.5.0 counts only items that offer one;
+its registry figure, with a fresh hand-checked sample, comes with the next full run.
 
 **Precision.** 720 random flagged exclusion items were checked by hand, 60 per category, 360 of
 them in the six disability categories ([PRECISION.md](results/v0.1.1/PRECISION.md)). Cognitive was 95% correct, consent capacity 100%,
@@ -82,18 +92,34 @@ The visual errors were eye findings in ophthalmology trials, and 0.3.0 removes t
   v0.4.0 on them come next.
 - Whether the rise is real or comes from longer criteria and a growing share of unphased trials.
   0.3.0 adds both controls: items per trial and a phased/unphased split by year.
+- How often trials offer an accommodation (see the correction above).
 - Registry criteria are often a summary of the full protocol. On the four areas DeCormier Plosky
   et al. coded from full protocols, the registry text shows lower rates for vision (dementia
   trials 6.4% here against 34% there). Cognitive exclusions in dementia trials are close
   (50.7% against 42%).
+
+### Sign language, large print and braille across the whole registry
+
+On 2026-10-15 the ClinicalTrials.gov search found 51 of 463,180 interventional studies that name
+sign language in their eligibility criteria, 5 that name large print and 3 that name braille.
+Where these words appear in the **exclusion** criteria, they mostly describe who is shut out:
+"Requires use of sign language interpreter" (NCT01109576), "Primary use of American Sign Language
+(ASL)" (NCT00763243), "Adults who use sign language as a primary means of communication"
+(NCT02684175), "hearing impaired (requires use of American Sign Language interpreter)"
+(NCT07489144), "Significant sensory impairment (e.g., needing a British Sign Language
+interpreter)" (NCT07246356). One exclusion item in this set instead offers ASL and Spanish
+interpreters around the clock (NCT04374760). A word list that treats these words as
+accommodations gets them backwards, which is why 0.5.0 counts them as exclusions there.
+The counts come from the registry's own search, and the quotes were checked against each record.
 
 ## For study teams and IRB reviewers
 
 - **Browser check** ([web/check.html](web/check.html), also at
   https://munimv2.github.io/inclusive-criteria/): paste a study's criteria and see each exclusion
   item that touches disability and each inclusion item that requires an ability, with an inclusive
-  alternative to consider. It runs in the page, so nothing you paste is sent anywhere. It uses the
-  same rules as the census, and `test_web_check.py` keeps the two identical.
+  alternative to consider, and the items that already offer an accommodation. It runs in the page,
+  so nothing you paste is sent anywhere. It uses the same rules as the census, and
+  `test_web_check.py` keeps the two identical.
 - **Guide** ([toolkit/inclusive-eligibility-guide.md](toolkit/inclusive-eligibility-guide.md),
   CC BY 4.0): for each category, when an exclusion may be needed, how to narrow it, which
   accommodations to offer instead, protocol wording to adapt, and a one-page accessibility plan.
@@ -126,9 +152,10 @@ yearly count is useful.
 
 The exclusion rules in v0.1.0 and the inclusion-requirement rules in v0.2.0 were each written and
 published **before any registry result was seen**. The 0.3.0 changes were made after the hand
-check of the first run, and the 0.4.0 changes after half of the recall sample was labelled. They
-are reported next to the pre-registered numbers, never in place of them, and checked on fresh
-samples: 0.4.0 on the 111 recall trials labelled after its rules were fixed.
+check of the first run, the 0.4.0 changes after half of the recall sample was labelled, and the
+0.5.0 changes after reading every registry trial that names sign language, large print or
+braille. They are reported next to the pre-registered numbers, never in place of them, and
+checked on fresh samples: 0.4.0 on the 111 recall trials labelled after its rules were fixed.
 
 ### Related work
 
@@ -161,8 +188,9 @@ python -m unittest -v
   `<category>_required_pct`, `any_required_pct`, `required_only_pct` and `any_barrier_pct`, and,
   since 0.3.0, `exclusion_items_mean` and `core_items_per_100` (disability items per 100 exclusion
   items)
-- `sample_items.csv`: up to 60 random flagged items per category (and per `required_<category>`),
-  so the rules' precision can be checked by hand. `--seed` draws a fresh sample
+- `sample_items.csv`: up to 60 random flagged items per category (and per `required_<category>`,
+  and since 0.5.0 per `accommodation`), so the rules' precision can be checked by hand. `--seed`
+  draws a fresh sample
 - `trials.csv.gz`: one row per trial (NCT ID, year, sponsor class, phase, categories, required,
   number of exclusion items)
 
@@ -170,7 +198,8 @@ The cache keeps the fetched records, so revised rules can be re-run without fetc
 
 `check` prints each flagged exclusion item and each inclusion item that requires an ability in one
 trial's criteria, with an inclusive alternative to consider (for example, read-aloud or
-large-print consent instead of excluding blind people).
+large-print consent instead of excluding blind people), and then the items that offer an
+accommodation.
 
 `diff_rules.py` (new in 0.4.0) runs two versions of the rules over the cache and samples the items
 one flags and the other does not, so the precision of just the new rules can be checked by hand.
@@ -218,6 +247,10 @@ first 114 trials, whose misses shaped 0.4.0, and the other 111, labelled after 0
 - "Able to provide informed consent" is counted only when the same item names no representative,
   guardian or parent, but a representative allowed elsewhere in the criteria is not taken into
   account (the accommodation flag notes it).
+- The accommodation flag (0.5.0) leaves out every item that mentions a parent, a child or an age
+  under 18, so a pediatric trial that offers, say, AAC through a parent is not counted. It was
+  written from the same 16 trials it was checked on; its precision on fresh data comes from the
+  `accommodation` rows of the next `sample_items.csv`.
 - Guardianship and curatorship count as consent capacity. In a few pediatric trials "under
   guardianship" can mean a ward of the state rather than an adult under a protection measure.
 - Inclusion sections are found only under an "Inclusion Criteria" heading. Criteria written as
@@ -228,6 +261,14 @@ first 114 trials, whose misses shaped 0.4.0, and the other 111, labelled after 0
 
 ## Changes
 
+- 0.5.0: the accommodation flag counts an item only when it offers an accommodation. The bare
+  words "accommodate" and "guardian" no longer count, nor does an item that mentions a parent, a
+  child or an age under 18, says "without an interpreter" (or assistance, or a representative),
+  or is unable to use large print, braille or sign language. In the exclusion criteria an item
+  that requires, needs, uses or relies on one does not count either. New exclusion rules: sign
+  language use (hearing) and large print or braille (visual), from every registry trial that
+  names them. `sample_items.csv` samples accommodation items, and `check` and the browser page
+  list them. The accommodation figures of v0.1.1 are withdrawn (see the correction above).
 - 0.4.0: from the first 114 hand-labelled trials of the blind recall sample. Coordinated lists
   ("cognitive, visual or motor impairment", "visual or auditory impairment") and lists of verbs
   after "unable to" ("unable to hear, read, visualize or comprehend") are read for every member.

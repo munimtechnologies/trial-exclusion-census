@@ -12,6 +12,8 @@ PAGE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "web", "check.ht
 def expected_rules():
     rows = [("rule", cat, p) for cat, pats in ec.PATTERNS.items() for p in pats]
     rows.append(("accommodation", "-", ec.ACCOMMODATION.pattern))
+    rows.append(("noaccom", "-", ec.NO_ACCOMMODATION.pattern))
+    rows.append(("exclnoaccom", "-", ec.EXCL_NO_ACCOMMODATION.pattern))
     rows += [("related", k, v.pattern) for k, v in ec.CONDITION_RELATED.items()]
     rows += [("suggest", k, v) for k, v in ec.SUGGESTIONS.items()]
     rows += [("require", cat, p) for cat, pats in ec.REQUIRE_PATTERNS.items() for p in pats]
@@ -51,6 +53,11 @@ class WebCheckTests(unittest.TestCase):
     def test_page_applies_exceptions_and_vetoes(self):
         self.assertIn("item.replace(EXCEPT,", self.html)
         self.assertIn("VETO[c]", self.html)
+
+    def test_page_applies_accommodation_rules(self):
+        # As accommodations() in exclusion_census.py: per item, with the exclusion-only check.
+        self.assertIn("!NOACCOM.test(item)", self.html)
+        self.assertIn("EXCL_NOACCOM.test(item)", self.html)
 
     def test_page_basics(self):
         self.assertIn('<html lang="en">', self.html)

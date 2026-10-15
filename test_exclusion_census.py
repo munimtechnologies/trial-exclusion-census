@@ -202,6 +202,80 @@ class RecallRuleTests(unittest.TestCase):
                 self.assertEqual(ec.requirements(item), want)
 
 
+class FormatRuleTests(unittest.TestCase):
+    """0.5.0: exclusion items found by reading every registry trial that names sign language,
+    large print or braille in its eligibility criteria (wordings quoted from those trials)."""
+
+    def test_sign_language_users_excluded(self):
+        for item in ("Requires use of sign language interpreter",
+                     "Primary use of American Sign Language (ASL)",
+                     "Adults who use sign language as a primary means of communication",
+                     "Significant sensory impairment (e.g., needing a British Sign Language interpreter).",
+                     "Psychotherapy using American Sign Language is not possible within the scope of this study"):
+            with self.subTest(item=item):
+                self.assertEqual(ec.classify(item) & set(ec.CORE), {"hearing"})
+
+    def test_sign_language_offered_not_flagged(self):
+        for item in ("Non-English speakers (Spanish and sign language interpreters are available)",
+                     "Failure to understand instructions given either orally or in sign language"):
+            with self.subTest(item=item):
+                self.assertNotIn("hearing", ec.classify(item))
+
+    def test_large_print_and_braille(self):
+        for item in ("Severe visual impairment, defined as being unable to read large-print materials",
+                     "Self-reported inability to read large print books",
+                     "Materials would need translation into Braille"):
+            with self.subTest(item=item):
+                self.assertIn("visual", ec.classify(item))
+
+
+class AccommodationTests(unittest.TestCase):
+    """0.5.0: an item that offers an accommodation, not just an accommodation word.
+    The wordings come from the 16 recall-sample trials the 0.4.0 word list flagged."""
+
+    def test_offered(self):
+        for crit in (
+                "Inclusion Criteria:\n* Informed consent signed by the subject or legally acceptable representative\n"
+                "Exclusion Criteria:\n* Pregnancy",
+                "Inclusion Criteria:\n* The subject or legal guardian must have signed an informed consent form\n"
+                "Exclusion Criteria:\n* Pregnancy",
+                "Inclusion Criteria:\n* Able to walk 10 m with or without an assistive device\nExclusion Criteria:\n* Pregnancy",
+                "Inclusion Criteria:\n* Able to walk 10 m with or without assistance\nExclusion Criteria:\n* Pregnancy",
+                "Inclusion Criteria:\n* Willing to fill out questionnaires. In patients that are unable to read, "
+                "the research nurse will be available to assist.\nExclusion Criteria:\n* Pregnancy",
+                "Exclusion Criteria:\n* Unable to provide consent and no legally authorized representative available"):
+            with self.subTest(crit=crit):
+                self.assertTrue(ec.accommodations(crit))
+
+    def test_not_offered(self):
+        for crit in (
+                "Exclusion Criteria:\n* Use of drugs affecting pupil size or accommodation",
+                "Inclusion Criteria:\n* Access for device delivery to accommodate a 22F sheath\n"
+                "Exclusion Criteria:\n* Pregnancy",
+                "Inclusion Criteria:\n* Parent or legally authorized representative must sign consent\n"
+                "Exclusion Criteria:\n* Pregnancy",
+                "Inclusion Criteria:\n* Parent(s) or legal guardian(s) must provide written informed consent\n"
+                "Exclusion Criteria:\n* Pregnancy",
+                "Inclusion Criteria:\n* Sufficient English to permit communication without an interpreter\n"
+                "Exclusion Criteria:\n* Pregnancy",
+                "Inclusion Criteria:\n* Able to walk without an assistive device\nExclusion Criteria:\n* Pregnancy",
+                "Exclusion Criteria:\n* Requires use of sign language interpreter",
+                "Exclusion Criteria:\n* Patients whose consent needs to be obtained through a surrogate",
+                "Exclusion Criteria:\n* Severe visual impairment, defined as being unable to read large-print materials"):
+            with self.subTest(crit=crit):
+                self.assertEqual(ec.accommodations(crit), [])
+
+    def test_census_samples_accommodation_items(self):
+        recs = [{"nct": "N1", "criteria": "Inclusion Criteria:\n* Subject or legally authorized representative consents\n"
+                                          "Exclusion Criteria:\n* Pregnancy"},
+                {"nct": "N2", "criteria": "Inclusion Criteria:\n* Parent or guardian consents\n"
+                                          "Exclusion Criteria:\n* Pregnancy"}]
+        res = ec.census(recs)
+        self.assertEqual(res["total"]["accommodation_pct"], 50.0)
+        self.assertEqual(res["samples"]["accommodation"],
+                         [("N1", "Subject or legally authorized representative consents")])
+
+
 class RequirementTests(unittest.TestCase):
     def test_requirements(self):
         cases = {
@@ -263,6 +337,7 @@ class AnalyzeTests(unittest.TestCase):
         a = ec.analyze({"criteria": "Inclusion Criteria:\n* Adults; a legally authorized representative may consent\n"
                                     "Exclusion Criteria:\n* Dementia"})
         self.assertTrue(a["accommodation"])
+        self.assertEqual(a["accommodations"], ["Adults; a legally authorized representative may consent"])
         self.assertIn("cognitive", a["hits"])
 
     def test_condition_related(self):
@@ -289,7 +364,13 @@ class AnalyzeTests(unittest.TestCase):
         self.assertIn("consider:", out)
         self.assertNotIn("Pregnancy", out)
         self.assertNotIn("Inclusion items", out)
-        self.assertIn("Accommodation mentioned anywhere in the criteria: no", out)
+        self.assertIn("Accommodation offered in the criteria: no", out)
+
+    def test_check_text_lists_accommodations(self):
+        out = ec.check_text("Inclusion Criteria:\n* Consent by the patient or a legal representative\n"
+                            "Exclusion Criteria:\n* Deafness")
+        self.assertIn("Accommodation offered in the criteria: yes\n- Consent by the patient or a legal representative",
+                      out)
 
     def test_check_text_nothing(self):
         self.assertEqual(ec.check_text("Adults with asthma."), "No exclusion criteria section found.")

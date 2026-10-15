@@ -6,10 +6,11 @@ items that exclude people by disability: cognitive or intellectual, capacity
 to consent, vision, hearing, communication and mobility. Psychiatric,
 substance use, performance status, investigator-discretion and English-only
 items are counted alongside, as earlier manual studies did. It also notes
-whether the criteria mention any accommodation (an assistive device, a legally
-authorized representative, an interpreter, large print and the like), and
-whether a flagged exclusion matches the trial's own condition (excluding
-vision loss from a glaucoma trial is not the same as from a diabetes trial).
+whether the criteria offer any accommodation (an assistive device allowed, a
+legally authorized representative, an interpreter, large print and the
+like), and whether a flagged exclusion matches the trial's own condition
+(excluding vision loss from a glaucoma trial is not the same as from a
+diabetes trial).
 
 Since 0.2.0 it also reads the inclusion criteria for ability requirements in
 the same six categories ("able to walk 100 m unaided", "normal or
@@ -34,6 +35,16 @@ English speaking") and more ability requirements (20/20 vision, no visual or
 auditory impairment, able to converse, GMFCS I-III). These rules were fixed
 before the other 111 trials of that sample were labelled, so those trials
 measure them fairly.
+
+Since 0.5.0 the accommodation flag counts an item only when it offers one.
+Until 0.4.0 it counted any accommodation word anywhere, and a hand check of
+the 16 recall-sample trials it flagged found only 5 real offers: the rest were
+a parent's or guardian's consent for a child, an eye's accommodation, a
+catheter sheath, "without an interpreter", and an exclusion of consent through
+a surrogate. Exclusion items that use sign language, large print or braille
+to describe who is shut out ("requires a sign language interpreter", "unable
+to read large print") now count as hearing and visual exclusions. Both rules
+come from reading every registry trial that mentions these words.
 
 Earlier work coded samples by hand: 97 protocols in four areas (DeCormier
 Plosky et al., Health Affairs 2022) and 2,710 trials for ten conditions,
@@ -68,7 +79,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-__version__ = "0.4.0"
+__version__ = "0.5.0"
 
 API = "https://clinicaltrials.gov/api/v2/studies"
 UA = "trial-exclusion-census/%s (Munim, Inc.; munimversion2@gmail.com)" % __version__
@@ -126,13 +137,19 @@ PATTERNS = {
         r"\bvision\s+(?:loss|impairment|problem)", _UNABLE_TO + r"(?:see|visuali[sz]e)\b",
         r"\b(?:inadequate|insufficient|poor|impaired|reduced)\s+(?:vision|eyesight)\b",
         r"\b(?:visual|vision)" + _LIST,
-        r"\bvisual acuity\b"],
+        r"\bvisual acuity\b",
+        # 0.5.0: every registry exclusion item naming large print or braille shuts out
+        # people who need it ("unable to read large print", "materials would need braille").
+        r"\b(?:large[- ]print|braille)\b"],
     "hearing": [
         r"\bdeaf(?:ness)?\b", r"\bhearing\s+(?:impair|loss|disab|deficit|problem|difficult)",
         r"\bhard of hearing\b", _UNABLE_TO + r"hear\b",
         r"\b(?:impaired|inadequate|insufficient|poor|reduced)\s+hearing\b", r"\bhearing aids?\b",
         r"\bauditory\s+(?:impair|deficit|disab|loss|handicap|problem)", r"\b(?:hearing|auditory)" + _LIST,
-        r"\bcochlear implant"],
+        r"\bcochlear implant",
+        # 0.5.0: "requires use of sign language interpreter", "primary use of American Sign Language".
+        r"\b(?:requir\w*|needs?|needing|uses?|using|use of|primar\w*|knowledge of|fluen\w*|proficien\w*)\b"
+        r"[^.;\n]{0,40}\bsign language\b"],
     "communication": [
         r"\baphasi", r"\bdysarthri", r"\billiter", r"\bnon[- ]?verbal\b",
         _UNABLE_TO + r"(?:speak|communicate|read|write|verbali[sz]e)\b" + _NOT_LANG_X,
@@ -247,12 +264,34 @@ REQUIRE_PATTERNS = {
 REQUIRE_RULES = {cat: [re.compile(p, re.I) for p in pats] for cat, pats in REQUIRE_PATTERNS.items()}
 REQUIRED = tuple("required_" + cat for cat in CORE)
 
+# An item that offers an accommodation: a representative who may consent for an
+# adult, an assistive device or help allowed, an interpreter, large print, a reader.
 ACCOMMODATION = re.compile(
-    r"\baccommodat(?:e|ed|es|ion|ions)\b|\bassistive (?:device|technolog)|"
-    r"\blegally (?:authori[sz]ed|acceptable) representative|\bLAR\b|\bsign language\b|"
-    r"\binterpreter|\bbraille\b|\blarge[- ]print|\bscreen[- ]reader|\bread (?:aloud|to (?:them|the participant))|"
-    r"\bsurrogate\b|\bproxy (?:consent|respondent|informant)|\bguardian\b|"
-    r"\bwith (?:the )?(?:help|assistance|support) of\b|\bcaregiver (?:may|can|will) (?:assist|help)", re.I)
+    r"\b(?:reasonable|appropriate|necessary|disability|special|testing)\s+accommodations?\b|"
+    r"\baccommodations?\s+(?:will|can|may|could|are|is|shall)\s+(?:be\s+)?(?:made|provided|offered|available|arranged)\b|"
+    r"\bassistive (?:device|technolog)|\bwith or without (?:an? )?(?:assistance|help|aid)\b|"
+    r"\blegally (?:authori[sz]ed|acceptable) representative|\bLAR\b|\blegal(?:ly)?\s+(?:representative|proxy)|"
+    r"\b(?:subject|participant|patient)s?\s+or\s+(?:(?:his/her|his|her|their)\s+)?(?:legal(?:ly)?\s+)?"
+    r"(?:authori[sz]ed\s+)?guardian|"
+    r"\b(?:family members?|relatives?|next of kin|caregivers?)\s+or\s+(?:legal\s+)?guardian|"
+    r"\b(?:consent|assent)\b[^.;\n]{0,60}\b(?:family members?|relatives?|next of kin)\b|"
+    r"\bsign language\b|\binterpreter|\bbraille\b|\blarge[- ]print|\bscreen[- ]reader|"
+    r"\bread (?:aloud|to (?:them|the participant))|\bsurrogate\b|\bproxy (?:consent|respondent|informant)|"
+    r"\bwith (?:the )?(?:help|assistance|support) of\b|\b(?:has|have) assistance\b|"
+    r"\bavailable to (?:assist|help|read)\b|\bcaregiver (?:may|can|will) (?:assist|help)", re.I)
+# Not an offer, in either section: done without the help, unable to use the format,
+# or consent by a parent or guardian for a child (that is about age, not disability).
+NO_ACCOMMODATION = re.compile(
+    r"(?<!or )\bwithout\s+(?:an?\s+|the\s+|any\s+)?(?:[\w-]+\s+)?"
+    r"(?:interpreter|assistive|assistance|help|aid|surrogate|proxy|representative|LAR)\b|"
+    r"\b(?:unable|inability|cannot|can ?not|not able)\b[^.;\n]{0,60}\b(?:large[- ]print|braille|sign language|screen[- ]reader)|"
+    r"\bparent(?:s|al)?\b|\bminors?\b|\bchild(?:ren)?\b|\binfants?\b|\bpa?ediatric|"
+    r"\b(?:under|younger than|less than)\s+(?:the\s+age\s+of\s+)?1[2-8]\b|<\s*1[2-8]\b", re.I)
+# In the exclusion criteria an accommodation word usually describes who is shut out:
+# "requires use of sign language interpreter", "consent needs to be obtained through a surrogate".
+EXCL_NO_ACCOMMODATION = re.compile(
+    r"\b(?:requir\w*|needs?|needing|needed|dependent on|depends on|rel(?:y|ies|ying) on|primar(?:y|ily)|"
+    r"uses?|using|use of|through)\b", re.I)
 
 # Conditions and titles that make an exclusion in that category part of the
 # trial's own subject (a cataract trial screening vision, a stroke trial aphasia).
@@ -368,6 +407,14 @@ def requirements(item):
     return {cat for cat, rules in REQUIRE_RULES.items() if any(r.search(item) for r in rules)}
 
 
+def accommodations(text):
+    """The items of an eligibility text that offer an accommodation (since 0.5.0)."""
+    excl = set(split_items(exclusion_section(text)))
+    return [item for item in split_items(text)
+            if ACCOMMODATION.search(item) and not NO_ACCOMMODATION.search(item)
+            and not (item in excl and EXCL_NO_ACCOMMODATION.search(item))]
+
+
 def analyze(rec):
     """Flags for one trial record (see extract)."""
     crit = rec.get("criteria") or ""
@@ -387,9 +434,10 @@ def analyze(rec):
     subject = " ".join(rec.get("conditions") or []) + " " + (rec.get("title") or "")
     related = {cat for cat in hits if cat in CONDITION_RELATED and CONDITION_RELATED[cat].search(subject)}
     related_req = {cat for cat in reqs if CONDITION_RELATED[cat].search(subject)}
+    offered = accommodations(crit)
     return {"has_exclusion": section is not None, "hits": hits, "related": related,
             "requires": reqs, "related_req": related_req,
-            "accommodation": bool(ACCOMMODATION.search(crit)),
+            "accommodation": bool(offered), "accommodations": offered,
             "n_items": len(items), "core_items": core_items}
 
 
@@ -425,7 +473,8 @@ def check_text(text):
     if required:
         lines.append("Inclusion items that require an ability:")
         lines.extend(required)
-    lines.append("Accommodation mentioned anywhere in the criteria: %s" % ("yes" if a["accommodation"] else "no"))
+    lines.append("Accommodation offered in the criteria: %s" % ("yes" if a["accommodation"] else "no"))
+    lines.extend("- " + item for item in a["accommodations"])
     lines.append("Word rules only: a flag is not a judgment that an exclusion is unjustified.")
     return "\n".join(lines)
 
@@ -636,6 +685,9 @@ class Tally:
 
 TRIAL_COLUMNS = ("nct", "start_year", "sponsor_class", "phase", "status", "categories",
                  "condition_related", "accommodation", "required", "exclusion_items")
+# sample_items.csv also samples the items that offer an accommodation, so the
+# accommodation flag's precision can be checked by hand like any category's.
+SAMPLED = CATEGORIES + REQUIRED + ("accommodation",)
 
 
 def census(records, sample_per_cat=60, seed=2026):
@@ -644,7 +696,7 @@ def census(records, sample_per_cat=60, seed=2026):
     by_year, by_sponsor, by_phase, by_area, by_year_design = (collections.defaultdict(Tally) for _ in range(5))
     rng = random.Random(seed)
     seen = collections.Counter()
-    samples = {key: [] for key in CATEGORIES + REQUIRED}
+    samples = {key: [] for key in SAMPLED}
     trials = []
     n_records = n_criteria = 0
     for rec in records:
@@ -665,6 +717,8 @@ def census(records, sample_per_cat=60, seed=2026):
             if rx.search(subject):
                 by_area[area].add(a)
         flagged = list(a["hits"].items()) + [("required_" + c, items) for c, items in a["requires"].items()]
+        if a["has_exclusion"] and a["accommodations"]:
+            flagged.append(("accommodation", a["accommodations"]))
         for key, items in flagged:
             for item in items:
                 seen[key] += 1
@@ -727,7 +781,8 @@ def report_md(res, fetched_at):
         "| any disability category | %s | %s |" % (t["any_core_pct"], t["any_core_unrelated_pct"]),
         "| any vision, hearing, communication or mobility | %s | |" % t["any_sensory_physical_pct"],
         "",
-        "Accommodation mentioned: %s%% of all trials; %s%% of trials with a disability exclusion."
+        "Accommodation offered (an item that offers one, not just the word; the 'accommodation' rows of",
+        "sample_items.csv check it): %s%% of all trials; %s%% of trials with a disability exclusion."
         % (t["accommodation_pct"], t["accommodation_if_core_pct"]),
         "",
         "## Ability requirements in the inclusion criteria",
@@ -811,8 +866,8 @@ def write_outputs(res, out_dir, fetched_at):
     with open(os.path.join(out_dir, "sample_items.csv"), "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["category", "nct", "item", "correct"])
-        for cat in CATEGORIES + REQUIRED:
-            for nct, item in res["samples"][cat]:
+        for cat in SAMPLED:
+            for nct, item in res["samples"].get(cat, []):
                 w.writerow([cat, nct, item, ""])
     with gzip.open(os.path.join(out_dir, "trials.csv.gz"), "wt", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
