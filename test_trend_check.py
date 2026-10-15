@@ -41,6 +41,20 @@ class TermTests(unittest.TestCase):
         self.assertTrue(T(2025, "hearing loss", not_condition=HL).endswith(
             ' AND NOT AREA[ConditionSearch](hearing OR deafness OR tinnitus OR ear)'))
 
+    def test_family_term(self):
+        self.assertTrue(T(2008, "hearing (all wordings)").endswith(
+            ' AND AREA[EligibilityCriteria]("hearing loss" OR "deaf" OR "deafness"'
+            ' OR "hearing impairment" OR "hard of hearing" OR "hearing impaired")'))
+        self.assertNotIn('"blind"', tc.criteria("visual (all wordings)"))
+
+    def test_kind(self):
+        self.assertEqual(tc.kind("hearing loss"), "disability")
+        self.assertEqual(tc.kind("cognitive (all wordings)"), "family")
+        self.assertEqual(tc.kind("pregnant"), "control")
+        self.assertEqual(tc.kind("tattoo"), "rare control")
+        self.assertEqual(tc.kind("informed consent"), "reference")
+        self.assertTrue(all("," not in p for p in tc.ALL_PHRASES))
+
     def test_url_round_trip(self):
         u = tc.url(T(2008, "dementia"))
         self.assertTrue(u.startswith(tc.API + "?"))
@@ -84,6 +98,7 @@ class RunTests(unittest.TestCase):
         md = tc.markdown(self.rows, 2008, 2025)
         self.assertIn("| 2025 | hearing loss | disability | 3.0 | 4.0 | 1.5 | 2.4 |", md)
         self.assertIn("| pregnant | control | 1.0 |", md)
+        self.assertNotIn("Families against controls", md)
 
     def test_main_writes_json(self):
         with tempfile.TemporaryDirectory() as d:
@@ -96,6 +111,38 @@ class RunTests(unittest.TestCase):
                 data = json.load(f)
             self.assertEqual(len(data["rows"]), 4)
             self.assertAlmostEqual(data["ratios"][0]["pct"], 3.0)
+            self.assertEqual(len(data["family_tests"]), 3)
+
+
+# 2008 -> 2025 ratios counted on 2026-10-15 (results/trend-check/TREND-CHECK.md, section 4).
+NO_PHASE_FAMILIES = [1.74, 2.36, 3.07]
+NO_PHASE_CONTROLS = [1.05, 0.62, 1.00, 1.14, 1.12, 2.76, 1.36, 0.99, 1.16, 1.81, 0.80]
+OTHER_FAMILIES = [1.73, 1.76, 1.54]
+OTHER_CONTROLS = [1.15, 1.96, 1.37, 1.07, 2.55, 2.63, 1.00, 0.91, 2.02, 0.79, 1.66]
+
+
+class RankTests(unittest.TestCase):
+    def test_midranks(self):
+        self.assertEqual(tc.midranks([3, 1, 2, 2]), [4.0, 1.0, 2.5, 2.5])
+
+    def test_rank_test_published_values(self):
+        self.assertEqual(tc.rank_test(NO_PHASE_FAMILIES, NO_PHASE_CONTROLS), (36.0, 0.0192))
+        self.assertEqual(tc.rank_test(OTHER_FAMILIES, OTHER_CONTROLS), (26.0, 0.3297))
+
+    def test_rank_test_extremes(self):
+        self.assertEqual(tc.rank_test([9], [1, 2, 3]), (4.0, 0.25))
+        self.assertEqual(tc.rank_test([0], [1, 2, 3]), (1.0, 1.0))
+        self.assertEqual(tc.rank_test([], [1]), (None, None))
+
+    def test_family_test(self):
+        rs = ([{"kind": "family", "no_phase_pct": v} for v in NO_PHASE_FAMILIES]
+              + [{"kind": "rare control", "no_phase_pct": v} for v in NO_PHASE_CONTROLS[3:]]
+              + [{"kind": "control", "no_phase_pct": v} for v in NO_PHASE_CONTROLS[:3]]
+              + [{"kind": "disability", "no_phase_pct": 9.0},
+                 {"kind": "reference", "no_phase_pct": 9.0}])
+        t = tc.family_test(rs, "no_phase_pct")
+        self.assertEqual((t["families"], t["controls"], t["control_max"]), (3, 11, 2.76))
+        self.assertEqual((t["rank_sum"], t["p"]), (36.0, 0.0192))
 
 
 if __name__ == "__main__":

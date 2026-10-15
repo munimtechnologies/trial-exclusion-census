@@ -64,6 +64,8 @@ section. The rules were published before any of these numbers were seen.
   disability exclusion each year. The figure was 20.0% for 2016 starts and 24.9% for 2025 starts.
   Over the same years, substance-use exclusions fell from 18.7% to 15.8%, so not every kind of
   exclusion grew. Trials that start in 2026 are still being registered, and that year reads 27.5%.
+  How much of this rise is specific to disability is checked below; the short answer is that it
+  is clear in no-phase trials and not shown in the others.
 - By lead sponsor class: other (mostly academic) 22.8%, industry 12.4%, NIH 14.7%, and other US
   federal agencies 38.3% (4,174 trials).
 - By phase: trials with no phase (devices, behavioural studies, procedures) 25.7%; phase 1 10.7%,
@@ -87,25 +89,35 @@ The visual errors were eye findings in ophthalmology trials, and 0.3.0 removes t
 
 ### Is the rise real? A check with the registry's own search
 
-The rise could come from criteria simply growing longer, or from the shift toward no-phase
-trials, which exclude more. [results/trend-check/TREND-CHECK.md](results/trend-check/TREND-CHECK.md)
-tests both without the census rules: it asks the ClinicalTrials.gov search how many trials of
-each start year name a phrase in their eligibility criteria (counts of 2026-10-15).
+The rise could come from criteria simply growing longer, from a change of wording, or from the
+shift toward no-phase trials, which exclude more.
+[results/trend-check/TREND-CHECK.md](results/trend-check/TREND-CHECK.md) tests these without the
+census rules: it asks the ClinicalTrials.gov search how many trials of each start year name a
+phrase in their eligibility criteria (counts of 2026-10-15), for disability phrases and for
+phrases that are not about disability.
 
-- From 2008 to 2025 starts, the share naming **"cognitive impairment"** went from 1.97% to 7.58%
-  (3.8 times) and **"hearing loss"** from 0.78% to 2.44% (3.1 times). Control exclusions that are
-  not about disability stayed flat: "pregnant" 0.95 times, "hepatitis" 1.01, "allergy" 0.94.
-- No-phase trials grew from 29% to 65% of starts. Within no-phase trials "cognitive impairment"
-  still rose 2.8 times and "hearing loss" 2.5 times, while pregnancy and allergy did not move.
-  Within the other trials criteria did grow longer (allergy 1.37 times), and "cognitive
-  impairment" still rose 2.65 times.
-- Without the trials that study cognition, dementia or hearing themselves, the rises are 4.1 and
-  3.1 times.
-- Not every phrase rose: "wheelchair" stayed flat and "dementia" rose 1.6 times. Some of the
-  cognitive rise may be a change of wording. These are mentions anywhere in the criteria, not
-  exclusions; the census rules and their hand checks are the measure of exclusion.
+**Correction (2026-10-15).** The first version of this check used only common controls
+(pregnancy, hepatitis, allergy), which stayed flat, and said the rise was not explained by
+longer criteria. Common phrases cannot triple, so that was too strong. Rare controls, which
+start as rare as the disability phrases, can rise a lot: tattoo exclusions 2.4 times, psoriasis
+2.6 times in drug trials. Pooling every wording of a disability (so that "dementia" becoming
+"cognitive impairment" cancels out) also shrinks the cognitive rise. What holds:
 
-`trend_check.py` repeats every count.
+- No-phase trials (behavioural, device and procedure studies) grew from 29% to 65% of starts.
+  **Within them**, from 2008 to 2025 starts, the share naming any cognitive wording rose 1.7
+  times, any hearing wording 2.4 times and any visual wording 3.1 times. Of 11 controls that are
+  not about disability (median 1.1 times), only one or two rose as fast. Exact rank-sum test of
+  the three families against the controls: p = 0.019.
+- **Within the other trials**, mostly drug trials, the families rose 1.5 to 1.8 times, inside the
+  range of the controls (0.8 to 2.6, median 1.4; p = 0.33). There is no evidence there of a
+  disability-specific rise.
+- The single phrase "cognitive impairment" rose 3.8 times overall, but all cognitive wordings
+  together rose 2.1 times, so part of that was a change of wording.
+- These are mentions anywhere in the criteria, not exclusions, and the choice of wordings and
+  controls was made after the first results, so this is exploratory. The census rules and their
+  hand checks are the measure of exclusion.
+
+`trend_check.py` repeats every count and the test.
 
 **What these numbers do not show yet.**
 
@@ -113,8 +125,8 @@ each start year name a phrase in their eligibility criteria (counts of 2026-10-1
   now labelled by hand ([results/recall/](results/recall/)); the scores of v0.1.1, v0.3.0 and
   v0.4.0 on them come next.
 - The census's own trend controls (items per trial and a phased/no-phase split by year, added in
-  0.3.0) have not been run on the full registry yet. The registry-search check above points the
-  same way.
+  0.3.0) have not been run on the full registry yet. The registry-search check above suggests the
+  split matters: expect a clear rise in no-phase trials and little in the others.
 - How often trials offer an accommodation (see the correction above).
 - Registry criteria are often a summary of the full protocol. On the four areas DeCormier Plosky
   et al. coded from full protocols, the registry text shows lower rates for vision (dementia
@@ -198,7 +210,7 @@ python exclusion_census.py census --out-dir out --cache ctgov.jsonl.gz
 python exclusion_census.py census --out-dir out2 --cache ctgov.jsonl.gz --seed 2027   # fresh precision sample
 python exclusion_census.py check criteria.txt     # one trial's criteria, with alternatives to consider
 python diff_rules.py --old old/exclusion_census.py --new exclusion_census.py --cache ctgov.jsonl.gz
-python trend_check.py --json trend.json           # the registry-search trend check (105 small requests)
+python trend_check.py --json trend.json           # the registry-search trend check (215 small requests)
 python -m unittest -v
 ```
 
@@ -228,8 +240,10 @@ accommodation.
 one flags and the other does not, so the precision of just the new rules can be checked by hand.
 
 `trend_check.py` asks the registry's own search, for each start year, how many trials name each of
-a few disability and control phrases in their criteria, overall, in no-phase and other trials, and
-without the trials that study that condition. `--years` and `--phrases` take other lists.
+a few disability phrases, pooled disability families (every wording at once), common and rare
+control phrases, overall, in no-phase and other trials, and for some phrases without the trials
+that study that condition. It then tests the families against the controls with an exact rank-sum
+test. `--years` and `--phrases` take other lists.
 
 Standard library only (Python 3.9+). No API key.
 
@@ -288,7 +302,12 @@ first 114 trials, whose misses shaped 0.4.0, and the other 111, labelled after 0
 
 ## Changes
 
-- After 0.5.0 (on main): `trend_check.py` and
+- After 0.5.0 (on main): `trend_check.py` 0.2.0 adds eight rare controls, pooled disability
+  families and an exact rank-sum test, and
+  [results/trend-check/TREND-CHECK.md](results/trend-check/TREND-CHECK.md) section 4 corrects the
+  first version: the disability-specific rise is shown in no-phase trials, not in the others.
+  "Informed consent" is now a reference phrase, not a control. The census rules are unchanged.
+- After 0.5.0 (on main): `trend_check.py` 0.1.0 and
   [results/trend-check/TREND-CHECK.md](results/trend-check/TREND-CHECK.md), a check of the
   trend with the registry's own search and control phrases. The census rules are unchanged.
 - 0.5.0: the accommodation flag counts an item only when it offers an accommodation. The bare
