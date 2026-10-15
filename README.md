@@ -8,12 +8,15 @@ exclusion criteria and flags items that exclude people by disability:
 
 | Category | Examples of what it flags |
 |---|---|
-| cognitive | dementia, cognitive impairment, intellectual or developmental disability, MMSE/MoCA cut-offs |
-| consent_capacity | "unable to provide informed consent", lack of decision-making capacity |
+| cognitive | dementia, cognitive impairment, intellectual or developmental disability, learning difficulties, MMSE/MoCA cut-offs |
+| consent_capacity | "unable to provide informed consent", lack of decision-making capacity, decisionally impaired, adults under guardianship or curatorship |
 | visual | blindness, visual impairment, low vision, visual acuity limits (not "double-blind", and since 0.3.0 not eye findings that only matter to an eye exam) |
-| hearing | deafness, hearing loss, hearing aids |
+| hearing | deafness, hearing loss, hearing aids, cochlear implants |
 | communication | aphasia, dysarthria, illiteracy, "unable to speak/read/write" (but not "...English") |
-| mobility | wheelchair use, non-ambulatory, "unable to walk", paralysis, amputation (since 0.3.0 not a planned amputation) |
+| mobility | wheelchair use, non-ambulatory, "unable to walk", paralysis, amputation (since 0.3.0 not a planned amputation), motor deficits, spasticity |
+
+Since 0.4.0 it also reads lists: "cognitive, visual or motor impairment" counts in all three
+categories, and "unable to hear, read or comprehend" counts for each verb.
 
 It also counts the domains that earlier manual studies reported: psychiatric, substance use,
 performance status (ECOG/Karnofsky), investigator discretion, English-only and general
@@ -31,12 +34,12 @@ the inclusion criteria too, for requirements in the same six categories:
 
 | Category | Examples of what it flags |
 |---|---|
-| cognitive | "cognitively intact", "normal cognition", "MMSE of 24 or higher" |
+| cognitive | "cognitively intact", "normal cognition", "sufficient cognitive ability", "MMSE of 24 or higher" |
 | consent_capacity | "able to provide informed consent" when the item names no representative, guardian or parent; "able to understand the study" (but not "...English") |
-| visual | "normal or corrected-to-normal vision", "able to see", "visual acuity of 20/40 or better" |
-| hearing | "normal hearing", "able to hear" |
-| communication | "able to read and write", "able to speak", "literate" (but not "...in English") |
-| mobility | "able to walk 100 m", "ambulatory without assistance", "walks independently" |
+| visual | "normal or corrected-to-normal vision", "able to see", "BCVA 20/40 or better", "20/20 vision", "no visual impairment" |
+| hearing | "normal hearing", "able to hear", "no hearing or auditory impairment" |
+| communication | "able to read and write", "able to speak", "able to converse", "literate" (but not "...in English"), "no communication problem" |
+| mobility | "able to walk 100 m", "ambulatory without assistance", "walks independently", "able to perform the 6-minute walk test", "GMFCS I-III" |
 
 An exclusion-only count cannot see these. In McDonald, Schwartz and Sabatello's hand-coded study
 (2022), indirect criteria like these were a large part of how trials could exclude adults with
@@ -74,8 +77,9 @@ The visual errors were eye findings in ophthalmology trials, and 0.3.0 removes t
 
 **What these numbers do not show yet.**
 
-- Recall, meaning the exclusions the rules miss. The blind recall sample is drawn
-  (`results/v0.1.1/recall/`) but not yet labelled.
+- Recall, meaning the exclusions the rules miss. All 225 trials of the blind recall sample are
+  now labelled by hand ([results/recall/](results/recall/)); the scores of v0.1.1, v0.3.0 and
+  v0.4.0 on them come next.
 - Whether the rise is real or comes from longer criteria and a growing share of unphased trials.
   0.3.0 adds both controls: items per trial and a phased/unphased split by year.
 - Registry criteria are often a summary of the full protocol. On the four areas DeCormier Plosky
@@ -122,8 +126,9 @@ yearly count is useful.
 
 The exclusion rules in v0.1.0 and the inclusion-requirement rules in v0.2.0 were each written and
 published **before any registry result was seen**. The 0.3.0 changes were made after the hand
-check of the first run. They are reported next to the pre-registered numbers, never in place of
-them, and checked on a fresh sample.
+check of the first run, and the 0.4.0 changes after half of the recall sample was labelled. They
+are reported next to the pre-registered numbers, never in place of them, and checked on fresh
+samples: 0.4.0 on the 111 recall trials labelled after its rules were fixed.
 
 ### Related work
 
@@ -143,6 +148,7 @@ them, and checked on a fresh sample.
 python exclusion_census.py census --out-dir out --cache ctgov.jsonl.gz
 python exclusion_census.py census --out-dir out2 --cache ctgov.jsonl.gz --seed 2027   # fresh precision sample
 python exclusion_census.py check criteria.txt     # one trial's criteria, with alternatives to consider
+python diff_rules.py --old old/exclusion_census.py --new exclusion_census.py --cache ctgov.jsonl.gz
 python -m unittest -v
 ```
 
@@ -165,6 +171,9 @@ The cache keeps the fetched records, so revised rules can be re-run without fetc
 `check` prints each flagged exclusion item and each inclusion item that requires an ability in one
 trial's criteria, with an inclusive alternative to consider (for example, read-aloud or
 large-print consent instead of excluding blind people).
+
+`diff_rules.py` (new in 0.4.0) runs two versions of the rules over the cache and samples the items
+one flags and the other does not, so the precision of just the new rules can be checked by hand.
 
 Standard library only (Python 3.9+). No API key.
 
@@ -192,21 +201,25 @@ random sample, with Wilson 95% intervals: the exclusion rules against the `x` ma
 0.2.0, the inclusion-requirement rules against the `i` marks. It lists every miss. It re-runs the
 current rules on the same trials, so a revised rule set can be compared on the same sample.
 
+The labels for the first sample are in [results/recall/](results/recall/), in two halves: the
+first 114 trials, whose misses shaped 0.4.0, and the other 111, labelled after 0.4.0 was fixed.
+
 ## Limits
 
 - A word list, not a reader. It flags what a criterion says, not whether that exclusion or
   requirement is justified for the study. It misses criteria worded in ways it does not know, and
-  it can flag items that mention a word in passing. `sample_items.csv` and `recall_sample.py`
-  exist to measure this.
+  it can flag items that mention a word in passing. `sample_items.csv`, `recall_sample.py` and
+  `diff_rules.py` exist to measure this.
 - The hand checks so far were done by an AI agent working for MV2, one reader per item. Review by
   people with clinical and lived experience of disability is still to come.
 - Illiteracy and "unable to read" count as communication exclusions. Reading is not a disability in
   itself, but these items shut out many people with intellectual, learning and print disabilities.
   `sample_items.csv` lets anyone count them separately.
-- The inclusion-requirement rules are new in 0.2.0 and not yet validated. "Able to provide
-  informed consent" is counted only when the same item names no representative, guardian or
-  parent, but a representative allowed elsewhere in the criteria is not taken into account (the
-  accommodation flag notes it).
+- "Able to provide informed consent" is counted only when the same item names no representative,
+  guardian or parent, but a representative allowed elsewhere in the criteria is not taken into
+  account (the accommodation flag notes it).
+- Guardianship and curatorship count as consent capacity. In a few pediatric trials "under
+  guardianship" can mean a ward of the state rather than an adult under a protection measure.
 - Inclusion sections are found only under an "Inclusion Criteria" heading. Criteria written as
   one unheaded list are read for exclusions only if they say "Exclusion criteria".
 - "Condition-related" is a rough match between word lists and the trial's own condition and title.
@@ -215,6 +228,17 @@ current rules on the same trials, so a revised rule set can be compared on the s
 
 ## Changes
 
+- 0.4.0: from the first 114 hand-labelled trials of the blind recall sample. Coordinated lists
+  ("cognitive, visual or motor impairment", "visual or auditory impairment") and lists of verbs
+  after "unable to" ("unable to hear, read, visualize or comprehend") are read for every member.
+  New wordings: dementing, learning difficulties, limited cognitive ability, mental disability,
+  decisionally impaired, mentally incapacitated, a condition that limits the ability to consent,
+  guardianship, curatorship and safeguard of justice, cochlear implants, auditory impairment, motor
+  deficits, spasticity, and conditions affecting ambulation. Literacy next to a negated language
+  ("unable to read, not English speaking") now counts. New requirement rules: 20/20 vision, BCVA or
+  better, no visual or auditory impairment, sufficient or adequate cognition, able to converse or to
+  consent verbally, no communication problem, the 6-minute walk test and GMFCS I-III. New tool:
+  `diff_rules.py`. The browser page uses the same rules.
 - 0.3.0: from the hand check of the first full run ([PRECISION.md](results/v0.1.1/PRECISION.md)).
   Exception clauses ("except for hearing loss", "may be included (e.g. ...)", "other than ...")
   are read out before an item is classified. A visual veto drops eye findings that would only

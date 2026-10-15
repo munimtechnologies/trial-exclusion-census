@@ -1,0 +1,112 @@
+label,nct,done,cognitive,consent_capacity,visual,hearing,communication,mobility,notes
+R115,NCT03461185,1,,,,,,,
+R116,NCT02457195,1,,x,,,,,unable to sign consent
+R117,NCT00954304,1,,,,,,,consent given (no ability wording)
+R118,NCT04876612,1,x,,,,,,decreased cognition to the extent that NRS is incomprehensible
+R119,NCT07650994,1,,,,,,,English speaking (language); LAR allowed
+R120,NCT01059383,1,,,,,,,
+R121,NCT04934033,1,,,,,,,vulnerable people (unspecific)
+R122,NCT05843838,1,x,,,,,,Mini Mental Test below 24 (POCD trial); does not speak the language (language)
+R123,NCT07011264,1,,,,,,i,able to independently perform activities of daily living
+R124,NCT00682292,1,,i,,,,,able to understand the scope of the study
+R125,NCT06438510,1,,i,,,,,understand and sign the ICF
+R126,NCT06082557,1,,xi,,,,,no/limited capacity for civil conduct; incapable to understand; able to understand the protocol
+R127,NCT05594342,1,,,,,,,refused to sign consent (refusal only)
+R128,NCT01749904,1,,,i,,,,BCVA 20/100 or better (glaucoma trial); other ocular items are eye pathology
+R129,NCT06450691,1,,x,,,,,under guardianship; curatorship or safeguard of justice
+R130,NCT03507231,1,,,,,,,
+R131,NCT06820320,1,,,,,,,
+R132,NCT03748381,1,,,x,,,,amblyopia; retinitis pigmentosa (cataract trial; condition-related)
+R133,NCT02601794,1,,,,,,,unfamiliar with mobile phones (not disability)
+R134,NCT00925197,1,,x,x,,x,,blind patients and those unable to read; incomplete understanding of instructions; French language (language)
+R135,NCT05427552,1,x,,,x,,,Alzheimer's; cochlear implant (TMS safety)
+R136,NCT02420860,1,,,,,,,
+R137,NCT03467386,1,,i,,,,,ability to understand and willingness to sign
+R138,NCT01628536,1,,i,,,,,ability to understand and willingness to sign
+R139,NCT04681664,1,,,,,,,
+R140,NCT05729594,1,,,,,,,ocular items are eye pathology
+R141,NCT00834990,1,,,,,,,
+R142,NCT05643456,1,,,,,,,neurological deficit (unspecific)
+R143,NCT02048709,1,,,,,,,
+R144,NCT06199778,1,,,,,,,family members consent (accommodation)
+R145,NCT02509481,1,,x,,,,,illness that impedes comprehension; permanent disability (general); consent item names guardian
+R146,NCT03789916,1,,,,,,,
+R147,NCT01156636,1,,,,,,,
+R148,NCT04819711,1,,,,,,,
+R149,NCT06660303,1,,,,,,,
+R150,NCT00085631,1,,,,,,,metal hip replacement (MRI; not disability)
+R151,NCT05700955,1,,i,,,,,ability to understand and willingness to sign
+R152,NCT02744352,1,,i,,,,,mentally competent and able to give consent
+R153,NCT02942628,1,,x,,,,,inability to provide informed consent
+R154,NCT01345448,1,i,,i,,,,BCVA 20/800 or better (glaucoma); able to follow instructions judged on cognition
+R155,NCT00123864,1,,,,,,,
+R156,NCT02111850,1,,i,,,,,ability to understand and willingness to sign
+R157,NCT02512692,1,,i,,,,,ability to understand and willingness to sign
+R158,NCT00821262,1,,,,,,,
+R159,NCT02844647,1,,x,,,,,unable to give valid informed consent
+R160,NCT02486055,1,,i,,,,,capable of understanding and signing informed consent
+R161,NCT04168372,1,,,,,,,
+R162,NCT01324011,1,,,,,,i,able to participate in moderate physical activity (lifestyle trial)
+R163,NCT00767299,1,,i,,,,i,ambulatory and expected to remain so; able to comprehend and consent
+R164,NCT05387252,1,,i,,,x,,mentally capable; unable to read the google sheets; Mandarin/Taiwanese (language)
+R165,NCT05794802,1,,,,,,,French or English (language)
+R166,NCT02387021,1,,,,,,,
+R167,NCT07137923,1,,,,,,,
+R168,NCT00858572,1,,,,,,,
+R169,NCT00525785,1,,x,,,,,abnormal mental status; cannot comprehend the protocol
+R170,NCT06619496,1,,,,,,,TICS above 30 or has assistance (accommodated)
+R171,NCT05503069,1,,,,,,,
+R172,NCT00363051,1,,,,,,,
+R173,NCT07022756,1,x,i,,,,,cognitive impairment that would impair engagement; capable of consenting
+R174,NCT05171335,1,,i,,,,,capable of signing ICF
+R175,NCT01286701,1,,,,,,,
+R176,NCT03656380,1,,i,,,i,,able to read; comprehend and sign consent form
+R177,NCT06379672,1,,,,,,x,disease that severely affects limb movement
+R178,NCT00282750,1,,x,,,,,consent through a surrogate excluded
+R179,NCT02664909,1,,,x,,,,acquired defective color vision
+R180,NCT01919086,1,,i,,,,i,able to provide consent; bone disease causing immobilization not eligible (myeloma)
+R181,NCT04435132,1,,i,,,,,subject who understands the purpose of testing
+R182,NCT01544829,1,,,,,,,
+R183,NCT04885881,1,x,,,,,,cognitive impairment
+R184,NCT06469112,1,,,,,i,,having no communication problem
+R185,NCT07280377,1,,,,,,,
+R186,NCT03612323,1,,i,,,,,able to understand NRS and sign consent
+R187,NCT01211093,1,i,,,,,i,walk short distance independently with or without aid; understand simple verbal commands (stroke trial)
+R188,NCT01782885,1,,,,,,,
+R189,NCT04523701,1,,i,,,,,ability to understand the trial
+R190,NCT01240876,1,,,,,,,motor impairment case by case (not a barrier); disability claim (benefits)
+R191,NCT02303262,1,,,,,,,legal representative or read aloud allowed (accommodation)
+R192,NCT01110668,1,,,,,,,
+R193,NCT06693336,1,,i,,,,,ability to understand and sign
+R194,NCT02372942,1,,,,,,,
+R195,NCT04832347,1,,,,,,,disability during the work process (unclear)
+R196,NCT00588679,1,,x,,,,,cannot give valid informed consent
+R197,NCT07024953,1,,xi,,,,,able to provide consent; unable or unwilling to consent; English (language)
+R198,NCT06752681,1,,,,,,,
+R199,NCT02505269,1,,i,,,,,ability to understand and willingness to sign
+R200,NCT02222454,1,,,,,,,legal guardian may consent
+R201,NCT02839915,1,xi,,,,,,IQ below 40 excluded; IQ at least 40 required (autism language trial)
+R202,NCT05949905,1,,,,,,,psychiatric only
+R203,NCT04350853,1,,,,,,,tooth mobility (not disability)
+R204,NCT04282850,1,,,,,,,
+R205,NCT02060461,1,,,x,,,,amblyopia (LASIK trial; condition-related)
+R206,NCT04594668,1,,,,,,,
+R207,NCT03106220,1,,,,,,x,inability to perform exercise (exercise trial)
+R208,NCT06226727,1,,,,,,,consent statement only
+R209,NCT07665021,1,,,,,,,parents' capacity to understand (infant trial; proxy)
+R210,NCT07860164,1,,,,,,,English (language)
+R211,NCT01360736,1,x,x,,,,,serious cognitive impairment; inability to provide informed consent; English (language)
+R212,NCT03688399,1,i,,,,,,sufficient cognitive awareness to comply; ocular items are eye pathology
+R213,NCT00815880,1,,i,,,,i,six-minute walk 100-350 m; understands the procedure
+R214,NCT00762450,1,,,,,,,
+R215,NCT06070415,1,,,,,,,Spanish (language)
+R216,NCT03600428,1,,,,,,,English or Spanish literate (language; children)
+R217,NCT05402072,1,,,,,,x,co-morbidities requiring assistance for ADLs; language of the site (language)
+R218,NCT00372983,1,,i,,,,,ability to understand the requirements
+R219,NCT04152317,1,,,,,,,
+R220,NCT04025554,1,,i,,,,,ability to give informed consent
+R221,NCT01514864,1,,,,,,,
+R222,NCT06691698,1,,,,,x,x,need for AAC (pictures or signs); cerebral palsy or neuromuscular disease (intellectual disability trial)
+R223,NCT02280824,1,,x,,,,,unable or unwilling to consent
+R224,NCT00761826,1,,,xi,,,,visual acuity correctable to 20/40 in both eyes; blind in the fellow eye (LASIK)
+R225,NCT07039682,1,,x,,,,,unable or unwilling to provide assent; Bahasa Indonesia (language)

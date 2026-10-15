@@ -144,6 +144,64 @@ class ExceptionAndVetoTests(unittest.TestCase):
         self.assertNotIn("- Grade 3 toxicity", out)
 
 
+class RecallRuleTests(unittest.TestCase):
+    """0.4.0: wordings missed in the first 114 hand-labelled trials of the blind recall sample."""
+
+    def test_coordinated_lists(self):
+        cases = {
+            "Cognitive, visual or motor impairment": {"cognitive", "visual", "mobility"},
+            "Cognitive or visual impairment": {"cognitive", "visual"},
+            "Visual or auditory impairment": {"visual", "hearing"},
+            "Unable to hear, read, visualize or comprehend the assessment":
+                {"hearing", "communication", "visual", "consent_capacity"},
+        }
+        for item, want in cases.items():
+            with self.subTest(item=item):
+                self.assertEqual(ec.classify(item) & set(ec.CORE), want)
+
+    def test_new_wordings(self):
+        cases = {
+            "Learning difficulties such as dyslexia": "cognitive",
+            "Dementing illness": "cognitive",
+            "Limited cognitive ability": "cognitive",
+            "Decisionally impaired individuals": "consent_capacity",
+            "Adult under guardianship or curatorship": "consent_capacity",
+            "Condition that limits ability to consent": "consent_capacity",
+            "Cochlear implant": "hearing",
+            "Motor deficit due to another neurological disorder": "mobility",
+            "Severe upper extremity spasticity": "mobility",
+            "Limb conditions affecting ambulation": "mobility",
+        }
+        for item, cat in cases.items():
+            with self.subTest(item=item):
+                self.assertEqual(ec.classify(item) & set(ec.CORE), {cat})
+
+    def test_literacy_next_to_language(self):
+        self.assertIn("communication", ec.classify("Unable to read, not English speaking"))
+        self.assertEqual(ec.classify("Unable to read English"), {"english_only"})
+
+    def test_still_not_flagged(self):
+        self.assertNotIn("visual", ec.classify("Visual analogue scale score below 4"))
+        self.assertNotIn("mobility", ec.classify("History of physical or sexual abuse"))
+
+    def test_new_requirements(self):
+        cases = {
+            "20/20 vision or correctable to 20/20": {"visual"},
+            "No visual or auditory impairments": {"visual", "hearing"},
+            "Able to converse with study staff": {"communication"},
+            "Able to verbally consent": {"communication"},
+            "No communication problem": {"communication"},
+            "GMFCS level I-III": {"mobility"},
+            "GMFCS level I-V": set(),
+            "Able to perform the 6-minute walk test": {"mobility"},
+            "Adequate cognitive cooperation": {"cognitive"},
+            "BCVA 20/320 or better in the study eye": {"visual"},
+        }
+        for item, want in cases.items():
+            with self.subTest(item=item):
+                self.assertEqual(ec.requirements(item), want)
+
+
 class RequirementTests(unittest.TestCase):
     def test_requirements(self):
         cases = {

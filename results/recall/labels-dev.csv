@@ -1,0 +1,115 @@
+label,nct,done,cognitive,consent_capacity,visual,hearing,communication,mobility,notes
+R001,NCT05977036,1,,,,,,,consent ability item allows LAR
+R002,NCT01853280,1,,,,,,,tics/psychiatric only
+R003,NCT00910754,1,,,,,,,
+R004,NCT05938634,1,,,,,,xi,physical disability in both sections
+R005,NCT07844356,1,x,,xi,,,,ophthalmic trial: BCVA logMAR 0 required; amblyopia/nystagmus excluded; Down syndrome excluded
+R006,NCT00914238,1,,,,,,,consent refusal only
+R007,NCT03121599,1,,,,,,,
+R008,NCT04971889,1,,,,,,,
+R009,NCT07050654,1,x,,x,x,,x,cognitive abilities; severe sensory deficits (visual acuity; auditory perception); physical limitations/spasticity
+R010,NCT05368129,1,,,,,,,
+R011,NCT05194735,1,,i,,,,,able to provide written informed consent
+R012,NCT04719429,1,,,,,,,
+R013,NCT02341443,1,,i,,,,,ability to understand the ICF
+R014,NCT04817956,1,,,,,,,consent ability item names guardians/parents
+R015,NCT01503554,1,,,,,,,English-speaking only
+R016,NCT01654133,1,,xi,,,,,inability to give consent; able to provide consent (cohort 2)
+R017,NCT03284437,1,x,,,,,,cognitive impairment; developmental delay; dementia
+R018,NCT02543034,1,x,,,,,,limited cognitive ability
+R019,NCT03035240,1,,,,,,,able to read and speak English or Spanish (language)
+R020,NCT06798519,1,,i,,,,,capable of understanding/giving informed consent
+R021,NCT05097911,1,,,,,,,
+R022,NCT02316639,1,,,,,,i,single-leg hop and range-of-motion screen (ACL trial; condition-related)
+R023,NCT07592780,1,,,,,,,parent/guardian consent (children)
+R024,NCT04900272,1,x,xi,,,i,,condition that limits ability to consent e.g. severe cognitive impairment; able to verbally consent
+R025,NCT02860455,1,,,,,,,
+R026,NCT06881082,1,,,,,,,
+R027,NCT02749500,1,x,x,,,,x,cognitively impaired; lack capacity to consent; severe upper extremity spasticity (stroke trial)
+R028,NCT07636993,1,,x,,,,,handicapped patients and decisionally impaired individuals (handicapped = general)
+R029,NCT02251912,1,,i,,,i,,competency to consent; must read the consent form without help
+R030,NCT04054102,1,i,,,,,x,cognitively intact enough to follow instructions; other neurological disorders causing motor deficits (stroke trial)
+R031,NCT02246699,1,,,,,i,,able to read and write
+R032,NCT06464172,1,,,,x,,,cochlear implant (MRI/TMS safety)
+R033,NCT02253888,1,,i,,,,,capable of understanding and giving informed consent
+R034,NCT02452606,1,i,,,,,,MoCA >= 15
+R035,NCT07398456,1,,i,,,,,ability to understand
+R036,NCT00375531,1,,x,x,x,x,,unable to hear; read; visualize; comprehend the assessment
+R037,NCT01255280,1,,x,,,,,unable to consent due to mental or physical illness
+R038,NCT06528847,1,,i,,,,,able to understand the ICF
+R039,NCT06096142,1,,,,,,,
+R040,NCT03162731,1,,i,,,,,able to comprehend and sign consent
+R041,NCT07567833,1,,i,i,,,,BCVA 20/320 or better (ophthalmic); able to provide consent; ocular exclusions are eye pathology
+R042,NCT03584165,1,,,,,,,
+R043,NCT03090802,1,,,,,,,parent/guardian consent
+R044,NCT01079754,1,,,,,,,able to operate PCA (not mapped)
+R045,NCT01955603,1,,,,,,,
+R046,NCT05803252,1,x,,,,,,parents with cognitive deficiency or disability affecting comprehension
+R047,NCT02731144,1,,,,,,,surrogate consent
+R048,NCT00166062,1,,,,,x,,unable to read (next to not English speaking)
+R049,NCT05853562,1,x,,x,,,x,cognitive; visual; neurological or general motor impairment (coordinated list)
+R050,NCT00924989,1,,x,,,,,psychiatric condition impairing ability to understand or consent
+R051,NCT07227818,1,x,,,,,,dementing illness
+R052,NCT04073602,1,,,,,,,
+R053,NCT04185610,1,,,,,,,English proficiency only (language)
+R054,NCT00742495,1,,,,,,,
+R055,NCT04840095,1,,,i,,,,20/20 vision or correctable to 20/20
+R056,NCT02621086,1,,i,,,,,ability to give written informed consent
+R057,NCT06124781,1,,x,,,,,adult under guardianship or curatorship
+R058,NCT02807077,1,,i,,,i,,able to communicate well and understand; LAR not permitted
+R059,NCT07247422,1,,x,,,x,,cannot provide informed consent; illiterate
+R060,NCT02582177,1,,i,,,,,ability to understand and consent
+R061,NCT07548892,1,xi,,,,,,sufficient cognitive ability required; developmental disorder preventing use of scales excluded (children)
+R062,NCT03282656,1,,,,,,,
+R063,NCT04700033,1,x,,x,,,,head injuries causing cognitive or visual impairment
+R064,NCT07476963,1,,,,,,,ophthalmological exam abnormalities (eye pathology)
+R065,NCT02483988,1,x,xi,,x,,x,mental disability (dementia); mentally incapacitated; cochlear implants (MRI); motor deficit; limb conditions affecting ambulation
+R066,NCT01448239,1,,,,,,,
+R067,NCT06237491,1,,i,,,,,ability to understand and comply (consent item allows guardians)
+R068,NCT02369068,1,,,,,,,unable to read: nurse assists (accommodation)
+R069,NCT06216964,1,,xi,,,,,able to understand and consent; difficulties in understanding; guardianship/curatorship
+R070,NCT05949632,1,,,,,,,
+R071,NCT05162833,1,,i,,x,,i,ambulatory and able to use toilet independently; able to provide consent; cochlear implant (device)
+R072,NCT02565277,1,,,,,i,,able to converse with study personnel
+R073,NCT00006077,1,x,,,,,,dementia
+R074,NCT07000214,1,,x,x,,,x,VA < 20/100; unable to walk or stand 5 min; toe amputation; unable to understand or consent
+R075,NCT06837623,1,,,,,,,lack of consent (not capacity)
+R076,NCT03342482,1,,,,,,,
+R077,NCT04930250,1,,i,,,,,able to understand consent form (in English)
+R078,NCT04693806,1,,,,,,,
+R079,NCT00586690,1,,,,,,,
+R080,NCT03147092,1,,,,,,,
+R081,NCT02413697,1,,,,,,,
+R082,NCT02105623,1,,,,,,,
+R083,NCT07213895,1,i,i,,,,,no intellectual problems limiting consent; able to understand
+R084,NCT01069783,1,,,,,,,
+R085,NCT03615313,1,,i,,,,,adequate ability to understand
+R086,NCT07563478,1,x,,,,,,learning difficulties such as dyslexia
+R087,NCT02749188,1,,,,,,,infants not yet walking (not a disability exclusion)
+R088,NCT06383507,1,,i,,,,,ability to understand and sign consent
+R089,NCT05370053,1,,,,,,,
+R090,NCT06783517,1,,,,,,,
+R091,NCT01289015,1,,,,,,,
+R092,NCT04466384,1,,,,,,,
+R093,NCT04437446,1,,x,,,,,guardianship or curatorship (glaucoma trial; eye pathology not counted)
+R094,NCT00780936,1,,,,,,,fluent English only
+R095,NCT03131583,1,,,,,,,
+R096,NCT07197021,1,,,,,,i,ambulatory and able to perform 6MWT
+R097,NCT07258849,1,,,,,,x,ACR functional class 4 RA (unable to perform self-care)
+R098,NCT02084199,1,,,,,,,
+R099,NCT04376424,1,,,,,,,
+R100,NCT07336719,1,,,i,i,,,no visual or auditory impairments required (children)
+R101,NCT02963896,1,,,,,,,hearing loss is the condition (inclusion)
+R102,NCT06949163,1,,,,,,x,limb amputation
+R103,NCT07188090,1,,,,,,,consent ability item allows family member or guardian (accommodation)
+R104,NCT06790355,1,,i,,,,,able to provide written informed consent
+R105,NCT04605081,1,,,,,,,read and write English (language)
+R106,NCT00692575,1,,,,,,,sufficient English (language)
+R107,NCT02984527,1,x,i,,,,,dementia; understand oral information and able to sign consent
+R108,NCT07469696,1,i,,,,,i,adequate cognitive cooperation; GMFCS I-III (cerebral palsy trial; condition-related)
+R109,NCT04036604,1,,,,,i,,no communication problem
+R110,NCT03146000,1,,i,,,,,ability to understand and sign consent
+R111,NCT01392755,1,,,,,,,
+R112,NCT07188675,1,,,x,x,,xi,able to walk independently; visual; auditory; musculoskeletal disorders affecting balance
+R113,NCT03056677,1,,,,,,,English literacy (language)
+R114,NCT07846787,1,x,,i,,,,corrected VA logMAR <= 0.1 (myopia trial); Down syndrome excluded; consent item names guardian

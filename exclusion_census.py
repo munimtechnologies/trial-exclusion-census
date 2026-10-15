@@ -25,6 +25,16 @@ ophthalmology trial, and a planned amputation. It also reports the number of
 exclusion items per trial and splits each year by phased (drug) and unphased
 trials, so a trend can be told apart from longer criteria or a changing mix.
 
+Since 0.4.0, after hand-labelling 114 trials of the blind recall sample, it
+reads coordinated lists ("cognitive, visual or motor impairment", "unable to
+hear, read or comprehend"), more wordings (learning difficulties, decisionally
+impaired, adults under guardianship or curatorship, cochlear implants, motor
+deficits, spasticity), literacy next to a language ("unable to read, not
+English speaking") and more ability requirements (20/20 vision, no visual or
+auditory impairment, able to converse, GMFCS I-III). These rules were fixed
+before the other 111 trials of that sample were labelled, so those trials
+measure them fairly.
+
 Earlier work coded samples by hand: 97 protocols in four areas (DeCormier
 Plosky et al., Health Affairs 2022) and 2,710 trials for ten conditions,
 2010-2020 (scoping review, 2023). This is the whole registry, by year, with
@@ -58,7 +68,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-__version__ = "0.3.0"
+__version__ = "0.4.0"
 
 API = "https://clinicaltrials.gov/api/v2/studies"
 UA = "trial-exclusion-census/%s (Munim, Inc.; munimversion2@gmail.com)" % __version__
@@ -74,6 +84,12 @@ CATEGORIES = CORE + OTHER
 SENSORY_PHYSICAL = ("visual", "hearing", "communication", "mobility")
 
 _UNABLE = r"\b(?:unable|inability|not able|cannot|can ?not|incapable of|incapacity)"
+# "and", "or", a comma or a slash between the members of a list.
+_AND = r"\s*(?:,\s*(?:\b(?:and/or|or|and)\b)?|/|\band/or\b|\bor\b|\band\b)\s*"
+# "unable to hear, read or ..." reaches each verb of the list.
+_UNABLE_TO = _UNABLE + r"\s+(?:to\s+)?(?:[\w-]+" + _AND + r"){0,4}"
+# The rest of a list that ends in an impairment: "cognitive[, visual or motor impairment]".
+_LIST = r"(?:" + _AND + r"(?:[\w-]+\s+)?[\w-]+){1,4}?\s+(?:impair|deficit|disab|handicap|dysfunction|loss)"
 _LANGS = (r"english|spanish|french|german|italian|dutch|chinese|mandarin|cantonese|japanese|"
           r"korean|portuguese|hebrew|arabic|danish|swedish|norwegian|finnish|polish|russian|"
           r"turkish|greek|thai|hindi|vietnamese|local language|national language|"
@@ -81,40 +97,58 @@ _LANGS = (r"english|spanish|french|german|italian|dutch|chinese|mandarin|cantone
 # Not followed, within the same clause, by a language name: "unable to read English"
 # is a language requirement (english_only), not a communication disability.
 _NOT_LANG = r"(?![^.;\n]{0,40}\b(?:" + _LANGS + r")\b)"
+# The same, but a language after "not" or "non-" is a second exclusion, so
+# "unable to read, not English speaking" is still a literacy exclusion.
+_NOT_LANG_X = r"(?![^.;\n]{0,40}\b(?<!not )(?<!non-)(?<!non )(?:" + _LANGS + r")\b)"
 _BLIND = r"(?<!double-)(?<!double )(?<!single-)(?<!single )(?<!triple-)(?<!triple )\bblind(?:ness)?\b(?!-)"
 PATTERNS = {
     "cognitive": [
-        r"\bdementia", r"\balzheimer", r"\bmild cognitive impairment\b",
-        r"\bcognitive(?:ly)?\s+(?:impair|deficit|dysfunction|decline|disorder|disabilit|problem)",
-        r"\bintellectual(?:ly)?\s+(?:disab|impair|deficien)", r"\bmental(?:ly)?\s+retard",
-        r"\bdevelopmental\s+(?:delay|disab)", r"\blearning\s+disab",
+        r"\bdement(?:ia|ing)", r"\balzheimer", r"\bmild cognitive impairment\b",
+        r"\bcognitive(?:ly)?\s+(?:impair|deficit|dysfunction|decline|disorder|disabilit|problem|deficien|limitation|difficult)",
+        r"\b(?:limited|low|reduced|insufficient|poor|impaired|diminished)\s+cognitive\s+(?:abilit|function|capacit|skill|level)",
+        r"\b(?:cognitive|intellectual)" + _LIST,
+        r"\bintellectual(?:ly)?\s+(?:disab|impair|deficien)", r"\bmental(?:ly)?\s+(?:retard|disab|handicap|deficien)",
+        r"\bdevelopmental\s+(?:delay|disab)", r"\blearning\s+(?:disab|difficult)",
         r"\b(?:mmse|mini[- ]mental|moca|montreal cognitive)\b"],
     "consent_capacity": [
         _UNABLE + r"\b[^.;\n]{0,60}\b(?:consent|assent)\b",
         r"\b(?:lack|lacks|lacking|impaired|diminished|without)\s+(?:the\s+)?(?:decision(?:al)?[- ]making\s+)?capacity\b",
         r"\bdecision(?:al)?[- ]making capacity\b", r"\blegally incompetent\b",
-        _UNABLE + r"\s+(?:to\s+)?(?:understand|comprehend)\b" + _NOT_LANG],
+        r"\bdecisional(?:ly)?\s+(?:impair|incapac)", r"\bmentally\s+(?:incapacitated|incompetent|incapable)",
+        r"\b(?:limit|impair|affect|compromis|preclud|prevent|interfer)\w*\s+(?:with\s+)?(?:the\s+|their\s+|his\s+|her\s+)?"
+        r"(?:abilit(?:y|ies)|capacity)\s+to\s+(?:\w+\s+){0,2}?(?:consent|assent)\b",
+        r"\b(?:guardianship|curatorship|tutorship|tutelage|safeguard of justice|sauvegarde de justice)\b",
+        r"\bunder\s+(?:a\s+)?(?:legal|judicial|court)\s+protection\b",
+        _UNABLE_TO + r"(?:understand|comprehend)\b" + _NOT_LANG],
     "visual": [
         _BLIND,
         r"\bvisual(?:ly)?\s+(?:impair|disab|handicap|loss|deficit)", r"\blow vision\b",
-        r"\bvision\s+(?:loss|impairment|problem)", r"\bunable to see\b",
+        r"\bvision\s+(?:loss|impairment|problem)", _UNABLE_TO + r"(?:see|visuali[sz]e)\b",
         r"\b(?:inadequate|insufficient|poor|impaired|reduced)\s+(?:vision|eyesight)\b",
+        r"\b(?:visual|vision)" + _LIST,
         r"\bvisual acuity\b"],
     "hearing": [
         r"\bdeaf(?:ness)?\b", r"\bhearing\s+(?:impair|loss|disab|deficit|problem|difficult)",
-        r"\bhard of hearing\b", r"\bunable to hear\b",
-        r"\b(?:impaired|inadequate|insufficient|poor|reduced)\s+hearing\b", r"\bhearing aids?\b"],
+        r"\bhard of hearing\b", _UNABLE_TO + r"hear\b",
+        r"\b(?:impaired|inadequate|insufficient|poor|reduced)\s+hearing\b", r"\bhearing aids?\b",
+        r"\bauditory\s+(?:impair|deficit|disab|loss|handicap|problem)", r"\b(?:hearing|auditory)" + _LIST,
+        r"\bcochlear implant"],
     "communication": [
         r"\baphasi", r"\bdysarthri", r"\billiter", r"\bnon[- ]?verbal\b",
-        _UNABLE + r"\s+(?:to\s+)?(?:speak|communicate|read|write|verbali[sz]e)\b" + _NOT_LANG,
-        r"\b(?:speech|communication|language)\s+(?:impair|disorder|deficit|difficult|disab)"],
+        _UNABLE_TO + r"(?:speak|communicate|read|write|verbali[sz]e)\b" + _NOT_LANG_X,
+        r"\b(?:speech|communication|language)\s+(?:impair|disorder|deficit|difficult|disab)",
+        r"\b(?:speech|communication)" + _LIST],
     "mobility": [
         r"\bwheel[- ]?chair", r"\bnon[- ]?ambulatory\b",
-        _UNABLE + r"\s+(?:to\s+)?(?:walk|ambulate|stand)\b", r"\bbed[- ]?(?:ridden|bound)\b",
+        _UNABLE_TO + r"(?:walk|ambulate|stand)\b", r"\bbed[- ]?(?:ridden|bound)\b",
         r"\bparapleg", r"\btetrapleg", r"\bquadripleg", r"\bhemipleg(?!ic migraine)",
         r"\bparaly(?:sis|ses|zed|sed)\b", r"\bamputat",
         r"\b(?:mobility|physical)\s+(?:impair|disab|limitation|handicap)",
-        r"\b(?:requir\w*|dependent on|use of|uses?)\s+(?:an?\s+)?(?:walking aid|walker|cane|crutch|assistive device)"],
+        r"\b(?:requir\w*|dependent on|use of|uses?)\s+(?:an?\s+)?(?:walking aid|walker|cane|crutch|assistive device)",
+        r"\bmotor\s+(?:impair|deficit|disab|handicap|limitation)", r"\bspasticity\b",
+        r"\b(?:affect|limit|impair|prevent|preclud|interfer|restrict)\w*\s+(?:with\s+)?(?:the\s+|their\s+|his\s+|her\s+)?"
+        r"(?:ambulation|walking|mobility|gait|ability to walk)\b",
+        r"\b(?:motor|physical|mobility|locomotor)" + _LIST],
     "psychiatric": [
         r"\bschizo", r"\bbipolar\b", r"\bpsychos[ie]s\b", r"\bpsychotic\b",
         r"\bpsychiatric\s+(?:disorder|illness|condition|disease|history|hospitali|comorbid)",
@@ -169,10 +203,13 @@ VETO = {cat: (re.compile(v, re.I), re.compile(k, re.I)) for cat, (v, k) in VETO_
 _ABLE = r"\b(?:able|ability|capable|capacity)(?:\s+and\s+willing)?\s+(?:to|of)\s+(?:\w+ly\s+)?"
 # The whole item names no one who can consent for the participant.
 _NO_PROXY = r"^(?!.*\b(?:representatives?|LAR|surrogates?|guardians?|prox(?:y|ies)|parents?)\b).*?"
+# "no visual or auditory impairment": the list may hold other senses before or after.
+_NO = r"\b(?:no|without)\s+(?:[\w-]+" + _AND + r"){0,3}"
+_NO_TAIL = r"\b(?:" + _AND + r"[\w-]+){0,3}\s+(?:impair|deficit|problem|disab|loss)"
 REQUIRE_PATTERNS = {
     "cognitive": [
-        r"\bcognitively\s+(?:intact|normal|unimpaired|healthy)\b",
-        r"\b(?:normal|intact|preserved)\s+cognit",
+        r"\bcognitively\s+(?:intact|normal|unimpaired|healthy|able|capable)\b",
+        r"\b(?:normal|intact|preserved|sufficient|adequate)\s+cognit",
         r"\b(?:mmse|mini[- ]mental|moca|montreal cognitive)\b[^.;\n]{0,40}"
         r"(?:≥|>=|>|\bat least\b|\bor (?:higher|greater|more|above)\b|\bgreater than\b|\babove\b)"],
     "consent_capacity": [
@@ -184,19 +221,28 @@ REQUIRE_PATTERNS = {
         r"(?:vision|eyesight|visual acuity)\b",
         r"\bcorrected[- ]to[- ]normal\s+(?:vision|visual acuity|eyesight)\b",
         _ABLE + r"see\b",
-        r"\bvisual acuity\b[^.;\n]{0,40}\bor better\b"],
+        r"\b(?:bcva|best[- ]corrected visual acuity|visual acuity)\b[^.;\n]{0,40}\bor better\b",
+        r"\b20/\d{2,3}\s+(?:vision|or better)\b",
+        _NO + r"(?:visual|vision)" + _NO_TAIL],
     "hearing": [
         r"\b(?:normal|adequate|sufficient|intact|good)\s+hearing\b",
-        _ABLE + r"hear\b"],
+        _ABLE + r"hear\b",
+        _NO + r"(?:hearing|auditory)" + _NO_TAIL],
     "communication": [
-        _ABLE + r"(?:speak|communicat|read|writ|verbali[sz])\w*\b" + _NOT_LANG,
+        _ABLE + r"(?:speak|communicat|read|writ|verbali[sz]|convers)\w*\b" + _NOT_LANG,
         r"\b(?:functionally\s+)?literate\b" + _NOT_LANG,
-        r"\b(?:fluent|intelligible)\s+speech\b"],
+        r"\b(?:fluent|intelligible)\s+speech\b",
+        r"\b(?:able|ability|capable)\s+to\s+(?:verbally|orally)\b",
+        r"\b(?:no|without)\s+(?:\w+\s+)?(?:communication|speech|language)\s+(?:problem|difficult|impair|disorder|deficit)"],
     "mobility": [
         _ABLE + r"(?:walk(?:s|ing)?|ambulat(?:e|ing)|stand(?:ing)?)\b",
         r"\b(?:independently|fully|freely)\s+ambulat",
         r"\bambulat(?:ory|e|ing)\s+(?:without|with or without|independently|unaided|unassisted)\b",
-        r"\bwalk(?:s|ing)?\s+(?:independently|unaided|unassisted|without (?:assistance|help|an? (?:assistive|walking) (?:device|aid)))"],
+        r"\bwalk(?:s|ing)?\s+(?:independently|unaided|unassisted|without (?:assistance|help|an? (?:assistive|walking) (?:device|aid)))",
+        r"\b(?:able|ability)\s+to\s+(?:perform|complete|do|undergo)\s+(?:a\s+|the\s+)?"
+        r"(?:6MWT|6-?minute walk|six[- ]minute walk|timed up and go)\b",
+        r"\b(?:gmfcs|gross motor function classification system)\b[^.;\n]{0,30}"
+        r"\b(?:I|1)\s*(?:-|–|to|through)\s*(?:I{1,3}|IV|[1-4])\b"],
 }
 REQUIRE_RULES = {cat: [re.compile(p, re.I) for p in pats] for cat, pats in REQUIRE_PATTERNS.items()}
 REQUIRED = tuple("required_" + cat for cat in CORE)
