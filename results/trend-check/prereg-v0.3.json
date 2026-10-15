@@ -1,0 +1,32 @@
+{
+ "name": "trend check v0.3, pre-registered",
+ "written": "2026-10-15",
+ "note": "Fixed before any count of the new controls or of start years other than 2008, 2012, 2016, 2020 and 2025 was made. Do not edit; additions go in a new file and are labelled exploratory.",
+ "years": [2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+ "strata": ["all", "no_phase", "other"],
+ "families": {
+  "cognitive (all wordings)": ["cognitive impairment", "dementia", "mental retardation", "intellectual disability", "cognitively impaired", "cognitive deficit", "cognitive dysfunction"],
+  "hearing (all wordings)": ["hearing loss", "deaf", "deafness", "hearing impairment", "hard of hearing", "hearing impaired"],
+  "visual (all wordings)": ["visual impairment", "low vision", "vision loss", "visually impaired", "legally blind"]
+ },
+ "controls": {
+  "common (from 0.1.0)": ["pregnant", "hepatitis", "allergy"],
+  "rare (from 0.2.0, already counted for 2008 and 2025)": ["gout", "psoriasis", "tattoo", "migraine", "osteoporosis", "claustrophobia", "lactose intolerance", "sickle cell"],
+  "rare (new, never counted)": ["celiac", "eczema", "kidney stones", "rosacea", "shingles", "endometriosis", "vitiligo", "gallstones", "hernia", "acne", "hemorrhoids", "varicose veins"]
+ },
+ "reference": ["informed consent"],
+ "min_first_year_matches": 20,
+ "primary": [
+  "H1: in no-phase trials the three families' 2025/2008 share ratios rank above the controls' (exact one-sided rank-sum test, alpha 0.05). Replicates the exploratory 0.2.0 result with 12 controls it never saw.",
+  "H2: in other (phased) trials the same test gives p >= 0.05 (no disability-specific rise)."
+ ],
+ "secondary": [
+  "For every phrase and stratum: the share in each start year 2008-2025 and the least-squares slope of log(share) on year; the families' slopes ranked among the controls' slopes with the same exact test.",
+  "VA-led trials against the registry (sponsor_check.py) within no-phase trials, with all 23 controls, the same test."
+ ],
+ "rules": [
+  "A control with fewer than min_first_year_matches matches in 2008 in a stratum is left out of that stratum's tests and listed as left out.",
+  "Every result is reported, whichever way it goes, next to the 0.2.0 numbers and never in place of them.",
+  "Counts are the registry's own search (ClinicalTrials.gov API v2, interventional studies, by start date), fetched in one run."
+ ]
+}

@@ -67,7 +67,8 @@ section. The rules were published before any of these numbers were seen.
   How much of this rise is specific to disability is checked below; the short answer is that it
   is clear in no-phase trials and not shown in the others.
 - By lead sponsor class: other (mostly academic) 22.8%, industry 12.4%, NIH 14.7%, and other US
-  federal agencies 38.3% (4,174 trials).
+  federal agencies 38.3% (4,174 trials). Most of those are trials led by the Department of
+  Veterans Affairs (see below).
 - By phase: trials with no phase (devices, behavioural studies, procedures) 25.7%; phase 1 10.7%,
   phase 2 14.1% and phase 3 13.5%.
 
@@ -118,6 +119,33 @@ start as rare as the disability phrases, can rise a lot: tattoo exclusions 2.4 t
   hand checks are the measure of exclusion.
 
 `trend_check.py` repeats every count and the test.
+
+**Pre-registered next test.** [PREREG-v0.3.md](results/trend-check/PREREG-v0.3.md) and
+[prereg-v0.3.json](results/trend-check/prereg-v0.3.json) fix, before counting, the phrase lists
+(23 controls, 12 of them never counted), every start year from 2008 to 2025, the hypotheses and
+the tests of the next trend check. Its result will be reported whichever way it goes.
+
+### Which federal sponsors? The VA
+
+[results/sponsor-check/VA-CHECK.md](results/sponsor-check/VA-CHECK.md) asks why "other federal"
+trials exclude so often, again with the registry's own search (counts of 2026-10-15):
+
+- Two-thirds of federal-led interventional trials (2,919 of 4,314) are led by the Department of
+  Veterans Affairs. The other federal trials name a cognitive wording **less** often than the
+  registry (4.2% against 9.2%).
+- VA-led trials name a cognitive wording 3.3 times as often as the registry (30.7% of trials),
+  and hearing and visual wordings 2.6 and 2.7 times as often. They name "informed consent" and 9
+  of 11 non-disability controls **less** often (median 0.58 times). All three disability families
+  rank above all 11 controls: exact rank-sum test p = 0.0027.
+- Leaving out trials of the condition itself (dementia, hearing or eye trials), the ratios are
+  2.3 to 3.2. Within no-phase trials only, they are 2.7 (cognitive) and about 2 (hearing,
+  visual).
+- The first 12 such VA trials read by hand, outside cognitive or dementia trials, all use the
+  wording as an exclusion, often a broad one ("significant cognitive impairment", "cognitive
+  impairment that would interfere with study participation"), many in PTSD and other
+  mental-health trials.
+- This does not show that the exclusions are unjustified. VA patients and trial designs differ
+  from the registry's, and no condition-matched comparison has been made yet.
 
 **What these numbers do not show yet.**
 
@@ -211,6 +239,7 @@ python exclusion_census.py census --out-dir out2 --cache ctgov.jsonl.gz --seed 2
 python exclusion_census.py check criteria.txt     # one trial's criteria, with alternatives to consider
 python diff_rules.py --old old/exclusion_census.py --new exclusion_census.py --cache ctgov.jsonl.gz
 python trend_check.py --json trend.json           # the registry-search trend check (215 small requests)
+python sponsor_check.py --sponsor va --json va.json   # one sponsor group against the registry
 python -m unittest -v
 ```
 
@@ -244,6 +273,12 @@ a few disability phrases, pooled disability families (every wording at once), co
 control phrases, overall, in no-phase and other trials, and for some phrases without the trials
 that study that condition. It then tests the families against the controls with an exact rank-sum
 test. `--years` and `--phrases` take other lists.
+
+`sponsor_check.py` does the same for one sponsor group against the whole registry, over all
+start years: the share of the group's trials naming each family and control, the ratio to the
+registry's share, each family within no-phase trials and without trials of its own condition,
+and the same rank-sum test. `--sponsor` takes `va`, `fed`, `nih`, `industry` or any search
+fragment.
 
 Standard library only (Python 3.9+). No API key.
 
@@ -302,6 +337,12 @@ first 114 trials, whose misses shaped 0.4.0, and the other 111, labelled after 0
 
 ## Changes
 
+- After 0.5.0 (on main): `sponsor_check.py` 0.1.0 and
+  [results/sponsor-check/VA-CHECK.md](results/sponsor-check/VA-CHECK.md): the high "other
+  federal" rate comes from VA-led trials, whose criteria name disability 2.6 to 3.3 times as often
+  as the registry while naming controls less often. [PREREG-v0.3.md](results/trend-check/PREREG-v0.3.md)
+  and [prereg-v0.3.json](results/trend-check/prereg-v0.3.json) fix the next trend check before
+  it is counted. The census rules are unchanged.
 - After 0.5.0 (on main): `trend_check.py` 0.2.0 adds eight rare controls, pooled disability
   families and an exact rank-sum test, and
   [results/trend-check/TREND-CHECK.md](results/trend-check/TREND-CHECK.md) section 4 corrects the
