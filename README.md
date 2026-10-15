@@ -130,10 +130,15 @@ fewer than 20 matches in 2008, the hypotheses and the tests before counting.
   p = 0.020.
 - **H2 holds:** in the other trials the families sit in the middle of 22 controls: p = 0.45.
 - The rule was written when some 2008 counts were already known, and it drops tattoo, the old
-  test's top control. Both results are reported. The per-year analysis (every start year from
-  2008 to 2025) is still to come.
+  test's top control. Both results are reported.
+- **By year** ([PREREG-v0.3-PERYEAR.md](results/trend-check/PREREG-v0.3-PERYEAR.md)): the
+  pre-registered per-year secondary, counted for no-phase trials and the 9 kept controls, uses
+  all 18 start years. The three families have the three steepest slopes of log share on year
+  (visual +7.3%, hearing +6.2%, cognitive +3.2% a year; steepest control, eczema, +2.4%):
+  p = 0.0045. The cognitive lead over the controls is small. The other strata were not counted
+  by year.
 
-`prereg_v03.py` recomputes every number from the saved counts.
+`prereg_v03.py` and `peryear_v03.py` recompute every number from the saved counts.
 
 ### Which federal sponsors? The VA
 
@@ -157,7 +162,9 @@ trials exclude so often, again with the registry's own search (counts of 2026-10
   impairment that would interfere with study participation"), many in PTSD and other
   mental-health trials.
 - This does not show that the exclusions are unjustified. VA patients and trial designs differ
-  from the registry's, and no condition-matched comparison has been made yet.
+  from the registry's. A comparison with other trials of the same condition (PTSD, substance use,
+  depression, pain and cardiometabolic, no-phase) is pre-registered in
+  [PREREG-VA-MATCHED.md](results/sponsor-check/PREREG-VA-MATCHED.md) and has not been counted yet.
 
 **What these numbers do not show yet.**
 
@@ -253,6 +260,8 @@ python diff_rules.py --old old/exclusion_census.py --new exclusion_census.py --c
 python trend_check.py --json trend.json           # the registry-search trend check (215 small requests)
 python sponsor_check.py --sponsor va --json va.json   # one sponsor group against the registry
 python prereg_v03.py                              # the pre-registered trend test, from saved counts
+python peryear_v03.py                             # its per-year secondary, from saved counts
+python va_matched.py --fetch --json va-matched.json   # the pre-registered condition-matched VA test
 python -m unittest -v
 ```
 
@@ -296,6 +305,13 @@ fragment.
 `prereg_v03.py` reads the counts fetched for the pre-registered test
 (`results/trend-check/prereg-v0.3-counts.json`), applies its 20-match rule and runs H1, H2, the
 VA secondary test and the sensitivity checks. `--json` writes the ratios and tests.
+`peryear_v03.py` reads `results/trend-check/prereg-v0.3-peryear-counts.json` and gives each
+phrase's slope of log share on start year and the same test on the slopes.
+
+`va_matched.py` compares VA-led no-phase trials with other no-phase trials of the same condition
+in five disjoint strata, with a Mantel-Haenszel ratio for each phrase and the families against the
+controls, as fixed in [PREREG-VA-MATCHED.md](results/sponsor-check/PREREG-VA-MATCHED.md).
+`--fetch` makes the counts (about 130 small requests); without it, it reads the saved counts.
 
 Standard library only (Python 3.9+). No API key.
 
@@ -354,6 +370,13 @@ first 114 trials, whose misses shaped 0.4.0, and the other 111, labelled after 0
 
 ## Changes
 
+- After 0.5.0 (on main): `peryear_v03.py` 0.1.0,
+  [PREREG-v0.3-PERYEAR.md](results/trend-check/PREREG-v0.3-PERYEAR.md) and
+  [prereg-v0.3-peryear-counts.json](results/trend-check/prereg-v0.3-peryear-counts.json): the
+  pre-registered per-year secondary, reduced to no-phase trials and the 9 kept controls (208 new
+  counts). The families have the three steepest slopes, p = 0.0045. `va_matched.py` 0.1.0 and
+  [PREREG-VA-MATCHED.md](results/sponsor-check/PREREG-VA-MATCHED.md) fix a condition-matched VA
+  test before it is counted. The census rules are unchanged.
 - After 0.5.0 (on main): `prereg_v03.py` 0.1.0,
   [PREREG-v0.3-RESULT.md](results/trend-check/PREREG-v0.3-RESULT.md) and
   [prereg-v0.3-counts.json](results/trend-check/prereg-v0.3-counts.json): the pre-registered

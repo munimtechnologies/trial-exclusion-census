@@ -1,0 +1,23 @@
+{
+ "name": "trend check v0.3, pre-registered secondary: shares by start year (reduced)",
+ "fetched": "2026-10-15",
+ "source": "ClinicalTrials.gov API v2 search (data from the US National Library of Medicine), countTotal of query.term = AREA[StudyType]INTERVENTIONAL AND AREA[StartDate]RANGE[<year>-01-01,<year>-12-31] AND AREA[Phase]NA AND AREA[EligibilityCriteria]<phrase, or an OR of a family's wordings as in trend_check.criteria>",
+ "note": "Reduced version of the per-year secondary of prereg-v0.3.json: no-phase trials only, the three families and the 9 controls that the 20-match rule keeps there (H1). 2008 and 2025 are the counts of prereg-v0.3-counts.json; 2009-2024 were fetched in one run on 2026-10-15, after the 2008 no-phase total (3,474) and hearing count (49) were re-fetched and matched. The all-trials and other-trials strata, the 14 left-out controls and the reference phrase were not counted by year. CC BY 4.0. Counted by MV2 of Munim, Inc. with AI agents.",
+ "stratum": "no_phase",
+ "years": [2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+ "trials": [3474, 4138, 4734, 5428, 6418, 7415, 8599, 9702, 11203, 12172, 13526, 14201, 13365, 17059, 17791, 19256, 20073, 20003],
+ "phrases": {
+  "cognitive (all wordings)": {"kind": "family", "counts": [311, 369, 403, 459, 571, 761, 903, 1046, 1189, 1330, 1535, 1665, 1513, 2147, 2238, 2536, 2846, 3110]},
+  "hearing (all wordings)": {"kind": "family", "counts": [49, 59, 54, 57, 81, 104, 147, 163, 201, 211, 303, 313, 299, 421, 475, 538, 580, 666]},
+  "visual (all wordings)": {"kind": "family", "counts": [29, 36, 45, 53, 62, 76, 109, 144, 167, 200, 222, 240, 233, 337, 382, 492, 490, 513]},
+  "pregnant": {"kind": "control", "counts": [1287, 1506, 1758, 1987, 2494, 2856, 3196, 3665, 4158, 4540, 4989, 5257, 4952, 6209, 6495, 7069, 7371, 7791]},
+  "hepatitis": {"kind": "control", "counts": [129, 131, 144, 134, 169, 210, 216, 234, 283, 285, 324, 352, 294, 407, 399, 422, 477, 464]},
+  "allergy": {"kind": "control", "counts": [658, 746, 897, 928, 1142, 1204, 1465, 1627, 1825, 1943, 2218, 2289, 2132, 2865, 3007, 3136, 3367, 3796]},
+  "psoriasis": {"kind": "control", "counts": [25, 17, 31, 37, 41, 59, 55, 81, 117, 84, 102, 128, 115, 124, 151, 155, 161, 161]},
+  "migraine": {"kind": "control", "counts": [29, 25, 36, 33, 55, 47, 64, 75, 66, 97, 105, 125, 103, 156, 171, 179, 167, 227]},
+  "osteoporosis": {"kind": "control", "counts": [50, 52, 65, 79, 83, 85, 101, 137, 114, 152, 157, 189, 139, 215, 236, 262, 282, 284]},
+  "claustrophobia": {"kind": "control", "counts": [50, 65, 64, 86, 120, 150, 182, 187, 193, 214, 239, 255, 210, 260, 293, 344, 307, 334]},
+  "eczema": {"kind": "control", "counts": [24, 18, 36, 35, 37, 53, 55, 90, 107, 84, 89, 127, 98, 137, 153, 169, 183, 168]},
+  "hernia": {"kind": "control", "counts": [34, 51, 72, 61, 85, 84, 85, 110, 141, 145, 176, 199, 145, 211, 257, 270, 326, 319]}
+ }
+}
