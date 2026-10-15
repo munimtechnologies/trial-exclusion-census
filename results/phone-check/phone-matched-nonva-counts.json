@@ -1,0 +1,23 @@
+{
+ "fetched": "2026-10-15",
+ "note": "EXPLORATORY, not pre-registered: added after the pre-registered counts were seen. The hearing family only, with trials led by the VA left out (each phone_matched.term() query plus ' AND NOT AREA[LeadSponsorName](VA OR Veteran OR Veterans)', the VA filter of the pre-registered S2 reading). Same layout as phone-matched-counts.json, so phone_matched.rows() applies. CC BY 4.0. Made by MV2 of Munim, Inc. with AI agents.",
+ "va_filter": "NOT AREA[LeadSponsorName](VA OR Veteran OR Veterans)",
+ "strata": ["ptsd", "substance use", "depression", "pain", "cardiometabolic", "other"],
+ "trials": {
+  "ptsd": {"phone": 74, "registry": 1062},
+  "substance use": {"phone": 615, "registry": 6163},
+  "depression": {"phone": 389, "registry": 5404},
+  "pain": {"phone": 372, "registry": 19051},
+  "cardiometabolic": {"phone": 1331, "registry": 24532},
+  "other": {"phone": 4639, "registry": 152246}
+ },
+ "phrases": {
+  "hearing (all wordings)": {"kind": "family",
+   "ptsd": {"phone": 4, "registry": 42},
+   "substance use": {"phone": 11, "registry": 82},
+   "depression": {"phone": 24, "registry": 175},
+   "pain": {"phone": 22, "registry": 521},
+   "cardiometabolic": {"phone": 61, "registry": 383},
+   "other": {"phone": 157, "registry": 2226}}
+ }
+}

@@ -143,5 +143,69 @@ class PreregTests(unittest.TestCase):
             self.assertLess(size["phone"], size["registry"])
 
 
+class PublishedTests(unittest.TestCase):
+    def load(self, name):
+        path = os.path.join(HERE, "results", "phone-check", name)
+        if not os.path.exists(path):
+            self.skipTest("%s not present" % name)
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+
+    def test_counts_file(self):
+        data = self.load("phone-matched-counts.json")
+        self.assertEqual(data["strata"], [s for s, _ in pm.STRATA])
+        self.assertEqual(list(data["phrases"]), pm.PHRASES)
+        for p, c in data["phrases"].items():
+            self.assertEqual(c["kind"], vm.kind(p))
+            for s in data["strata"]:
+                self.assertLessEqual(c[s]["phone"], c[s]["registry"])
+                self.assertLessEqual(c[s]["registry"], data["trials"][s]["registry"])
+
+    def test_stratum_sizes_match_the_preregistration(self):
+        data = self.load("phone-matched-counts.json")
+        prereg = self.load("prereg-phone-matched.json")
+        self.assertEqual(data["trials"], prereg["stratum_sizes_known_before"])
+
+    def test_result(self):
+        data = self.load("phone-matched-counts.json")
+        rs = {r["phrase"]: r for r in pm.rows(data)}
+        # Worked out by hand on 2026-10-15 (PHONE-MATCHED-RESULT.md).
+        for phrase, est in [("cognitive (all wordings)", 1.93), ("hearing (all wordings)", 2.45),
+                            ("visual (all wordings)", 2.13), ("pregnant", 0.61),
+                            ("hepatitis", 0.34), ("allergy", 0.25), ("migraine", 0.56),
+                            ("osteoporosis", 0.43), ("claustrophobia", 0.24), ("celiac", 0.40),
+                            ("hernia", 0.49), ("informed consent", 0.78)]:
+            self.assertAlmostEqual(rs[phrase]["mh"], est, delta=0.011)
+        for phrase, low, high in [("hearing (all wordings)", 2.17, 2.75),
+                                  ("visual (all wordings)", 1.85, 2.47),
+                                  ("cognitive (all wordings)", 1.84, 2.02),
+                                  ("pregnant", 0.58, 0.63),
+                                  ("informed consent", 0.75, 0.81)]:
+            self.assertAlmostEqual(rs[phrase]["low"], low, delta=0.011)
+            self.assertAlmostEqual(rs[phrase]["high"], high, delta=0.011)
+        h = rs["hearing (all wordings)"]
+        self.assertEqual(h["va"], 294)
+        self.assertAlmostEqual(h["expected"], 120.4, delta=0.05)
+        self.assertAlmostEqual(h["crude"], 2.44, delta=0.011)
+        self.assertTrue(all(r["kept"] for r in rs.values()))
+        self.assertEqual(pm.verdicts(list(rs.values())), {"HP1": True, "HP2": True, "rivals": 9})
+        t = vm.test(list(rs.values()))
+        self.assertEqual((t["families"], t["controls"], t["left_out"], t["rank_sum"], t["p"]),
+                         (3, 8, [], 30.0, 0.0061))
+
+    def test_exploratory_without_the_va(self):
+        data = self.load("phone-matched-nonva-counts.json")
+        full = self.load("phone-matched-counts.json")
+        for s in data["strata"]:
+            for k in ("phone", "registry"):
+                self.assertLessEqual(data["trials"][s][k], full["trials"][s][k])
+        (h,) = pm.rows(data)
+        self.assertEqual(h["va"], 279)
+        self.assertAlmostEqual(h["mh"], 2.41, delta=0.011)
+        self.assertAlmostEqual(h["low"], 2.14, delta=0.011)
+        self.assertAlmostEqual(h["high"], 2.72, delta=0.011)
+        self.assertAlmostEqual(h["crude"], 2.40, delta=0.011)
+
+
 if __name__ == "__main__":
     unittest.main()

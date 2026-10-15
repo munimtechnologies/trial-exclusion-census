@@ -180,15 +180,30 @@ trials exclude so often, again with the registry's own search (counts of 2026-10
 - This does not show that the exclusions are unjustified. VA patients and trial designs differ
   from the registry's, and the matched test matches on condition only, not on design, age or sex.
 
-### Is it the telephone? (pre-registered, not yet counted)
+### Is it the telephone? Across all sponsors, yes (pre-registered)
 
-[PREREG-PHONE-MATCHED.md](results/phone-check/PREREG-PHONE-MATCHED.md) asks whether the VA
-pattern holds for every sponsor: do no-phase trials whose interventions mention the telephone
-name a hearing wording more often than other trials of the same condition (HP1), and more than
-they name visual wordings or non-disability controls (HP2)? It also fixes a reading of 40 hearing
-mentions outside the VA, half in telephone trials. The design and the twelve stratum sizes were
-fixed before any phrase was counted. `phone_matched.py` 0.1.0 implements it; the counts come
-next.
+[PREREG-PHONE-MATCHED.md](results/phone-check/PREREG-PHONE-MATCHED.md) asked whether the VA
+pattern holds for every sponsor. Do no-phase trials whose interventions mention the telephone
+name a hearing wording more often than other trials of the same condition (HP1)? Do they name it
+more often than visual wordings or non-disability controls (HP2)? The design was fixed before
+counting. The result, from 156 counts of 2026-10-15
+([phone-matched-counts.json](results/phone-check/phone-matched-counts.json),
+[PHONE-MATCHED-RESULT.md](results/phone-check/PHONE-MATCHED-RESULT.md)):
+
+- Telephone-delivered trials name a hearing wording **2.45 times** as often as other no-phase
+  trials of the same condition (Mantel-Haenszel, 95% interval 2.17 to 2.75). **HP1 holds.**
+  Visual wordings: 2.13 (1.85 to 2.47). Cognitive wordings: 1.93 (1.84 to 2.02).
+- They name all 8 non-disability controls **less** often (0.24 to 0.61 times), and "informed
+  consent" too (0.78), so their criteria are not simply fuller. Hearing ranks first of 10
+  (**HP2 holds**; by chance 1 in 10). The three families rank above all 8 controls, p = 0.0061.
+- **Not a VA effect.** Leaving out VA-led trials (exploratory) gives 2.41 (2.14 to 2.72).
+- **Hearing is first, not alone.** It leads visual by little, and the intervals overlap. The
+  exposure also takes in mobile-phone apps and text messages, which need sight. So the finding is
+  that telephone-delivered trials name sensory and cognitive disability much more often, with
+  hearing first, not that the telephone singles out hearing alone. Next comes the reading of 40
+  hearing mentions outside the VA, half of them in telephone trials.
+- The known fixes are cheap: captioned telephone, relay services such as 711, text or chat, and
+  video with captions.
 
 **What these numbers do not show yet.**
 
@@ -287,7 +302,8 @@ python prereg_v03.py                              # the pre-registered trend tes
 python peryear_v03.py                             # its per-year secondary, from saved counts
 python va_matched.py                              # the pre-registered condition-matched VA test, from saved counts
 python va_matched.py --fetch --json va-matched.json   # the same, counted again
-python phone_matched.py --fetch --json phone-matched.json   # the pre-registered telephone test (156 small requests)
+python phone_matched.py                           # the pre-registered telephone test, from saved counts
+python phone_matched.py --fetch --json phone-matched.json   # the same, counted again (156 small requests)
 python -m unittest -v
 ```
 
@@ -343,7 +359,10 @@ controls, as fixed in [PREREG-VA-MATCHED.md](results/sponsor-check/PREREG-VA-MAT
 `phone_matched.py` makes the same comparison for telephone-delivered trials of every sponsor
 against other trials, in the same five strata plus one for every other condition, and gives HP1
 and HP2 of [PREREG-PHONE-MATCHED.md](results/phone-check/PREREG-PHONE-MATCHED.md). It reuses the
-ratios and the test of `va_matched.py`.
+ratios and the test of `va_matched.py`. Without `--fetch`, it reads the saved counts in
+`results/phone-check/phone-matched-counts.json`. The exploratory
+`phone-matched-nonva-counts.json` holds the hearing family only, in the same layout, so
+`phone_matched.rows()` applies to it (`test_phone_matched.py` does this).
 
 Standard library only (Python 3.9+). No API key.
 
@@ -402,6 +421,16 @@ first 114 trials, whose misses shaped 0.4.0, and the other 111, labelled after 0
 
 ## Changes
 
+- After 0.5.0 (on main): the pre-registered telephone test, counted.
+  [phone-matched-counts.json](results/phone-check/phone-matched-counts.json) (156 counts of
+  2026-10-15) and [PHONE-MATCHED-RESULT.md](results/phone-check/PHONE-MATCHED-RESULT.md):
+  matched on condition, telephone-delivered no-phase trials of every sponsor name a hearing
+  wording 2.45 times (2.17 to 2.75) as often as other trials, visual 2.13 and cognitive 1.93,
+  while all 8 controls are named less often. HP1 and HP2 hold; S1 p = 0.0061. Exploratory:
+  without VA-led trials, hearing 2.41 (2.14 to 2.72)
+  ([phone-matched-nonva-counts.json](results/phone-check/phone-matched-nonva-counts.json)).
+  `test_phone_matched.py` checks the published numbers against the code. The census rules are
+  unchanged.
 - After 0.5.0 (on main): a correction and a new pre-registration.
   [VA-MATCHED-RESULT.md](results/sponsor-check/VA-MATCHED-RESULT.md) and VA-CHECK.md gave 263 VA
   cognitive matches and an unmatched ratio of 2.90; the saved counts give 255 and 2.81 (a slip in
