@@ -163,9 +163,11 @@ trials exclude so often, again with the registry's own search (counts of 2026-10
   wording **2.2 times** as often (Mantel-Haenszel, 95% interval 2.0 to 2.5) and a hearing wording
   1.8 times (1.2 to 2.5). Visual is 1.5 (0.9 to 2.6), not shown on its own. The families rank
   above all 5 kept controls, p = 0.018, and VA trials name "informed consent" less often (0.72).
-  Matching explains part of the cognitive gap (2.9 unmatched in the same strata), not all of it
+  Matching explains part of the cognitive gap (2.81 unmatched in the same strata), not all of it
   ([PREREG-VA-MATCHED.md](results/sponsor-check/PREREG-VA-MATCHED.md),
-  [VA-MATCHED-RESULT.md](results/sponsor-check/VA-MATCHED-RESULT.md)).
+  [VA-MATCHED-RESULT.md](results/sponsor-check/VA-MATCHED-RESULT.md)). Correction (2026-10-15):
+  the unmatched figure was first given as 2.9, from a slip in adding the VA counts by hand (263
+  instead of 255). The matched result is unchanged.
 - **Why hearing?** The first 20 of the 30 VA hearing mentions in those strata, read one by one
   ([VA-HEARING-READ.md](results/sponsor-check/VA-HEARING-READ.md)), all shut out people with
   hearing loss, and at least 6 because the study runs by telephone or computer ("Hearing
@@ -177,6 +179,16 @@ trials exclude so often, again with the registry's own search (counts of 2026-10
   mental-health trials.
 - This does not show that the exclusions are unjustified. VA patients and trial designs differ
   from the registry's, and the matched test matches on condition only, not on design, age or sex.
+
+### Is it the telephone? (pre-registered, not yet counted)
+
+[PREREG-PHONE-MATCHED.md](results/phone-check/PREREG-PHONE-MATCHED.md) asks whether the VA
+pattern holds for every sponsor: do no-phase trials whose interventions mention the telephone
+name a hearing wording more often than other trials of the same condition (HP1), and more than
+they name visual wordings or non-disability controls (HP2)? It also fixes a reading of 40 hearing
+mentions outside the VA, half in telephone trials. The design and the twelve stratum sizes were
+fixed before any phrase was counted. `phone_matched.py` 0.1.0 implements it; the counts come
+next.
 
 **What these numbers do not show yet.**
 
@@ -275,6 +287,7 @@ python prereg_v03.py                              # the pre-registered trend tes
 python peryear_v03.py                             # its per-year secondary, from saved counts
 python va_matched.py                              # the pre-registered condition-matched VA test, from saved counts
 python va_matched.py --fetch --json va-matched.json   # the same, counted again
+python phone_matched.py --fetch --json phone-matched.json   # the pre-registered telephone test (156 small requests)
 python -m unittest -v
 ```
 
@@ -326,6 +339,11 @@ in five disjoint strata, with a Mantel-Haenszel ratio for each phrase and the fa
 controls, as fixed in [PREREG-VA-MATCHED.md](results/sponsor-check/PREREG-VA-MATCHED.md).
 `--fetch` makes the counts (about 130 small requests); without it, it reads the saved counts in
 `results/sponsor-check/va-matched-counts.json`.
+
+`phone_matched.py` makes the same comparison for telephone-delivered trials of every sponsor
+against other trials, in the same five strata plus one for every other condition, and gives HP1
+and HP2 of [PREREG-PHONE-MATCHED.md](results/phone-check/PREREG-PHONE-MATCHED.md). It reuses the
+ratios and the test of `va_matched.py`.
 
 Standard library only (Python 3.9+). No API key.
 
@@ -384,6 +402,14 @@ first 114 trials, whose misses shaped 0.4.0, and the other 111, labelled after 0
 
 ## Changes
 
+- After 0.5.0 (on main): a correction and a new pre-registration.
+  [VA-MATCHED-RESULT.md](results/sponsor-check/VA-MATCHED-RESULT.md) and VA-CHECK.md gave 263 VA
+  cognitive matches and an unmatched ratio of 2.90; the saved counts give 255 and 2.81 (a slip in
+  adding by hand). The matched result is unchanged, and `test_va_matched.py` now checks the
+  published numbers against the code.
+  [PREREG-PHONE-MATCHED.md](results/phone-check/PREREG-PHONE-MATCHED.md) and
+  `phone_matched.py` 0.1.0 fix a test of telephone-delivered trials against other trials of the
+  same condition, all sponsors, before it is counted. The census rules are unchanged.
 - After 0.5.0 (on main): the pre-registered condition-matched VA test, counted.
   [va-matched-counts.json](results/sponsor-check/va-matched-counts.json) (130 counts of
   2026-10-15) and [VA-MATCHED-RESULT.md](results/sponsor-check/VA-MATCHED-RESULT.md): matched on

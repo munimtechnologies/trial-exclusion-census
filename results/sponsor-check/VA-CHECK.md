@@ -90,7 +90,7 @@ before it was counted. [VA-MATCHED-RESULT.md](VA-MATCHED-RESULT.md) has the resu
 
 | Family | Matched ratio (Mantel-Haenszel) | 95% interval | Same five strata, unmatched |
 |---|---|---|---|
-| cognitive | **2.21** | 1.99-2.45 | 2.90 |
+| cognitive | **2.21** | 1.99-2.45 | 2.81 |
 | hearing | **1.77** | 1.24-2.52 | 1.98 |
 | visual | 1.55 | 0.92-2.62 | 1.21 |
 
@@ -98,8 +98,10 @@ before it was counted. [VA-MATCHED-RESULT.md](VA-MATCHED-RESULT.md) has the resu
   0.28, allergy 0.29, osteoporosis 0, claustrophobia 1.02): p = 1/56 = 0.018. The cognitive
   interval lies above 1.
 - So the VA's higher rate of cognitive and hearing mentions is not explained by its mix of these
-  five conditions. Matching does explain part of the cognitive gap (2.90 down to 2.21). Visual
+  five conditions. Matching does explain part of the cognitive gap (2.81 down to 2.21). Visual
   alone is not shown.
+- Correction (2026-10-15): the unmatched cognitive figure first read 2.90 here, from a slip in
+  adding the VA counts by hand (263 instead of 255). The saved counts give 2.81.
 
 ## 3. The mentions are exclusions
 

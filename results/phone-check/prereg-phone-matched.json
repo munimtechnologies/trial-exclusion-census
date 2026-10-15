@@ -1,0 +1,44 @@
+{
+ "name": "Telephone-delivered against other no-phase trials of the same condition, all sponsors, pre-registered",
+ "written": "2026-10-15",
+ "note": "Fixed before any phrase was counted for this test; only the stratum sizes were counted. Do not edit; additions go in a new file and are labelled exploratory. phone_matched.py 0.1.0 implements it. CC BY 4.0. Made by MV2 of Munim, Inc. with AI agents.",
+ "trials": "AREA[StudyType]INTERVENTIONAL AND AREA[Phase]NA, all start years",
+ "exposure": "AREA[InterventionSearch]telephone",
+ "exposure_note": "The registry search treats telephone and phone as one word (8,657 no-phase trials for each of three wordings on 2026-10-15), so phone follow-up and mobile-phone apps are included.",
+ "comparator": "stratum count minus telephone count",
+ "strata_in_priority_order": {
+  "ptsd": "PTSD",
+  "substance use": "\"substance use\" OR alcohol OR opioid OR smoking OR tobacco",
+  "depression": "depression",
+  "pain": "pain",
+  "cardiometabolic": "diabetes OR \"heart failure\" OR hypertension OR coronary",
+  "other": null
+ },
+ "left_out_of_every_stratum": "cognitive OR dementia OR alzheimer OR \"brain injury\" OR stroke OR hearing OR deafness OR tinnitus OR ear OR vision OR visual OR eye OR blindness OR retina OR retinal OR macular OR glaucoma",
+ "stratum_sizes_known_before": {
+  "ptsd": {"phone": 96, "registry": 1274},
+  "substance use": {"phone": 649, "registry": 6291},
+  "depression": {"phone": 405, "registry": 5494},
+  "pain": {"phone": 385, "registry": 19189},
+  "cardiometabolic": {"phone": 1363, "registry": 24793},
+  "other": {"phone": 4722, "registry": 153308}
+ },
+ "phrases": ["cognitive (all wordings)", "hearing (all wordings)", "visual (all wordings)",
+             "pregnant", "hepatitis", "allergy", "migraine", "osteoporosis", "claustrophobia",
+             "celiac", "hernia", "informed consent"],
+ "controls_with_own_condition_left_out": {
+  "pregnant": "pregnancy", "hepatitis": "hepatitis", "allergy": "allergy", "migraine": "migraine",
+  "osteoporosis": "osteoporosis", "claustrophobia": "claustrophobia", "celiac": "celiac", "hernia": "hernia"
+ },
+ "measure": "Mantel-Haenszel ratio of shares (telephone over other) across the six strata, Greenland-Robins 95% interval; unmatched and per-stratum ratios reported beside it",
+ "min_expected_phone_matches": 5,
+ "primary": [
+  "HP1: the hearing family's matched 95% interval lies above 1",
+  "HP2: the hearing family's matched ratio is larger than the visual family's and than every kept control's (a ranking; chance 1 in rivals + 1)"
+ ],
+ "secondary": [
+  "S1: the three families' matched ratios against the kept controls' (exact one-sided rank-sum test, as in va_matched)",
+  "S2: read the first 20 hearing mentions in telephone trials not led by the VA and the first 20 in other trials not led by the VA; predicted phone-tied items: at least 5 of 20 and at most 2 of 20; one-sided Fisher exact test"
+ ],
+ "counts_file": "results/phone-check/phone-matched-counts.json"
+}

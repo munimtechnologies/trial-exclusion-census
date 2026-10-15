@@ -4,6 +4,13 @@ Counts of 2026-10-15 from the ClinicalTrials.gov API v2 search, made after
 [PREREG-VA-MATCHED.md](PREREG-VA-MATCHED.md) was committed (7311a19). CC BY 4.0.
 Made by MV2 of Munim, Inc. with AI agents.
 
+**Correction (2026-10-15, later the same day).** The first version of this page said 263 VA-led
+trials name a cognitive wording and gave the unmatched cognitive ratio as 2.90. The saved counts
+add up to **255** (75 + 48 + 34 + 33 + 65), and the unmatched ratio is **2.81**. It was a slip in
+adding the counts by hand. The matched ratios, intervals, test and verdicts are unchanged.
+Matching explains nearly a quarter (23%) of the cognitive gap on the log scale, not "about a
+quarter". `test_va_matched.py` now checks these numbers against `va_matched.py`.
+
 **In short:** within the same five conditions, VA-led no-phase trials still name cognitive
 disability in their eligibility criteria 2.2 times as often as other trials (95% interval 2.0 to
 2.5), and hearing disability 1.8 times as often (1.2 to 2.5). They name the non-disability
@@ -37,7 +44,7 @@ each stratum. * = control left out of the test (fewer than 5 VA matches expected
 
 | Phrase | Kind | VA matches | Expected | Matched (MH) | 95% interval | Unmatched | ptsd | substance use | depression | pain | cardiometabolic |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| cognitive (all wordings) | family | 263 | 117.5 | **2.21** | 1.99-2.45 | 2.9 | 1.54 | 3.3 | 1.83 | 2.89 | 2.68 |
+| cognitive (all wordings) | family | 255 | 117.5 | **2.21** | 1.99-2.45 | 2.81 | 1.54 | 3.3 | 1.83 | 2.89 | 2.68 |
 | hearing (all wordings) | family | 30 | 17.6 | **1.77** | 1.24-2.52 | 1.98 | 0.68 | 5.74 | 0.41 | 1.12 | 3.35 |
 | visual (all wordings) | family | 14 | 9.1 | **1.55** | 0.92-2.62 | 1.21 | 0.82 | 2.96 | 2.46 | 1.06 | 1.32 |
 | pregnant | control | 169 | 249.4 | 0.68 | 0.59-0.77 | 0.61 | 0.76 | 0.63 | 0.63 | 0.7 | 0.66 |
@@ -72,12 +79,12 @@ values against it.
   conditions. It held. Within PTSD, substance-use, depression, pain and cardiometabolic trials,
   VA-led trials name a cognitive wording more often than other trials of the same condition in
   every one of the five strata (1.5 to 3.3 times).
-- **Part of it is the mix.** Pooling the five strata without matching gives 2.90 for cognitive;
-  matching brings it to 2.21. So about a quarter of the cognitive gap on the log scale comes from
-  the VA running more trials in conditions where everyone names cognition often. 26% of other
-  PTSD trials and 25% of other depression trials name a cognitive wording, against 11% to 12% in
-  the other three strata, and 27% of the VA's trials here are PTSD trials, against 2% of the
-  others.
+- **Part of it is the mix.** Pooling the five strata without matching gives 2.81 for cognitive;
+  matching brings it to 2.21. So nearly a quarter (23%) of the cognitive gap on the log scale
+  comes from the VA running more trials in conditions where everyone names cognition often. 26% of
+  other PTSD trials and 25% of other depression trials name a cognitive wording, against 11% to
+  12% in the other three strata, and 27% of the VA's trials here are PTSD trials, against 2% of
+  the others.
 - **Hearing holds, with a wide interval (1.24 to 2.52).** It varies a lot by stratum (0.41 to
   5.74) because the VA counts are small (1 to 12 per stratum). The first 20 of the 30 VA hearing
   mentions, read in [VA-HEARING-READ.md](VA-HEARING-READ.md), all shut out people with hearing
