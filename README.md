@@ -10,10 +10,10 @@ exclusion criteria and flags items that exclude people by disability:
 |---|---|
 | cognitive | dementia, cognitive impairment, intellectual or developmental disability, MMSE/MoCA cut-offs |
 | consent_capacity | "unable to provide informed consent", lack of decision-making capacity |
-| visual | blindness, visual impairment, low vision, visual acuity limits (not "double-blind") |
+| visual | blindness, visual impairment, low vision, visual acuity limits (not "double-blind", and since 0.3.0 not eye findings that only matter to an eye exam) |
 | hearing | deafness, hearing loss, hearing aids |
-| communication | aphasia, dysarthria, "unable to speak/read/write" (but not "...English") |
-| mobility | wheelchair use, non-ambulatory, "unable to walk", paralysis, amputation |
+| communication | aphasia, dysarthria, illiteracy, "unable to speak/read/write" (but not "...English") |
+| mobility | wheelchair use, non-ambulatory, "unable to walk", paralysis, amputation (since 0.3.0 not a planned amputation) |
 
 It also counts the domains that earlier manual studies reported: psychiatric, substance use,
 performance status (ECOG/Karnofsky), investigator discretion, English-only and general
@@ -45,6 +45,43 @@ requirement and how many have one **only** there, with no disability exclusion a
 
 Results come by start year, lead sponsor class and phase. There is also a replication check
 against the four therapeutic areas that DeCormier Plosky et al. coded by hand.
+
+## First results (v0.1.1 rules, pre-registered)
+
+The full tables are in [results/v0.1.1/](results/v0.1.1/) (CC BY 4.0). The data was fetched on
+2026-10-14 and covers **463,180 interventional studies**, of which **450,052** have an exclusion
+section. The rules were published before any of these numbers were seen.
+
+- **20.1%** of trials with an exclusion section exclude people in at least one of the six
+  disability categories. The figure is **17.9%** when exclusions that match the trial's own
+  condition are left out. By category: cognitive 9.7%, consent capacity 7.0%, mobility 2.6%,
+  communication 1.9%, visual 1.9% and hearing 1.7%.
+- Only **7.0%** of the trials with a disability exclusion mention any accommodation anywhere in
+  their criteria, such as a legally authorized representative, an interpreter or an assistive device.
+- **The share rose over time.** Among trials that started from 2000 to 2008, 11.5% to 14.1% had a
+  disability exclusion each year. The figure was 20.0% for 2016 starts and 24.9% for 2025 starts.
+  Over the same years, substance-use exclusions fell from 18.7% to 15.8%, so not every kind of
+  exclusion grew. Trials that start in 2026 are still being registered, and that year reads 27.5%.
+- By lead sponsor class: other (mostly academic) 22.8%, industry 12.4%, NIH 14.7%, and other US
+  federal agencies 38.3% (4,174 trials). NIH-led trials mention an accommodation most often (14.9%).
+- By phase: trials with no phase (devices, behavioural studies, procedures) 25.7%; phase 1 10.7%,
+  phase 2 14.1% and phase 3 13.5%.
+
+**Precision.** 720 random flagged exclusion items were checked by hand, 60 per category, 360 of
+them in the six disability categories ([PRECISION.md](results/v0.1.1/PRECISION.md)). Cognitive was 95% correct, consent capacity 100%,
+hearing 95%, communication 97% (80% if literacy items are left out), mobility 90% and visual 75%.
+The visual errors were eye findings in ophthalmology trials, and 0.3.0 removes them.
+
+**What these numbers do not show yet.**
+
+- Recall, meaning the exclusions the rules miss. The blind recall sample is drawn
+  (`results/v0.1.1/recall/`) but not yet labelled.
+- Whether the rise is real or comes from longer criteria and a growing share of unphased trials.
+  0.3.0 adds both controls: items per trial and a phased/unphased split by year.
+- Registry criteria are often a summary of the full protocol. On the four areas DeCormier Plosky
+  et al. coded from full protocols, the registry text shows lower rates for vision (dementia
+  trials 6.4% here against 34% there). Cognitive exclusions in dementia trials are close
+  (50.7% against 42%).
 
 ## For study teams and IRB reviewers
 
@@ -84,7 +121,9 @@ for Disability Health Research FY26-FY30 makes inclusion in clinical research an
 yearly count is useful.
 
 The exclusion rules in v0.1.0 and the inclusion-requirement rules in v0.2.0 were each written and
-published **before any registry result was seen**.
+published **before any registry result was seen**. The 0.3.0 changes were made after the hand
+check of the first run. They are reported next to the pre-registered numbers, never in place of
+them, and checked on a fresh sample.
 
 ### Related work
 
@@ -102,18 +141,24 @@ published **before any registry result was seen**.
 
 ```
 python exclusion_census.py census --out-dir out --cache ctgov.jsonl.gz
+python exclusion_census.py census --out-dir out2 --cache ctgov.jsonl.gz --seed 2027   # fresh precision sample
 python exclusion_census.py check criteria.txt     # one trial's criteria, with alternatives to consider
 python -m unittest -v
 ```
 
 `census` pages through the API with a pause between requests. It writes:
 
-- `summary.json` and `results.md` (including the inclusion-requirement tables, overall and by year)
-- `by_year.csv`, `by_sponsor.csv`, `by_phase.csv` and `plosky_areas.csv`; each row also has
-  `<category>_required_pct`, `any_required_pct`, `required_only_pct` and `any_barrier_pct`
+- `summary.json` and `results.md` (including the inclusion-requirement tables, overall and by
+  year, and since 0.3.0 the trend controls)
+- `by_year.csv`, `by_year_design.csv` (each start year split into phased and no-phase trials),
+  `by_sponsor.csv`, `by_phase.csv` and `plosky_areas.csv`. Each row also has
+  `<category>_required_pct`, `any_required_pct`, `required_only_pct` and `any_barrier_pct`, and,
+  since 0.3.0, `exclusion_items_mean` and `core_items_per_100` (disability items per 100 exclusion
+  items)
 - `sample_items.csv`: up to 60 random flagged items per category (and per `required_<category>`),
-  so the rules' precision can be checked by hand
-- `trials.csv.gz`: one row per trial (NCT ID, year, sponsor class, phase, categories, required)
+  so the rules' precision can be checked by hand. `--seed` draws a fresh sample
+- `trials.csv.gz`: one row per trial (NCT ID, year, sponsor class, phase, categories, required,
+  number of exclusion items)
 
 The cache keeps the fetched records, so revised rules can be re-run without fetching again.
 
@@ -153,6 +198,11 @@ current rules on the same trials, so a revised rule set can be compared on the s
   requirement is justified for the study. It misses criteria worded in ways it does not know, and
   it can flag items that mention a word in passing. `sample_items.csv` and `recall_sample.py`
   exist to measure this.
+- The hand checks so far were done by an AI agent working for MV2, one reader per item. Review by
+  people with clinical and lived experience of disability is still to come.
+- Illiteracy and "unable to read" count as communication exclusions. Reading is not a disability in
+  itself, but these items shut out many people with intellectual, learning and print disabilities.
+  `sample_items.csv` lets anyone count them separately.
 - The inclusion-requirement rules are new in 0.2.0 and not yet validated. "Able to provide
   informed consent" is counted only when the same item names no representative, guardian or
   parent, but a representative allowed elsewhere in the criteria is not taken into account (the
@@ -165,6 +215,14 @@ current rules on the same trials, so a revised rule set can be compared on the s
 
 ## Changes
 
+- 0.3.0: from the hand check of the first full run ([PRECISION.md](results/v0.1.1/PRECISION.md)).
+  Exception clauses ("except for hearing loss", "may be included (e.g. ...)", "other than ...")
+  are read out before an item is classified. A visual veto drops eye findings that would only
+  confound an eye exam, and a mobility veto drops a planned or required amputation. "Hemiplegic
+  migraine", disability pensions and disability insurance no longer count. New trend controls:
+  exclusion items per trial, disability items per 100 exclusion items, and each start year split
+  into phased and no-phase trials (`by_year_design.csv`). `--seed` draws a fresh precision sample.
+  The browser page uses the same rules.
 - 0.2.0: reads the inclusion criteria for ability requirements in the six disability categories
   (census tables, `check`, the browser page and `recall_sample.py score`). The exclusion rules are
   unchanged from 0.1.0. The browser page now announces each result to screen readers even when it

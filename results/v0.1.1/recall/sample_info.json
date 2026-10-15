@@ -1,0 +1,12 @@
+{
+ "version": "0.1.0",
+ "census_version": "0.1.0",
+ "seed": 2026,
+ "drawn_from": {
+  "random": 450052,
+  "broad": 96755
+ },
+ "trials": 225,
+ "random": 150,
+ "broad": 75
+}

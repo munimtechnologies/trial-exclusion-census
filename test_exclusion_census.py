@@ -91,6 +91,59 @@ class ClassifyTests(unittest.TestCase):
         self.assertIn("investigator_discretion", ec.classify("Excluded at the investigator’s judgement"))
 
 
+class ExceptionAndVetoTests(unittest.TestCase):
+    """0.3.0: the false positives found by hand in the first full run's sample_items.csv."""
+
+    def test_exception_clauses(self):
+        cases = {
+            "Toxicity grade 3 or more except for hearing loss, alopecia and nausea": set(),
+            "Irreversible toxicity may be included (e.g., hearing loss, peripheral neuropathy).": set(),
+            "Having a neurological or cognitive disorder other than a physical disability.": {"cognitive"},
+            "Significant neurologic disease (other than Alzheimer's dementia)": set(),
+            "Vascular dementia or any dementia other than Alzheimer's disease": {"cognitive"},
+            # An exception clause ends at its closing parenthesis.
+            "Neurologic disease (other than Parkinson's disease) or dementia": {"cognitive"},
+        }
+        for item, want in cases.items():
+            with self.subTest(item=item):
+                self.assertEqual(ec.classify(item) & set(ec.CORE), want)
+
+    def test_language_after_other_than_kept(self):
+        self.assertEqual(ec.classify("Unable to speak languages other than English"), {"english_only"})
+
+    def test_visual_veto(self):
+        for item in ("Ocular condition in the study eye that could compromise visual acuity",
+                     "Corneal pathology that would limit evaluation of loss in visual acuity",
+                     "Retinal pathology contributing to visual loss",
+                     "Risk of visual field or visual acuity worsening as a consequence of participation"):
+            with self.subTest(item=item):
+                self.assertNotIn("visual", ec.classify(item))
+        for item in ("Corrected visual acuity worse than 20/40",
+                     "Permanent legal blindness in the fellow (non-study) eye",
+                     "Visual impairment due to retinal disease",
+                     "Less than 0.1 (20/200) visual acuity in the non-test eye"):
+            with self.subTest(item=item):
+                self.assertIn("visual", ec.classify(item))
+
+    def test_mobility_veto(self):
+        self.assertNotIn("mobility", ec.classify("Planned above-ankle amputation within 4 weeks"))
+        self.assertNotIn("mobility", ec.classify("Gangrene requiring complete lower extremity amputation"))
+        self.assertNotIn("mobility", ec.classify("History of basilar or hemiplegic migraine"))
+        self.assertIn("mobility", ec.classify("Lower extremity amputation"))
+        self.assertIn("mobility", ec.classify("Hemiplegia"))
+        self.assertIn("mobility", ec.classify("Prior amputation; planned amputation of the other limb"))
+
+    def test_disability_benefits_not_flagged(self):
+        self.assertNotIn("disability_general", ec.classify("Patients with a pending disability pension case"))
+        self.assertNotIn("disability_general", ec.classify("Receiving disability insurance."))
+        self.assertIn("disability_general", ec.classify("Physical disability"))
+
+    def test_check_text_applies_exceptions(self):
+        out = ec.check_text("Exclusion Criteria:\n* Grade 3 toxicity except for hearing loss\n* Deafness")
+        self.assertIn("- Deafness", out)
+        self.assertNotIn("- Grade 3 toxicity", out)
+
+
 class RequirementTests(unittest.TestCase):
     def test_requirements(self):
         cases = {
@@ -159,6 +212,11 @@ class AnalyzeTests(unittest.TestCase):
                         "conditions": ["Glaucoma"], "title": "Eye drops"})
         self.assertEqual(set(a["hits"]), {"visual", "hearing"})
         self.assertEqual(a["related"], {"visual"})
+
+    def test_item_counts(self):
+        a = ec.analyze({"criteria": "Exclusion Criteria:\n* Deafness\n* Pregnancy\n* Legally blind; dementia"})
+        self.assertEqual(a["n_items"], 3)
+        self.assertEqual(a["core_items"], 2)
 
     def test_sarcoma_is_not_coma(self):
         a = ec.analyze({"criteria": "Exclusion Criteria:\n* Unable to provide informed consent",
@@ -263,6 +321,20 @@ class CensusTests(unittest.TestCase):
         self.assertEqual(res["samples"]["visual"], [("NCT1", "Legally blind")])
         self.assertEqual(len(res["trials"]), 2)
 
+    def test_items_and_design(self):
+        res = ec.census(self.records())
+        t = res["total"]
+        self.assertEqual(t["exclusion_items_mean"], 1.5)
+        self.assertEqual(t["core_items_per_100"], 66.67)
+        self.assertEqual(set(res["by_year_design"]), {"2019|phased", "2025|no_phase"})
+        self.assertEqual(res["by_year_design"]["2019|phased"]["any_core_pct"], 100.0)
+        self.assertEqual(res["by_year_design"]["2025|no_phase"]["any_core_pct"], 0.0)
+        rows = {r[0]: r for r in res["trials"]}
+        self.assertEqual(rows["NCT1"][ec.TRIAL_COLUMNS.index("exclusion_items")], 2)
+        self.assertEqual(ec.design_of(["NA"]), "no_phase")
+        self.assertEqual(ec.design_of(["PHASE1", "PHASE2"]), "phased")
+        self.assertEqual(ec.design_of(None), "no_phase")
+
     def test_requirement_aggregates(self):
         recs = [
             {"nct": "N1", "start": "2020-01", "conditions": ["Asthma"],
@@ -282,25 +354,37 @@ class CensusTests(unittest.TestCase):
         self.assertEqual(res["by_year"][2020]["any_required_pct"], 50.0)
         self.assertEqual(res["samples"]["required_mobility"], [("N1", "Able to walk 6 minutes unaided")])
         rows = {r[0]: r for r in res["trials"]}
-        self.assertEqual(rows["N1"][-1], "mobility")
-        self.assertEqual(rows["N2"][-1], "")
+        req = ec.TRIAL_COLUMNS.index("required")
+        self.assertEqual(rows["N1"][req], "mobility")
+        self.assertEqual(rows["N2"][req], "")
         self.assertEqual(len(ec.TRIAL_COLUMNS), len(rows["N1"]))
+
+    def test_seed_changes_sample_only(self):
+        recs = [{"nct": "S%d" % i, "start": "2020-01", "criteria": "Exclusion Criteria:\n* Deafness"}
+                for i in range(200)]
+        a, b = ec.census(recs, seed=2026), ec.census(recs, seed=2027)
+        self.assertEqual(a["total"], b["total"])
+        self.assertEqual(len(a["samples"]["hearing"]), 60)
+        self.assertNotEqual(a["samples"]["hearing"], b["samples"]["hearing"])
 
     def test_outputs(self):
         res = ec.census(self.records())
         with tempfile.TemporaryDirectory() as d:
             ec.write_outputs(res, d, "2026-10-14")
-            for name in ("summary.json", "results.md", "by_year.csv", "by_sponsor.csv", "by_phase.csv",
-                         "plosky_areas.csv", "sample_items.csv", "trials.csv.gz"):
+            for name in ("summary.json", "results.md", "by_year.csv", "by_year_design.csv", "by_sponsor.csv",
+                         "by_phase.csv", "plosky_areas.csv", "sample_items.csv", "trials.csv.gz"):
                 self.assertTrue(os.path.exists(os.path.join(d, name)), name)
             with open(os.path.join(d, "summary.json"), encoding="utf-8") as f:
                 summary = json.load(f)
             self.assertEqual(summary["version"], ec.__version__)
             self.assertEqual(summary["total"]["trials"], 2)
+            self.assertEqual(summary["sample_seed"], 2026)
             with open(os.path.join(d, "results.md"), encoding="utf-8") as f:
                 md = f.read()
             self.assertIn("Disability-related exclusion criteria", md)
             self.assertIn("Ability requirements in the inclusion criteria", md)
+            self.assertIn("Is a trend only longer criteria or a different mix of trials?", md)
+            self.assertIn("| 2019 | 2.0 | 100.0 | 1 | 100.0 | 0 | None |", md)
 
 
 if __name__ == "__main__":

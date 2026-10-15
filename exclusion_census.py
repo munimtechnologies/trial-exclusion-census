@@ -17,6 +17,14 @@ corrected-to-normal vision", "able to read and write", "able to provide
 informed consent" with no representative allowed). These shut people out as
 surely as an exclusion does, but an exclusion-only count cannot see them.
 
+Since 0.3.0, after a hand check of 360 flagged items from the first full run,
+exception clauses ("except for hearing loss", "may be included (e.g. hearing
+loss)") are read out before an item is classified, and two vetoes drop words
+used in another sense: eye findings that would confound an eye exam in an
+ophthalmology trial, and a planned amputation. It also reports the number of
+exclusion items per trial and splits each year by phased (drug) and unphased
+trials, so a trend can be told apart from longer criteria or a changing mix.
+
 Earlier work coded samples by hand: 97 protocols in four areas (DeCormier
 Plosky et al., Health Affairs 2022) and 2,710 trials for ten conditions,
 2010-2020 (scoping review, 2023). This is the whole registry, by year, with
@@ -50,7 +58,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"
 
 API = "https://clinicaltrials.gov/api/v2/studies"
 UA = "trial-exclusion-census/%s (Munim, Inc.; munimversion2@gmail.com)" % __version__
@@ -73,6 +81,7 @@ _LANGS = (r"english|spanish|french|german|italian|dutch|chinese|mandarin|cantone
 # Not followed, within the same clause, by a language name: "unable to read English"
 # is a language requirement (english_only), not a communication disability.
 _NOT_LANG = r"(?![^.;\n]{0,40}\b(?:" + _LANGS + r")\b)"
+_BLIND = r"(?<!double-)(?<!double )(?<!single-)(?<!single )(?<!triple-)(?<!triple )\bblind(?:ness)?\b(?!-)"
 PATTERNS = {
     "cognitive": [
         r"\bdementia", r"\balzheimer", r"\bmild cognitive impairment\b",
@@ -86,7 +95,7 @@ PATTERNS = {
         r"\bdecision(?:al)?[- ]making capacity\b", r"\blegally incompetent\b",
         _UNABLE + r"\s+(?:to\s+)?(?:understand|comprehend)\b" + _NOT_LANG],
     "visual": [
-        r"(?<!double-)(?<!double )(?<!single-)(?<!single )(?<!triple-)(?<!triple )\bblind(?:ness)?\b(?!-)",
+        _BLIND,
         r"\bvisual(?:ly)?\s+(?:impair|disab|handicap|loss|deficit)", r"\blow vision\b",
         r"\bvision\s+(?:loss|impairment|problem)", r"\bunable to see\b",
         r"\b(?:inadequate|insufficient|poor|impaired|reduced)\s+(?:vision|eyesight)\b",
@@ -102,7 +111,7 @@ PATTERNS = {
     "mobility": [
         r"\bwheel[- ]?chair", r"\bnon[- ]?ambulatory\b",
         _UNABLE + r"\s+(?:to\s+)?(?:walk|ambulate|stand)\b", r"\bbed[- ]?(?:ridden|bound)\b",
-        r"\bparapleg", r"\btetrapleg", r"\bquadripleg", r"\bhemipleg",
+        r"\bparapleg", r"\btetrapleg", r"\bquadripleg", r"\bhemipleg(?!ic migraine)",
         r"\bparaly(?:sis|ses|zed|sed)\b", r"\bamputat",
         r"\b(?:mobility|physical)\s+(?:impair|disab|limitation|handicap)",
         r"\b(?:requir\w*|dependent on|use of|uses?)\s+(?:an?\s+)?(?:walking aid|walker|cane|crutch|assistive device)"],
@@ -125,9 +134,35 @@ PATTERNS = {
         r"\bnon[- ]?english\b", r"\bnot (?:fluent|proficient) in english\b", r"\blimited english\b",
         r"\b(?:speak|read|write|understand|communicat|fluen|proficien|literate)\w*\b[^.;\n]{0,40}\benglish\b"],
     "disability_general": [
-        r"\bhandicap", r"(?<!expanded )\bdisabilit(?:y|ies)\b(?!\s+status)"],
+        r"\bhandicap",
+        r"(?<!expanded )\bdisabilit(?:y|ies)\b(?!\s+(?:status|pension|insurance|benefits?|claims?|compensation|payments?|leave))"],
 }
 RULES = {cat: [re.compile(p, re.I) for p in pats] for cat, pats in PATTERNS.items()}
+
+# Exception clauses are read out of an exclusion item before it is classified:
+# "toxicity grade 3 or more except for hearing loss" does not exclude deaf people,
+# and "irreversible toxicity may be included (e.g. hearing loss)" lets them in.
+# Not when a language follows ("languages other than English").
+EXCEPTION = re.compile(
+    r"\b(?:except(?:ion)?s?(?:\s+(?:for|of|are|is|being))?|other than|apart from|with the exception of|"
+    r"may be (?:included|enrolled|eligible)|(?:will|shall|should) not be (?:considered|excluded|counted))\b"
+    r"(?![^.;\n]{0,20}\b(?:" + _LANGS + r")\b)(?:\be\.g\.|\bi\.e\.|[^.;\n)]){0,60}", re.I)
+
+# A veto drops a category from an item whose words are used in another sense,
+# unless the item also says something that keeps it.
+VETO_PATTERNS = {
+    # An eye finding that would confound an eye exam (ophthalmology trials), not a vision impairment.
+    "visual": (r"\b(?:study eye|ocular|intraocular|retina\w*|macula\w*|cornea\w*|cataract|media opacit\w*|"
+               r"fovea\w*|optic nerve|ophthalm\w*|worsening|risk of (?:visual|vision))\b",
+               _BLIND + r"|\blow vision\b|\bvisual(?:ly)?\s+(?:impair|disab|handicap)|"
+               r"\bvision\s+(?:impairment|problem)|\bunable to see\b|\bpoor vision\b"),
+    # An amputation the trial's own treatment may need, not a person who has had one.
+    "mobility": (r"\b(?:planned|scheduled|requir\w*|need\w*|candidates?\s+for|undergo\w*|indicat\w*\s+for)\s+"
+                 r"(?:an?\s+)?(?:[\w-]+\s+){0,3}amputation",
+                 r"\bwheel[- ]?chair|\bnon[- ]?ambulatory\b|\bbed[- ]?(?:ridden|bound)\b|pleg|\bparaly|"
+                 r"\b(?:prior|previous|history of)\b[^.;\n]{0,30}\bamputat"),
+}
+VETO = {cat: (re.compile(v, re.I), re.compile(k, re.I)) for cat, (v, k) in VETO_PATTERNS.items()}
 
 # Ability requirements in the inclusion criteria ("able to walk", "normal hearing").
 # "unable" never matches: there is no word boundary inside it.
@@ -221,6 +256,10 @@ HEADER = re.compile(
 INLINE_EXCLUSION = re.compile(r"\bexclusion\s+criteri\w*\s*:?", re.I)
 BULLET = re.compile(r"^\s*(?:[*\-•●▪·]+|\(?\d{1,2}[.)]|\(?[a-z][.)])\s+", re.I)
 
+# Phases of drug and biologic trials; everything else (devices, behavioural,
+# procedures) is registered with phase "NA".
+PHASED = {"EARLY_PHASE1", "PHASE1", "PHASE2", "PHASE3", "PHASE4"}
+
 
 def _headed(text, kind):
     """The text under every header of this kind ("inclusion" or "exclusion"), or None."""
@@ -270,8 +309,12 @@ def split_items(section):
 
 
 def classify(item):
-    """The categories an exclusion item falls into."""
-    return {cat for cat, rules in RULES.items() if any(r.search(item) for r in rules)}
+    """The categories an exclusion item falls into, after its exception clauses are
+    read out and the vetoes applied."""
+    item = EXCEPTION.sub(" ", item)
+    cats = {cat for cat, rules in RULES.items() if any(r.search(item) for r in rules)}
+    return {cat for cat in cats
+            if not (cat in VETO and VETO[cat][0].search(item) and not VETO[cat][1].search(item))}
 
 
 def requirements(item):
@@ -284,8 +327,12 @@ def analyze(rec):
     crit = rec.get("criteria") or ""
     section = exclusion_section(crit)
     hits = {}
-    for item in split_items(section):
-        for cat in classify(item):
+    items = split_items(section)
+    core_items = 0
+    for item in items:
+        cats = classify(item)
+        core_items += bool(cats & set(CORE))
+        for cat in cats:
             hits.setdefault(cat, []).append(item)
     reqs = {}
     for item in split_items(inclusion_section(crit)):
@@ -296,7 +343,8 @@ def analyze(rec):
     related_req = {cat for cat in reqs if CONDITION_RELATED[cat].search(subject)}
     return {"has_exclusion": section is not None, "hits": hits, "related": related,
             "requires": reqs, "related_req": related_req,
-            "accommodation": bool(ACCOMMODATION.search(crit))}
+            "accommodation": bool(ACCOMMODATION.search(crit)),
+            "n_items": len(items), "core_items": core_items}
 
 
 def check_text(text):
@@ -467,9 +515,14 @@ def phase_label(phases):
     return "+".join(sorted(phases)) if phases else "NA"
 
 
+def design_of(phases):
+    """"phased" for drug and biologic trials (any FDA phase), otherwise "no_phase"."""
+    return "phased" if set(phases or ()) & PHASED else "no_phase"
+
+
 class Tally:
     """Counts of trials with an exclusion section, per category, any-core and accommodation,
-    and the ability requirements in their inclusion criteria."""
+    the ability requirements in their inclusion criteria, and how many exclusion items they have."""
 
     def __init__(self):
         self.n = 0
@@ -479,11 +532,14 @@ class Tally:
         self.accommodation = self.accommodation_if_core = 0
         self.req = collections.Counter()
         self.any_req = self.req_only = self.any_barrier = 0
+        self.items = self.core_items = 0
 
     def add(self, a):
         if not a["has_exclusion"]:
             return
         self.n += 1
+        self.items += a.get("n_items", 0)
+        self.core_items += a.get("core_items", 0)
         flagged = set(a["hits"])
         for cat in flagged:
             self.cat[cat] += 1
@@ -527,17 +583,19 @@ class Tally:
         r["any_barrier_pct"] = pct(self.any_barrier)
         for cat in CORE:
             r[cat + "_required_pct"] = pct(self.req[cat])
+        r["exclusion_items_mean"] = round(self.items / self.n, 2) if self.n else None
+        r["core_items_per_100"] = round(100.0 * self.core_items / self.items, 2) if self.items else None
         return r
 
 
 TRIAL_COLUMNS = ("nct", "start_year", "sponsor_class", "phase", "status", "categories",
-                 "condition_related", "accommodation", "required")
+                 "condition_related", "accommodation", "required", "exclusion_items")
 
 
 def census(records, sample_per_cat=60, seed=2026):
     """Aggregate tables and a seeded sample of flagged items for hand-checking."""
     total = Tally()
-    by_year, by_sponsor, by_phase, by_area = (collections.defaultdict(Tally) for _ in range(4))
+    by_year, by_sponsor, by_phase, by_area, by_year_design = (collections.defaultdict(Tally) for _ in range(5))
     rng = random.Random(seed)
     seen = collections.Counter()
     samples = {key: [] for key in CATEGORIES + REQUIRED}
@@ -553,6 +611,7 @@ def census(records, sample_per_cat=60, seed=2026):
         y = year_of(rec.get("start"))
         if y and 2000 <= y <= 2026:
             by_year[y].add(a)
+            by_year_design["%d|%s" % (y, design_of(rec.get("phases")))].add(a)
         by_sponsor[rec.get("sponsor_class") or "UNKNOWN"].add(a)
         by_phase[phase_label(rec.get("phases"))].add(a)
         subject = " ".join(rec.get("conditions") or [])
@@ -574,15 +633,16 @@ def census(records, sample_per_cat=60, seed=2026):
             trials.append((rec.get("nct"), y, rec.get("sponsor_class"), phase_label(rec.get("phases")),
                            rec.get("status"), "|".join(sorted(a["hits"], key=CATEGORIES.index)),
                            "|".join(sorted(a["related"], key=CATEGORIES.index)), int(a["accommodation"]),
-                           "|".join(sorted(a["requires"], key=CORE.index))))
+                           "|".join(sorted(a["requires"], key=CORE.index)), a["n_items"]))
     return {
         "records": n_records, "with_criteria": n_criteria,
         "total": total.row(),
         "by_year": {y: t.row() for y, t in sorted(by_year.items())},
+        "by_year_design": {k: t.row() for k, t in sorted(by_year_design.items())},
         "by_sponsor": {k: t.row() for k, t in sorted(by_sponsor.items(), key=lambda kv: -kv[1].n)},
         "by_phase": {k: t.row() for k, t in sorted(by_phase.items(), key=lambda kv: -kv[1].n)},
         "plosky_areas": {k: by_area[k].row() for k in PLOSKY_AREAS},
-        "samples": samples, "trials": trials,
+        "samples": samples, "trials": trials, "seed": seed,
     }
 
 
@@ -655,6 +715,18 @@ def report_md(res, fetched_at):
     for y, r in res["by_year"].items():
         lines.append("| %s | %d | %s | %s | %s |" % (
             y, r["trials"], r["any_required_pct"], r["required_only_pct"], r["any_barrier_pct"]))
+    lines += ["", "## Is a trend only longer criteria or a different mix of trials?", "",
+              "Exclusion items per trial, and disability items per 100 exclusion items, by start year;",
+              "then the share of trials with any disability exclusion, separately for phased (drug and",
+              "biologic) trials and trials with no phase (devices, behavioural, procedures).", "",
+              "| Year | Items per trial | Disability items per 100 | Phased trials | Phased any % | No-phase trials | No-phase any % |",
+              "|---|---|---|---|---|---|---|"]
+    design = res.get("by_year_design") or {}
+    for y, r in res["by_year"].items():
+        ph, npn = design.get("%d|phased" % y) or {}, design.get("%d|no_phase" % y) or {}
+        lines.append("| %s | %s | %s | %s | %s | %s | %s |" % (
+            y, r["exclusion_items_mean"], r["core_items_per_100"], ph.get("trials", 0), ph.get("any_core_pct"),
+            npn.get("trials", 0), npn.get("any_core_pct")))
     lines += ["", "## By lead sponsor class", "",
               "| Sponsor | Trials | Any disability % | Unrelated % | Discretion % | Accommodation % |",
               "|---|---|---|---|---|---|"]
@@ -677,15 +749,16 @@ def report_md(res, fetched_at):
 
 def write_outputs(res, out_dir, fetched_at):
     os.makedirs(out_dir, exist_ok=True)
-    summary = {k: res[k] for k in ("records", "with_criteria", "total", "by_year", "by_sponsor",
-                                    "by_phase", "plosky_areas")}
+    summary = {k: res[k] for k in ("records", "with_criteria", "total", "by_year", "by_year_design",
+                                    "by_sponsor", "by_phase", "plosky_areas")}
     summary.update({"version": __version__, "fetched_at": fetched_at, "categories": list(CATEGORIES),
-                    "core": list(CORE)})
+                    "core": list(CORE), "sample_seed": res.get("seed")})
     with open(os.path.join(out_dir, "summary.json"), "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=1, default=str)
     with open(os.path.join(out_dir, "results.md"), "w", encoding="utf-8") as f:
         f.write(report_md(res, fetched_at))
     write_table(os.path.join(out_dir, "by_year.csv"), res["by_year"], "start_year")
+    write_table(os.path.join(out_dir, "by_year_design.csv"), res.get("by_year_design") or {}, "start_year_design")
     write_table(os.path.join(out_dir, "by_sponsor.csv"), res["by_sponsor"], "sponsor_class")
     write_table(os.path.join(out_dir, "by_phase.csv"), res["by_phase"], "phase")
     write_table(os.path.join(out_dir, "plosky_areas.csv"), res["plosky_areas"], "area")
@@ -710,6 +783,8 @@ def main(argv=None):
     c.add_argument("--cache", default="", help="jsonl.gz of fetched records; reused if present")
     c.add_argument("--refresh", action="store_true", help="fetch again even if the cache exists")
     c.add_argument("--max-pages", type=int, default=0, help="stop after this many API pages (testing)")
+    c.add_argument("--seed", type=int, default=2026,
+                   help="seed for sample_items.csv; a new seed gives a fresh precision sample")
     k = sub.add_parser("check", help="flag disability-related exclusions in one trial's criteria")
     k.add_argument("file", help="text file with the eligibility criteria, or - for stdin")
     args = ap.parse_args(argv)
@@ -722,7 +797,7 @@ def main(argv=None):
     fetched_at = time.strftime("%Y-%m-%d", time.gmtime())
     if cache and os.path.exists(cache) and not args.refresh:
         fetched_at = time.strftime("%Y-%m-%d", time.gmtime(os.path.getmtime(cache)))
-    res = census(load_records(cache, args.refresh, args.max_pages))
+    res = census(load_records(cache, args.refresh, args.max_pages), seed=args.seed)
     logging.info("%d records, %d with criteria", res["records"], res["with_criteria"])
     write_outputs(res, args.out_dir, fetched_at)
     print(report_md(res, fetched_at))

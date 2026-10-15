@@ -1,0 +1,5 @@
+area,trials,any_core_pct,any_core_unrelated_pct,any_sensory_physical_pct,accommodation_pct,accommodation_if_core_pct,cognitive_pct,consent_capacity_pct,visual_pct,hearing_pct,communication_pct,mobility_pct,psychiatric_pct,substance_use_pct,performance_status_pct,investigator_discretion_pct,english_only_pct,disability_general_pct,cognitive_unrelated_pct,consent_capacity_unrelated_pct,visual_unrelated_pct,hearing_unrelated_pct,communication_unrelated_pct,mobility_unrelated_pct
+dementia,3958,59.8,16.52,17.43,12.94,15.17,50.68,6.32,6.37,7.93,5.43,4.27,45.65,28.8,0.03,18.01,5.15,3.92,0.0,0.0,6.22,7.66,4.93,3.79
+depression,8914,38.97,35.18,8.87,4.49,6.1,30.38,7.42,2.37,2.91,3.24,1.75,73.21,44.77,0.08,10.38,7.08,7.53,26.54,6.42,2.27,2.88,2.69,1.49
+diabetes,18389,22.42,18.95,10.75,2.87,4.73,8.37,7.36,3.9,1.42,1.66,5.23,16.16,19.48,0.04,18.14,3.45,2.14,7.95,7.22,2.58,1.42,1.65,2.74
+lung cancer,8389,11.06,10.94,2.73,3.11,3.66,5.08,4.46,0.36,1.2,0.63,0.85,22.03,11.74,2.91,26.98,1.08,0.44,5.01,4.41,0.33,1.19,0.62,0.85

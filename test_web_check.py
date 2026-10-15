@@ -18,6 +18,9 @@ def expected_rules():
     rows += [("reqsuggest", k, v) for k, v in ec.REQUIRE_SUGGESTIONS.items()]
     rows += [("header", "-", ec.HEADER.pattern), ("inline", "-", ec.INLINE_EXCLUSION.pattern),
              ("bullet", "-", ec.BULLET.pattern)]
+    rows.append(("except", "-", ec.EXCEPTION.pattern))
+    rows += [(kind, cat, pat) for cat, (veto, keep) in ec.VETO_PATTERNS.items()
+             for kind, pat in (("veto", veto), ("keep", keep))]
     return rows
 
 
@@ -44,6 +47,10 @@ class WebCheckTests(unittest.TestCase):
             if kind == "rule" and key not in cats:
                 cats.append(key)
         self.assertEqual(tuple(cats), ec.CATEGORIES)
+
+    def test_page_applies_exceptions_and_vetoes(self):
+        self.assertIn("item.replace(EXCEPT,", self.html)
+        self.assertIn("VETO[c]", self.html)
 
     def test_page_basics(self):
         self.assertIn('<html lang="en">', self.html)
