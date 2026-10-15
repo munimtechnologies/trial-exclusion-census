@@ -1,5 +1,10 @@
 # Is the rise real? A check with the registry's own search
 
+**Pre-registered result (2026-10-15, section 5).** The test fixed in advance in
+[PREREG-v0.3.md](PREREG-v0.3.md), with 23 controls (12 never counted before), confirms section 4:
+in no-phase trials the three disability families rose more than every control kept by the
+pre-registered rule (p = 0.0045), and in the other trials they did not stand out (p = 0.45).
+
 **Correction (2026-10-15, trend_check 0.2.0).** The first version of this check compared the
 disability phrases with common control phrases (pregnancy is named by half of all trials,
 allergy by a third). A phrase that common cannot triple, so a flat control proved less than
@@ -174,12 +179,38 @@ rank as high as the three families do (`trend_check.rank_test`, all 364 ways cou
 - Exploratory, not pre-registered: the families' wordings and the controls were chosen this
   run, with only two start years compared, and each phrase counts as one value whatever its
   size. The rank test treats the 14 ratios as exchangeable, which is an assumption. A larger,
-  pre-registered set of controls and every start year would be a stronger test.
+  pre-registered set of controls and every start year would be a stronger test (section 5).
 - The registry's search expands some terms (see above) and may match close variants. It is the
   same search for every year, so comparisons between years hold.
 - 2025 trials are still being registered late, and the counts change daily. These are the
   numbers of 2026-10-15. Full counts, not a sample, so there is no sampling error; the
   uncertainty is in what a mention means.
+
+## 5. The pre-registered test (added 2026-10-15)
+
+[PREREG-v0.3.md](PREREG-v0.3.md) fixed the phrase lists, the 20-match rule and the hypotheses
+before counting. All counts were then fetched in one run; those already in section 4 came back
+the same. The full tables are in [PREREG-v0.3-RESULT.md](PREREG-v0.3-RESULT.md), the counts in
+[prereg-v0.3-counts.json](prereg-v0.3-counts.json), and `prereg_v03.py` recomputes every test.
+
+| Test | Controls | p | Section 4 (exploratory, 11 controls) |
+|---|---|---|---|
+| **H1: no-phase**, families rank above controls | 9 (14 left out by the 20-match rule) | **0.0045**: holds | 0.019 |
+| **H2: other**, no disability-specific rise | 22 (hemorrhoids left out) | **0.45**: holds | 0.33 |
+| All trials (reported) | 23 | 0.005 | 0.0055 |
+| No-phase, every control kept (sensitivity, not pre-registered) | 23 | 0.020 | |
+| VA-led against registry, no-phase only (secondary) | 23 | 0.0015 | none counted before |
+
+- In no-phase trials the families rose 1.74, 2.36 and 3.07 times; the largest control kept rose
+  1.63 times (hernia).
+- The 20-match rule was written when the 2008 no-phase counts of the 11 old controls were
+  already known, and it drops tattoo, the old test's top control. With every control kept H1
+  still holds (p = 0.020), but three rare controls (tattoo, celiac, endometriosis) then rise
+  as fast as the hearing family.
+- In drug trials two new controls rose far more than any family: vitiligo 16 times and shingles 4
+  times. Controls can move for reasons that have nothing to do with disability, which is why the
+  test ranks the families against many controls rather than one.
+- Still to come: the per-year secondary (every start year 2008-2025 and log-share slopes).
 
 Counts by MV2 of Munim, Inc. with AI agents, through the public ClinicalTrials.gov API (data
 from the US National Library of Medicine). Text and tables CC BY 4.0.
