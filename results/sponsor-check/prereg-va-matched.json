@@ -1,0 +1,36 @@
+{
+ "name": "VA-led against other no-phase trials of the same condition, pre-registered",
+ "written": "2026-10-15",
+ "note": "Fixed before any phrase was counted in these strata; only the stratum sizes were counted. Do not edit; additions go in a new file and are labelled exploratory. va_matched.py 0.1.0 implements it. CC BY 4.0. Made by MV2 of Munim, Inc. with AI agents.",
+ "trials": "AREA[StudyType]INTERVENTIONAL AND AREA[Phase]NA, all start years",
+ "va": "AREA[LeadSponsorClass]FED AND AREA[LeadSponsorName](VA OR Veteran OR Veterans)",
+ "other": "stratum count minus VA-led count",
+ "strata_in_priority_order": {
+  "ptsd": "PTSD",
+  "substance use": "\"substance use\" OR alcohol OR opioid OR smoking OR tobacco",
+  "depression": "depression",
+  "pain": "pain",
+  "cardiometabolic": "diabetes OR \"heart failure\" OR hypertension OR coronary"
+ },
+ "left_out_of_every_stratum": "cognitive OR dementia OR alzheimer OR \"brain injury\" OR stroke OR hearing OR deafness OR tinnitus OR ear OR vision OR visual OR eye OR blindness OR retina OR retinal OR macular OR glaucoma",
+ "stratum_sizes_known_before": {
+  "ptsd": {"va": 189, "registry": 1274},
+  "substance use": {"va": 118, "registry": 6291},
+  "depression": {"va": 75, "registry": 5494},
+  "pain": {"va": 98, "registry": 19189},
+  "cardiometabolic": {"va": 230, "registry": 24793}
+ },
+ "families": ["cognitive (all wordings)", "hearing (all wordings)", "visual (all wordings)"],
+ "controls_with_own_condition_left_out": {
+  "pregnant": "pregnancy", "hepatitis": "hepatitis", "allergy": "allergy", "migraine": "migraine",
+  "osteoporosis": "osteoporosis", "claustrophobia": "claustrophobia", "celiac": "celiac", "hernia": "hernia"
+ },
+ "control_rule": "trend-check controls named in at least 2,000 no-phase registry trials, all years (prereg-v0.3-counts.json)",
+ "reference": ["informed consent"],
+ "measure": "Mantel-Haenszel ratio of shares (VA over other) across the five strata, Greenland-Robins 95% interval; unmatched and per-stratum ratios reported beside it",
+ "min_expected_va_matches": 5,
+ "min_controls_for_test": 4,
+ "primary": "HV1: the three families' matched ratios rank above the kept controls' (exact one-sided rank-sum test, alpha 0.05)",
+ "secondary": "HV2: the cognitive family's matched 95% interval lies above 1",
+ "counts_file": "results/sponsor-check/va-matched-counts.json"
+}
