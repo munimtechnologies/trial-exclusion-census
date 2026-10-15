@@ -85,13 +85,36 @@ them in the six disability categories ([PRECISION.md](results/v0.1.1/PRECISION.m
 hearing 95%, communication 97% (80% if literacy items are left out), mobility 90% and visual 75%.
 The visual errors were eye findings in ophthalmology trials, and 0.3.0 removes them.
 
+### Is the rise real? A check with the registry's own search
+
+The rise could come from criteria simply growing longer, or from the shift toward no-phase
+trials, which exclude more. [results/trend-check/TREND-CHECK.md](results/trend-check/TREND-CHECK.md)
+tests both without the census rules: it asks the ClinicalTrials.gov search how many trials of
+each start year name a phrase in their eligibility criteria (counts of 2026-10-15).
+
+- From 2008 to 2025 starts, the share naming **"cognitive impairment"** went from 1.97% to 7.58%
+  (3.8 times) and **"hearing loss"** from 0.78% to 2.44% (3.1 times). Control exclusions that are
+  not about disability stayed flat: "pregnant" 0.95 times, "hepatitis" 1.01, "allergy" 0.94.
+- No-phase trials grew from 29% to 65% of starts. Within no-phase trials "cognitive impairment"
+  still rose 2.8 times and "hearing loss" 2.5 times, while pregnancy and allergy did not move.
+  Within the other trials criteria did grow longer (allergy 1.37 times), and "cognitive
+  impairment" still rose 2.65 times.
+- Without the trials that study cognition, dementia or hearing themselves, the rises are 4.1 and
+  3.1 times.
+- Not every phrase rose: "wheelchair" stayed flat and "dementia" rose 1.6 times. Some of the
+  cognitive rise may be a change of wording. These are mentions anywhere in the criteria, not
+  exclusions; the census rules and their hand checks are the measure of exclusion.
+
+`trend_check.py` repeats every count.
+
 **What these numbers do not show yet.**
 
 - Recall, meaning the exclusions the rules miss. All 225 trials of the blind recall sample are
   now labelled by hand ([results/recall/](results/recall/)); the scores of v0.1.1, v0.3.0 and
   v0.4.0 on them come next.
-- Whether the rise is real or comes from longer criteria and a growing share of unphased trials.
-  0.3.0 adds both controls: items per trial and a phased/unphased split by year.
+- The census's own trend controls (items per trial and a phased/no-phase split by year, added in
+  0.3.0) have not been run on the full registry yet. The registry-search check above points the
+  same way.
 - How often trials offer an accommodation (see the correction above).
 - Registry criteria are often a summary of the full protocol. On the four areas DeCormier Plosky
   et al. coded from full protocols, the registry text shows lower rates for vision (dementia
@@ -114,12 +137,11 @@ The counts come from the registry's own search, and the quotes were checked agai
 
 ## For study teams and IRB reviewers
 
-- **Browser check** ([web/check.html](web/check.html), also at
-  https://munimv2.github.io/inclusive-criteria/): paste a study's criteria and see each exclusion
-  item that touches disability and each inclusion item that requires an ability, with an inclusive
-  alternative to consider, and the items that already offer an accommodation. It runs in the page,
-  so nothing you paste is sent anywhere. It uses the same rules as the census, and
-  `test_web_check.py` keeps the two identical.
+- **Browser check** ([web/check.html](web/check.html): download the file and open it in any
+  browser): paste a study's criteria and see each exclusion item that touches disability and
+  each inclusion item that requires an ability, with an inclusive alternative to consider, and the
+  items that already offer an accommodation. It runs in the page, so nothing you paste is sent
+  anywhere. It uses the same rules as the census, and `test_web_check.py` keeps the two identical.
 - **Guide** ([toolkit/inclusive-eligibility-guide.md](toolkit/inclusive-eligibility-guide.md),
   CC BY 4.0): for each category, when an exclusion may be needed, how to narrow it, which
   accommodations to offer instead, protocol wording to adapt, and a one-page accessibility plan.
@@ -176,6 +198,7 @@ python exclusion_census.py census --out-dir out --cache ctgov.jsonl.gz
 python exclusion_census.py census --out-dir out2 --cache ctgov.jsonl.gz --seed 2027   # fresh precision sample
 python exclusion_census.py check criteria.txt     # one trial's criteria, with alternatives to consider
 python diff_rules.py --old old/exclusion_census.py --new exclusion_census.py --cache ctgov.jsonl.gz
+python trend_check.py --json trend.json           # the registry-search trend check (105 small requests)
 python -m unittest -v
 ```
 
@@ -203,6 +226,10 @@ accommodation.
 
 `diff_rules.py` (new in 0.4.0) runs two versions of the rules over the cache and samples the items
 one flags and the other does not, so the precision of just the new rules can be checked by hand.
+
+`trend_check.py` asks the registry's own search, for each start year, how many trials name each of
+a few disability and control phrases in their criteria, overall, in no-phase and other trials, and
+without the trials that study that condition. `--years` and `--phrases` take other lists.
 
 Standard library only (Python 3.9+). No API key.
 
@@ -261,6 +288,9 @@ first 114 trials, whose misses shaped 0.4.0, and the other 111, labelled after 0
 
 ## Changes
 
+- After 0.5.0 (on main): `trend_check.py` and
+  [results/trend-check/TREND-CHECK.md](results/trend-check/TREND-CHECK.md), a check of the
+  trend with the registry's own search and control phrases. The census rules are unchanged.
 - 0.5.0: the accommodation flag counts an item only when it offers an accommodation. The bare
   words "accommodate" and "guardian" no longer count, nor does an item that mentions a parent, a
   child or an age under 18, says "without an interpreter" (or assistance, or a representative),
