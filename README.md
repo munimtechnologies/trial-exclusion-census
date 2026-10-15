@@ -157,14 +157,26 @@ trials exclude so often, again with the registry's own search (counts of 2026-10
   visual), and the pre-registered secondary test with all 23 controls there gives p = 0.0015:
   19 of 23 controls are named less often by VA trials, and only gout ranks among the families
   ([PREREG-v0.3-RESULT.md](results/trend-check/PREREG-v0.3-RESULT.md)).
+- **Matched on condition (pre-registered).** Against other no-phase trials of the same five
+  conditions (PTSD, substance use, depression, pain, cardiometabolic; trials of cognitive,
+  brain-injury, stroke, hearing and eye conditions left out), VA-led trials name a cognitive
+  wording **2.2 times** as often (Mantel-Haenszel, 95% interval 2.0 to 2.5) and a hearing wording
+  1.8 times (1.2 to 2.5). Visual is 1.5 (0.9 to 2.6), not shown on its own. The families rank
+  above all 5 kept controls, p = 0.018, and VA trials name "informed consent" less often (0.72).
+  Matching explains part of the cognitive gap (2.9 unmatched in the same strata), not all of it
+  ([PREREG-VA-MATCHED.md](results/sponsor-check/PREREG-VA-MATCHED.md),
+  [VA-MATCHED-RESULT.md](results/sponsor-check/VA-MATCHED-RESULT.md)).
+- **Why hearing?** The first 20 of the 30 VA hearing mentions in those strata, read one by one
+  ([VA-HEARING-READ.md](results/sponsor-check/VA-HEARING-READ.md)), all shut out people with
+  hearing loss, and at least 6 because the study runs by telephone or computer ("Hearing
+  impairment that precludes completing telephone assessments"). None of their registry entries
+  offers captioned telephone, relay or text contact instead.
 - The first 12 such VA trials read by hand, outside cognitive or dementia trials, all use the
   wording as an exclusion, often a broad one ("significant cognitive impairment", "cognitive
   impairment that would interfere with study participation"), many in PTSD and other
   mental-health trials.
 - This does not show that the exclusions are unjustified. VA patients and trial designs differ
-  from the registry's. A comparison with other trials of the same condition (PTSD, substance use,
-  depression, pain and cardiometabolic, no-phase) is pre-registered in
-  [PREREG-VA-MATCHED.md](results/sponsor-check/PREREG-VA-MATCHED.md) and has not been counted yet.
+  from the registry's, and the matched test matches on condition only, not on design, age or sex.
 
 **What these numbers do not show yet.**
 
@@ -261,7 +273,8 @@ python trend_check.py --json trend.json           # the registry-search trend ch
 python sponsor_check.py --sponsor va --json va.json   # one sponsor group against the registry
 python prereg_v03.py                              # the pre-registered trend test, from saved counts
 python peryear_v03.py                             # its per-year secondary, from saved counts
-python va_matched.py --fetch --json va-matched.json   # the pre-registered condition-matched VA test
+python va_matched.py                              # the pre-registered condition-matched VA test, from saved counts
+python va_matched.py --fetch --json va-matched.json   # the same, counted again
 python -m unittest -v
 ```
 
@@ -311,7 +324,8 @@ phrase's slope of log share on start year and the same test on the slopes.
 `va_matched.py` compares VA-led no-phase trials with other no-phase trials of the same condition
 in five disjoint strata, with a Mantel-Haenszel ratio for each phrase and the families against the
 controls, as fixed in [PREREG-VA-MATCHED.md](results/sponsor-check/PREREG-VA-MATCHED.md).
-`--fetch` makes the counts (about 130 small requests); without it, it reads the saved counts.
+`--fetch` makes the counts (about 130 small requests); without it, it reads the saved counts in
+`results/sponsor-check/va-matched-counts.json`.
 
 Standard library only (Python 3.9+). No API key.
 
@@ -370,6 +384,14 @@ first 114 trials, whose misses shaped 0.4.0, and the other 111, labelled after 0
 
 ## Changes
 
+- After 0.5.0 (on main): the pre-registered condition-matched VA test, counted.
+  [va-matched-counts.json](results/sponsor-check/va-matched-counts.json) (130 counts of
+  2026-10-15) and [VA-MATCHED-RESULT.md](results/sponsor-check/VA-MATCHED-RESULT.md): matched on
+  condition, VA-led no-phase trials name a cognitive wording 2.21 times (1.99 to 2.45) and a
+  hearing wording 1.77 times (1.24 to 2.52) as often as other trials; HV1 holds (p = 0.018) and
+  HV2 holds. [VA-HEARING-READ.md](results/sponsor-check/VA-HEARING-READ.md) reads 20 of the VA
+  hearing mentions: all 20 shut people out, many over telephone contact. VA-CHECK.md gains the
+  matched section. The census rules are unchanged.
 - After 0.5.0 (on main): `peryear_v03.py` 0.1.0,
   [PREREG-v0.3-PERYEAR.md](results/trend-check/PREREG-v0.3-PERYEAR.md) and
   [prereg-v0.3-peryear-counts.json](results/trend-check/prereg-v0.3-peryear-counts.json): the

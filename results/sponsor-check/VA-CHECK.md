@@ -73,12 +73,33 @@ Share of trials whose eligibility criteria name the phrase, VA-led against the w
 
 - The VA runs more no-phase (behavioural, device and procedure) trials, which name disability more
   often. Within no-phase trials alone, VA trials still name cognitive wordings 2.7 times and
-  hearing and visual wordings about 2 times as often. The controls were not counted within
-  no-phase trials, so there is no test for this row yet.
+  hearing and visual wordings about 2 times as often. The pre-registered secondary test of
+  [PREREG-v0.3-RESULT.md](../trend-check/PREREG-v0.3-RESULT.md) later counted all 23 controls
+  within no-phase trials: p = 0.0015.
 - Leaving out the trials that study that condition (dementia, hearing or eye trials) leaves the
   ratios at 2.3 to 3.2. So the VA is not just running more dementia or hearing trials.
   Condition terms used: cognitive OR dementia OR alzheimer; hearing OR deafness OR tinnitus OR
   ear; vision OR visual OR eye OR blindness OR retina OR retinal OR macular OR glaucoma.
+
+### Matched on condition (pre-registered, added 2026-10-15)
+
+[PREREG-VA-MATCHED.md](PREREG-VA-MATCHED.md) fixed a comparison of VA-led no-phase trials with
+other no-phase trials **of the same condition** (PTSD, substance use, depression, pain,
+cardiometabolic; trials of cognitive, brain-injury, stroke, hearing and eye conditions left out)
+before it was counted. [VA-MATCHED-RESULT.md](VA-MATCHED-RESULT.md) has the result:
+
+| Family | Matched ratio (Mantel-Haenszel) | 95% interval | Same five strata, unmatched |
+|---|---|---|---|
+| cognitive | **2.21** | 1.99-2.45 | 2.90 |
+| hearing | **1.77** | 1.24-2.52 | 1.98 |
+| visual | 1.55 | 0.92-2.62 | 1.21 |
+
+- Both hypotheses hold. The families rank above all 5 kept controls (pregnant 0.68, hepatitis
+  0.28, allergy 0.29, osteoporosis 0, claustrophobia 1.02): p = 1/56 = 0.018. The cognitive
+  interval lies above 1.
+- So the VA's higher rate of cognitive and hearing mentions is not explained by its mix of these
+  five conditions. Matching does explain part of the cognitive gap (2.90 down to 2.21). Visual
+  alone is not shown.
 
 ## 3. The mentions are exclusions
 
@@ -112,11 +133,12 @@ looks for a recorded diagnosis.
   criteria name cognitive, hearing and visual disability 2.6 to 3.3 times as often as the
   registry overall, while they name non-disability controls less often (p = 0.0027 against 11
   controls). This holds without the trials of those conditions and, at about 2 to 2.7 times,
-  within no-phase trials.
+  within no-phase trials. Against other no-phase trials of the same five conditions it is 2.2
+  times for cognitive and 1.8 times for hearing (pre-registered, p = 0.018).
 - **Not shown:** that these exclusions are unjustified. Many VA trials are psychotherapy and
   behavioural studies, where a broad cognitive exclusion is common practice. Veterans are older
-  and mostly men, so the VA's patients differ from the registry's. A fair comparison would match
-  trials by condition and design. That has not been done.
+  and mostly men, so the VA's patients differ from the registry's. The matched test matches on
+  condition only, not on design, age or sex.
 - **Why it matters:** veterans have high rates of TBI, hearing loss and other disabilities, so
   broad exclusions in VA research may leave out many of the people that research is meant to serve.
   That is a hypothesis for VA research offices to check against their own protocols, not a
@@ -136,7 +158,9 @@ looks for a recorded diagnosis.
 ```
 python sponsor_check.py --sponsor va --json va.json     # about 50 small requests
 python sponsor_check.py --sponsor fed
+python va_matched.py                                    # the matched test, from saved counts
 ```
 
 `sponsor_check.py` makes every count in sections 1 and 2 (the no-phase and the
-not-own-condition columns too) and the rank test. Section 3 was read by hand.
+not-own-condition columns too) and the rank test. `va_matched.py` makes and analyses the matched
+counts. Section 3 was read by hand.

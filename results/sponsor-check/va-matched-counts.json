@@ -1,0 +1,110 @@
+{
+ "fetched": "2026-10-15",
+ "note": "Counts for the pre-registered test in PREREG-VA-MATCHED.md, each made with the ClinicalTrials.gov API v2 search (countTotal) from the query.term that va_matched.term() builds, on 2026-10-15 between about 13:30 and 14:30 UTC, after the pre-registration was committed (7311a19). The ten stratum sizes matched the ones counted before the pre-registration exactly. CC BY 4.0. Made by MV2 of Munim, Inc. with AI agents.",
+ "strata": ["ptsd", "substance use", "depression", "pain", "cardiometabolic"],
+ "trials": {
+  "ptsd": {"va": 189, "registry": 1274},
+  "substance use": {"va": 118, "registry": 6291},
+  "depression": {"va": 75, "registry": 5494},
+  "pain": {"va": 98, "registry": 19189},
+  "cardiometabolic": {"va": 230, "registry": 24793}
+ },
+ "phrases": {
+  "cognitive (all wordings)": {
+   "kind": "family",
+   "ptsd": {"va": 75, "registry": 354},
+   "substance use": {"va": 48, "registry": 810},
+   "depression": {"va": 34, "registry": 1378},
+   "pain": {"va": 33, "registry": 2258},
+   "cardiometabolic": {"va": 65, "registry": 2660}
+  },
+  "hearing (all wordings)": {
+   "kind": "family",
+   "ptsd": {"va": 5, "registry": 47},
+   "substance use": {"va": 9, "registry": 91},
+   "depression": {"va": 1, "registry": 177},
+   "pain": {"va": 3, "registry": 525},
+   "cardiometabolic": {"va": 12, "registry": 395}
+  },
+  "visual (all wordings)": {
+   "kind": "family",
+   "ptsd": {"va": 1, "registry": 8},
+   "substance use": {"va": 3, "registry": 56},
+   "depression": {"va": 3, "registry": 91},
+   "pain": {"va": 2, "registry": 368},
+   "cardiometabolic": {"va": 5, "registry": 409}
+  },
+  "pregnant": {
+   "kind": "control",
+   "ptsd": {"va": 37, "registry": 318},
+   "substance use": {"va": 26, "registry": 2176},
+   "depression": {"va": 14, "registry": 1625},
+   "pain": {"va": 27, "registry": 7511},
+   "cardiometabolic": {"va": 65, "registry": 10594}
+  },
+  "hepatitis": {
+   "kind": "control",
+   "ptsd": {"va": 0, "registry": 5},
+   "substance use": {"va": 1, "registry": 164},
+   "depression": {"va": 1, "registry": 41},
+   "pain": {"va": 0, "registry": 151},
+   "cardiometabolic": {"va": 1, "registry": 603}
+  },
+  "allergy": {
+   "kind": "control",
+   "ptsd": {"va": 6, "registry": 45},
+   "substance use": {"va": 2, "registry": 871},
+   "depression": {"va": 1, "registry": 345},
+   "pain": {"va": 4, "registry": 4664},
+   "cardiometabolic": {"va": 14, "registry": 4286}
+  },
+  "migraine": {
+   "kind": "control",
+   "ptsd": {"va": 0, "registry": 5},
+   "substance use": {"va": 0, "registry": 49},
+   "depression": {"va": 1, "registry": 52},
+   "pain": {"va": 3, "registry": 297},
+   "cardiometabolic": {"va": 0, "registry": 46}
+  },
+  "osteoporosis": {
+   "kind": "control",
+   "ptsd": {"va": 0, "registry": 4},
+   "substance use": {"va": 0, "registry": 4},
+   "depression": {"va": 0, "registry": 16},
+   "pain": {"va": 0, "registry": 712},
+   "cardiometabolic": {"va": 0, "registry": 79}
+  },
+  "claustrophobia": {
+   "kind": "control",
+   "ptsd": {"va": 4, "registry": 42},
+   "substance use": {"va": 2, "registry": 126},
+   "depression": {"va": 2, "registry": 162},
+   "pain": {"va": 5, "registry": 250},
+   "cardiometabolic": {"va": 3, "registry": 395}
+  },
+  "celiac": {
+   "kind": "control",
+   "ptsd": {"va": 1, "registry": 2},
+   "substance use": {"va": 0, "registry": 13},
+   "depression": {"va": 0, "registry": 23},
+   "pain": {"va": 0, "registry": 65},
+   "cardiometabolic": {"va": 1, "registry": 349}
+  },
+  "hernia": {
+   "kind": "control",
+   "ptsd": {"va": 0, "registry": 1},
+   "substance use": {"va": 0, "registry": 16},
+   "depression": {"va": 0, "registry": 15},
+   "pain": {"va": 1, "registry": 555},
+   "cardiometabolic": {"va": 1, "registry": 111}
+  },
+  "informed consent": {
+   "kind": "reference",
+   "ptsd": {"va": 52, "registry": 347},
+   "substance use": {"va": 33, "registry": 1897},
+   "depression": {"va": 20, "registry": 1753},
+   "pain": {"va": 17, "registry": 4903},
+   "cardiometabolic": {"va": 43, "registry": 9578}
+  }
+ }
+}
