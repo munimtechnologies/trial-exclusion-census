@@ -200,8 +200,15 @@ counting. The result, from 156 counts of 2026-10-15
 - **Hearing is first, not alone.** It leads visual by little, and the intervals overlap. The
   exposure also takes in mobile-phone apps and text messages, which need sight. So the finding is
   that telephone-delivered trials name sensory and cognitive disability much more often, with
-  hearing first, not that the telephone singles out hearing alone. Next comes the reading of 40
-  hearing mentions outside the VA, half of them in telephone trials.
+  hearing first, not that the telephone singles out hearing alone.
+- **Does the hearing item say it is the phone? Not often (pre-registered reading, S2).**
+  [PHONE-HEARING-READ.md](results/phone-check/PHONE-HEARING-READ.md) read 20 hearing mentions in
+  telephone trials and 20 in other trials, outside the VA. All 40 shut people with hearing loss
+  out. The hearing item itself names the phone in 4 of 20 telephone trials ("Severe hearing
+  impairment not allowing phone delivery") and 1 of 20 others. The prediction of at least 5
+  failed by one, and the difference is not significant (one-sided Fisher p = 0.17). Exploratory:
+  13 of the 20 telephone trials name a phone somewhere in their criteria, against 5 of 20, so a
+  bare hearing exclusion often sits beside a requirement to use a phone.
 - The known fixes are cheap: captioned telephone, relay services such as 711, text or chat, and
   video with captions.
 
@@ -362,7 +369,9 @@ and HP2 of [PREREG-PHONE-MATCHED.md](results/phone-check/PREREG-PHONE-MATCHED.md
 ratios and the test of `va_matched.py`. Without `--fetch`, it reads the saved counts in
 `results/phone-check/phone-matched-counts.json`. The exploratory
 `phone-matched-nonva-counts.json` holds the hearing family only, in the same layout, so
-`phone_matched.rows()` applies to it (`test_phone_matched.py` does this).
+`phone_matched.rows()` applies to it (`test_phone_matched.py` does this). The S2 reading is in
+`results/phone-check/phone-hearing-read.json`; `test_phone_hearing_read.py` checks its queries
+against the pre-registration and recomputes its counts and Fisher test.
 
 Standard library only (Python 3.9+). No API key.
 
@@ -421,6 +430,13 @@ first 114 trials, whose misses shaped 0.4.0, and the other 111, labelled after 0
 
 ## Changes
 
+- After 0.5.0 (on main): the pre-registered S2 reading of the telephone test.
+  [PHONE-HEARING-READ.md](results/phone-check/PHONE-HEARING-READ.md) and
+  [phone-hearing-read.json](results/phone-check/phone-hearing-read.json): 20 hearing mentions in
+  non-VA telephone trials and 20 in other non-VA trials, each quote checked against its record.
+  All 40 shut people out. The hearing item names the phone in 4 of 20 against 1 of 20; the
+  prediction of at least 5 failed by one (Fisher p = 0.17). `test_phone_hearing_read.py` checks
+  the queries, the marks and every number. The census rules are unchanged.
 - After 0.5.0 (on main): the pre-registered telephone test, counted.
   [phone-matched-counts.json](results/phone-check/phone-matched-counts.json) (156 counts of
   2026-10-15) and [PHONE-MATCHED-RESULT.md](results/phone-check/PHONE-MATCHED-RESULT.md):
