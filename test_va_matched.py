@@ -10,6 +10,7 @@ import sponsor_check as sc
 import trend_check as tc
 import va_matched as vm
 
+HERE = os.path.dirname(os.path.abspath(__file__))
 # Two strata. F is twice as common in VA trials in both (matched 2.0, unmatched 5.5 because the
 # VA has more trials in stratum a, where everything is common). C is as common in both (matched
 # 1.0, unmatched 2.75). X is too rare to test (1.04 VA matches expected).
@@ -115,6 +116,55 @@ class RunTests(unittest.TestCase):
                 data = json.load(f)
             self.assertEqual(data["test"]["left_out"], ["X"])
             self.assertEqual(data["verdicts"], {"HV1": False, "HV2": False})
+
+
+class PublishedTests(unittest.TestCase):
+    def load(self, name):
+        path = os.path.join(HERE, "results", "sponsor-check", name)
+        if not os.path.exists(path):
+            self.skipTest("%s not present" % name)
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+
+    def test_counts_file(self):
+        data = self.load("va-matched-counts.json")
+        self.assertEqual(data["strata"], [s for s, _ in vm.STRATA])
+        self.assertEqual(list(data["phrases"]), vm.PHRASES)
+        for p, c in data["phrases"].items():
+            self.assertEqual(c["kind"], vm.kind(p))
+            for s in data["strata"]:
+                self.assertLessEqual(c[s]["va"], c[s]["registry"])
+                self.assertLessEqual(c[s]["registry"], data["trials"][s]["registry"])
+
+    def test_stratum_sizes_match_the_preregistration(self):
+        data = self.load("va-matched-counts.json")
+        prereg = self.load("prereg-va-matched.json")
+        self.assertEqual(data["trials"], prereg["stratum_sizes_known_before"])
+
+    def test_result(self):
+        data = self.load("va-matched-counts.json")
+        rs = {r["phrase"]: r for r in vm.rows(data)}
+        # Worked out by hand on 2026-10-15 (VA-MATCHED-RESULT.md, as corrected the same day).
+        for phrase, est, low, high in [("cognitive (all wordings)", 2.21, 1.99, 2.45),
+                                       ("hearing (all wordings)", 1.77, 1.24, 2.52),
+                                       ("visual (all wordings)", 1.55, 0.92, 2.62),
+                                       ("pregnant", 0.68, 0.59, 0.77),
+                                       ("claustrophobia", 1.02, 0.62, 1.66),
+                                       ("informed consent", 0.72, 0.63, 0.83)]:
+            r = rs[phrase]
+            self.assertAlmostEqual(r["mh"], est, delta=0.011)
+            self.assertAlmostEqual(r["low"], low, delta=0.011)
+            self.assertAlmostEqual(r["high"], high, delta=0.011)
+        # The first version of the write-up said 263 and 2.90; the counts give 255 and 2.81.
+        self.assertEqual(rs["cognitive (all wordings)"]["va"], 255)
+        self.assertAlmostEqual(rs["cognitive (all wordings)"]["crude"], 2.81, delta=0.011)
+        self.assertEqual((rs["osteoporosis"]["mh"], rs["osteoporosis"]["kept"]), (0.0, True))
+        self.assertAlmostEqual(rs["osteoporosis"]["expected"], 5.4, delta=0.05)
+        t = vm.test(list(rs.values()))
+        self.assertEqual(t["left_out"], ["migraine", "celiac", "hernia"])
+        self.assertEqual((t["families"], t["controls"], t["rank_sum"], t["p"], t["testable"]),
+                         (3, 5, 21.0, 0.0179, True))
+        self.assertEqual(vm.verdicts(list(rs.values()), t), {"HV1": True, "HV2": True})
 
 
 if __name__ == "__main__":
