@@ -1,0 +1,1424 @@
+{
+ "version": "0.2.0",
+ "fetched": "2026-10-16",
+ "search": "AREA[EligibilityCriteria](\"ability to understand and the willingness to sign\" OR \"ability to understand and willingness to sign\")",
+ "summary": {
+  "registry_total": 5473,
+  "downloaded": 5473,
+  "stock_exact": 4059,
+  "stock_loose_only": 1377,
+  "neither": 37,
+  "adult_path": {
+   "trials": 4059,
+   "with": 422,
+   "pct": 10.397
+  },
+  "adult_path_inclusion": {
+   "trials": 4059,
+   "with": 385,
+   "pct": 9.485
+  },
+  "adult_path_adult_only": {
+   "trials": 3808,
+   "with": 334,
+   "pct": 8.771
+  },
+  "paths": {
+   "representative": 301,
+   "guardian": 114,
+   "surrogate": 15,
+   "parent": 94,
+   "idmc": 139
+  },
+  "by_year": [
+   {
+    "start_year": 1988,
+    "trials": 1,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 1999,
+    "trials": 2,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 2000,
+    "trials": 4,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 2001,
+    "trials": 2,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 2002,
+    "trials": 15,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 2003,
+    "trials": 26,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 2004,
+    "trials": 42,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 2005,
+    "trials": 57,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 2006,
+    "trials": 83,
+    "with": 2,
+    "pct": 2.41
+   },
+   {
+    "start_year": 2007,
+    "trials": 78,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 2008,
+    "trials": 85,
+    "with": 2,
+    "pct": 2.353
+   },
+   {
+    "start_year": 2009,
+    "trials": 131,
+    "with": 6,
+    "pct": 4.58
+   },
+   {
+    "start_year": 2010,
+    "trials": 148,
+    "with": 8,
+    "pct": 5.405
+   },
+   {
+    "start_year": 2011,
+    "trials": 136,
+    "with": 5,
+    "pct": 3.676
+   },
+   {
+    "start_year": 2012,
+    "trials": 138,
+    "with": 6,
+    "pct": 4.348
+   },
+   {
+    "start_year": 2013,
+    "trials": 160,
+    "with": 4,
+    "pct": 2.5
+   },
+   {
+    "start_year": 2014,
+    "trials": 208,
+    "with": 6,
+    "pct": 2.885
+   },
+   {
+    "start_year": 2015,
+    "trials": 171,
+    "with": 9,
+    "pct": 5.263
+   },
+   {
+    "start_year": 2016,
+    "trials": 249,
+    "with": 10,
+    "pct": 4.016
+   },
+   {
+    "start_year": 2017,
+    "trials": 265,
+    "with": 12,
+    "pct": 4.528
+   },
+   {
+    "start_year": 2018,
+    "trials": 204,
+    "with": 16,
+    "pct": 7.843
+   },
+   {
+    "start_year": 2019,
+    "trials": 214,
+    "with": 17,
+    "pct": 7.944
+   },
+   {
+    "start_year": 2020,
+    "trials": 214,
+    "with": 44,
+    "pct": 20.561
+   },
+   {
+    "start_year": 2021,
+    "trials": 236,
+    "with": 48,
+    "pct": 20.339
+   },
+   {
+    "start_year": 2022,
+    "trials": 187,
+    "with": 35,
+    "pct": 18.717
+   },
+   {
+    "start_year": 2023,
+    "trials": 219,
+    "with": 38,
+    "pct": 17.352
+   },
+   {
+    "start_year": 2024,
+    "trials": 263,
+    "with": 43,
+    "pct": 16.35
+   },
+   {
+    "start_year": 2025,
+    "trials": 221,
+    "with": 45,
+    "pct": 20.362
+   },
+   {
+    "start_year": 2026,
+    "trials": 247,
+    "with": 51,
+    "pct": 20.648
+   },
+   {
+    "start_year": 2027,
+    "trials": 38,
+    "with": 13,
+    "pct": 34.211
+   },
+   {
+    "start_year": 2030,
+    "trials": 2,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": null,
+    "trials": 13,
+    "with": 2,
+    "pct": 15.385
+   }
+  ],
+  "by_phase": [
+   {
+    "phase": "EARLY_PHASE1",
+    "trials": 154,
+    "with": 16,
+    "pct": 10.39
+   },
+   {
+    "phase": "NA",
+    "trials": 547,
+    "with": 41,
+    "pct": 7.495
+   },
+   {
+    "phase": "NONE",
+    "trials": 266,
+    "with": 19,
+    "pct": 7.143
+   },
+   {
+    "phase": "PHASE1",
+    "trials": 1031,
+    "with": 128,
+    "pct": 12.415
+   },
+   {
+    "phase": "PHASE1/PHASE2",
+    "trials": 350,
+    "with": 49,
+    "pct": 14.0
+   },
+   {
+    "phase": "PHASE2",
+    "trials": 1570,
+    "with": 142,
+    "pct": 9.045
+   },
+   {
+    "phase": "PHASE2/PHASE3",
+    "trials": 23,
+    "with": 7,
+    "pct": 30.435
+   },
+   {
+    "phase": "PHASE3",
+    "trials": 78,
+    "with": 17,
+    "pct": 21.795
+   },
+   {
+    "phase": "PHASE4",
+    "trials": 40,
+    "with": 3,
+    "pct": 7.5
+   }
+  ],
+  "idmc_by_year": [
+   {
+    "start_year": 1988,
+    "trials": 1,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 1999,
+    "trials": 2,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 2000,
+    "trials": 4,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 2001,
+    "trials": 2,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 2002,
+    "trials": 15,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 2003,
+    "trials": 26,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 2004,
+    "trials": 42,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 2005,
+    "trials": 57,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 2006,
+    "trials": 83,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 2007,
+    "trials": 78,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 2008,
+    "trials": 85,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 2009,
+    "trials": 131,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 2010,
+    "trials": 148,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 2011,
+    "trials": 136,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 2012,
+    "trials": 138,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 2013,
+    "trials": 160,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 2014,
+    "trials": 208,
+    "with": 2,
+    "pct": 0.962
+   },
+   {
+    "start_year": 2015,
+    "trials": 171,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 2016,
+    "trials": 249,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": 2017,
+    "trials": 265,
+    "with": 1,
+    "pct": 0.377
+   },
+   {
+    "start_year": 2018,
+    "trials": 204,
+    "with": 2,
+    "pct": 0.98
+   },
+   {
+    "start_year": 2019,
+    "trials": 214,
+    "with": 5,
+    "pct": 2.336
+   },
+   {
+    "start_year": 2020,
+    "trials": 214,
+    "with": 19,
+    "pct": 8.879
+   },
+   {
+    "start_year": 2021,
+    "trials": 236,
+    "with": 28,
+    "pct": 11.864
+   },
+   {
+    "start_year": 2022,
+    "trials": 187,
+    "with": 17,
+    "pct": 9.091
+   },
+   {
+    "start_year": 2023,
+    "trials": 219,
+    "with": 24,
+    "pct": 10.959
+   },
+   {
+    "start_year": 2024,
+    "trials": 263,
+    "with": 15,
+    "pct": 5.703
+   },
+   {
+    "start_year": 2025,
+    "trials": 221,
+    "with": 12,
+    "pct": 5.43
+   },
+   {
+    "start_year": 2026,
+    "trials": 247,
+    "with": 7,
+    "pct": 2.834
+   },
+   {
+    "start_year": 2027,
+    "trials": 38,
+    "with": 7,
+    "pct": 18.421
+   },
+   {
+    "start_year": 2030,
+    "trials": 2,
+    "with": 0,
+    "pct": 0.0
+   },
+   {
+    "start_year": null,
+    "trials": 13,
+    "with": 0,
+    "pct": 0.0
+   }
+  ],
+  "templates": {
+   "nci_idmc_must_have": {
+    "trials": 4059,
+    "with": 1,
+    "pct": 0.025
+   },
+   "nci_idmc_also_eligible": {
+    "trials": 4059,
+    "with": 59,
+    "pct": 1.454
+   },
+   "nci_lar_may_sign": {
+    "trials": 4059,
+    "with": 54,
+    "pct": 1.33
+   }
+  },
+  "template_by_year": {
+   "nci_idmc_must_have": [
+    {
+     "start_year": 1988,
+     "trials": 1,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 1999,
+     "trials": 2,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2000,
+     "trials": 4,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2001,
+     "trials": 2,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2002,
+     "trials": 15,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2003,
+     "trials": 26,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2004,
+     "trials": 42,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2005,
+     "trials": 57,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2006,
+     "trials": 83,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2007,
+     "trials": 78,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2008,
+     "trials": 85,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2009,
+     "trials": 131,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2010,
+     "trials": 148,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2011,
+     "trials": 136,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2012,
+     "trials": 138,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2013,
+     "trials": 160,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2014,
+     "trials": 208,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2015,
+     "trials": 171,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2016,
+     "trials": 249,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2017,
+     "trials": 265,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2018,
+     "trials": 204,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2019,
+     "trials": 214,
+     "with": 1,
+     "pct": 0.467
+    },
+    {
+     "start_year": 2020,
+     "trials": 214,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2021,
+     "trials": 236,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2022,
+     "trials": 187,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2023,
+     "trials": 219,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2024,
+     "trials": 263,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2025,
+     "trials": 221,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2026,
+     "trials": 247,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2027,
+     "trials": 38,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2030,
+     "trials": 2,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": null,
+     "trials": 13,
+     "with": 0,
+     "pct": 0.0
+    }
+   ],
+   "nci_idmc_also_eligible": [
+    {
+     "start_year": 1988,
+     "trials": 1,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 1999,
+     "trials": 2,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2000,
+     "trials": 4,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2001,
+     "trials": 2,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2002,
+     "trials": 15,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2003,
+     "trials": 26,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2004,
+     "trials": 42,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2005,
+     "trials": 57,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2006,
+     "trials": 83,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2007,
+     "trials": 78,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2008,
+     "trials": 85,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2009,
+     "trials": 131,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2010,
+     "trials": 148,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2011,
+     "trials": 136,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2012,
+     "trials": 138,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2013,
+     "trials": 160,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2014,
+     "trials": 208,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2015,
+     "trials": 171,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2016,
+     "trials": 249,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2017,
+     "trials": 265,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2018,
+     "trials": 204,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2019,
+     "trials": 214,
+     "with": 1,
+     "pct": 0.467
+    },
+    {
+     "start_year": 2020,
+     "trials": 214,
+     "with": 12,
+     "pct": 5.607
+    },
+    {
+     "start_year": 2021,
+     "trials": 236,
+     "with": 20,
+     "pct": 8.475
+    },
+    {
+     "start_year": 2022,
+     "trials": 187,
+     "with": 11,
+     "pct": 5.882
+    },
+    {
+     "start_year": 2023,
+     "trials": 219,
+     "with": 10,
+     "pct": 4.566
+    },
+    {
+     "start_year": 2024,
+     "trials": 263,
+     "with": 2,
+     "pct": 0.76
+    },
+    {
+     "start_year": 2025,
+     "trials": 221,
+     "with": 1,
+     "pct": 0.452
+    },
+    {
+     "start_year": 2026,
+     "trials": 247,
+     "with": 2,
+     "pct": 0.81
+    },
+    {
+     "start_year": 2027,
+     "trials": 38,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2030,
+     "trials": 2,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": null,
+     "trials": 13,
+     "with": 0,
+     "pct": 0.0
+    }
+   ],
+   "nci_lar_may_sign": [
+    {
+     "start_year": 1988,
+     "trials": 1,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 1999,
+     "trials": 2,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2000,
+     "trials": 4,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2001,
+     "trials": 2,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2002,
+     "trials": 15,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2003,
+     "trials": 26,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2004,
+     "trials": 42,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2005,
+     "trials": 57,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2006,
+     "trials": 83,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2007,
+     "trials": 78,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2008,
+     "trials": 85,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2009,
+     "trials": 131,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2010,
+     "trials": 148,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2011,
+     "trials": 136,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2012,
+     "trials": 138,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2013,
+     "trials": 160,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2014,
+     "trials": 208,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2015,
+     "trials": 171,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2016,
+     "trials": 249,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2017,
+     "trials": 265,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2018,
+     "trials": 204,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2019,
+     "trials": 214,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2020,
+     "trials": 214,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2021,
+     "trials": 236,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2022,
+     "trials": 187,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": 2023,
+     "trials": 219,
+     "with": 2,
+     "pct": 0.913
+    },
+    {
+     "start_year": 2024,
+     "trials": 263,
+     "with": 14,
+     "pct": 5.323
+    },
+    {
+     "start_year": 2025,
+     "trials": 221,
+     "with": 16,
+     "pct": 7.24
+    },
+    {
+     "start_year": 2026,
+     "trials": 247,
+     "with": 17,
+     "pct": 6.883
+    },
+    {
+     "start_year": 2027,
+     "trials": 38,
+     "with": 5,
+     "pct": 13.158
+    },
+    {
+     "start_year": 2030,
+     "trials": 2,
+     "with": 0,
+     "pct": 0.0
+    },
+    {
+     "start_year": null,
+     "trials": 13,
+     "with": 0,
+     "pct": 0.0
+    }
+   ]
+  }
+ },
+ "reading_sample": [
+  {
+   "nct_id": "NCT03259061",
+   "snippets": [
+    "guardian: en informed consent(if he was a child so his parents or his guardian should has tis ability) Exclusion Criteria: 1. Mental Ret",
+    "parent: to sign a written informed consent(if he was a child so his parents or his guardian should has tis ability) Exclusion Criteria"
+   ]
+  },
+  {
+   "nct_id": "NCT07108998",
+   "snippets": [
+    "representative: he willingness to sign a written informed consent document. Legally authorized representatives may sign and give informed consent on behalf of study parti"
+   ]
+  },
+  {
+   "nct_id": "NCT06047977",
+   "snippets": [
+    "guardian: nd radiation. \u2022 All patients and/or their parents or legal guardians must have the ability to understand and the willingness to",
+    "parent: immunotherapy, and radiation. \u2022 All patients and/or their parents or legal guardians must have the ability to understand and"
+   ]
+  },
+  {
+   "nct_id": "NCT05721755",
+   "snippets": [
+    "representative: ts with impaired decision-making capacity (IDMC) who have a legally authorized representative (LAR) or caregiver and/or family member available will also",
+    "representative: pacity (IDMC) who have a legally authorized representative (LAR) or caregiver and/or family member available will also be c",
+    "idmc: to sign a written informed consent document. Patients with impaired decision-making capacity (IDMC) who have a legally authorized representative (LAR) o"
+   ]
+  },
+  {
+   "nct_id": "NCT06698744",
+   "snippets": [
+    "guardian: 40% of predicted will be eligible. * Participants (or legal guardians) must have the ability to understand and the willingness to"
+   ]
+  },
+  {
+   "nct_id": "NCT06811272",
+   "snippets": [
+    "representative: a written informed consent document by the participant or a legally authorized representative. Exclusion Criteria: * Participant must not have used an"
+   ]
+  },
+  {
+   "nct_id": "NCT05148078",
+   "snippets": [
+    "guardian: up (ECOG) performance status \u2264 2 at screening 4. Parents or guardians with the ability to understand and the willingness to sign",
+    "parent: ncology Group (ECOG) performance status \u2264 2 at screening 4. Parents or guardians with the ability to understand and the willing",
+    "parent: limit compliance with study requirements. 3. Subjects whose parents opt to not include them (the subject) in the clinical trial"
+   ]
+  },
+  {
+   "nct_id": "NCT05896839",
+   "snippets": [
+    "representative: he willingness to sign a written informed consent document. Legally authorized representatives may sign and give informed consent on behalf of study parti"
+   ]
+  },
+  {
+   "nct_id": "NCT04423211",
+   "snippets": [
+    "representative: ts with impaired decision-making capacity (IDMC) who have a legally authorized representative (LAR) or caregiver and/or family member available will also",
+    "representative: pacity (IDMC) who have a legally authorized representative (LAR) or caregiver and/or family member available will also be c",
+    "idmc: to sign a written informed consent document. Patients with impaired decision-making capacity (IDMC) who have a legally authorized representative (LAR) o"
+   ]
+  },
+  {
+   "nct_id": "NCT05361811",
+   "snippets": [
+    "guardian: * Age \\>= 18 years * Caregiver (defined as parent or legal guardian) of a child (\\< 18 years) with a diagnosis of a RASopathy s",
+    "parent: nd speak English * Age \\>= 18 years * Caregiver (defined as parent or legal guardian) of a child (\\< 18 years) with a diagnosi",
+    "parent: and the other can receive the intervention materials (e.g., parent workbook, audio recordings) to practice on their own. The r"
+   ]
+  },
+  {
+   "nct_id": "NCT03606967",
+   "snippets": [
+    "guardian: ecision-making capacity who have a close caregiver or legal guardian are also eligible with the consent of the caregiver/guardia",
+    "guardian: uardian are also eligible with the consent of the caregiver/guardian. Exclusion Criteria: * Patients who are not considered to",
+    "idmc: to sign a written informed consent document. Patients with impaired decision-making capacity who have a close caregiver or legal guardian are also eligi"
+   ]
+  },
+  {
+   "nct_id": "NCT02736565",
+   "snippets": [
+    "guardian: diatric patients must sign an assent with a parent or legal guardian sign a written informed consent, per institutional guidelin",
+    "parent: ific consent. Pediatric patients must sign an assent with a parent or legal guardian sign a written informed consent, per inst"
+   ]
+  },
+  {
+   "nct_id": "NCT06982222",
+   "snippets": [
+    "representative: he willingness to sign a written informed consent document. Legally authorized representatives may sign if the patient is physically (not mentally) not ca"
+   ]
+  },
+  {
+   "nct_id": "NCT06266338",
+   "snippets": [
+    "representative: e \u2264Grade 2 neuropathy are eligible. 11. The participant (or legally acceptable representative if applicable) provides written informed consent for the tr"
+   ]
+  },
+  {
+   "nct_id": "NCT05825066",
+   "snippets": [
+    "representative: pproved informed consent document (either directly or via a legally authorized representative). Exclusion Criteria: * Patients who have had prior chemo"
+   ]
+  },
+  {
+   "nct_id": "NCT04090398",
+   "snippets": [
+    "representative: ts with impaired decision-making capacity (IDMC) who have a legally-authorized representative (LAR) and/or family member available will also be eligible",
+    "representative: pacity (IDMC) who have a legally-authorized representative (LAR) and/or family member available will also be eligible * No",
+    "idmc: sign a written informed consent document. Participants with impaired decision-making capacity (IDMC) who have a legally-authorized representative (LAR) a"
+   ]
+  },
+  {
+   "nct_id": "NCT05836584",
+   "snippets": [
+    "representative: ts with impaired decision-making capacity (IDMC) who have a legally authorized representative (LAR) or caregiver and/or family member available will also",
+    "representative: pacity (IDMC) who have a legally authorized representative (LAR) or caregiver and/or family member available will also be c",
+    "idmc: to sign a written informed consent document. Patients with impaired decision-making capacity (IDMC) who have a legally authorized representative (LAR) o"
+   ]
+  },
+  {
+   "nct_id": "NCT04277442",
+   "snippets": [
+    "representative: ing are allowed to participate as long as the patient has a legally authorized representative (LAR) or caregiver Exclusion Criteria: * Patients with hi",
+    "representative: ong as the patient has a legally authorized representative (LAR) or caregiver Exclusion Criteria: * Patients with history"
+   ]
+  },
+  {
+   "nct_id": "NCT01656044",
+   "snippets": [
+    "representative: written informed consent document (either directly or via a legally authorized representative) Exclusion Criteria: * Emergent cases will not be include"
+   ]
+  },
+  {
+   "nct_id": "NCT03582969",
+   "snippets": [
+    "guardian: unrelated donor stool. * Ability of parents or other legal guardian to understand and the willingness to sign a written informe",
+    "parent: gness to accept risk of unrelated donor stool. * Ability of parents or other legal guardian to understand and the willingness t"
+   ]
+  },
+  {
+   "nct_id": "NCT07422363",
+   "snippets": [
+    "representative: he willingness to sign a written informed consent document. Legally authorized representatives (LAR) may sign and give informed consent on behalf of study",
+    "representative: ormed consent document. Legally authorized representatives (LAR) may sign and give informed consent on behalf of study part"
+   ]
+  },
+  {
+   "nct_id": "NCT07729995",
+   "snippets": [
+    "guardian: Absolute neutrophil count \u22651000. 5. Participants (or legal guardians) must have the ability to understand and the willingness to"
+   ]
+  },
+  {
+   "nct_id": "NCT06519682",
+   "snippets": [
+    "representative: .9.8 Informed Consent: All patients and/or their parents or legally authorized representatives must have the ability to understand and the willingness to",
+    "parent: uired. 3.1.9.8 Informed Consent: All patients and/or their parents or legally authorized representatives must have the ability"
+   ]
+  },
+  {
+   "nct_id": "NCT07225036",
+   "snippets": [
+    "representative: he willingness to sign a written informed consent document. Legally authorized representatives may sign and give informed consent on behalf of study parti"
+   ]
+  },
+  {
+   "nct_id": "NCT07434843",
+   "snippets": [
+    "representative: ts with impaired decision-making capacity (IDMC) who have a legally authorized representative (LAR) and/or family member available will also be eligible.",
+    "representative: pacity (IDMC) who have a legally authorized representative (LAR) and/or family member available will also be eligible. Exc",
+    "idmc: sign a written informed consent document. Participants with impaired decision-making capacity (IDMC) who have a legally authorized representative (LAR) a"
+   ]
+  },
+  {
+   "nct_id": "NCT06528691",
+   "snippets": [
+    "guardian: iopsy) * Available tumor tissue for central review * Parent/guardian has the ability to understand and the willingness to sign a",
+    "parent: on or biopsy) * Available tumor tissue for central review * Parent/guardian has the ability to understand and the willingness"
+   ]
+  },
+  {
+   "nct_id": "NCT06617923",
+   "snippets": [
+    "representative: he willingness to sign a written informed consent document. Legally authorized representatives may sign and give informed consent on behalf of study parti"
+   ]
+  },
+  {
+   "nct_id": "NCT06663072",
+   "snippets": [
+    "representative: ude but are not limited to somatostatin analogs (octreotide LAR, lanreotide), Capecitabine/Temozolomide, tyrosine kinase in"
+   ]
+  },
+  {
+   "nct_id": "NCT01961063",
+   "snippets": [
+    "guardian: sent (note: consent may not be obtained by means of a legal guardian) * Any medical or physical contraindication or any other in"
+   ]
+  },
+  {
+   "nct_id": "NCT06843330",
+   "snippets": [
+    "guardian: For pediatric participants: Ability of child's parent/legal guardian to understand and the willingness to sign a written informe",
+    "parent: is active * For pediatric participants: Ability of child's parent/legal guardian to understand and the willingness to sign a"
+   ]
+  },
+  {
+   "nct_id": "NCT00671710",
+   "snippets": [
+    "guardian: ign a written informed consent document or have a parent or guardian with the ability to understand and the willingness to sign",
+    "parent: gness to sign a written informed consent document or have a parent or guardian with the ability to understand and the willingn"
+   ]
+  },
+  {
+   "nct_id": "NCT06364410",
+   "snippets": [
+    "representative: he willingness to sign a written informed consent document. Legally authorized representatives may sign and give informed consent on behalf of study parti"
+   ]
+  },
+  {
+   "nct_id": "NCT05538663",
+   "snippets": [
+    "representative: ts with impaired decision-making capacity (IDMC) who have a legally authorized representative (LAR) or caregiver and/or family member available will also",
+    "representative: pacity (IDMC) who have a legally authorized representative (LAR) or caregiver and/or family member available will also be c",
+    "idmc: to sign a written informed consent document. Patients with impaired decision-making capacity (IDMC) who have a legally authorized representative (LAR) o"
+   ]
+  },
+  {
+   "nct_id": "NCT04677816",
+   "snippets": [
+    "representative: pproved informed consent document (either directly or via a legally authorized representative). Exclusion Criteria: * Patients with nephrolithiasis wit"
+   ]
+  },
+  {
+   "nct_id": "NCT06050252",
+   "snippets": [
+    "representative: he willingness to sign a written informed consent document. Legally authorized representatives may sign and give informed consent on behalf of study parti"
+   ]
+  },
+  {
+   "nct_id": "NCT05123807",
+   "snippets": [
+    "representative: written informed consent document (either directly or via a legally authorized representative) Exclusion Criteria: * Patients who are receiving concurr"
+   ]
+  },
+  {
+   "nct_id": "NCT06701812",
+   "snippets": [
+    "guardian: n immediately. * All patients and/or their parents or legal guardians must have the ability to understand and the willingness to",
+    "parent: treating physician immediately. * All patients and/or their parents or legal guardians must have the ability to understand and"
+   ]
+  },
+  {
+   "nct_id": "NCT06606990",
+   "snippets": [
+    "representative: he willingness to sign a written informed consent document. Legally authorized representatives may sign and give informed consent on behalf of study parti"
+   ]
+  },
+  {
+   "nct_id": "NCT04688476",
+   "snippets": [
+    "representative: lingness to sign a written informed consent document by the legal representative(s) of the participant. * Ability to understand and the will"
+   ]
+  },
+  {
+   "nct_id": "NCT06295367",
+   "snippets": [
+    "representative: ts with impaired decision-making capacity (IDMC) who have a legally authorized representative (LAR) or caregiver and/or family member available are not e",
+    "representative: pacity (IDMC) who have a legally authorized representative (LAR) or caregiver and/or family member available are not eligib",
+    "idmc: ign a written informed consent document. * Patients with impaired decision-making capacity (IDMC) who have a legally authorized representative (LAR) o"
+   ]
+  },
+  {
+   "nct_id": "NCT04923126",
+   "snippets": [
+    "guardian: pper BSA restrictions will be removed. * Participant and/or guardian can understand and is willing to sign a written informed co",
+    "guardian: tial must agree to use contraception. * Participants and/or guardian have the ability to understand and the willingness to sign"
+   ]
+  },
+  {
+   "nct_id": "NCT05477784",
+   "snippets": [
+    "surrogate: % of the time and residential with non-ill parent or parent surrogate * Read and write English as one of their languages of choic",
+    "parent: Inclusion Criteria: * Parents with any type of late-stage, non-curable cancer (determined",
+    "parent: ) to 68 yr. Age restriction exists for the patient based on parent having a child ages 5-17 * Patient must have a child (5yr."
+   ]
+  },
+  {
+   "nct_id": "NCT03057509",
+   "snippets": [
+    "representative: wel carcinoid tumor * Receiving a stable dose of octreotide LAR as a part of a treatment regimen for \u22653months * Presently p",
+    "representative: stigator assessment * Previous hypersensitivity reaction to LAR octreotide * Non-removable non-MR compatible placements inc"
+   ]
+  },
+  {
+   "nct_id": "NCT05272384",
+   "snippets": [
+    "representative: ticipants with impaired decision-making capacity who have a legally-authorized representative (LAR) and/or family member available will also be eligible",
+    "representative: king capacity who have a legally-authorized representative (LAR) and/or family member available will also be eligible Excl",
+    "idmc: sign a written informed consent document. Participants with impaired decision-making capacity who have a legally-authorized representative (LAR) and/or f"
+   ]
+  },
+  {
+   "nct_id": "NCT06561230",
+   "snippets": [
+    "representative: ts with impaired decision-making capacity (IDMC) who have a legally authorized representative (LAR) or caregiver and/or family member available will also",
+    "representative: pacity (IDMC) who have a legally authorized representative (LAR) or caregiver and/or family member available will also be c",
+    "idmc: to sign a written informed consent document. Patients with impaired decision-making capacity (IDMC) who have a legally authorized representative (LAR) o"
+   ]
+  },
+  {
+   "nct_id": "NCT05204290",
+   "snippets": [
+    "representative: pproved informed consent document (either directly or via a legally authorized representative). Exclusion Criteria: * Prior radiation therapy or surger"
+   ]
+  },
+  {
+   "nct_id": "NCT04631029",
+   "snippets": [
+    "representative: ts with impaired decision-making capacity (IDMC) who have a legally-authorized representative (LAR) and/or family member available will also be eligible",
+    "representative: pacity (IDMC) who have a legally-authorized representative (LAR) and/or family member available will also be eligible Excl",
+    "idmc: sign a written informed consent document. Participants with impaired decision-making capacity (IDMC) who have a legally-authorized representative (LAR) a"
+   ]
+  },
+  {
+   "nct_id": "NCT01815749",
+   "snippets": [
+    "guardian: benefits of participating in this phase I/II study; a legal guardian may substitute for the research participant * History of al"
+   ]
+  },
+  {
+   "nct_id": "NCT05691465",
+   "snippets": [
+    "representative: ticipants with impaired decision-making capacity who have a legally-authorized representative (LAR) and/or family member available will also be eligible",
+    "representative: king capacity who have a legally-authorized representative (LAR) and/or family member available will also be eligible * Pat",
+    "idmc: sign a written informed consent document. Participants with impaired decision-making capacity who have a legally-authorized representative (LAR) and/or f"
+   ]
+  },
+  {
+   "nct_id": "NCT06409390",
+   "snippets": [
+    "representative: gness to sign a written informed consent document or have a legally authorized representative sign on the participant's behalf. Exclusion Criteria: * H"
+   ]
+  }
+ ]
+}
