@@ -66,7 +66,8 @@ The newest template also drops "the" from the stock line ("willingness to sign a
 written informed consent document"), so the exact-line count misses it:
 the LAR sentence is in 102 trials in all, 48 of them without the exact line.
 Among the near-variant trials, 244 of 1,377 (17.7%) name a representative, guardian or
-surrogate; they were not read.
+surrogate. They are read in [CONSENT-NEAR-VARIANT.md](CONSENT-NEAR-VARIANT.md): most use a
+second template clause, from Washington University, and 197 of the 1,377 give an adult path.
 
 ## Limits
 
