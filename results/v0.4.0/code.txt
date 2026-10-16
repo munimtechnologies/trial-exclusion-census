@@ -1,0 +1,12 @@
+0.3.0
+0.4.0
+0.1.0
+a02c94f0d7806381795de29042b945541a4f34187e71ed0700d9805fb1d68a55  v030/exclusion_census.py
+086eaff8f749fe574f90daa78f2b3b3d115838469e461eb205ba18a71ea20b95  exclusion_census.py
+2207c1509cb68e7a3c14f66cf6ad392177f4f235da645163fa3fdabdecb69cf4  diff_rules.py
+65f806d8b295b3c55f73fae3c413721c672a5e27af0511c9db454ed5f7f8e892  test_exclusion_census.py
+45f5faa5498030a2ef067ca0ec4f0390611cee23863c0a6d2227a3490451ee7e  test_web_check.py
+e683f641a77e6fda8087835299af668d1556d047254905ea30a54397d3650565  test_diff_rules.py
+total 8
+drwxr-xr-x 2 root root 4096 Oct 15 16:28 .
+drwxr-xr-x 1 root root 4096 Oct 15 16:29 ..

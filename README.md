@@ -214,12 +214,10 @@ counting. The result, from 156 counts of 2026-10-15
 
 **What these numbers do not show yet.**
 
-- Recall, meaning the exclusions the rules miss. All 225 trials of the blind recall sample are
-  now labelled by hand ([results/recall/](results/recall/)); the scores of v0.1.1, v0.3.0 and
-  v0.4.0 on them come next.
-- The census's own trend controls (items per trial and a phased/no-phase split by year, added in
-  0.3.0) have not been run on the full registry yet. The registry-search check above suggests the
-  split matters: expect a clear rise in no-phase trials and little in the others.
+- Recall of the pre-registered rules on the full registry. The 0.4.0 rules are now scored on the
+  111 recall trials labelled after they were fixed (see the 0.4.0 section below). On the 78
+  random trials among them, the exclusion rules of v0.1.1 (unchanged in 0.2.0) find 15 of the 22
+  trials labelled as excluding someone, so the v0.1.1 figures above are likely undercounts too.
 - How often trials offer an accommodation (see the correction above).
 - Registry criteria are often a summary of the full protocol. On the four areas DeCormier Plosky
   et al. coded from full protocols, the registry text shows lower rates for vision (dementia
@@ -239,6 +237,51 @@ interpreter)" (NCT07246356). One exclusion item in this set instead offers ASL a
 interpreters around the clock (NCT04374760). A word list that treats these words as
 accommodations gets them backwards, which is why 0.5.0 counts them as exclusions there.
 The counts come from the registry's own search, and the quotes were checked against each record.
+
+## The 0.4.0 rules on the full registry (not pre-registered)
+
+The tables are in [results/v0.4.0/](results/v0.4.0/) (CC BY 4.0), from a run of the 0.4.0 rules
+(tag v0.4.0) on data fetched on 2026-10-15: 463,329 interventional studies, of which 450,201 have
+an exclusion section. The 0.3.0 and 0.4.0 rules were written after the first results were seen,
+so these numbers are **not pre-registered**. They are reported beside the v0.1.1 figures above,
+not in place of them.
+
+- **22.37%** of trials with an exclusion section exclude people in at least one of the six
+  disability categories, and **20.18%** when exclusions that match the trial's own condition are
+  left out. By category: cognitive 10.38%, consent capacity 8.67%, mobility 3.44%, hearing 2.63%,
+  visual 2.25% and communication 2.01%. The 0.3.0 rules give 19.81% on the same records
+  ([diff_summary.json](results/v0.4.0/diff_summary.json)), so the rise from 0.3.0 comes from the
+  list and wording rules 0.4.0 added.
+- **What the rules miss, on trials labelled after they were fixed**
+  ([SCORES-0.4.0.md](results/recall/SCORES-0.4.0.md)). Of the 78 random trials in the held-out
+  half of the recall sample, 22 were labelled as excluding someone by disability. 0.4.0 flags
+  16 of the 22 (73%; Wilson 95% interval 52% to 87%), against 15 of 22 for 0.3.0, and every trial it
+  flags is right. The inclusion-requirement rules find 13 of 19 (68%, 46% to 85%), and 13 of 14
+  of their flags are right. So the registry figures are more likely too low than too high. The
+  intervals are wide, and the labels were made by AI agents working for MV2, one reader per
+  trial, not yet checked by a person.
+- **Ability requirements.** 16.36% of trials require an ability in their inclusion criteria,
+  most often the capacity to consent with no representative named (12.69%). **33.74%** have a
+  disability barrier in either section, and **11.38%** have one only in the inclusion criteria,
+  where an exclusion-only count cannot see it. In the held-out random sample the share with a
+  barrier only there is 13 of 78 (17%, 10% to 26%).
+- **The trend controls, run for the first time.** From 2008 to 2025 starts, the share with a
+  disability exclusion rose from 15.16% to 27.83% (1.84 times). Criteria grew only a little
+  longer (8.96 to 9.31 exclusion items per trial), while disability items per 100 exclusion items
+  rose from 2.04 to 3.98. Within no-phase trials the share rose from 21.59% to 33.40%
+  (1.55 times), and within phased trials from 12.48% to 17.66% (1.42 times). Each design rose less than
+  the whole, so part of the overall rise is the shift toward no-phase trials, which exclude more.
+  Unlike the registry-search check above, this census count has no non-disability controls, so it
+  does not by itself show a rise specific to disability. Trials that start in 2026 are still
+  being registered (30.91% so far).
+- **Accommodation.** The 0.4.0 tables still carry the old accommodation flag (5.13%), which the
+  hand check above showed is not a measure of accommodation. Do not quote those columns; 0.5.0
+  replaces the flag.
+- The precision sample of this run (`sample_items.csv`) has not been checked by hand yet.
+
+`test_results_v040.py` checks that these tables agree with each other, recomputes every fraction
+and Wilson interval in SCORES-0.4.0.md, and checks every number this section quotes against the
+data.
 
 ## For study teams and IRB reviewers
 
@@ -401,6 +444,7 @@ current rules on the same trials, so a revised rule set can be compared on the s
 
 The labels for the first sample are in [results/recall/](results/recall/), in two halves: the
 first 114 trials, whose misses shaped 0.4.0, and the other 111, labelled after 0.4.0 was fixed.
+The scores of 0.4.0 on the second half are in [SCORES-0.4.0.md](results/recall/SCORES-0.4.0.md).
 
 ## Limits
 
@@ -430,6 +474,11 @@ first 114 trials, whose misses shaped 0.4.0, and the other 111, labelled after 0
 
 ## Changes
 
+- After 0.5.0 (on main): the 0.4.0 rules' full-registry run of 2026-10-15
+  ([results/v0.4.0/](results/v0.4.0/)) and their scores on the held-out half of the recall sample
+  ([SCORES-0.4.0.md](results/recall/SCORES-0.4.0.md)): 22.37% of 450,201 trials (not
+  pre-registered), recall 16 of 22 on held-out random trials, and the first run of the trend
+  controls. `test_results_v040.py` checks every number quoted. The census rules are unchanged.
 - After 0.5.0 (on main): the pre-registered S2 reading of the telephone test.
   [PHONE-HEARING-READ.md](results/phone-check/PHONE-HEARING-READ.md) and
   [phone-hearing-read.json](results/phone-check/phone-hearing-read.json): 20 hearing mentions in

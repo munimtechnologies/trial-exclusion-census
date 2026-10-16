@@ -1,0 +1,9 @@
+{
+ "old": "0.3.0",
+ "new": "0.4.0",
+ "trials_with_exclusion_section": 450201,
+ "any_core_old": 89182,
+ "any_core_new": 100688,
+ "any_core_old_pct": 19.81,
+ "any_core_new_pct": 22.37
+}
