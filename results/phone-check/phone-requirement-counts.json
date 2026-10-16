@@ -1,0 +1,369 @@
+{
+ "fetched": "2026-10-16",
+ "strata": [
+  "ptsd",
+  "substance use",
+  "depression",
+  "pain",
+  "cardiometabolic",
+  "other"
+ ],
+ "wordings": {
+  "base": 7421,
+  "phone": 1890,
+  "telephone": 1890,
+  "(phone OR telephone)": 1890
+ },
+ "trials": {
+  "ptsd": {
+   "phone": 10,
+   "registry": 74
+  },
+  "substance use": {
+   "phone": 232,
+   "registry": 615
+  },
+  "depression": {
+   "phone": 94,
+   "registry": 389
+  },
+  "pain": {
+   "phone": 76,
+   "registry": 372
+  },
+  "cardiometabolic": {
+   "phone": 382,
+   "registry": 1331
+  },
+  "other": {
+   "phone": 1096,
+   "registry": 4640
+  }
+ },
+ "phrases": {
+  "cognitive (all wordings)": {
+   "kind": "family",
+   "ptsd": {
+    "phone": 2,
+    "registry": 12
+   },
+   "substance use": {
+    "phone": 28,
+    "registry": 84
+   },
+   "depression": {
+    "phone": 31,
+    "registry": 109
+   },
+   "pain": {
+    "phone": 29,
+    "registry": 84
+   },
+   "cardiometabolic": {
+    "phone": 122,
+    "registry": 333
+   },
+   "other": {
+    "phone": 193,
+    "registry": 824
+   }
+  },
+  "hearing (all wordings)": {
+   "kind": "family",
+   "ptsd": {
+    "phone": 0,
+    "registry": 4
+   },
+   "substance use": {
+    "phone": 7,
+    "registry": 11
+   },
+   "depression": {
+    "phone": 10,
+    "registry": 24
+   },
+   "pain": {
+    "phone": 8,
+    "registry": 22
+   },
+   "cardiometabolic": {
+    "phone": 29,
+    "registry": 61
+   },
+   "other": {
+    "phone": 74,
+    "registry": 157
+   }
+  },
+  "visual (all wordings)": {
+   "kind": "family",
+   "ptsd": {
+    "phone": 0,
+    "registry": 0
+   },
+   "substance use": {
+    "phone": 0,
+    "registry": 3
+   },
+   "depression": {
+    "phone": 4,
+    "registry": 9
+   },
+   "pain": {
+    "phone": 6,
+    "registry": 18
+   },
+   "cardiometabolic": {
+    "phone": 18,
+    "registry": 44
+   },
+   "other": {
+    "phone": 36,
+    "registry": 110
+   }
+  },
+  "pregnant": {
+   "kind": "control",
+   "ptsd": {
+    "phone": 4,
+    "registry": 14
+   },
+   "substance use": {
+    "phone": 67,
+    "registry": 163
+   },
+   "depression": {
+    "phone": 9,
+    "registry": 50
+   },
+   "pain": {
+    "phone": 12,
+    "registry": 96
+   },
+   "cardiometabolic": {
+    "phone": 137,
+    "registry": 435
+   },
+   "other": {
+    "phone": 205,
+    "registry": 873
+   }
+  },
+  "hepatitis": {
+   "kind": "control",
+   "ptsd": {
+    "phone": 0,
+    "registry": 1
+   },
+   "substance use": {
+    "phone": 1,
+    "registry": 4
+   },
+   "depression": {
+    "phone": 0,
+    "registry": 2
+   },
+   "pain": {
+    "phone": 0,
+    "registry": 0
+   },
+   "cardiometabolic": {
+    "phone": 0,
+    "registry": 5
+   },
+   "other": {
+    "phone": 10,
+    "registry": 53
+   }
+  },
+  "allergy": {
+   "kind": "control",
+   "ptsd": {
+    "phone": 0,
+    "registry": 0
+   },
+   "substance use": {
+    "phone": 17,
+    "registry": 35
+   },
+   "depression": {
+    "phone": 1,
+    "registry": 4
+   },
+   "pain": {
+    "phone": 2,
+    "registry": 23
+   },
+   "cardiometabolic": {
+    "phone": 17,
+    "registry": 82
+   },
+   "other": {
+    "phone": 32,
+    "registry": 174
+   }
+  },
+  "migraine": {
+   "kind": "control",
+   "ptsd": {
+    "phone": 0,
+    "registry": 0
+   },
+   "substance use": {
+    "phone": 0,
+    "registry": 0
+   },
+   "depression": {
+    "phone": 0,
+    "registry": 1
+   },
+   "pain": {
+    "phone": 2,
+    "registry": 9
+   },
+   "cardiometabolic": {
+    "phone": 0,
+    "registry": 0
+   },
+   "other": {
+    "phone": 2,
+    "registry": 11
+   }
+  },
+  "osteoporosis": {
+   "kind": "control",
+   "ptsd": {
+    "phone": 0,
+    "registry": 0
+   },
+   "substance use": {
+    "phone": 0,
+    "registry": 0
+   },
+   "depression": {
+    "phone": 1,
+    "registry": 2
+   },
+   "pain": {
+    "phone": 2,
+    "registry": 9
+   },
+   "cardiometabolic": {
+    "phone": 2,
+    "registry": 3
+   },
+   "other": {
+    "phone": 2,
+    "registry": 20
+   }
+  },
+  "claustrophobia": {
+   "kind": "control",
+   "ptsd": {
+    "phone": 2,
+    "registry": 2
+   },
+   "substance use": {
+    "phone": 0,
+    "registry": 5
+   },
+   "depression": {
+    "phone": 0,
+    "registry": 0
+   },
+   "pain": {
+    "phone": 1,
+    "registry": 4
+   },
+   "cardiometabolic": {
+    "phone": 0,
+    "registry": 3
+   },
+   "other": {
+    "phone": 2,
+    "registry": 17
+   }
+  },
+  "celiac": {
+   "kind": "control",
+   "ptsd": {
+    "phone": 0,
+    "registry": 0
+   },
+   "substance use": {
+    "phone": 0,
+    "registry": 0
+   },
+   "depression": {
+    "phone": 0,
+    "registry": 0
+   },
+   "pain": {
+    "phone": 0,
+    "registry": 1
+   },
+   "cardiometabolic": {
+    "phone": 2,
+    "registry": 12
+   },
+   "other": {
+    "phone": 3,
+    "registry": 18
+   }
+  },
+  "hernia": {
+   "kind": "control",
+   "ptsd": {
+    "phone": 0,
+    "registry": 0
+   },
+   "substance use": {
+    "phone": 0,
+    "registry": 0
+   },
+   "depression": {
+    "phone": 0,
+    "registry": 1
+   },
+   "pain": {
+    "phone": 1,
+    "registry": 10
+   },
+   "cardiometabolic": {
+    "phone": 0,
+    "registry": 1
+   },
+   "other": {
+    "phone": 7,
+    "registry": 21
+   }
+  },
+  "informed consent": {
+   "kind": "reference",
+   "ptsd": {
+    "phone": 4,
+    "registry": 17
+   },
+   "substance use": {
+    "phone": 87,
+    "registry": 192
+   },
+   "depression": {
+    "phone": 22,
+    "registry": 98
+   },
+   "pain": {
+    "phone": 20,
+    "registry": 82
+   },
+   "cardiometabolic": {
+    "phone": 100,
+    "registry": 373
+   },
+   "other": {
+    "phone": 272,
+    "registry": 1213
+   }
+  }
+ }
+}

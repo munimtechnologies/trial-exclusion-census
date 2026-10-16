@@ -1,0 +1,340 @@
+{
+ "version": "0.1.0",
+ "query": "AREA[StudyType]INTERVENTIONAL AND AREA[Phase]NA AND AREA[InterventionSearch]telephone AND NOT AREA[ConditionSearch](cognitive OR dementia OR alzheimer OR \"brain injury\" OR stroke OR hearing OR deafness OR tinnitus OR ear OR vision OR visual OR eye OR blindness OR retina OR retinal OR macular OR glaucoma) AND NOT AREA[LeadSponsorName](VA OR Veteran OR Veterans) AND AREA[EligibilityCriteria](phone OR telephone) AND AREA[EligibilityCriteria](\"hearing loss\" OR \"deaf\" OR \"deafness\" OR \"hearing impairment\" OR \"hard of hearing\" OR \"hearing impaired\")",
+ "total": 128,
+ "summary": {
+  "trials": 20,
+  "a_requirement": 13,
+  "b_phone_tied": 12,
+  "check_by_eye": 0,
+  "a_prediction_met": true,
+  "b_tied_rule_met": true
+ },
+ "overlaps": [
+  {
+   "nct": "NCT03060096",
+   "group": "telephone"
+  }
+ ],
+ "marks": [
+  {
+   "nct": "NCT06732141",
+   "title": "Remote Anxiety Management for ICS-resistant Asthma Study",
+   "hearing_items": [
+    [
+     "exclusion",
+     "Inability to reliably receive or engage in telephone-based psychological interventions due to hearing impairments, communication barriers, or other reasons."
+    ]
+   ],
+   "inclusion_phone_items": [
+    "Ability to Communicate by Phone:",
+    "Participants must have stable access to a phone and be willing to engage in telephone-based psychological interventions."
+   ],
+   "a_requirement": true,
+   "b_phone_tied": true,
+   "check_by_eye": []
+  },
+  {
+   "nct": "NCT04692519",
+   "title": "Duet 2.0 Starting the Conversation: A New Intervention Model to Stimulate Language Growth in Underserved Populations",
+   "hearing_items": [
+    [
+     "inclusion",
+     "Have no hearing impairment or loss (per participant report) OR if some hearing impairment or loss, have received amplification (e.g., hearing aid, cochlear implants) and speak spoken (e.g., not signed) language as their primary mode of communication (per participant report)."
+    ],
+    [
+     "inclusion",
+     "Be between 12 and 30 months at baseline b. Be Spanish and/or English learners (at least 80% of the time), as defined by c. Have already acquired verbal or non-verbal intentional language (e.g., gesture to get someone's attention and/or point to request and obtain a toy) and speak no more than three-word utterances (per caregiver report) d. Have adequate visual abilities to participate in the study (per caregiver report) e. Have no hearing impairment or loss (per caregiver report) OR if some hearing impairment or loss, have received amplification (e.g., hearing aid, cochlear implants) and be learning spoken (e.g., not signed) language as their primary mode of communication (per caregiver report)."
+    ]
+   ],
+   "inclusion_phone_items": [
+    "Have weekly access to phone or internet"
+   ],
+   "a_requirement": true,
+   "b_phone_tied": false,
+   "check_by_eye": []
+  },
+  {
+   "nct": "NCT00901277",
+   "title": "Supporting Post Myocardial Infarction (MI) Risk Modification Intervention Via Telemedicine Evaluation",
+   "hearing_items": [
+    [
+     "exclusion",
+     "Severely impaired hearing or speech (patients must be able to respond to phone calls)"
+    ]
+   ],
+   "inclusion_phone_items": [],
+   "a_requirement": false,
+   "b_phone_tied": true,
+   "check_by_eye": []
+  },
+  {
+   "nct": "NCT05685251",
+   "title": "Staying Healthy After Childbirth: My Hypertension Education and Reaching Target Program for Postpartum",
+   "hearing_items": [
+    [
+     "exclusion",
+     "Severely impaired hearing, vision, or speech, as determined by study staff responsible for enrollment"
+    ]
+   ],
+   "inclusion_phone_items": [],
+   "a_requirement": false,
+   "b_phone_tied": false,
+   "check_by_eye": []
+  },
+  {
+   "nct": "NCT00371969",
+   "title": "Reducing Unsafe Alcohol Use in HIV-Positive Individuals",
+   "hearing_items": [
+    [
+     "exclusion",
+     "Participants who do not speak English or Spanish, or have hearing impairments that preclude use of the telephone."
+    ]
+   ],
+   "inclusion_phone_items": [],
+   "a_requirement": false,
+   "b_phone_tied": true,
+   "check_by_eye": []
+  },
+  {
+   "nct": "NCT03060096",
+   "title": "Stepped-Care Telehealth for Distress in Cancer Survivors",
+   "hearing_items": [
+    [
+     "exclusion",
+     "Hearing loss that would preclude participating in telephone sessions (determined by brief hearing assessment administered by research staff)"
+    ]
+   ],
+   "inclusion_phone_items": [
+    "Must have access to a telephone"
+   ],
+   "a_requirement": true,
+   "b_phone_tied": true,
+   "check_by_eye": []
+  },
+  {
+   "nct": "NCT05242575",
+   "title": "The Influence of Immersive Virtual Field Trips on Academic Vocabulary",
+   "hearing_items": [
+    [
+     "exclusion",
+     "Hearing impairment that prevents a child from hearing audio on a mobile device, a history of a failed hearing screening that has not been resolved, or a hearing impairment that results in an educational impact and requires specially designed instruction under IDEA (34 CFR \u00a7 300.8).\""
+    ]
+   ],
+   "inclusion_phone_items": [
+    "VFT compatible smartphone to include operating systems iOS 8.0 (e.g., Apple iPhone 6 or later) or later or Android 4.1 (JellyBean) or later (e.g., Samsung Galaxy S5 or later)."
+   ],
+   "a_requirement": true,
+   "b_phone_tied": false,
+   "check_by_eye": []
+  },
+  {
+   "nct": "NCT00006253",
+   "title": "Pain and Fatigue Study",
+   "hearing_items": [
+    [
+     "exclusion",
+     "difficulty hearing on the telephone"
+    ]
+   ],
+   "inclusion_phone_items": [],
+   "a_requirement": false,
+   "b_phone_tied": true,
+   "check_by_eye": []
+  },
+  {
+   "nct": "NCT03308071",
+   "title": "Hypnosis for Symptom Management in Elective Orthopedic Surgery",
+   "hearing_items": [
+    [
+     "exclusion",
+     "hearing impairment that would impede ability to listen to a phone recording"
+    ]
+   ],
+   "inclusion_phone_items": [
+    "able to commit to a single study clinic visit at least one week prior to their scheduled surgery and use of phone recordings"
+   ],
+   "a_requirement": true,
+   "b_phone_tied": true,
+   "check_by_eye": []
+  },
+  {
+   "nct": "NCT05285163",
+   "title": "The Effect of Palliative Care Training on Symptom Management and Quality of Life in Chronic Heart Failure",
+   "hearing_items": [
+    [
+     "inclusion",
+     "Patients without any communication problem to prevent participation in the research \\[loss of hearing, visual impairment, lack of understanding/speaking in Turkish\\], can be contacted by telephone, are literate."
+    ]
+   ],
+   "inclusion_phone_items": [
+    "Patients without any communication problem to prevent participation in the research \\[loss of hearing, visual impairment, lack of understanding/speaking in Turkish\\], can be contacted by telephone, are literate."
+   ],
+   "a_requirement": true,
+   "b_phone_tied": true,
+   "check_by_eye": []
+  },
+  {
+   "nct": "NCT03801174",
+   "title": "Using Partners to Enhance Long-Term Weight Loss",
+   "hearing_items": [
+    [
+     "exclusion",
+     "Impaired hearing"
+    ],
+    [
+     "exclusion",
+     "Impaired hearing"
+    ]
+   ],
+   "inclusion_phone_items": [
+    "Possess individual smart phone with data and texting plan",
+    "Able to use a smartphone, tablet or computer with a video camera or webcam and microphone to download apps and to connect to a video conference call without assistance",
+    "Possess smart phone with data and texting plan (not shared with index patient)"
+   ],
+   "a_requirement": true,
+   "b_phone_tied": false,
+   "check_by_eye": []
+  },
+  {
+   "nct": "NCT02129569",
+   "title": "Psychoeducational and Behavioral Strategies in Reducing Distress and Anxiety in Patients With Multiple Myeloma and Their Family Caregivers",
+   "hearing_items": [
+    [
+     "exclusion",
+     "PATIENT or CAREGIVER: Is hearing impaired to the degree that they are unable to hear instructions via the phone"
+    ]
+   ],
+   "inclusion_phone_items": [],
+   "a_requirement": false,
+   "b_phone_tied": true,
+   "check_by_eye": []
+  },
+  {
+   "nct": "NCT02692560",
+   "title": "I-STAND R21: Reducing Sedentary Time in Older Adults",
+   "hearing_items": [
+    [
+     "inclusion",
+     "Able to hold a conversation by phone (no hearing or other limitations)"
+    ]
+   ],
+   "inclusion_phone_items": [
+    "Able to hold a conversation by phone (no hearing or other limitations)"
+   ],
+   "a_requirement": true,
+   "b_phone_tied": true,
+   "check_by_eye": []
+  },
+  {
+   "nct": "NCT04492527",
+   "title": "Student-delivered Telehealth Program for COVID-19 Education and Health Promotion",
+   "hearing_items": [
+    [
+     "exclusion",
+     "have severe hearing loss"
+    ]
+   ],
+   "inclusion_phone_items": [
+    "have access to a telephone or video conferencing program"
+   ],
+   "a_requirement": true,
+   "b_phone_tied": false,
+   "check_by_eye": []
+  },
+  {
+   "nct": "NCT05562037",
+   "title": "Stepped Care vs Center-based Cardiopulmonary Rehabilitation for Older Frail Adults Living in Rural MA",
+   "hearing_items": [
+    [
+     "exclusion",
+     "Hearing impairment limiting ability to participate in data collection by telephone"
+    ]
+   ],
+   "inclusion_phone_items": [],
+   "a_requirement": false,
+   "b_phone_tied": true,
+   "check_by_eye": []
+  },
+  {
+   "nct": "NCT04275830",
+   "title": "The Effects of Heart Rate Variability Biofeedback Training on Hematopoietic Cell Transplantation Patients",
+   "hearing_items": [
+    [
+     "exclusion",
+     "cognitive impairment that prohibits completion of study assessment visual or hearing impairment"
+    ]
+   ],
+   "inclusion_phone_items": [
+    "access to a working phone and e-mail account",
+    "have a smart phone"
+   ],
+   "a_requirement": true,
+   "b_phone_tied": false,
+   "check_by_eye": []
+  },
+  {
+   "nct": "NCT03053245",
+   "title": "Mobile Critical Care Recovery Program for Acute Respiratory Failure Survivors",
+   "hearing_items": [
+    [
+     "exclusion",
+     "Unable to complete study questionnaire due to severe hearing loss"
+    ]
+   ],
+   "inclusion_phone_items": [
+    "Have access to a telephone"
+   ],
+   "a_requirement": true,
+   "b_phone_tied": false,
+   "check_by_eye": []
+  },
+  {
+   "nct": "NCT07823257",
+   "title": "Health Belief Model-Based Telenursing for Hypertension",
+   "hearing_items": [
+    [
+     "inclusion",
+     "No cognitive or hearing impairments that could hinder communication"
+    ]
+   ],
+   "inclusion_phone_items": [
+    "Using a mobile phone"
+   ],
+   "a_requirement": true,
+   "b_phone_tied": false,
+   "check_by_eye": []
+  },
+  {
+   "nct": "NCT02953080",
+   "title": "Improving Outcomes in HIV Patients Using Mobile Phone Based Interactive Software Support",
+   "hearing_items": [
+    [
+     "exclusion",
+     "Patient whose clinical condition interferes with appropriate use of cell phone (e.g., deafness, severe cognitive impairment)"
+    ]
+   ],
+   "inclusion_phone_items": [
+    "Patients having the ability to use basic cell phone functions (e.g., being able to make and receive phone calls).",
+    "Patients with access to a mobile phone (need to be able to answer the phone at a predetermined time slot and to be able to call the clinic if they are sick)"
+   ],
+   "a_requirement": true,
+   "b_phone_tied": true,
+   "check_by_eye": []
+  },
+  {
+   "nct": "NCT03890471",
+   "title": "Telephone Intervention to Increase Patient Preparedness and Satisfaction Trial (TIPPS): A Randomized Control Trial",
+   "hearing_items": [
+    [
+     "exclusion",
+     "Unable to participate in a telephone call (dementia, hard of hearing, deaf)"
+    ]
+   ],
+   "inclusion_phone_items": [],
+   "a_requirement": false,
+   "b_phone_tied": true,
+   "check_by_eye": []
+  }
+ ]
+}
