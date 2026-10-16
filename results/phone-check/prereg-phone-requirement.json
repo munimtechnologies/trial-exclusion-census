@@ -1,0 +1,50 @@
+{
+ "name": "Telephone trials whose criteria name a phone against telephone trials whose criteria don't, non-VA, same condition, pre-registered",
+ "written": "2026-10-16",
+ "note": "Fixed before any phrase was counted for this test; only the stratum sizes and the wording checks were counted. Do not edit; additions go in a new file and are labelled exploratory. phone_requirement.py 0.1.0 implements it. CC BY 4.0. Made by MV2 of Munim, Inc. with AI agents.",
+ "base": "AREA[StudyType]INTERVENTIONAL AND AREA[Phase]NA AND AREA[InterventionSearch]telephone AND NOT AREA[ConditionSearch](<OWN>) AND NOT AREA[LeadSponsorName](VA OR Veteran OR Veterans), all start years",
+ "not_va": "NOT AREA[LeadSponsorName](VA OR Veteran OR Veterans)",
+ "exposure": "AREA[EligibilityCriteria](phone OR telephone)",
+ "exposure_note": "The registry search treats phone and telephone as one word (1,890 of 7,420 base trials for each of three wordings on 2026-10-16), so phone follow-up and app access are included.",
+ "comparator": "stratum count minus phone-arm count",
+ "wording_check_known_before": {
+  "base": 7420, "phone": 1890, "telephone": 1890, "(phone OR telephone)": 1890
+ },
+ "strata_in_priority_order": {
+  "ptsd": "PTSD",
+  "substance use": "\"substance use\" OR alcohol OR opioid OR smoking OR tobacco",
+  "depression": "depression",
+  "pain": "pain",
+  "cardiometabolic": "diabetes OR \"heart failure\" OR hypertension OR coronary",
+  "other": null
+ },
+ "left_out_of_every_stratum": "cognitive OR dementia OR alzheimer OR \"brain injury\" OR stroke OR hearing OR deafness OR tinnitus OR ear OR vision OR visual OR eye OR blindness OR retina OR retinal OR macular OR glaucoma",
+ "stratum_sizes_known_before": {
+  "ptsd": {"phone": 10, "registry": 74},
+  "substance use": {"phone": 232, "registry": 615},
+  "depression": {"phone": 94, "registry": 389},
+  "pain": {"phone": 76, "registry": 372},
+  "cardiometabolic": {"phone": 382, "registry": 1331},
+  "other": {"phone": 1096, "registry": 4639}
+ },
+ "phrases": ["cognitive (all wordings)", "hearing (all wordings)", "visual (all wordings)",
+             "pregnant", "hepatitis", "allergy", "migraine", "osteoporosis", "claustrophobia",
+             "celiac", "hernia", "informed consent"],
+ "controls_with_own_condition_left_out": {
+  "pregnant": "pregnancy", "hepatitis": "hepatitis", "allergy": "allergy", "migraine": "migraine",
+  "osteoporosis": "osteoporosis", "claustrophobia": "claustrophobia", "celiac": "celiac", "hernia": "hernia"
+ },
+ "measure": "Mantel-Haenszel ratio of shares (phone arm over comparator) across the six strata, Greenland-Robins 95% interval; unmatched and per-stratum ratios reported beside it",
+ "min_expected_phone_matches": 5,
+ "primary": [
+  "HP1: the hearing family's matched 95% interval lies above 1 (predicted: holds)",
+  "HP2: the hearing family's matched ratio is larger than the visual family's and than every kept control's (a ranking; chance 1 in rivals + 1; predicted: holds, the weaker prediction)"
+ ],
+ "secondary": [
+  "S1: the three families' matched ratios against the kept controls' (exact one-sided rank-sum test, as in va_matched)",
+  "S2: read the first 20 trials of reading_term() in API order; mark (a) requirement: an inclusion item matches 'phone' (case-insensitive), and (b) phone-tied: the hearing item matches phone|\\bcalls?\\b; predicted (a) in at least 12 of 20; descriptive, no test"
+ ],
+ "s2_requirement_prediction_at_least": 12,
+ "s2_tied_reading_rule_at_least": 11,
+ "counts_file": "results/phone-check/phone-requirement-counts.json"
+}
