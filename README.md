@@ -75,16 +75,18 @@ section. The rules were published before any of these numbers were seen.
 **Correction to the accommodation figure.** Earlier versions of this page said that only 7.0% of
 the trials with a disability exclusion mention any accommodation, and that NIH-led trials mention
 one most often (14.9%). That flag counted any accommodation *word* anywhere in the criteria. A
-hand check of the 16 trials in the random recall sample that it flagged found only **5** that
-offer an accommodation (31%; Wilson 95% interval 14% to 56%). The other 11 were a parent's or
-guardian's consent for a child (7), an eye's "accommodation", a catheter sheath "to accommodate",
-"communication without an interpreter", and an exclusion of "consent obtained through a surrogate"
-([results/recall/ACCOMMODATION.md](results/recall/ACCOMMODATION.md)). So those two numbers are
-not a measure of accommodation and should not be quoted. 0.5.0 counts only items that offer one;
-its registry figure, with a fresh hand-checked sample, comes with the next full run.
+reading of the 16 trials in the random recall sample that it flagged, by an AI agent working for
+MV2, found only **5** that offer an accommodation (31%; Wilson 95% interval 14% to 56%). The other
+11 were a parent's or guardian's consent for a child (7), an eye's "accommodation", a catheter
+sheath "to accommodate", "communication without an interpreter", and an exclusion of "consent
+obtained through a surrogate" ([results/recall/ACCOMMODATION.md](results/recall/ACCOMMODATION.md)).
+So those two numbers are not a measure of accommodation and should not be quoted. 0.5.0 counts
+only items that offer one; its registry figure, with a fresh sample read item by item, comes with
+the next full run.
 
-**Precision.** 720 random flagged exclusion items were checked by hand, 60 per category, 360 of
-them in the six disability categories ([PRECISION.md](results/v0.1.1/PRECISION.md)). Cognitive was 95% correct, consent capacity 100%,
+**Precision.** 720 random flagged exclusion items were read by AI agents working for MV2 (not yet
+checked by a person), 60 per category, 360 of them in the six disability categories
+([PRECISION.md](results/v0.1.1/PRECISION.md)). Cognitive was 95% correct, consent capacity 100%,
 hearing 95%, communication 97% (80% if literacy items are left out), mobility 90% and visual 75%.
 The visual errors were eye findings in ophthalmology trials, and 0.3.0 removes them.
 
@@ -116,7 +118,7 @@ start as rare as the disability phrases, can rise a lot: tattoo exclusions 2.4 t
   together rose 2.1 times, so part of that was a change of wording.
 - These are mentions anywhere in the criteria, not exclusions, and the choice of wordings and
   controls was made after the first results, so this is exploratory. The census rules and their
-  hand checks are the measure of exclusion.
+  precision and recall samples are the measure of exclusion.
 
 `trend_check.py` repeats every count and the test.
 
@@ -166,17 +168,17 @@ trials exclude so often, again with the registry's own search (counts of 2026-10
   Matching explains part of the cognitive gap (2.81 unmatched in the same strata), not all of it
   ([PREREG-VA-MATCHED.md](results/sponsor-check/PREREG-VA-MATCHED.md),
   [VA-MATCHED-RESULT.md](results/sponsor-check/VA-MATCHED-RESULT.md)). Correction (2026-10-15):
-  the unmatched figure was first given as 2.9, from a slip in adding the VA counts by hand (263
-  instead of 255). The matched result is unchanged.
+  the unmatched figure was first given as 2.9, from a slip in adding the VA counts outside the
+  code (263 instead of 255). The matched result is unchanged.
 - **Why hearing?** The first 20 of the 30 VA hearing mentions in those strata, read one by one
   ([VA-HEARING-READ.md](results/sponsor-check/VA-HEARING-READ.md)), all shut out people with
   hearing loss, and at least 6 because the study runs by telephone or computer ("Hearing
   impairment that precludes completing telephone assessments"). None of their registry entries
   offers captioned telephone, relay or text contact instead.
-- The first 12 such VA trials read by hand, outside cognitive or dementia trials, all use the
-  wording as an exclusion, often a broad one ("significant cognitive impairment", "cognitive
-  impairment that would interfere with study participation"), many in PTSD and other
-  mental-health trials.
+- The first 12 such VA trials read one by one by AI agents working for MV2, outside cognitive or
+  dementia trials, all use the wording as an exclusion, often a broad one ("significant cognitive
+  impairment", "cognitive impairment that would interfere with study participation"), many in
+  PTSD and other mental-health trials.
 - This does not show that the exclusions are unjustified. VA patients and trial designs differ
   from the registry's, and the matched test matches on condition only, not on design, age or sex.
 
@@ -260,8 +262,9 @@ registry search finds for the line (5,473 trials, on 2026-10-16) and read a samp
 pre-registered: it is a description, not a test.
 
 - 4,059 trials have the exact line, and 422 of them (10.4%) name a representative, guardian or
-  surrogate somewhere in their criteria. Of 50 of these read by eye, 30 let someone else consent
-  for an adult, so about **6.2%** (4.8% to 7.5%) of the trials with the exact line write that path down.
+  surrogate somewhere in their criteria.
+  Of 50 of these read one by one, 30 let someone else consent for an adult, so about
+  **6.2%** (4.8% to 7.5%) of the trials with the exact line write that path down.
 - It has become more common: trials with the line that started in 2019 or earlier name another
   path 4.3% of the time, those that started 2020-2026 19.2%, as NCI's template clauses spread.
 - 1,377 more trials use a near variant without "the". 197 of them (14.3%) give an adult a
@@ -316,9 +319,9 @@ not in place of them.
   does not by itself show a rise specific to disability. Trials that start in 2026 are still
   being registered (30.91% so far).
 - **Accommodation.** The 0.4.0 tables still carry the old accommodation flag (5.13%), which the
-  hand check above showed is not a measure of accommodation. Do not quote those columns; 0.5.0
+  reading above showed is not a measure of accommodation. Do not quote those columns; 0.5.0
   replaces the flag.
-- The precision sample of this run (`sample_items.csv`) has not been checked by hand yet.
+- The precision sample of this run (`sample_items.csv`) has not been read yet.
 
 `test_results_v040.py` checks that these tables agree with each other, recomputes every fraction
 and Wilson interval in SCORES-0.4.0.md, and checks every number this section quotes against the
@@ -362,11 +365,12 @@ for Disability Health Research FY26-FY30 makes inclusion in clinical research an
 yearly count is useful.
 
 The exclusion rules in v0.1.0 and the inclusion-requirement rules in v0.2.0 were each written and
-published **before any registry result was seen**. The 0.3.0 changes were made after the hand
-check of the first run, the 0.4.0 changes after half of the recall sample was labelled, and the
-0.5.0 changes after reading every registry trial that names sign language, large print or
-braille. They are reported next to the pre-registered numbers, never in place of them, and
-checked on fresh samples: 0.4.0 on the 111 recall trials labelled after its rules were fixed.
+published **before any registry result was seen**. The 0.3.0 changes were made after the
+precision reading of the first run, the 0.4.0 changes after half of the recall sample was
+labelled, and the 0.5.0 changes after reading every registry trial that names sign language,
+large print or braille. They are reported next to the pre-registered numbers, never in place of
+them, and checked on fresh samples: 0.4.0 on the 111 recall trials labelled after its rules were
+fixed.
 
 ### Related work
 
@@ -467,7 +471,7 @@ criteria name a phone with those whose criteria don't, in the same six strata, a
 [PREREG-PHONE-REQUIREMENT.md](results/phone-check/PREREG-PHONE-REQUIREMENT.md). Without
 `--fetch`, it reads `results/phone-check/phone-requirement-counts.json`. `phone_marks.py` applies
 the pre-registered reading's two marks (an inclusion item names a phone; the hearing item itself
-names the phone or calls) by pattern, so the reading by eye can be checked against it.
+names the phone or calls) by pattern, so the reading item by item can be checked against it.
 
 `consent_phrase_check.py` downloads the eligibility text of every trial the registry search finds
 for the stock consent line and checks it for another path to consent; `consent_missed.py` looks
@@ -504,6 +508,7 @@ current rules on the same trials, so a revised rule set can be compared on the s
 The labels for the first sample are in [results/recall/](results/recall/), in two halves: the
 first 114 trials, whose misses shaped 0.4.0, and the other 111, labelled after 0.4.0 was fixed.
 The scores of 0.4.0 on the second half are in [SCORES-0.4.0.md](results/recall/SCORES-0.4.0.md).
+All 225 were labelled by AI agents working for MV2, one reader per trial.
 
 ## Limits
 
@@ -511,8 +516,9 @@ The scores of 0.4.0 on the second half are in [SCORES-0.4.0.md](results/recall/S
   requirement is justified for the study. It misses criteria worded in ways it does not know, and
   it can flag items that mention a word in passing. `sample_items.csv`, `recall_sample.py` and
   `diff_rules.py` exist to measure this.
-- The hand checks so far were done by AI agents working for MV2, one reader per item. Review by
-  people with clinical and lived experience of disability is still to come.
+- Every reading and label so far was done by AI agents working for MV2, one reader per item, and
+  no person has checked them yet. Review by people with clinical and lived experience of
+  disability is still to come.
 - Illiteracy and "unable to read" count as communication exclusions. Reading is not a disability in
   itself, but these items shut out many people with intellectual, learning and print disabilities.
   `sample_items.csv` lets anyone count them separately.
@@ -533,6 +539,12 @@ The scores of 0.4.0 on the second half are in [SCORES-0.4.0.md](results/recall/S
 
 ## Changes
 
+- After 0.5.0 (on main): wording only. This page and
+  [ACCOMMODATION.md](results/recall/ACCOMMODATION.md) no longer describe readings and labels made
+  by AI agents working for MV2 as manual checks; they say who did them and that no person has
+  checked them yet. Manual coding is now mentioned only for other researchers' studies and in
+  instructions to people who check the rules themselves. No number changes. `test_wording.py`
+  keeps it that way. The census rules are unchanged.
 - After 0.5.0 (on main): this page gains the stock consent line section and the phone-requirement
   result. `test_readme_notes.py` checks that every number those parts quote is the number in
   their notes. The census rules are unchanged.
@@ -579,8 +591,8 @@ The scores of 0.4.0 on the second half are in [SCORES-0.4.0.md](results/recall/S
 - After 0.5.0 (on main): a correction and a new pre-registration.
   [VA-MATCHED-RESULT.md](results/sponsor-check/VA-MATCHED-RESULT.md) and VA-CHECK.md gave 263 VA
   cognitive matches and an unmatched ratio of 2.90; the saved counts give 255 and 2.81 (a slip in
-  adding by hand). The matched result is unchanged, and `test_va_matched.py` now checks the
-  published numbers against the code.
+  adding them up outside the code). The matched result is unchanged, and `test_va_matched.py` now
+  checks the published numbers against the code.
   [PREREG-PHONE-MATCHED.md](results/phone-check/PREREG-PHONE-MATCHED.md) and
   `phone_matched.py` 0.1.0 fix a test of telephone-delivered trials against other trials of the
   same condition, all sponsors, before it is counted. The census rules are unchanged.
@@ -627,7 +639,8 @@ The scores of 0.4.0 on the second half are in [SCORES-0.4.0.md](results/recall/S
   language use (hearing) and large print or braille (visual), from every registry trial that
   names them. `sample_items.csv` samples accommodation items, and `check` and the browser page
   list them. The accommodation figures of v0.1.1 are withdrawn (see the correction above).
-- 0.4.0: from the first 114 hand-labelled trials of the blind recall sample. Coordinated lists
+- 0.4.0: from the first 114 labelled trials of the blind recall sample (labels by AI agents
+  working for MV2). Coordinated lists
   ("cognitive, visual or motor impairment", "visual or auditory impairment") and lists of verbs
   after "unable to" ("unable to hear, read, visualize or comprehend") are read for every member.
   New wordings: dementing, learning difficulties, limited cognitive ability, mental disability,
@@ -638,7 +651,7 @@ The scores of 0.4.0 on the second half are in [SCORES-0.4.0.md](results/recall/S
   better, no visual or auditory impairment, sufficient or adequate cognition, able to converse or to
   consent verbally, no communication problem, the 6-minute walk test and GMFCS I-III. New tool:
   `diff_rules.py`. The browser page uses the same rules.
-- 0.3.0: from the hand check of the first full run ([PRECISION.md](results/v0.1.1/PRECISION.md)).
+- 0.3.0: from the precision reading of the first full run ([PRECISION.md](results/v0.1.1/PRECISION.md)).
   Exception clauses ("except for hearing loss", "may be included (e.g. ...)", "other than ...")
   are read out before an item is classified. A visual veto drops eye findings that would only
   confound an eye exam, and a mobility veto drops a planned or required amputation. "Hemiplegic

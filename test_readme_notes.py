@@ -34,9 +34,9 @@ class ReadmeNoteTests(unittest.TestCase):
         self.check(note, [("(5,473 trials, on 2026-10-16)", "The search found 5,473 trials"),
                           ("4,059 trials have the exact line, and 422 of them (10.4%)",
                            "422 of 4,059 (10.4%)"),
-                          ("Of 50 of these read by eye, 30 let someone else consent",
+                          ("Of 50 of these read one by one, 30 let someone else consent",
                            "Adult permission: 30 of 50"),
-                          ("about **6.2%** (4.8% to 7.5%)", "6.2% (4.8-7.5)"),
+                          ("about\n  **6.2%** (4.8% to 7.5%)", "6.2% (4.8-7.5)"),
                           ("path 4.3% of the time, those that started 2020-2026 19.2%",
                            "| 2019 or earlier | 2,419 | 103 | 4.3 |")])
         self.assertIn("| 2020-2026 | 1,587 | 304 | 19.2 |", note)

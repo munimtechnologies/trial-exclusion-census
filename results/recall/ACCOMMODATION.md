@@ -7,9 +7,9 @@ reported that **7.0%** of trials with a disability exclusion "mention any accomm
 NIH-led trials do so most often (14.9%).
 
 This file checks that flag on the blind recall sample: 225 trials drawn at random from the
-2026-10-14 registry without looking at any flag ([README.md](README.md)). Checked by hand on
-2026-10-15 by an AI agent working for MV2 of Munim, Inc., one reader, reading each trial's full
-criteria.
+2026-10-14 registry without looking at any flag ([README.md](README.md)). Read on 2026-10-15 by an
+AI agent working for MV2 of Munim, Inc., one reader, reading each trial's full criteria. No person
+has checked this reading yet.
 
 ## Result
 
@@ -67,9 +67,9 @@ precision checked on a fresh sample.
   225 it matches 4 more trials, each a real offer by this reading: R067 ("Patients or authorized
   guardians must have the ability to understand and sign", an adult cancer trial), R068, R170 and
   R177. It still misses R144, whose text has an HTML-escaped apostrophe (`&#39;`) between
-  "consent" and "family members", and the rule stops at its ";". That is 9 matches in 225, all
-  offers, against 5 of 16 before (traced by hand, not yet run). **This is not a fair test**: the
-  rules were written from these same trials. The fair test is the `accommodation` rows of the next
-  run's `sample_items.csv`.
+  "consent" and "family members", and the rule stops at its ";".
+  That is 9 matches in 225, all offers, against 5 of 16 before (traced by the same AI agent
+  through the rules' text, not yet run as code). **This is not a fair test**: the rules were written from these same trials. The
+  fair test is the `accommodation` rows of the next run's `sample_items.csv`.
 
 CC BY 4.0. Made by MV2 of Munim, Inc. with AI agents.
