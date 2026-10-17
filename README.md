@@ -209,6 +209,18 @@ counting. The result, from 156 counts of 2026-10-15
   failed by one, and the difference is not significant (one-sided Fisher p = 0.17). Exploratory:
   13 of the 20 telephone trials name a phone somewhere in their criteria, against 5 of 20, so a
   bare hearing exclusion often sits beside a requirement to use a phone.
+- **Within telephone trials, naming a phone goes with naming hearing loss (pre-registered).**
+  [PREREG-PHONE-REQUIREMENT.md](results/phone-check/PREREG-PHONE-REQUIREMENT.md) asked, outside
+  the VA, whether no-phase telephone trials whose criteria name a phone (1,890 of 7,421 on the counting day)
+  name a hearing wording more often than those whose criteria don't, matched on condition
+  ([PHONE-REQUIREMENT-RESULT.md](results/phone-check/PHONE-REQUIREMENT-RESULT.md)). They do,
+  **2.58 times** (2.04 to 3.24), against 1.62 for visual wordings and at most 1.08 for a kept
+  control; the families against the controls give S1 p = 0.0083. **HP1 and HP2 hold.** But in
+  12 of 20 trials read the hearing item itself names the phone or calls ("hearing impairments
+  that preclude use of the telephone"), which the pre-registration said would make the link
+  mostly the hearing items' own wording, not a separate phone requirement. Exploratory: a written
+  phone-access condition appears in 16 of 20. In these trials the barrier written down is the
+  channel.
 - The known fixes are cheap: captioned telephone, relay services such as 711, text or chat, and
   video with captions.
 
@@ -237,6 +249,35 @@ interpreter)" (NCT07246356). One exclusion item in this set instead offers ASL a
 interpreters around the clock (NCT04374760). A word list that treats these words as
 accommodations gets them backwards, which is why 0.5.0 counts them as exclusions there.
 The counts come from the registry's own search, and the quotes were checked against each record.
+
+### The stock consent line: is there another way in?
+
+Many trials copy one inclusion item: "Ability to understand and the willingness to sign a written
+informed consent document." Read alone, it keeps out adults who could take part with a legally
+authorized representative (LAR), guardian or surrogate, which US rules allow when an IRB approves
+it. [CONSENT-RESULT.md](results/consent-phrase/CONSENT-RESULT.md) downloaded every trial the
+registry search finds for the line (5,473 trials, on 2026-10-16) and read a sample. This was not
+pre-registered: it is a description, not a test.
+
+- 4,059 trials have the exact line, and 422 of them (10.4%) name a representative, guardian or
+  surrogate somewhere in their criteria. Of 50 of these read by eye, 30 let someone else consent
+  for an adult, so about **6.2%** (4.8% to 7.5%) of the trials with the exact line write that path down.
+- It has become more common: trials with the line that started in 2019 or earlier name another
+  path 4.3% of the time, those that started 2020-2026 19.2%, as NCI's template clauses spread.
+- 1,377 more trials use a near variant without "the". 197 of them (14.3%) give an adult a
+  written path, most through a Washington University clause in the consent item itself
+  ([CONSENT-NEAR-VARIANT.md](results/consent-phrase/CONSENT-NEAR-VARIANT.md)). With both lines,
+  about 450 of 5,436 trials (8.3%) give that path.
+- A path written another way ("a family member may sign") would not be counted, so
+  [CONSENT-MISSED-READ.md](results/consent-phrase/CONSENT-MISSED-READ.md) read every exact-line
+  trial that names a caregiver, family member, relative, spouse or partner near "consent" or
+  "sign" and no representative: none of the 32 lets another person consent for the participant
+  (26 are contraception items).
+- The fix is one sentence after the stock line, already in NCI's template: "Legally authorized
+  representatives may sign and give informed consent on behalf of study participants", where the
+  IRB allows it.
+- One reading by AI agents working for MV2, not yet checked by a person. Each note's own test
+  recomputes its numbers.
 
 ## The 0.4.0 rules on the full registry (not pre-registered)
 
@@ -354,6 +395,11 @@ python va_matched.py                              # the pre-registered condition
 python va_matched.py --fetch --json va-matched.json   # the same, counted again
 python phone_matched.py                           # the pre-registered telephone test, from saved counts
 python phone_matched.py --fetch --json phone-matched.json   # the same, counted again (156 small requests)
+python phone_requirement.py                       # the pre-registered phone-requirement test, from saved counts
+python phone_requirement.py --fetch --json phone-requirement.json   # the same, counted again (160 small requests)
+python phone_marks.py results/phone-check/s2-reading-list.json   # its S2 marks, by pattern
+python consent_phrase_check.py --out-dir out      # every trial with the stock consent line
+python consent_missed.py --out-dir out            # consent paths worded with a caregiver or family member
 python -m unittest -v
 ```
 
@@ -416,6 +462,19 @@ ratios and the test of `va_matched.py`. Without `--fetch`, it reads the saved co
 `results/phone-check/phone-hearing-read.json`; `test_phone_hearing_read.py` checks its queries
 against the pre-registration and recomputes its counts and Fisher test.
 
+`phone_requirement.py` compares, within non-VA telephone-delivered no-phase trials, those whose
+criteria name a phone with those whose criteria don't, in the same six strata, as fixed in
+[PREREG-PHONE-REQUIREMENT.md](results/phone-check/PREREG-PHONE-REQUIREMENT.md). Without
+`--fetch`, it reads `results/phone-check/phone-requirement-counts.json`. `phone_marks.py` applies
+the pre-registered reading's two marks (an inclusion item names a phone; the hearing item itself
+names the phone or calls) by pattern, so the reading by eye can be checked against it.
+
+`consent_phrase_check.py` downloads the eligibility text of every trial the registry search finds
+for the stock consent line and checks it for another path to consent; `consent_missed.py` looks
+among the exact-line trials with no such path for a caregiver, family member, relative, spouse or
+partner named in a sentence about consent or signing. Their readings are in
+`results/consent-phrase/`, each with a test that recomputes the note.
+
 Standard library only (Python 3.9+). No API key.
 
 ## Measuring what the rules miss
@@ -474,6 +533,27 @@ The scores of 0.4.0 on the second half are in [SCORES-0.4.0.md](results/recall/S
 
 ## Changes
 
+- After 0.5.0 (on main): this page gains the stock consent line section and the phone-requirement
+  result. `test_readme_notes.py` checks that every number those parts quote is the number in
+  their notes. The census rules are unchanged.
+- After 0.5.0 (on main): consent paths the patterns could miss, read.
+  [CONSENT-MISSED-READ.md](results/consent-phrase/CONSENT-MISSED-READ.md) and `consent_missed.py`
+  0.1.0: of the 32 exact-line trials that name a caregiver, family member, relative, spouse or
+  partner near consent and no representative, none lets another person consent for the
+  participant, so the 6.2% estimate stands. `test_consent_missed_read.py` checks the table and
+  each label. The census rules are unchanged.
+- After 0.5.0 (on main): the pre-registered phone-requirement test, fixed before counting
+  ([PREREG-PHONE-REQUIREMENT.md](results/phone-check/PREREG-PHONE-REQUIREMENT.md),
+  `phone_requirement.py` 0.1.0, `phone_marks.py` 0.1.0), then counted and read
+  ([PHONE-REQUIREMENT-RESULT.md](results/phone-check/PHONE-REQUIREMENT-RESULT.md)): hearing 2.58
+  (2.04 to 3.24); HP1 and HP2 hold; in 12 of 20 trials read the hearing item names the phone
+  itself. `test_phone_requirement_result.py` recomputes every number. The census rules are
+  unchanged.
+- After 0.5.0 (on main): the stock consent line, counted and read (`consent_phrase_check.py`,
+  [CONSENT-RESULT.md](results/consent-phrase/CONSENT-RESULT.md),
+  [CONSENT-NEAR-VARIANT.md](results/consent-phrase/CONSENT-NEAR-VARIANT.md)): an adult
+  representative path in about 6.2% of trials with the exact line, 14.3% with the near variant
+  and 8.3% with either. The census rules are unchanged.
 - After 0.5.0 (on main): the 0.4.0 rules' full-registry run of 2026-10-15
   ([results/v0.4.0/](results/v0.4.0/)) and their scores on the held-out half of the recall sample
   ([SCORES-0.4.0.md](results/recall/SCORES-0.4.0.md)): 22.37% of 450,201 trials (not
