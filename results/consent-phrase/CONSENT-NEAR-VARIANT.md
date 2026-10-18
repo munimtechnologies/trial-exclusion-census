@@ -30,7 +30,7 @@ wordings make up most of them, so they were grouped by pattern (`near-variant-re
   A washu or nci_lar trial counts as an adult permission when it is adult-only.
 - **nci_lar**: NCI's template sentence "Legally authorized representatives may sign and give
   informed consent on behalf of study participants".
-- **other**: all 59 read by eye from their snippets, with the rules of consent-read.json:
+- **other**: all 59 read one by one from their snippets, with the rules of consent-read.json:
 
 | Mark | Trials |
 |---|---|

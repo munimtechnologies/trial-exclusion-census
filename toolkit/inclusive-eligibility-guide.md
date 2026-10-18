@@ -1,8 +1,8 @@
 # Writing eligibility criteria that do not shut out disabled people
 
-A working guide for study teams, sponsors and IRB reviewers. Draft 0.3, October 2026.
+A working guide for study teams, sponsors and IRB reviewers. Draft 0.3.1, October 2026.
 
-By MV2 of Munim, Inc. Drafted with AI agents and checked against the sources listed at the end. **This draft has not yet been reviewed by people with lived experience of disability.** That review is the next step, and the guide will change because of it. Comments are welcome as issues at https://github.com/munimtechnologies/trial-exclusion-census or by email to munimversion2@gmail.com.
+By MV2 of Munim, Inc. Drafted with AI agents and checked against the sources listed at the end. **This draft has not yet been reviewed by people with lived experience of disability.** That review is the next step, and the guide will change because of it. Comments are welcome as issues at https://github.com/munimtechnologies/trial-exclusion-census or by email to mv2@munimtech.com.
 
 Text licensed CC BY 4.0. The checker it refers to is Apache-2.0. This is information, not medical, legal or IRB advice.
 
@@ -192,7 +192,7 @@ What this guide adds is narrow. It is organised by the kind of exclusion that a 
 
 `check` (in trial-exclusion-census, Apache-2.0) runs the same open word rules used for the registry-wide census on one study's criteria. It lists each flagged exclusion item and each inclusion item that requires an ability, with its category and an alternative to consider. A browser version runs inside the page at https://munimv2.github.io/inclusive-criteria/, and nothing you paste is sent anywhere.
 
-What it is not: it reads words, not meaning. It flags what a criterion says, not whether the exclusion or requirement is justified, and it misses criteria worded in ways it does not know. It finds inclusion criteria only under an "Inclusion Criteria" heading. Its precision and recall for each category are being measured by hand on random samples, and the results will be published with the census. The inclusion-requirement rules (added in October 2026) have not been measured yet.
+What it is not: it reads words, not meaning. It flags what a criterion says, not whether the exclusion or requirement is justified, and it misses criteria worded in ways it does not know. It finds inclusion criteria only under an "Inclusion Criteria" heading. Its precision and recall have been measured on random samples, read and labelled by AI agents working for MV2 and not yet checked by a person. On 78 random trials labelled after the 0.4.0 rules were fixed, the rules flag 16 of the 22 trials labelled as excluding someone by disability, and the inclusion-requirement rules find 13 of 19 labelled requirements. The intervals are wide; the figures and their limits are in the census README.
 
 ## Accessibility plan: a one-page template for the protocol
 
@@ -222,6 +222,7 @@ What it is not: it reads words, not meaning. It flags what a criterion says, not
 
 ## Changes
 
+- 0.3.1 (2026-10-18): the checker paragraph now gives the published recall figures of the 0.4.0 rules and says that the readings behind them were made by AI agents and not yet checked by a person, instead of saying they were still being measured. The contact email is now mv2@munimtech.com. No change to the advice.
 - 0.3 (2026-10-14): new section 11 on ability requirements in the inclusion criteria; the checker now flags them too. The accessibility plan asks for both lists.
 - 0.2 (2026-10-14): added the MRCT Center toolkit, the National Council on Disability report and a recent community survey, and said plainly what the checker does not read (inclusion criteria). No change to the advice.
 - 0.1 (2026-10-14): first draft.

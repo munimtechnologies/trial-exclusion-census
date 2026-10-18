@@ -106,8 +106,8 @@ acne. "Informed consent" 0.71. This closes the gap noted in
   vitiligo), but this was not checked. That is why a single control proves little and the test
   ranks the families against many.
 - **Mentions, not exclusions.** The search counts a phrase anywhere in the eligibility criteria,
-  including inclusion criteria and exceptions. The census rules and their hand checks measure
-  exclusion.
+  including inclusion criteria and exceptions. The census rules and their precision and recall
+  readings measure exclusion.
 - **The registry search expands synonyms** (TREND-CHECK.md section 4). It is the same search for
   every year and stratum, so comparisons hold.
 - **Not yet done:** the per-year secondary analysis (every start year 2008-2025 and the slope of

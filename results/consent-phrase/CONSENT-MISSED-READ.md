@@ -5,7 +5,7 @@ representative path only if its criteria name a representative, guardian or surr
 written another way ("a family member may sign") would be missed. `consent_missed.py` 0.1.0
 (run 2026-10-16) looked for that: among the 3,637 trials with the exact stock line and none of
 those words, 32 name a caregiver, family member, relative, spouse or partner in a sentence about
-consent or signing (30 of them adult-only). All 32 were read by eye
+consent or signing (30 of them adult-only). All 32 were read one by one
 ([consent-missed-read.json](consent-missed-read.json); snippets in
 [consent-missed.json](consent-missed.json)).
 

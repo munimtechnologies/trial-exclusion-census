@@ -4,7 +4,7 @@ Counted 2026-10-16 as fixed in [PREREG-PHONE-REQUIREMENT.md](PREREG-PHONE-REQUIR
 was committed before any phrase was counted. Counts: [phone-requirement-counts.json](phone-requirement-counts.json)
 (156 counts plus the 4 wording checks); ratios and verdicts: [phone-requirement.json](phone-requirement.json);
 S2 reading list: [s2-reading-list.json](s2-reading-list.json); pattern marks: [s2-marks.json](s2-marks.json);
-reading by eye: [phone-requirement-read.json](phone-requirement-read.json).
+the reading: [phone-requirement-read.json](phone-requirement-read.json).
 `test_phone_requirement_result.py` recomputes every number below from those files. CC BY 4.0.
 Made by MV2 of Munim, Inc. with AI agents. Labelled by AI agents working for MV2; not yet checked by a person.
 
@@ -65,7 +65,7 @@ Per-stratum and unmatched ratios are in phone-requirement.json.
   that at least 11 of 20 would make HP1 "mostly the hearing items' own wording, not a separate
   requirement", and that is how it is described here.
 
-The 20 were read by eye against the two rules, and every mark agrees with phone_marks 0.1.0's
+The 20 were read one by one against the two rules, and every mark agrees with phone_marks 0.1.0's
 pattern marks (40 of 40). NCT03060096 was also read for PHONE-HEARING-READ.
 
 | Trial | (a) requirement | (b) phone-tied |

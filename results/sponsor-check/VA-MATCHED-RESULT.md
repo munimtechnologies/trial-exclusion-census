@@ -7,7 +7,7 @@ Made by MV2 of Munim, Inc. with AI agents.
 **Correction (2026-10-15, later the same day).** The first version of this page said 263 VA-led
 trials name a cognitive wording and gave the unmatched cognitive ratio as 2.90. The saved counts
 add up to **255** (75 + 48 + 34 + 33 + 65), and the unmatched ratio is **2.81**. It was a slip in
-adding the counts by hand. The matched ratios, intervals, test and verdicts are unchanged.
+adding the counts outside the code. The matched ratios, intervals, test and verdicts are unchanged.
 Matching explains nearly a quarter (23%) of the cognitive gap on the log scale, not "about a
 quarter". `test_va_matched.py` now checks these numbers against `va_matched.py`.
 
@@ -67,10 +67,10 @@ and 5 controls, p = 1/56 = 0.018, the smallest p this test can give.
 
 **HV2 (cognitive interval above 1): holds.** 2.21, 95% interval 1.99 to 2.45.
 
-These numbers were worked out by hand from the saved counts with the formulas of
-`va_matched.py` 0.1.0, because the seat that counted them has no Python. `python va_matched.py`
-recomputes every number from the counts file, and `test_va_matched.py` checks the headline
-values against it.
+These numbers were first worked out by AI agents working for MV2, outside the code, from the
+saved counts with the formulas of `va_matched.py` 0.1.0, because the seat that counted them has
+no Python. `python va_matched.py` recomputes every number from the counts file, and
+`test_va_matched.py` checks the headline values against it.
 
 ## How to read it
 
@@ -111,8 +111,9 @@ values against it.
 
 ## Limits
 
-- Mentions anywhere in the criteria, not hand-checked exclusions. In [VA-CHECK.md](VA-CHECK.md),
-  12 of 12 VA cognitive mentions read by hand were exclusions, a small sample.
+- Mentions anywhere in the criteria, not exclusions confirmed by reading. In
+  [VA-CHECK.md](VA-CHECK.md), 12 of 12 VA cognitive mentions read by AI agents working for MV2
+  were exclusions, a small sample, not yet checked by a person.
 - Matched on condition only, not on design, age or sex. VA patients are older and mostly men,
   and older age alone makes cognitive exclusions more common.
 - Small VA counts: 710 VA trials in all, 14 visual and 30 hearing matches. The test's p is at its

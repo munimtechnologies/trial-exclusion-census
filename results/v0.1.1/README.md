@@ -14,7 +14,7 @@ seen, and the tables are kept exactly as the run wrote them.
 | `summary.json` | The same numbers, machine-readable |
 | `by_year.csv`, `by_sponsor.csv`, `by_phase.csv`, `plosky_areas.csv` | Tables by start year, lead sponsor class, phase, and the four areas of DeCormier Plosky et al. (2022) |
 | `sample_items.csv` | 60 random flagged items per category (seed 2026), for precision |
-| `PRECISION.md` | Hand check of `sample_items.csv`, with every false positive named |
+| `PRECISION.md` | A reading of `sample_items.csv` by an AI agent working for MV2 (not yet checked by a person), with every false positive named |
 | `recall/blind.md`, `recall/labels.csv` | Blind recall sample of 225 trials (150 random, 75 "broad"), to be labelled |
 | `recall/flags.csv` | What the rules flagged on those trials, kept apart from `blind.md` so labelling stays blind |
 | `recall/sample.jsonl`, `recall/sample_info.json` | The sampled records, so `recall_sample.py score` can re-run newer rules on the same trials |

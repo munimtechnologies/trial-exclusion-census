@@ -1,7 +1,7 @@
 """Tests for CONSENT-MISSED-READ.md (no network). Apache-2.0.
 
-Recomputes the note's numbers from consent-missed.json and the reading by eye, and checks each
-label against the words of its snippets.
+Recomputes the note's numbers from consent-missed.json and the reading in consent-missed-read.json,
+and checks each label against the words of its snippets.
 """
 
 import collections
@@ -63,8 +63,10 @@ class ConsentMissedReadTests(unittest.TestCase):
                       self.md)
         self.assertIn("%d name a caregiver" % self.found["other_path"], self.md)
         self.assertIn("(%d of them adult-only)" % self.found["other_path_adult_only"], self.md)
-        self.assertIn("All %d were read by eye" % self.found["other_path"], self.md)
+        self.assertIn("All %d were read one by one" % self.found["other_path"], self.md)
         self.assertIn("none of the %d is a missed path" % self.found["other_path"], self.md)
+        self.assertIn("Read by AI agents working for MV2; not yet checked by a\nperson.",
+                      self.md.replace("\r\n", "\n"))
 
 
 if __name__ == "__main__":

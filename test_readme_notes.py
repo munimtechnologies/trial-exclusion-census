@@ -56,7 +56,7 @@ class ReadmeNoteTests(unittest.TestCase):
 
     def test_consent_missed(self):
         note = read(CONSENT, "CONSENT-MISSED-READ.md")
-        self.check(note, [("none of the 32 lets another person consent", "All 32 were read by eye"),
+        self.check(note, [("none of the 32 lets another person consent", "All 32 were read one by one"),
                           ("(26 are contraception items)", "time of consent | 26 |")])
         self.assertIn("| Lets another person consent for the participant | 0 |", note)
 

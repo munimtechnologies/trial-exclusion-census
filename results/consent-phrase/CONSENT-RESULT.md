@@ -24,9 +24,9 @@ the wording with a regular expression. Files: `CONSENT-PHRASE.md`, `consent-phra
 
 ## Reading the mentions
 
-A seeded random sample of 50 of the 422 was read by eye (`consent-read.json`, rules written in the
-file). A mention counts as an adult permission when the wording lets someone else consent for the
-participant and the trial is adult-only (registry minimum age 18 or more).
+A seeded random sample of 50 of the 422 was read one by one (`consent-read.json`, rules written in
+the file). A mention counts as an adult permission when the wording lets someone else consent for
+the participant and the trial is adult-only (registry minimum age 18 or more).
 
 | Mark | Trials |
 |---|---|

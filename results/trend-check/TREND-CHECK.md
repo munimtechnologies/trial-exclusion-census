@@ -175,7 +175,7 @@ rank as high as the three families do (`trend_check.rank_test`, all 364 ways cou
   criteria growing longer". With rare controls that holds only for no-phase trials.
 - These are counts of mentions, not of exclusions. A phrase can sit in the inclusion criteria,
   in an exception ("except mild hearing loss"), or describe the study population. The census
-  rules and their hand checks measure exclusion.
+  rules and their precision and recall readings measure exclusion.
 - Exploratory, not pre-registered: the families' wordings and the controls were chosen this
   run, with only two start years compared, and each phrase counts as one value whatever its
   size. The rank test treats the 14 ratios as exchangeable, which is an assumption. A larger,

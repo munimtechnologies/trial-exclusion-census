@@ -115,7 +115,7 @@ class NearVariantTests(unittest.TestCase):
         for k in MARKS:
             self.assertIn("| %s | %d |" % (k, self.count(k)), self.md)
         self.assertIn("The %d that are not permissions" % self.count("not_a_permission"), self.md)
-        self.assertIn("all %d read by eye" % len(self.groups["other"]), self.md)
+        self.assertIn("all %d read one by one from their snippets" % len(self.groups["other"]), self.md)
 
     def test_share_and_combined_estimate(self):
         loose, perms = len(self.loose), self.permissions()

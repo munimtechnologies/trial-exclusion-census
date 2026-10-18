@@ -1,4 +1,4 @@
-# Precision of the v0.1.1 word rules: hand check of sample_items.csv
+# Precision of the v0.1.1 word rules: a reading of sample_items.csv
 
 These are the results of the first full run of trial-exclusion-census, using the v0.1.1 rules as
 released. The rules were written and published before any registry result was seen. The data
@@ -10,7 +10,7 @@ which 450,052 have an exclusion section.
 judged on one question: **does this item exclude people who have this kind of impairment or
 condition?** Whether the exclusion is justified did not count. The checker was an AI agent working
 for MV2 of Munim, Inc., not a person with clinical or lived-experience expertise, and only one
-checker read each item. Treat these as a first estimate.
+checker read each item. No person has checked this reading yet. Treat these as a first estimate.
 
 This is item-level precision, so it is not the same as trial-level precision. A trial counts as
 flagged in a category when at least one of its items is flagged. Trial-level precision and recall

@@ -52,14 +52,15 @@ Slope of log(share of no-phase trials naming the phrase) on start year, 2008-202
 
 ## Limits
 
-- Mentions anywhere in the criteria, not hand-checked exclusions, as in every trend-check result.
+- Mentions anywhere in the criteria, not exclusions confirmed by reading, as in every trend-check
+  result.
 - Reduced: no-phase trials and the kept controls only. This is the stratum and the control set of
   H1, so it adds a check of H1's robustness, not a new test of H2.
 - The 20-match rule that picks the 9 controls was written when some 2008 counts were known (see
   PREREG-v0.3-RESULT.md). Of the controls it leaves out, tattoo, celiac and endometriosis had
   large 2025/2008 ratios, and their slopes were not counted.
-- The slopes and the test were first worked out by hand. `peryear_v03.py` recomputes them from
-  the counts file, and its test checks the hand values.
+- The slopes and the test were first worked out by AI agents working for MV2, outside the code.
+  `peryear_v03.py` recomputes them from the counts file, and its test checks those first values.
 
 ## Repeat it
 

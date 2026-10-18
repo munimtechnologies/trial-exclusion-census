@@ -3,8 +3,8 @@
 The pre-registered test of [PREREG-PHONE-MATCHED.md](PREREG-PHONE-MATCHED.md), counted on
 2026-10-15 after the pre-registration was on main. The 156 counts are in
 [phone-matched-counts.json](phone-matched-counts.json), and `python phone_matched.py` recomputes
-every number below from them. The ratios were first worked out by hand, then checked by
-`test_phone_matched.py`. CC BY 4.0.
+every number below from them. The ratios were first worked out by AI agents working for MV2,
+outside the code, then checked by `test_phone_matched.py`. CC BY 4.0.
 Made by MV2 of Munim, Inc. with AI agents.
 
 ## In one paragraph
@@ -92,7 +92,7 @@ telephone matches).
   advance: the registry's search treats "phone" as "telephone", so the exposure also takes in
   mobile-phone apps and text messages, which need sight. The S2 reading checks how often the
   hearing items themselves name the telephone.
-- **Mentions, not hand-checked exclusions.** A hearing wording can appear in an inclusion
+- **Mentions, not exclusions confirmed by reading.** A hearing wording can appear in an inclusion
   criterion or a list of accommodations. The 20 VA hearing mentions read so far
   ([VA-HEARING-READ.md](../sponsor-check/VA-HEARING-READ.md)) all shut people out, and S2 reads
   40 more.

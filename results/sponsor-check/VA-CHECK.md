@@ -13,7 +13,7 @@ registry does or simply name everything more often.
 
 As in [TREND-CHECK.md](../trend-check/TREND-CHECK.md), it uses the registry's own search, not
 the census rules: it counts trials whose eligibility criteria name a phrase anywhere. A mention
-is not always an exclusion (see the hand check below).
+is not always an exclusion (see the reading in section 3).
 
 ## 1. Most of them are VA trials
 
@@ -101,13 +101,14 @@ before it was counted. [VA-MATCHED-RESULT.md](VA-MATCHED-RESULT.md) has the resu
   five conditions. Matching does explain part of the cognitive gap (2.81 down to 2.21). Visual
   alone is not shown.
 - Correction (2026-10-15): the unmatched cognitive figure first read 2.90 here, from a slip in
-  adding the VA counts by hand (263 instead of 255). The saved counts give 2.81.
+  adding the VA counts outside the code (263 instead of 255). The saved counts give 2.81.
 
 ## 3. The mentions are exclusions
 
-A hand check read the 12 VA trials the API returned first that name a cognitive wording outside a
-cognitive or dementia trial. **All 12 use it in the exclusion criteria.** The quotes below were
-copied from the records by the API reader.
+AI agents working for MV2 read the 12 VA trials the API returned first that name a cognitive
+wording outside a cognitive or dementia trial; no person has checked that reading yet. **All 12
+use it in the exclusion criteria.** The quotes below were copied from the records by the API
+reader.
 
 | Trial | Condition | Exclusion item (quoted) |
 |---|---|---|
@@ -145,8 +146,8 @@ looks for a recorded diagnosis.
   broad exclusions in VA research may leave out many of the people that research is meant to serve.
   That is a hypothesis for VA research offices to check against their own protocols, not a
   finding.
-- **Limits:** mentions anywhere in the criteria, not hand-checked exclusions (12 of 12 read were
-  exclusions, a small sample). The VA group is matched by name, so VA sites without VA, Veteran or
+- **Limits:** mentions anywhere in the criteria, not exclusions confirmed by reading (12 of 12 read
+  were exclusions, a small sample). The VA group is matched by name, so VA sites without VA, Veteran or
   Veterans in the name (for example a "VISN 17 Center of Excellence") are counted as non-VA. VA
   trials classed as other than FED are not included. The search expands synonyms, as noted in
   TREND-CHECK.md. The controls are the same 11 used in the trend check; they were not chosen
@@ -165,4 +166,4 @@ python va_matched.py                                    # the matched test, from
 
 `sponsor_check.py` makes every count in sections 1 and 2 (the no-phase and the
 not-own-condition columns too) and the rank test. `va_matched.py` makes and analyses the matched
-counts. Section 3 was read by hand.
+counts. Section 3 was read by AI agents working for MV2; no person has checked it yet.
