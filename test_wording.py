@@ -1,4 +1,4 @@
-"""Offline wording tests for the README, the result notes and the guide (no network). Apache-2.0.
+"""Offline wording tests for the README, the result notes, the guide and the code (no network). Apache-2.0.
 
 Readings and labels in this repository were made by AI agents working for MV2, and no person has
 checked them yet. These pages must say so and must not describe that work as done "by hand" or
@@ -30,6 +30,8 @@ NOTES = [os.path.join(HERE, *p) for p in (
     ("results", "v0.1.1", "README.md"),
     ("toolkit", "inclusive-eligibility-guide.md"),
 )]
+CENSUS = os.path.join(HERE, "exclusion_census.py")
+RECALL = os.path.join(HERE, "recall_sample.py")
 
 CLAIMS = re.compile(r"hand[- ]check|hand-label|(?<!can be )checked\s+by\s+hand|read\s+by\s+hand|"
                     r"traced\s+by\s+hand|adding\s+(?:\S+\s+){0,4}by\s+hand|worked\s+out\s+by\s+hand|"
@@ -38,6 +40,8 @@ CLAIMS = re.compile(r"hand[- ]check|hand-label|(?<!can be )checked\s+by\s+hand|r
 ALLOWED = ("hand-coded study", "coded by hand", "Earlier studies coded samples by hand",
            "precision can be checked by hand", "new rules can be checked by hand",
            "label recall/labels.csv by hand")
+# The same in exclusion_census.py: others' studies, and people who check the rules themselves.
+ALLOWED_CODE = ("coded by hand", "coded samples by hand", "can be checked by hand", "Their hand-coded rates")
 # SCORES-0.4.0.md keeps recall_sample.py's printed output unchanged, heading included.
 SCORES_HEADING = "# Recall and precision of the word rules (hand-labelled sample)"
 
@@ -97,8 +101,9 @@ class NoteWordingTests(unittest.TestCase):
     def test_scores_heading_is_the_only_one_and_is_explained(self):
         self.assertEqual(CLAIMS.findall(flat(SCORES)), ["hand-label"])
         self.assertIn(SCORES_HEADING, read(SCORES))
-        self.assertIn("Its first heading is the fixed title that `recall_sample.py` prints; the "
-                      "labels it refers to are these AI-agent labels.", flat(SCORES))
+        self.assertIn("Its first heading is the title that `recall_sample.py` 0.2.0 printed (0.2.1 "
+                      "prints \"labelled sample\" instead); the labels it refers to are these AI-agent "
+                      "labels.", flat(SCORES))
         self.assertIn("They have not yet been checked by a person.", flat(SCORES))
 
     def test_who_did_the_reading_is_named(self):
@@ -151,6 +156,41 @@ class NoteWordingTests(unittest.TestCase):
         self.assertIn("mv2@munimtech.com", guide)
         self.assertNotIn("munimversion2@gmail.com", guide)
         self.assertIn("- 0.3.1 (2026-10-18):", guide)
+
+
+class CodeWordingTests(unittest.TestCase):
+    """The third pass: the module text of exclusion_census.py and recall_sample.py."""
+
+    def test_no_hand_or_eye_claims(self):
+        for path in (CENSUS, RECALL):
+            self.assertEqual(CLAIMS.findall(flat(path)), [], os.path.basename(path))
+
+    def test_every_by_hand_is_allowed(self):
+        text = flat(CENSUS)
+        for match in re.finditer(r"by hand|hand-coded", text):
+            window = text[max(0, match.start() - 60):match.end() + 10]
+            self.assertTrue(any(a in window for a in ALLOWED_CODE), window)
+        self.assertNotIn("by hand", flat(RECALL))
+
+    def test_who_did_the_reading_is_named(self):
+        census = flat(CENSUS)
+        for s in ("after AI agents working for MV2 read 360 flagged items from the first full run",
+                  "after AI agents working for MV2 labelled 114 trials of the blind recall sample",
+                  "a reading of the 16 recall-sample trials it flagged, by an AI agent working for MV2, "
+                  "found only 5 real offers",
+                  "Every reading and label behind these rule changes was made by AI agents working for "
+                  "MV2, one reader per item, and no person has checked them yet."):
+            self.assertIn(s, census)
+
+    def test_contact_address(self):
+        census = read(CENSUS)
+        self.assertIn('UA = "trial-exclusion-census/%s (Munim, Inc.; mv2@munimtech.com)" % __version__', census)
+        self.assertNotIn("munimversion2@gmail.com", census)
+
+    def test_recall_report_title(self):
+        recall = read(RECALL)
+        self.assertIn('SCORE_TITLE = "# Recall and precision of the word rules (labelled sample)"', recall)
+        self.assertIn('__version__ = "0.2.1"', recall)
 
 
 if __name__ == "__main__":

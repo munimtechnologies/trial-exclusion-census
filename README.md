@@ -539,6 +539,15 @@ All 225 were labelled by AI agents working for MV2, one reader per trial.
 
 ## Changes
 
+- After 0.5.0 (on main): wording only, in the code and the result notes. The module text of
+  `exclusion_census.py` described the readings behind the 0.3.0, 0.4.0 and 0.5.0 rule changes as
+  manual checks; it now says they were made by AI agents working for MV2 and that no person has
+  checked them yet. `recall_sample.py` 0.2.1 titles its report "labelled sample", since it cannot
+  know who made the labels; SCORES-0.4.0.md keeps the title that 0.2.0 printed and says so. The
+  census now gives mv2@munimtech.com as its contact when it calls the ClinicalTrials.gov API.
+  Earlier the same day, eleven result notes, the v0.1.1 run page and the guide (draft 0.3.1,
+  which now quotes the published 0.4.0 recall) were reworded the same way. No number changes, and
+  the census rules are unchanged. `test_wording.py` checks the code text too.
 - After 0.5.0 (on main): wording only. This page and
   [ACCOMMODATION.md](results/recall/ACCOMMODATION.md) no longer describe readings and labels made
   by AI agents working for MV2 as manual checks; they say who did them and that no person has

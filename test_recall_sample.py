@@ -91,6 +91,14 @@ class ScoreTests(unittest.TestCase):
         self.assertIn("| hearing | 1 | 0 | n/a | 0/1 = 0%", md)
         self.assertIn("deaf, worded oddly", md)
 
+    def test_report_title_does_not_say_who_labelled(self):
+        # 0.2.1: the tool cannot know who made the labels, so its title does not say.
+        rows, labels, _ = self.labelled()
+        md = rs.score_md(rs.score(rows, labels))
+        self.assertEqual(md.splitlines()[0], "# Recall and precision of the word rules (labelled sample)")
+        self.assertNotIn("hand", md.splitlines()[0])
+        self.assertEqual(rs.__version__, "0.2.1")
+
     def test_marks(self):
         self.assertEqual(rs.marks("x"), (True, False))
         self.assertEqual(rs.marks(" XI "), (True, True))

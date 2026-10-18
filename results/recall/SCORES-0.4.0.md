@@ -6,7 +6,8 @@ run of 2026-10-15). Precision and recall are counted on the 78 random trials onl
 trials, drawn to find misses quickly, appear only in the lists of misses. The labels were made by
 AI agents working for MV2, one reader per trial, while reading the criteria without the rules'
 flags. They have not yet been checked by a person. The output follows unchanged. Its first heading
-is the fixed title that `recall_sample.py` prints; the labels it refers to are these AI-agent labels.
+is the title that `recall_sample.py` 0.2.0 printed (0.2.1 prints "labelled sample" instead); the
+labels it refers to are these AI-agent labels.
 
 For comparison, on the same 78 trials the 0.3.0 rules flag 15 of the 22 trials labelled as
 excluding someone (15/15 correct), and find 11 of the 19 labelled requirements (11/12 correct).

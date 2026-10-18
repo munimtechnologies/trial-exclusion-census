@@ -11,9 +11,9 @@ random samples of interventional trials that have an exclusion section:
   reported as a list of misses, never as an estimate.
 
 It writes blind.md (each trial's full eligibility criteria, no flags, in
-shuffled order), labels.csv (an empty row per trial to fill in by hand),
-flags.csv (what the rules flagged, kept apart so labelling stays blind) and
-sample.jsonl (the records, so `score` can re-run newer rules on the same
+shuffled order), labels.csv (an empty row per trial for the labeller to fill
+in), flags.csv (what the rules flagged, kept apart so labelling stays blind)
+and sample.jsonl (the records, so `score` can re-run newer rules on the same
 trials).
 
 Labelling: for each core category write x if the exclusion criteria exclude
@@ -27,7 +27,8 @@ see.
 on the random sample with Wilson 95% intervals, the share of trials whose
 only barrier is in the inclusion criteria, and every miss in both samples.
 Since 0.2.0 it scores the census's inclusion-criteria requirement rules
-against the i marks the same way.
+against the i marks the same way. Since 0.2.1 its report is titled "labelled
+sample", since it does not know who made the labels.
 
 Standard library only. Apache-2.0 licensed.
 Made by MV2 of Munim, Inc. with AI agents.
@@ -44,7 +45,7 @@ import sys
 
 import exclusion_census as ec
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 
 CORE = ec.CORE
 BROAD = re.compile(
@@ -62,6 +63,8 @@ inclusion criteria require an ability that shuts them out, xi for both, blank fo
 neither. Then set done to 1. Judge what the text says, not whether it is justified.
 
 """
+
+SCORE_TITLE = "# Recall and precision of the word rules (labelled sample)"
 
 
 def draw(records, n_random=150, n_broad=75, seed=2026):
@@ -168,7 +171,7 @@ def _tally(counts, got, want):
 
 
 def score(rows, labels):
-    """Trial-level counts of the current rules against hand labels: the exclusion rules
+    """Trial-level counts of the current rules against the labels: the exclusion rules
     against the x marks, and the inclusion-criteria requirement rules against the i marks."""
     counts = {c: {"tp": 0, "fp": 0, "fn": 0} for c in CORE + ("any",)}
     req_counts = {c: {"tp": 0, "fp": 0, "fn": 0} for c in CORE + ("any",)}
@@ -226,7 +229,7 @@ def _miss_lines(misses):
 
 def score_md(res):
     n = res["labelled"]["random"]
-    lines = ["# Recall and precision of the word rules (hand-labelled sample)", "",
+    lines = [SCORE_TITLE, "",
              "census rules %s; labelled trials: %d random, %d broad." % (ec.__version__, n, res["labelled"]["broad"]),
              "Trial level: a trial counts once per category. Wilson 95% intervals.", ""]
     lines += _table(res["counts"], "Labelled excluded")
@@ -253,7 +256,7 @@ def main(argv=None):
     d.add_argument("--n-random", type=int, default=150)
     d.add_argument("--n-broad", type=int, default=75)
     d.add_argument("--seed", type=int, default=2026)
-    s = sub.add_parser("score", help="compare hand labels with the current rules")
+    s = sub.add_parser("score", help="compare the labels with the current rules")
     s.add_argument("--sample", required=True, help="sample.jsonl from draw")
     s.add_argument("--labels", required=True, help="labels.csv with done = 1 rows")
     s.add_argument("--out", default="", help="write the report here as well")

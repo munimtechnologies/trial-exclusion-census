@@ -18,33 +18,37 @@ corrected-to-normal vision", "able to read and write", "able to provide
 informed consent" with no representative allowed). These shut people out as
 surely as an exclusion does, but an exclusion-only count cannot see them.
 
-Since 0.3.0, after a hand check of 360 flagged items from the first full run,
-exception clauses ("except for hearing loss", "may be included (e.g. hearing
-loss)") are read out before an item is classified, and two vetoes drop words
-used in another sense: eye findings that would confound an eye exam in an
-ophthalmology trial, and a planned amputation. It also reports the number of
-exclusion items per trial and splits each year by phased (drug) and unphased
+Since 0.3.0, after AI agents working for MV2 read 360 flagged items from the
+first full run, exception clauses ("except for hearing loss", "may be included
+(e.g. hearing loss)") are read out before an item is classified, and two vetoes
+drop words used in another sense: eye findings that would confound an eye exam
+in an ophthalmology trial, and a planned amputation. It also reports the number
+of exclusion items per trial and splits each year by phased (drug) and unphased
 trials, so a trend can be told apart from longer criteria or a changing mix.
 
-Since 0.4.0, after hand-labelling 114 trials of the blind recall sample, it
-reads coordinated lists ("cognitive, visual or motor impairment", "unable to
-hear, read or comprehend"), more wordings (learning difficulties, decisionally
-impaired, adults under guardianship or curatorship, cochlear implants, motor
-deficits, spasticity), literacy next to a language ("unable to read, not
-English speaking") and more ability requirements (20/20 vision, no visual or
-auditory impairment, able to converse, GMFCS I-III). These rules were fixed
-before the other 111 trials of that sample were labelled, so those trials
-measure them fairly.
+Since 0.4.0, after AI agents working for MV2 labelled 114 trials of the blind
+recall sample, it reads coordinated lists ("cognitive, visual or motor
+impairment", "unable to hear, read or comprehend"), more wordings (learning
+difficulties, decisionally impaired, adults under guardianship or curatorship,
+cochlear implants, motor deficits, spasticity), literacy next to a language
+("unable to read, not English speaking") and more ability requirements (20/20
+vision, no visual or auditory impairment, able to converse, GMFCS I-III). These
+rules were fixed before the other 111 trials of that sample were labelled, so
+those trials measure them fairly.
 
 Since 0.5.0 the accommodation flag counts an item only when it offers one.
-Until 0.4.0 it counted any accommodation word anywhere, and a hand check of
-the 16 recall-sample trials it flagged found only 5 real offers: the rest were
-a parent's or guardian's consent for a child, an eye's accommodation, a
-catheter sheath, "without an interpreter", and an exclusion of consent through
-a surrogate. Exclusion items that use sign language, large print or braille
-to describe who is shut out ("requires a sign language interpreter", "unable
-to read large print") now count as hearing and visual exclusions. Both rules
-come from reading every registry trial that mentions these words.
+Until 0.4.0 it counted any accommodation word anywhere, and a reading of the
+16 recall-sample trials it flagged, by an AI agent working for MV2, found only
+5 real offers: the rest were a parent's or guardian's consent for a child, an
+eye's accommodation, a catheter sheath, "without an interpreter", and an
+exclusion of consent through a surrogate. Exclusion items that use sign
+language, large print or braille to describe who is shut out ("requires a sign
+language interpreter", "unable to read large print") now count as hearing and
+visual exclusions. Both rules come from reading every registry trial that
+mentions these words.
+
+Every reading and label behind these rule changes was made by AI agents
+working for MV2, one reader per item, and no person has checked them yet.
 
 Earlier work coded samples by hand: 97 protocols in four areas (DeCormier
 Plosky et al., Health Affairs 2022) and 2,710 trials for ten conditions,
@@ -82,7 +86,7 @@ import urllib.request
 __version__ = "0.5.0"
 
 API = "https://clinicaltrials.gov/api/v2/studies"
-UA = "trial-exclusion-census/%s (Munim, Inc.; munimversion2@gmail.com)" % __version__
+UA = "trial-exclusion-census/%s (Munim, Inc.; mv2@munimtech.com)" % __version__
 FIELDS = ("NCTId", "BriefTitle", "OverallStatus", "StudyType", "Phase", "StartDate",
           "StudyFirstSubmitDate", "Condition", "LeadSponsorClass", "EligibilityCriteria",
           "HealthyVolunteers", "EnrollmentCount")
@@ -691,7 +695,7 @@ SAMPLED = CATEGORIES + REQUIRED + ("accommodation",)
 
 
 def census(records, sample_per_cat=60, seed=2026):
-    """Aggregate tables and a seeded sample of flagged items for hand-checking."""
+    """Aggregate tables and a seeded sample of flagged items for a reader to check."""
     total = Tally()
     by_year, by_sponsor, by_phase, by_area, by_year_design = (collections.defaultdict(Tally) for _ in range(5))
     rng = random.Random(seed)
