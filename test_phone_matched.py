@@ -169,7 +169,8 @@ class PublishedTests(unittest.TestCase):
     def test_result(self):
         data = self.load("phone-matched-counts.json")
         rs = {r["phrase"]: r for r in pm.rows(data)}
-        # Worked out by hand on 2026-10-15 (PHONE-MATCHED-RESULT.md).
+        # First worked out outside the code by AI agents working for MV2 on 2026-10-15
+        # (PHONE-MATCHED-RESULT.md); no person has checked them yet.
         for phrase, est in [("cognitive (all wordings)", 1.93), ("hearing (all wordings)", 2.45),
                             ("visual (all wordings)", 2.13), ("pregnant", 0.61),
                             ("hepatitis", 0.34), ("allergy", 0.25), ("migraine", 0.56),

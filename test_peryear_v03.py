@@ -61,7 +61,8 @@ class PublishedTests(unittest.TestCase):
         for c in data["phrases"].values():
             self.assertEqual(len(c["counts"]), 18)
         rs = {r["phrase"]: r for r in py.rows(data)}
-        # Worked out by hand on 2026-10-15 (PREREG-v0.3-RESULT.md section "By year").
+        # First worked out outside the code by AI agents working for MV2 on 2026-10-15
+        # (PREREG-v0.3-RESULT.md section "By year"); no person has checked them yet.
         for phrase, b in [("visual (all wordings)", 0.0703), ("hearing (all wordings)", 0.0604),
                           ("cognitive (all wordings)", 0.0319), ("eczema", 0.0237),
                           ("hepatitis", -0.0211), ("pregnant", -0.0001)]:

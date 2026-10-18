@@ -1,4 +1,4 @@
-"""Offline wording tests for the README, the result notes, the guide and the code (no network). Apache-2.0.
+"""Offline wording tests for the README, the result notes, the guide, the code and the tests (no network). Apache-2.0.
 
 Readings and labels in this repository were made by AI agents working for MV2, and no person has
 checked them yet. These pages must say so and must not describe that work as done "by hand" or
@@ -32,6 +32,8 @@ NOTES = [os.path.join(HERE, *p) for p in (
 )]
 CENSUS = os.path.join(HERE, "exclusion_census.py")
 RECALL = os.path.join(HERE, "recall_sample.py")
+TESTS = [os.path.join(HERE, n) for n in (
+    "test_exclusion_census.py", "test_va_matched.py", "test_phone_matched.py", "test_peryear_v03.py")]
 
 CLAIMS = re.compile(r"hand[- ]check|hand-label|(?<!can be )checked\s+by\s+hand|read\s+by\s+hand|"
                     r"traced\s+by\s+hand|adding\s+(?:\S+\s+){0,4}by\s+hand|worked\s+out\s+by\s+hand|"
@@ -191,6 +193,28 @@ class CodeWordingTests(unittest.TestCase):
         recall = read(RECALL)
         self.assertIn('SCORE_TITLE = "# Recall and precision of the word rules (labelled sample)"', recall)
         self.assertIn('__version__ = "0.2.1"', recall)
+
+
+class TestFileWordingTests(unittest.TestCase):
+    """The fourth pass: comments and docstrings in the tests that hold the published numbers."""
+
+    def test_no_hand_or_eye_claims(self):
+        for path in TESTS:
+            text = flat(path)
+            self.assertEqual(CLAIMS.findall(text), [], os.path.basename(path))
+            self.assertNotIn("by hand", text, os.path.basename(path))
+
+    def test_who_did_the_work_is_named(self):
+        for path in TESTS[1:]:
+            text = flat(path)
+            self.assertIn("worked out outside the code by AI agents working for MV2 on 2026-10-15", text,
+                          os.path.basename(path))
+            self.assertIn("no person has checked them yet.", text, os.path.basename(path))
+        census = flat(TESTS[0])
+        self.assertIn("false positives that AI agents working for MV2 found when they read the first full "
+                      "run's sample_items.csv", census)
+        self.assertIn("as labelled by AI agents working for MV2 (one reader; no person has checked the "
+                      "labels yet)", census)
 
 
 if __name__ == "__main__":

@@ -144,7 +144,8 @@ class PublishedTests(unittest.TestCase):
     def test_result(self):
         data = self.load("va-matched-counts.json")
         rs = {r["phrase"]: r for r in vm.rows(data)}
-        # Worked out by hand on 2026-10-15 (VA-MATCHED-RESULT.md, as corrected the same day).
+        # First worked out outside the code by AI agents working for MV2 on 2026-10-15
+        # (VA-MATCHED-RESULT.md, as corrected the same day); no person has checked them yet.
         for phrase, est, low, high in [("cognitive (all wordings)", 2.21, 1.99, 2.45),
                                        ("hearing (all wordings)", 1.77, 1.24, 2.52),
                                        ("visual (all wordings)", 1.55, 0.92, 2.62),

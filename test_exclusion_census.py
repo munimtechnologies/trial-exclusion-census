@@ -92,7 +92,8 @@ class ClassifyTests(unittest.TestCase):
 
 
 class ExceptionAndVetoTests(unittest.TestCase):
-    """0.3.0: the false positives found by hand in the first full run's sample_items.csv."""
+    """0.3.0: false positives that AI agents working for MV2 found when they read the first full
+    run's sample_items.csv (one reader; no person has checked that reading yet)."""
 
     def test_exception_clauses(self):
         cases = {
@@ -145,7 +146,8 @@ class ExceptionAndVetoTests(unittest.TestCase):
 
 
 class RecallRuleTests(unittest.TestCase):
-    """0.4.0: wordings missed in the first 114 hand-labelled trials of the blind recall sample."""
+    """0.4.0: wordings missed in the first 114 trials of the blind recall sample, as labelled by
+    AI agents working for MV2 (one reader; no person has checked the labels yet)."""
 
     def test_coordinated_lists(self):
         cases = {
