@@ -6,6 +6,7 @@ checked them yet. These pages must say so and must not describe that work as don
 people who check the rules themselves.
 """
 
+import json
 import os
 import re
 import unittest
@@ -34,6 +35,9 @@ CENSUS = os.path.join(HERE, "exclusion_census.py")
 RECALL = os.path.join(HERE, "recall_sample.py")
 TESTS = [os.path.join(HERE, n) for n in (
     "test_exclusion_census.py", "test_va_matched.py", "test_phone_matched.py", "test_peryear_v03.py")]
+PHONE_MARKS = os.path.join(HERE, "phone_marks.py")
+PHONE_TESTS = [os.path.join(HERE, n) for n in ("test_phone_marks.py", "test_phone_requirement_result.py")]
+S2_MARKS = os.path.join(HERE, "results", "phone-check", "s2-marks.json")
 
 CLAIMS = re.compile(r"hand[- ]check|hand-label|(?<!can be )checked\s+by\s+hand|read\s+by\s+hand|"
                     r"traced\s+by\s+hand|adding\s+(?:\S+\s+){0,4}by\s+hand|worked\s+out\s+by\s+hand|"
@@ -215,6 +219,33 @@ class TestFileWordingTests(unittest.TestCase):
                       "run's sample_items.csv", census)
         self.assertIn("as labelled by AI agents working for MV2 (one reader; no person has checked the "
                       "labels yet)", census)
+
+
+class PhoneWordingTests(unittest.TestCase):
+    """The fifth pass: phone_marks.py 0.1.1 and the two tests that use it."""
+
+    def test_no_hand_or_eye_claims(self):
+        for path in [PHONE_MARKS] + PHONE_TESTS:
+            text = flat(path)
+            self.assertEqual(CLAIMS.findall(text), [], os.path.basename(path))
+            self.assertNotIn("by hand", text, os.path.basename(path))
+
+    def test_who_did_the_reading_is_named(self):
+        self.assertIn("The S2 reading was made by AI agents working for MV2, and no person has checked it "
+                      "yet.", flat(PHONE_MARKS))
+        self.assertIn('__version__ = "0.1.1"', read(PHONE_MARKS))
+        for path in PHONE_TESTS:
+            text = flat(path)
+            self.assertIn("AI agents working for MV2", text, os.path.basename(path))
+            self.assertIn("no person has checked", text, os.path.basename(path))
+
+    def test_saved_marks_keep_the_field_name(self):
+        # 0.1.1 changes only text; the marks it saves keep 0.1.0's field names.
+        with open(S2_MARKS, encoding="utf-8") as f:
+            marks = json.load(f)["marks"]
+        self.assertEqual(len(marks), 20)
+        self.assertTrue(all("check_by_eye" in m for m in marks))
+        self.assertIn("check_by_eye field keeps its 0.1.0 name", flat(PHONE_MARKS))
 
 
 if __name__ == "__main__":

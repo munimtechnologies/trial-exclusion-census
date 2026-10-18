@@ -1,11 +1,14 @@
 """phone_marks: the two marks of PREREG-PHONE-REQUIREMENT's S2 reading, applied by pattern.
 
-S2 reads the first 20 trials of phone_requirement.reading_term() by eye and marks (a) an inclusion
-item names a phone and (b) the hearing item itself names a phone or calls. This applies the same
-two rules by pattern, so the reading by eye has a check written before the reading list was
+S2 reads the first 20 trials of phone_requirement.reading_term() one by one and marks (a) an
+inclusion item names a phone and (b) the hearing item itself names a phone or calls. This applies
+the same two rules by pattern, so the reading has a check written before the reading list was
 fetched. Each record's criteria are split into items under their inclusion and exclusion
 headings; a record with no hearing item found, or no heading, is flagged for the reader instead of
-guessed. The reading by eye stays the pre-registered result; where the two differ, both are shown.
+guessed. The reading stays the pre-registered result; where the two differ, both are shown.
+The S2 reading was made by AI agents working for MV2, and no person has checked it yet. The
+check_by_eye field keeps its 0.1.0 name, so saved marks stay comparable; it lists what a reader
+should look at.
 
 Standard library only. Apache-2.0 licensed.
 Made by MV2 of Munim, Inc. with AI agents.
@@ -16,7 +19,7 @@ import json
 import re
 import sys
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 READ = "results/phone-check/phone-hearing-read.json"
 # The rules of PREREG-PHONE-REQUIREMENT, S2. (a) is case-insensitive, so it also finds telephone
@@ -99,13 +102,13 @@ def summary(marks):
 
 def markdown(marks, over=None):
     s = summary(marks)
-    lines = ["| NCT | (a) requirement | (b) phone-tied | Check by eye |", "|---|---|---|---|"]
+    lines = ["| NCT | (a) requirement | (b) phone-tied | For a reader |", "|---|---|---|---|"]
     for m in marks:
         lines.append("| %s | %s | %s | %s |" % (
             m["nct"], "yes" if m["a_requirement"] else "no", "yes" if m["b_phone_tied"] else "no",
             "; ".join(m["check_by_eye"]) or "-"))
     lines += ["", "By pattern: (a) in %d of %d (predicted at least %d: %s); (b) in %d of %d (at least "
-              "%d would make HP1 mostly the hearing items' own wording: %s); %d to check by eye." % (
+              "%d would make HP1 mostly the hearing items' own wording: %s); %d flagged for a reader." % (
                   s["a_requirement"], s["trials"], PREDICTED_A,
                   "met" if s["a_prediction_met"] else "not met", s["b_phone_tied"], s["trials"],
                   TIED_RULE, "yes" if s["b_tied_rule_met"] else "no", s["check_by_eye"])]

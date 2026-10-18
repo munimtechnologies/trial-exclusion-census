@@ -1,7 +1,8 @@
 """Tests for PHONE-REQUIREMENT-RESULT.md (no network). Apache-2.0.
 
 Recomputes every number the note quotes from the saved counts, the S2 reading list, the pattern
-marks and the reading by eye, and checks each mark by eye against its rule.
+marks and the reading (made by AI agents working for MV2; no person has checked it yet), and
+checks each mark against its rule.
 """
 
 import json
@@ -102,7 +103,7 @@ class ReadingTests(unittest.TestCase):
     def test_saved_marks_follow_from_the_list(self):
         self.assertEqual(plain(self.marks), load("s2-marks.json")["marks"])
 
-    def test_reading_by_eye_agrees_with_the_patterns(self):
+    def test_reading_agrees_with_the_patterns(self):
         self.assertEqual([r["nct"] for r in self.read], [m["nct"] for m in self.marks])
         for r, m in zip(self.read, self.marks):
             self.assertEqual((r["a"], r["b"]), (m["a_requirement"], m["b_phone_tied"]), r["nct"])

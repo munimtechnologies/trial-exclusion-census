@@ -1,7 +1,8 @@
 """Offline tests for phone_marks (no network). Apache-2.0.
 
 Checks the item splitting and the two marks on made-up records, the rules against the
-pre-registration, and the marks against the 40 items PHONE-HEARING-READ marked by eye.
+pre-registration, and the marks against the 40 items marked for PHONE-HEARING-READ (a reading by
+AI agents working for MV2; no person has checked it yet).
 """
 
 import json
@@ -76,7 +77,7 @@ class MarkTests(unittest.TestCase):
         self.assertIn("| NCT04 | no | no | no hearing item found |", md)
         self.assertIn("By pattern: (a) in 1 of 4 (predicted at least 12: not met); (b) in 2 of 4 "
                       "(at least 11 would make HP1 mostly the hearing items' own wording: no); "
-                      "1 to check by eye.", md)
+                      "1 flagged for a reader.", md)
         self.assertIn("Also read for PHONE-HEARING-READ: NCT02 (telephone).", md)
         self.assertNotIn("Also read", pk.markdown(marks))
 
@@ -113,8 +114,9 @@ class RuleTests(unittest.TestCase):
         self.assertEqual(p["s2_requirement_prediction_at_least"], pk.PREDICTED_A)
         self.assertEqual(p["s2_tied_reading_rule_at_least"], pk.TIED_RULE)
 
-    def test_marks_agree_with_the_earlier_reading_by_eye(self):
-        # PHONE-HEARING-READ marked 40 hearing items by eye on 2026-10-15 (4 + 1 phone-tied).
+    def test_marks_agree_with_the_earlier_reading(self):
+        # AI agents working for MV2 marked 40 hearing items for PHONE-HEARING-READ on 2026-10-15
+        # (4 + 1 phone-tied); no person has checked them yet.
         with open(os.path.join(CHECK, "phone-hearing-read.json"), encoding="utf-8") as f:
             read = json.load(f)
         n = tied = 0
