@@ -305,7 +305,8 @@ not in place of them.
   intervals are wide, and the labels were made by AI agents working for MV2, one reader per
   trial, not yet checked by a person.
 - **Ability requirements.** 16.36% of trials require an ability in their inclusion criteria,
-  most often the capacity to consent with no representative named (12.69%). **33.74%** have a
+  most often the ability to consent or to understand the study (12.69%), counted whether or not
+  another item lets a representative consent. **33.74%** have a
   disability barrier in either section, and **11.38%** have one only in the inclusion criteria,
   where an exclusion-only count cannot see it. In the held-out random sample the share with a
   barrier only there is 13 of 78 (17%, 10% to 26%).
@@ -524,7 +525,11 @@ All 225 were labelled by AI agents working for MV2, one reader per trial.
   `sample_items.csv` lets anyone count them separately.
 - "Able to provide informed consent" is counted only when the same item names no representative,
   guardian or parent, but a representative allowed elsewhere in the criteria is not taken into
-  account (the accommodation flag notes it).
+  account (the accommodation flag notes it). "Able to understand the study", which also matches
+  the stock line "Ability to understand and the willingness to sign a written informed consent
+  document", is counted even when the same item names a representative. So the 12.69% of trials
+  that require the capacity to consent are trials that ask for the ability, not trials that
+  offer no way in.
 - The accommodation flag (0.5.0) leaves out every item that mentions a parent, a child or an age
   under 18, so a pediatric trial that offers, say, AAC through a parent is not counted. It was
   written from the same 16 trials it was checked on; its precision on fresh data comes from the
@@ -539,6 +544,12 @@ All 225 were labelled by AI agents working for MV2, one reader per trial.
 
 ## Changes
 
+- After 0.5.0 (on main): wording only. The ability-requirements summary said 12.69% of trials
+  require "the capacity to consent with no representative named". The rule behind that number
+  also counts "able to understand the study" when the same item names a representative, and it
+  never looks at other items, so the summary and the Limits section now say what is counted.
+  `test_readme_consent_rule.py` checks the wording against the rule. No number changes, and the
+  census rules are unchanged.
 - After 0.5.0 (on main): wording only, in the code and the result notes. The module text of
   `exclusion_census.py` described the readings behind the 0.3.0, 0.4.0 and 0.5.0 rule changes as
   manual checks; it now says they were made by AI agents working for MV2 and that no person has
