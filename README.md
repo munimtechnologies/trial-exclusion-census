@@ -308,8 +308,11 @@ not in place of them.
   most often the ability to consent or to understand the study (12.69%), counted whether or not
   another item lets a representative consent. **33.74%** have a
   disability barrier in either section, and **11.38%** have one only in the inclusion criteria,
-  where an exclusion-only count cannot see it. In the held-out random sample the share with a
-  barrier only there is 13 of 78 (17%, 10% to 26%).
+  where an exclusion-only count cannot see it. At least two-thirds of that 11.38% have an item
+  asking for the ability to consent or to understand the study: 16.36% have any inclusion
+  requirement and 12.69% a consent one, so at most 3.67 points of the 11.38 can lack such an
+  item (`test_readme_bound.py` recomputes this from `results/v0.4.0/summary.json`). In the
+  held-out random sample the share with a barrier only there is 13 of 78 (17%, 10% to 26%).
 - **The trend controls, run for the first time.** From 2008 to 2025 starts, the share with a
   disability exclusion rose from 15.16% to 27.83% (1.84 times). Criteria grew only a little
   longer (8.96 to 9.31 exclusion items per trial), while disability items per 100 exclusion items
@@ -549,6 +552,13 @@ All 225 were labelled by AI agents working for MV2, one reader per trial.
   also counts "able to understand the study" when the same item names a representative, and it
   never looks at other items, so the summary and the Limits section now say what is counted.
   `test_readme_consent_rule.py` checks the wording against the rule. No number changes, and the
+  census rules are unchanged.
+- After 0.5.0 (on main): one sentence added to the ability-requirements summary. From the
+  published totals alone, at least two-thirds of the 11.38% of trials with a barrier only in
+  their inclusion criteria have an item asking for the ability to consent or to understand the
+  study (16.36% have any inclusion requirement and 12.69% a consent one, so at most 3.67 points
+  of the 11.38 can lack one). `test_readme_bound.py` recomputes the bound from
+  `results/v0.4.0/summary.json`. The exact split is not tallied; no number changes, and the
   census rules are unchanged.
 - After 0.5.0 (on main): wording only, in the code and the result notes. The module text of
   `exclusion_census.py` described the readings behind the 0.3.0, 0.4.0 and 0.5.0 rule changes as
