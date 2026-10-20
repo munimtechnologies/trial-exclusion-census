@@ -1,9 +1,10 @@
 #!/bin/sh
 # Recall and precision of three rule versions on the same blind sample (225 trials drawn by
-# recall_sample.py from the 2026-10-14 registry, results/v0.1.1/recall/), labelled by hand blind
-# to the flags. R001-R114 (dev) were labelled first and the v0.4.0 rules were written from their
-# misses. R115-R225 (held-out) were labelled after the v0.4.0 rules were fixed, so only the
-# held-out scores measure v0.4.0 fairly.
+# recall_sample.py from the 2026-10-14 registry, results/v0.1.1/recall/), labelled blind to the
+# flags by AI agents working for MV2, one reader per trial; no person has checked the labels yet.
+# R001-R114 (dev) were labelled first and the v0.4.0 rules were written from their misses.
+# R115-R225 (held-out) were labelled after the v0.4.0 rules were fixed, so only the held-out
+# scores measure v0.4.0 fairly.
 set -u
 cd "$(dirname "$0")"
 mkdir -p /out
