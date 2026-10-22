@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; form-action 'none'; base-uri 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Inclusive eligibility check: flag criteria that exclude disabled people</title>
 <meta name="description" content="Paste a clinical study's eligibility criteria and see which exclusion items touch disability, and which inclusion items require an ability such as walking, hearing or reading, with an inclusive alternative to consider for each. Runs in your browser; nothing is sent anywhere.">
@@ -32,7 +33,7 @@ footer { margin-top: 2.5rem; font-size: .95rem; color: #444; }
 <main>
 <h1>Inclusive eligibility check</h1>
 <p>Paste a clinical study's eligibility criteria. This page lists each exclusion item that touches disability (cognitive, consent capacity, vision, hearing, communication, mobility, and related items such as investigator discretion). It also lists each inclusion item that requires an ability, such as "able to walk 100 m unaided" or "normal hearing", because those shut people out too. For each item it gives an inclusive alternative to consider. It also lists the items that already offer an accommodation, such as consent by a legally authorized representative or "with or without an assistive device".</p>
-<p><strong>Your text stays on your computer.</strong> The check runs in this page, and nothing you paste is sent or saved anywhere.</p>
+<p><strong>Your text stays on your computer.</strong> The check runs in this page, and nothing you paste is sent or saved anywhere. The page's security policy also tells your browser to block any connection it tries to open and any form submission.</p>
 
 <form id="form">
 <label for="criteria">Eligibility criteria</label>
@@ -45,6 +46,7 @@ footer { margin-top: 2.5rem; font-size: .95rem; color: #444; }
 
 <button type="submit">Check criteria</button><button type="button" class="secondary" id="example">Load an example</button>
 </form>
+<noscript><p>The check needs JavaScript, which is off in this browser. Nothing you paste is sent.</p></noscript>
 
 <h2 id="results-heading">Results</h2>
 <p id="status" role="status">No criteria checked yet.</p>
@@ -58,6 +60,15 @@ footer { margin-top: 2.5rem; font-size: .95rem; color: #444; }
 <p>Made by MV2 of Munim, Inc. with AI agents. Code Apache-2.0, text CC BY 4.0. Corrections are welcome as <a href="https://github.com/munimtechnologies/trial-exclusion-census/issues">issues</a>.</p>
 </footer>
 
+<script>
+// Runs before the checker below: even if this browser cannot run it, the form sends nothing.
+document.getElementById("form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  if (!window.checkReady) {
+    document.getElementById("status").textContent = "This browser could not run the check, and nothing was sent. Please try a recent version of Chrome, Edge, Firefox or Safari.";
+  }
+});
+</script>
 <script type="text/plain" id="rules">
 rule cognitive \bdement(?:ia|ing)
 rule cognitive \balzheimer
@@ -412,6 +423,7 @@ keep mobility \bwheel[- ]?chair|\bnon[- ]?ambulatory\b|\bbed[- ]?(?:ridden|bound
     document.getElementById("subject").value = "Type 2 diabetes";
     check(EXAMPLE, "Type 2 diabetes");
   });
+  window.checkReady = true;
 })();
 </script>
 </body>
