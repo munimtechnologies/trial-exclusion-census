@@ -65,13 +65,16 @@ footer { margin-top: 2.5rem; font-size: .95rem; color: #444; }
 document.getElementById("form").addEventListener("submit", function (e) {
   e.preventDefault();
   if (!window.checkReady) {
-    document.getElementById("status").textContent = "This browser could not run the check, and nothing was sent. Please try a recent version of Chrome, Edge, Firefox or Safari.";
+    // Clear first, as the checker's say() does, so a screen reader announces the message again on a repeated press.
+    document.getElementById("status").textContent = "";
+    setTimeout(function () { document.getElementById("status").textContent = "This browser could not run the check, and nothing was sent. Please try a recent version of Chrome, Edge, Firefox or Safari."; }, 100);
   }
 });
 // The example needs the checker too, so say why nothing happens without it.
 document.getElementById("example").addEventListener("click", function () {
   if (!window.checkReady) {
-    document.getElementById("status").textContent = "This browser could not run the check, so the example cannot be shown. Please try a recent version of Chrome, Edge, Firefox or Safari.";
+    document.getElementById("status").textContent = "";
+    setTimeout(function () { document.getElementById("status").textContent = "This browser could not run the check, so the example cannot be shown. Please try a recent version of Chrome, Edge, Firefox or Safari."; }, 100);
   }
 });
 </script>
