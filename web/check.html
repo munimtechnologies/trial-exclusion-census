@@ -68,6 +68,12 @@ document.getElementById("form").addEventListener("submit", function (e) {
     document.getElementById("status").textContent = "This browser could not run the check, and nothing was sent. Please try a recent version of Chrome, Edge, Firefox or Safari.";
   }
 });
+// The example needs the checker too, so say why nothing happens without it.
+document.getElementById("example").addEventListener("click", function () {
+  if (!window.checkReady) {
+    document.getElementById("status").textContent = "This browser could not run the check, so the example cannot be shown. Please try a recent version of Chrome, Edge, Firefox or Safari.";
+  }
+});
 </script>
 <script type="text/plain" id="rules">
 rule cognitive \bdement(?:ia|ing)
