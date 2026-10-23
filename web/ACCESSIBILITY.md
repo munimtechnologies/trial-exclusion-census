@@ -21,6 +21,33 @@ were written down from the page source before the check, and every one held.
 | 400% zoom | One column, no sideways scrolling, nothing overlapping or cut off | 1.4.4 Resize Text, 1.4.10 Reflow (see limits) |
 | Privacy | The network panel showed only the page itself; checking criteria sent no request, and pressing Enter in a field did not change the address or reload. The console showed no errors. | not an accessibility criterion |
 
+### Colour contrast
+
+Also on 2026-10-23, every colour the page's style sheet sets was measured with WCAG's contrast
+ratio, from the style sheet of `web/check.html` at commit dc408b87 (unchanged since). The expected
+ratios were worked out by hand and written down before the code ran, and all 15 matched.
+`test_web_contrast.py` keeps it that way: it fails if a pair drops below its minimum, if the style
+sheet gains a colour that is in no pair, or if a colour the pairs rely on is overridden.
+
+| Pair | Colours | Ratio | Minimum |
+|---|---|---|---|
+| Body text, typed text | #1b1b1b on #ffffff | 17.22:1 | 4.5:1 (1.4.3) |
+| Links, both buttons' text | #0b4fb3 and #ffffff | 7.54:1 | 4.5:1 (1.4.3) |
+| Hints under the labels, footer | #444444 on #ffffff | 9.74:1 | 4.5:1 (1.4.3) |
+| Flagged item | #1b1b1b on #f3f3f3 | 15.52:1 | 4.5:1 (1.4.3) |
+| Item that offers an accommodation | #1b1b1b on #eef6ef | 15.64:1 | 4.5:1 (1.4.3) |
+| Note that an item matches the study's subject | #5a3d00 on #ffffff | 9.99:1 | 4.5:1 (1.4.3) |
+| Text box border, bar beside a flagged item | #555555 on #ffffff | 7.46:1 | 3:1 (1.4.11) |
+| Button border | #0b4fb3 on #ffffff | 7.54:1 | 3:1 (1.4.11) |
+| Focus outline | #b3410b on #ffffff | 5.71:1 | 3:1 (1.4.11) |
+| Bar beside an offered item | #1a6b2f on #ffffff | 6.59:1 | 3:1 (1.4.11) |
+
+The lowest text pair is 7.54:1, so all text also meets the enhanced 7:1 of 1.4.6. The lowest
+non-text pair is the focus outline, 5.71:1. Visited links keep #0b4fb3, because the page's link
+colour applies to every link state. Flagged and accommodating items are not told apart by colour
+alone: each group has its own heading, and flagged items carry a "Categories:" or "Requires:" line
+(1.4.1 Use of Color).
+
 ## Not checked yet
 
 - **No disabled person has tested the page yet, and no screen reader has been used on it.** The role and
@@ -28,7 +55,11 @@ were written down from the page source before the check, and every one held.
   TalkBack read the page.
 - Reflow was checked in a 1920-pixel window, so 400% zoom gave a 480 CSS-pixel-wide view. WCAG's reflow
   test uses 320 CSS pixels. Narrower views and phones have not been checked.
-- Colour contrast, Windows high-contrast mode, speech input and switch access have not been measured.
+- The contrast figures are for the colours the style sheet declares, not measured screen pixels. The
+  text caret and selected-text colours are the browser's own and were not measured. Newer methods such
+  as APCA (in drafts of WCAG 3) were not used.
+- Windows high-contrast (forced colours) mode, which replaces the page's colours, speech input and
+  switch access have not been checked.
 - Only Chrome on Windows was used. Firefox and Safari were not. (Safari before 16.4 cannot run the
   checker, and the page says so in its status line.)
 - The page has no hosted address yet. These results are for the file, opened in a browser.
