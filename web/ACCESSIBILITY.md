@@ -18,7 +18,8 @@ were written down from the page source before the check, and every one held.
 | Buttons | "Load an example" works with both Enter and Space | 2.1.1 Keyboard |
 | Names and roles (Chrome's accessibility tree) | Text box "Eligibility criteria", text box "The study's condition or title (optional)", buttons "Check criteria" and "Load an example" | 4.1.2 Name, Role, Value |
 | Result announcement | The results line has role `status`, polite and atomic, so screen readers can announce it without moving focus | 4.1.3 Status Messages |
-| 400% zoom | One column, no sideways scrolling, nothing overlapping or cut off | 1.4.4 Resize Text, 1.4.10 Reflow (see limits) |
+| 400% zoom | One column, no sideways scrolling, nothing overlapping or cut off (1920 px window, so a 480 CSS-pixel-wide view) | 1.4.4 Resize Text |
+| Reflow at 320 CSS px | On 2026-10-23 (about 12:35 UTC) in Chrome's device-toolbar emulation set to 320 x 640, the page's `scrollWidth` stayed 320 px with no element past the right edge, both before and after "Load an example": one column, no sideways scrolling, nothing overlapping or cut off. The two buttons wrap onto separate lines. Checked on the same file (blob `9c3176b9`, commit dc408b87). | 1.4.10 Reflow (see limits) |
 | Privacy | The network panel showed only the page itself; checking criteria sent no request, and pressing Enter in a field did not change the address or reload. The console showed no errors. | not an accessibility criterion |
 
 ### Colour contrast
@@ -53,8 +54,11 @@ alone: each group has its own heading, and flagged items carry a "Categories:" o
 - **No disabled person has tested the page yet, and no screen reader has been used on it.** The role and
   live-region values come from Chrome's accessibility tree, not from hearing NVDA, JAWS, VoiceOver or
   TalkBack read the page.
-- Reflow was checked in a 1920-pixel window, so 400% zoom gave a 480 CSS-pixel-wide view. WCAG's reflow
-  test uses 320 CSS pixels. Narrower views and phones have not been checked.
+- The 320 CSS px reflow check used Chrome's device-toolbar emulation on Windows, not a real phone:
+  Chrome lays the page out at a 320 CSS px viewport, but a real phone's text rendering can differ, and
+  phones and other narrow devices have not been checked on real hardware.
+- Reflow was checked for the page's own content. Criteria a user pastes can hold very long unbroken
+  strings (such as URLs); those were not tested for reflow and could still force a sideways scroll.
 - The contrast figures are for the colours the style sheet declares, not measured screen pixels. The
   text caret and selected-text colours are the browser's own and were not measured. Newer methods such
   as APCA (in drafts of WCAG 3) were not used.
