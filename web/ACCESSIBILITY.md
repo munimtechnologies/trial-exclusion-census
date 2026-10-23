@@ -49,6 +49,22 @@ colour applies to every link state. Flagged and accommodating items are not told
 alone: each group has its own heading, and flagged items carry a "Categories:" or "Requires:" line
 (1.4.1 Use of Color).
 
+### Forced colours (Windows high-contrast)
+
+On 2026-10-23 (about 15:25 UTC) the same file (blob `9c3176b9`) was opened in Chrome 156.0.8078.48 on
+Windows 10 with DevTools' Rendering setting "Emulate CSS media feature forced-colors: active". The page
+has no forced-colours style of its own, so the browser replaces every colour. The expected results were
+written down from the page source first, and all five held:
+
+- All text, including the hints, the footer and the results line, showed as black text on white;
+  nothing matched its background or was washed out. Links stayed underlined.
+- Both text boxes kept a visible border.
+- The focus outline still showed on all four controls (in the emulated theme's highlight colour).
+- The two buttons now look alike, but their labels tell them apart.
+- The grey and green tints of the result items disappear and every item gets the same black bar beside
+  it, so the groups are no longer told apart by colour. They are still told apart by their headings
+  and the "Categories:" and "Requires:" lines, which is why the page does not rely on colour (1.4.1).
+
 ## Not checked yet
 
 - **No disabled person has tested the page yet, and no screen reader has been used on it.** The role and
@@ -62,8 +78,9 @@ alone: each group has its own heading, and flagged items carry a "Categories:" o
 - The contrast figures are for the colours the style sheet declares, not measured screen pixels. The
   text caret and selected-text colours are the browser's own and were not measured. Newer methods such
   as APCA (in drafts of WCAG 3) were not used.
-- Windows high-contrast (forced colours) mode, which replaces the page's colours, speech input and
-  switch access have not been checked.
+- The forced-colours check used Chrome's emulation with its default light palette, not a real Windows
+  contrast theme. Dark themes (such as light text on black) were not tried.
+- Speech input and switch access have not been checked.
 - Only Chrome on Windows was used. Firefox and Safari were not. (Safari before 16.4 cannot run the
   checker, and the page says so in its status line.)
 - The page has no hosted address yet. These results are for the file, opened in a browser.
