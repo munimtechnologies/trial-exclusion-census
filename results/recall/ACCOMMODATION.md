@@ -69,7 +69,8 @@ precision checked on a fresh sample.
   R177. It still misses R144, whose text has an HTML-escaped apostrophe (`&#39;`) between
   "consent" and "family members", and the rule stops at its ";".
   That is 9 matches in 225, all offers, against 5 of 16 before (traced by the same AI agent
-  through the rules' text, not yet run as code). **This is not a fair test**: the rules were written from these same trials. The
+  through the rules' text, then run as code on 2026-10-28: the rules flag these same 9
+  trials, which `test_accommodation_flag.py` checks). **This is not a fair test**: the rules were written from these same trials. The
   fair test is the `accommodation` rows of the next run's `sample_items.csv`.
 
 CC BY 4.0. Made by MV2 of Munim, Inc. with AI agents.
