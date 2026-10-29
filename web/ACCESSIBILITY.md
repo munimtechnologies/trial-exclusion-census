@@ -65,6 +65,28 @@ written down from the page source first, and all five held:
   it, so the groups are no longer told apart by colour. They are still told apart by their headings
   and the "Categories:" and "Requires:" lines, which is why the page does not rely on colour (1.4.1).
 
+### Hosted copy
+
+The page is also served at https://munimv2.github.io/inclusive-criteria/. On 2026-10-29 the served
+page was byte-for-byte this file (33,815 bytes, blob `9c3176b9`, SHA-256 starting `f82b9c0b8ec2`).
+That day (about 20:00 UTC) an AI agent working for MV2 opened the hosted page in Chrome 156.0.8078.48
+on Windows 10 with DevTools' network panel keeping its log across a reload. The expected results were
+written down from the page source first, and all six held for the page itself:
+
+- At load, the only request the page made was for the page itself.
+- Typing two lines of criteria and pressing "Check criteria", then "Load an example", added no request,
+  and the address did not change.
+- The typed item ("Hearing loss that prevents use of the telephone", under "Exclusion Criteria:") was
+  flagged under "hearing", and the example gave "6 exclusion items flagged; 2 inclusion items require
+  an ability. Accommodation offered in the criteria: yes.", the same as the file.
+
+One thing was not foreseen. The Chrome profile used had a browser extension that added a style sheet
+(started by its own script, `dogEar.js`) and tried to load six fonts. The page's source refers to no
+outside style sheet, script, font or image, and its own Content-Security-Policy (`default-src 'none'`)
+blocked those fonts, which is the one console error seen (repeated seven times). The other console
+lines were five warnings that this Chrome does not recognise some features named in the server's
+`Permissions-Policy` header; the page itself sets no such policy.
+
 ## Not checked yet
 
 - **No disabled person has tested the page yet, and no screen reader has been used on it.** The role and
@@ -83,7 +105,9 @@ written down from the page source first, and all five held:
 - Speech input and switch access have not been checked.
 - Only Chrome on Windows was used. Firefox and Safari were not. (Safari before 16.4 cannot run the
   checker, and the page says so in its status line.)
-- The page has no hosted address yet. These results are for the file, opened in a browser.
+- On the hosted copy, only the network panel, the console and the two results above were checked; the
+  other checks were made on the file, opened in a browser. The hosted check used a Chrome profile with
+  an extension installed, not a clean one.
 
 ## Reporting a problem
 
