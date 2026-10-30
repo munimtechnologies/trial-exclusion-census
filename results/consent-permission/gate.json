@@ -1,0 +1,17 @@
+{
+ "version": "0.1.0",
+ "labels_sha256": "88af6bbc83c7f4fbaaa46b4123bc68406d704d329f749a441877bea1ae9072d7",
+ "labels_public": true,
+ "polls": 1,
+ "public_sha256": "88af6bbc83c7f4fbaaa46b4123bc68406d704d329f749a441877bea1ae9072d7",
+ "reading_sha256": "13c9e6d8b2575f9b568367af5128df7bab4c615a4e116e8dac5ebb16d53df62a",
+ "reading_matches": true,
+ "script_sha256": "7674ee9f942d4182ed4a1090db3a33ae418d94fb7a57115487d518c37701c24f",
+ "script_matches": true,
+ "sponsor_gates": {
+  "S1_table": true,
+  "S2_counts": true
+ },
+ "key_sha256": "efae330865007bb3b4ba6b9325d0c0e20376016621c1bffd21c0046ea6713364",
+ "status": "graded"
+}

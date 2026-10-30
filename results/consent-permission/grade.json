@@ -1,0 +1,82 @@
+{
+ "version": "0.1.0",
+ "gates": {
+  "L1_header": true,
+  "L2_complete": true,
+  "L3_valid": true
+ },
+ "groups": {
+  "nci": {
+   "read": 40,
+   "adult_permission": 29,
+   "share": 0.725,
+   "ci": [
+    0.5716,
+    0.8389
+   ],
+   "labels": {
+    "adult_permission": 29,
+    "physical_only": 0,
+    "minor_only": 2,
+    "unclear": 4,
+    "not_a_permission": 5,
+    "path_gone": 0
+   }
+  },
+  "washu": {
+   "read": 20,
+   "adult_permission": 16,
+   "share": 0.8,
+   "ci": [
+    0.584,
+    0.9193
+   ],
+   "labels": {
+    "adult_permission": 16,
+    "physical_only": 0,
+    "minor_only": 0,
+    "unclear": 4,
+    "not_a_permission": 0,
+    "path_gone": 0
+   }
+  },
+  "neither": {
+   "read": 40,
+   "adult_permission": 13,
+   "share": 0.325,
+   "ci": [
+    0.2008,
+    0.4798
+   ],
+   "labels": {
+    "adult_permission": 13,
+    "physical_only": 0,
+    "minor_only": 13,
+    "unclear": 7,
+    "not_a_permission": 7,
+    "path_gone": 0
+   }
+  }
+ },
+ "predictions": {
+  "R1": true,
+  "R2": true,
+  "R3": true,
+  "R4": true,
+  "R5": true
+ },
+ "diff_nci_minus_neither": [
+  0.4,
+  0.1821,
+  0.5685
+ ],
+ "estimated_permissions": {
+  "owners": 319.1,
+  "neither": 78.3,
+  "total": 397.5,
+  "owner_share": 0.8029,
+  "of_all_trials": 0.0731,
+  "neither_of_neither_trials": 0.0214
+ },
+ "labels_sha256": "88af6bbc83c7f4fbaaa46b4123bc68406d704d329f749a441877bea1ae9072d7"
+}
