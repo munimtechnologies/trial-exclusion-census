@@ -1,0 +1,101 @@
+blind_id,label,reason
+R001,adult_permission,adult-only; legally authorized representatives may sign for participants
+R002,unclear,ages 2-40; patients and/or parents or legal guardians; adults not stated
+R003,not_a_permission,guardian named only in staff family-member conflict exclusion
+R004,not_a_permission,guardian named only in staff family-member conflict exclusion
+R005,minor_only,parents or legal guardians sign only for children
+R006,adult_permission,adult-only; legally authorized representatives may sign for participants
+R007,adult_permission,adult-only; participant or legally acceptable representative consents
+R008,adult_permission,adult-only per registry; parent or LAR may sign in pediatric glioma cohort
+R009,adult_permission,adult-only; consent directly or via legally authorized representative
+R010,adult_permission,adult-only; or that of legally authorized representative if applicable
+R011,adult_permission,adult-only; a surrogate may sign the consent
+R012,adult_permission,adult-only; participant or legal representative signs
+R013,adult_permission,adult-only; impaired decision-making capacity with LAR eligible
+R014,adult_permission,adult-only; consent directly or via legally authorized representative
+R015,adult_permission,adult-only; or that of legally authorized representative if applicable
+R016,adult_permission,adult-only; legally authorized representatives may sign for participants
+R017,adult_permission,adult-only; legally authorized representatives may sign for participants
+R018,minor_only,ages 12-17; parent/guardian signs consent with patient assent
+R019,not_a_permission,patients with impaired capacity who have a LAR are not eligible
+R020,unclear,ages 1-21; participants and/or guardian; adults not stated
+R021,adult_permission,adult-only; legally authorized representatives may sign for participants
+R022,adult_permission,adult-only; patient or legally authorized representative signs
+R023,adult_permission,adult-only; or that of legally authorized representative if applicable
+R024,minor_only,children under 5; parent or legal guardian signs
+R025,adult_permission,adult-only; impaired decision-making capacity with LAR eligible
+R026,minor_only,parent or legally authorized representative only if minor
+R027,adult_permission,ages 1-25; parents or LAR sign and impaired capacity not excluded
+R028,adult_permission,adult-only; impaired decision-making capacity with LAR eligible
+R029,adult_permission,adult-only; impaired capacity eligible with legal authorized representative
+R030,unclear,minimum age 16; LAR if applicable; adults not stated
+R031,adult_permission,adult-only; impaired decision-making capacity with LAR eligible
+R032,minor_only,representative consent named only for minors aged 16 to 18
+R033,adult_permission,adult-only; impaired decision-making capacity with LAR eligible
+R034,not_a_permission,prohibition: consent may not be obtained by means of a legal guardian
+R035,adult_permission,adult-only; or that of legally authorized representative if applicable
+R036,not_a_permission,LAR here is the drug octreotide LAR
+R037,minor_only,ages 1-17; parent or legal guardian signs
+R038,adult_permission,adult-only; legally authorized representatives may sign for participants
+R039,adult_permission,adult-only; patients or their legally authorized representative sign
+R040,unclear,minimum age 16; LAR if applicable; adults not stated
+R041,adult_permission,adult-only; or that of legally authorized representative if applicable
+R042,adult_permission,adult-only; legally authorized representatives may sign for participants
+R043,adult_permission,adult-only; relative guardian caregiver or LAR may consent for impaired capacity
+R044,minor_only,parent or legal guardian signs for pediatric patients only
+R045,minor_only,parent/legal guardian for pediatric participants; adults sign themselves
+R046,adult_permission,adult-only; impaired decision-making capacity with LAR eligible
+R047,minor_only,children up to 3; parent/guardian signs
+R048,not_a_permission,guardian named only in staff family-member conflict exclusion
+R049,unclear,excerpt cut at 4000 characters before the path line; cannot be read
+R050,adult_permission,adult-only; impaired decision-making capacity with LAR eligible
+R051,not_a_permission,prohibition: consent without the means of a legal guardian
+R052,minor_only,children 2-14; legal guardian signs
+R053,adult_permission,adult-only; impaired decision-making capacity with LAR eligible
+R054,adult_permission,adult-only; impaired decision-making capacity with LAR eligible
+R055,unclear,ages 8-75; subject or legal guardian; adults not stated
+R056,unclear,ages 2-21; LAR if applicable; adults not stated
+R057,adult_permission,adult-only; impaired decision-making capacity with LAR eligible
+R058,adult_permission,adult-only; personally or by legally authorized representative
+R059,not_a_permission,prohibition: consent may not be obtained by means of a legal guardian
+R060,not_a_permission,surrogate markers are lab values not a person
+R061,unclear,minimum age 14; LAR if applicable; adults not stated
+R062,adult_permission,adult-only; or that of legally authorized representative if applicable
+R063,adult_permission,adult-only; impaired decision-making capacity with LAR eligible
+R064,adult_permission,adult-only; or that of legally authorized representative if applicable
+R065,minor_only,children up to 8; participants and/or parents or LAR
+R066,adult_permission,adult-only; or that of legally authorized representative if applicable
+R067,minor_only,parent/legal guardian signs only if under 18
+R068,unclear,ages up to 39; participants and/or parents or legal guardians; adults not stated
+R069,adult_permission,adult-only; impaired decision-making capacity with LAR eligible
+R070,adult_permission,adult-only; legally authorized representatives may sign for participants
+R071,adult_permission,adult-only; impaired decision-making capacity with LAR eligible
+R072,minor_only,parent guardian consent implied for children in exclusion wording
+R073,unclear,ages 1-80; legally responsible parent or guardian; adults not stated
+R074,unclear,ages 2-21; proxy may sign; adults not stated
+R075,unclear,ages not given; legal representatives sign with participant assent; adults not stated
+R076,unclear,ages 12-99; subject or LAR; adults not stated
+R077,not_a_permission,exclusion of people who need health care proxies to consent
+R078,minor_only,parent/guardian or LAR applies to patients under 18
+R079,adult_permission,adult-only; or that of legally authorized representative if applicable
+R080,adult_permission,adult-only; or that of legally authorized representative if applicable
+R081,not_a_permission,guardian named only in staff family-member conflict exclusion
+R082,adult_permission,adult-only; or that of legally authorized representative if applicable
+R083,adult_permission,adult-only; legally authorized representatives may sign for participants
+R084,adult_permission,adult-only; impaired capacity eligible with caregiver or LAR
+R085,adult_permission,adult-only; impaired decision-making capacity with LAR eligible
+R086,adult_permission,adult-only; participant or legal representative signs
+R087,adult_permission,adult-only; legally authorized representatives may sign for participants
+R088,unclear,ages 4-26; parents/LAR may sign; adults not stated
+R089,adult_permission,adult-only; impaired decision-making capacity with LAR eligible
+R090,adult_permission,adult-only; or that of legally authorized representative if applicable
+R091,adult_permission,adult-only; legally authorized representatives may sign for participants
+R092,minor_only,ages up to 17; participants and/or parents or LAR
+R093,not_a_permission,guardian verifies menstruation status; not a consent route
+R094,adult_permission,adult-only; impaired decision-making capacity with LAR eligible
+R095,adult_permission,adult-only; legally authorized representatives may sign for participants
+R096,adult_permission,adult-only; subject or legal representative signs
+R097,adult_permission,adult-only; a legal guardian may substitute for the participant
+R098,adult_permission,adult-only; patients or their legal guardians sign
+R099,unclear,no age limits in registry; subject or LAR; adults not stated
+R100,adult_permission,adult-only; a legal guardian may substitute for the participant

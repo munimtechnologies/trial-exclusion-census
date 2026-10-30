@@ -1,0 +1,1142 @@
+# Blind reading file (consent_permission 0.1.0, seed 20261030)
+Label each record with one of: adult_permission, physical_only, minor_only, unclear, not_a_permission, path_gone.
+
+## R001
+Title: Laser Interstitial Thermal Therapy (LiTT) With Cemiplimab or Other Chemotherapy in Recurrent Glioblastomas
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * The effects of cemiplimab on the developing human fetus are unknown. For this reason, people of childbearing potential and people able to father a child must agree to use adequate contraception prior to study entry, for the duration of study participation, and for 4 months after completion of study participation (for patients in the Experimental Arm) OR 14 days after completion of study participation (for people of childbearing potential in the Control Arm) or 4 months (for people able to father a child in the Control Arm).
+    [inclusion] * * Ability to understand and willingness to sign an IRB approved written informed consent document. Legally authorized representatives may sign and give informed consent on behalf of study participants.
+    [exclusion] Exclusion Criteria:
+    ...
+    [exclusion] * Received prior chemotherapy, targeted small molecule therapy, or radiation therapy within 2 weeks prior to the first day of study treatment.
+    [exclusion] * Has not recovered (i.e., grade 1 or baseline) from adverse events caused by anti-cancer agents administered no more than 4 weeks prior to consent. Note: patients with ≤ grade 2 neuropathy are an exception to this criterion. Note: if a patient underwent major surgery, they must have recovered adequately from the toxicity and/or complications prior to the first day of study treatment.
+    [exclusion] * Candidate for curative resection or urgent surgical procedure(s) needed.
+    ...
+    [exclusion] * History of allergic reactions attributed to compounds of similar chemical or biologic composition to study agents used in the study.
+    [exclusion] * Dexamethasone \> 4 mg at the time of consent.
+    [exclusion] * Has a diagnosis of immunodeficiency or is receiving chronic systemic steroid therapy (in dosing exceeding 10 mg daily of prednisone equivalent) or any other form of immunosuppressive therapy within 7 days prior to the first dose of trial treatment (with the exception of daily dexamethasone ≤ 4 mg).
+
+## R002
+Title: A Multi-Institution Study of TGFβ Imprinted, Ex Vivo Expanded Universal Donor NK Cell Infusions as Adoptive Immunotherapy in Combination With Gemcitabine and Docetaxel in Patients With Relapsed or Refractory Pediatric Bone and Soft Tissue
+Ages: minimum 2 Years; maximum 40 Years; age groups CHILD, ADULT; adult-only: no
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] 8\) Contraception: The effects of expanded NK cells on the developing human fetus are unknown. For this reason and because the chemotherapeutic preparative agents as well as other therapeutic agents used in this trial are known to be teratogenic, women of child-bearing potential must agree to use adequate contraception (hormonal or barrier method of birth control; abstinence) prior to study entry and for the duration of study participation. Should a woman become pregnant or suspect she is pregnant while she or her partner is participating in this study, she should inform her treating physician immediately. Men treated or enrolled on this protocol must also agree to use adequate contraception prior to the study, for the duration of study participation, and 4 months after completion of preparatory regimen administration.
+    [inclusion] * 9\) All patients and/or their parents or legal guardians must have the ability to understand and the willingness to sign a written informed consent/assent document.
+    [exclusion] Exclusion Criteria:
+
+## R003
+Title: Study of Pembrolizumab and Ramucirumab in Pts With Progressive TCC After Treatment With an Immune Checkpoint Inhibitor
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] a. Measurable disease must still be present after pretreatment core-needle or excisional biopsy.
+    [inclusion] 6. Provided signed informed consent and are amenable to compliance with protocol schedules and testing.
+    [inclusion] 7. Provided tissue for biomarker analysis from a newly obtained core or excisional biopsy of a tumor lesion using a non-significant risk procedure prior to enrollment. Repeat samples may be required if adequate tissue is not provided.
+    [inclusion] 8. ECOG Performance Status of 0 or 1.
+    [inclusion] 9. Age: 18 years of age or older on day of signing consent.
+    [inclusion] 10. Ability to understand and the willingness to sign a written informed consent. A signed informed consent must be obtained prior to any study specific procedures.
+    [inclusion] 11. The patient's urinary protein is ≤1+ on dipstick or routine urinalysis (UA; if urine dipstick or routine analysis is ≥2+, a 24-hour urine collection for protein must demonstrate \<1000 mg of protein in 24 hours to allow participation in this protocol)
+    ...
+    [exclusion] 23. Are currently enrolled in a clinical trial involving an investigational product or non-approved use of a drug, or concurrently enrolled in any other type of medical research judged not to be scientifically or medically compatible with this study or discontinued study drug within 28 days or 5 half-lives of the drug, whichever is longer, prior to enrollment. Patients participating in surveys or observational studies are eligible to participate in this study.
+    [exclusion] * 24. Are or have an immediate family member (for example, spouse, parent/legal guardian, sibling, or child) who is investigational site or sponsor staff directly involved with this trial, unless prospective institutional review board (IRB) approval (by chair or designee) is given allowing exception to this criterion for a specific patient
+    [exclusion] 25. Have radiographic evidence of intratumor cavitation
+
+## R004
+Title: Pacritinib in CMML
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] Inclusion Criteria:
+    [inclusion] * Participants must be ≥18 years of age at time of signing the Informed Consent Form (ICF).
+    [inclusion] * Participants must voluntarily sign an ICF.
+    ...
+    [inclusion] * Ability to adhere to the study visit schedule and all protocol requirements.
+    [inclusion] * Ability to understand and the willingness to sign a written informed consent.
+    [exclusion] Exclusion Criteria:
+    ...
+    [exclusion] * If a patient is identified to have COVID-19 during the screening period, participants may be considered eligible if in the opinion of the investigator there are no COVID-19 sequlae that may place the patient at a higher risk of receiving investigational treatment.
+    [exclusion] * Any serious, unstable medical or psychiatric condition that would prevent, (as judged by the Investigator) the patient from signing the informed consent form or any condition, including the presence of laboratory abnormalities, which places the patient at unacceptable risk if he/she were to participate in the study or confounds the ability to interpret data from the study.
+    [exclusion] * Known history of uncontrolled human immunodeficiency virus (HIV).
+    ...
+    [exclusion] * Known active systemic hepatitis B, or C infection requiring therapy or known cirrhosis.
+    [exclusion] * * Is or has an immediate family member (e.g., spouse, parent/legal guardian, sibling, or child) who is investigational site or pharmaceutical sponsor staff directly involved with this trial, unless prospective IRB approval (by chair or designee) is given allowing exception to this criterion for a specific participant.
+    [exclusion] * Organ transplant recipients other than bone marrow transplant.
+
+## R005
+Title: Donor Regulatory T-cells for cGVHD in Patients Who do Not Obtain Complete Remission With Ruxolitinib
+Ages: minimum not given; maximum not given; age groups CHILD, ADULT, OLDER_ADULT; adult-only: unknown
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * No addition or subtraction of other immunosuppressive medications (e.g., calcineurin-inhibitors, sirolimus, mycophenolate-mofetil) for 4 weeks prior to enrollment. The dose of immunosuppressive medicines may be adjusted based on the therapeutic range of that drug.
+    [inclusion] * * No age limit. In the case of children participating in the study, the informed consent will be signed by a parents or legal guardians.
+    [inclusion] * Eastern Cooperative Oncology Group scale performance status 0-2
+    ...
+    [inclusion] * Women of child-bearing potential and men must agree to use adequate contraception (hormonal or barrier method of birth control; abstinence) prior to study entry and for the duration of study participation. Should a woman become pregnant or suspect she is pregnant while participating in this study, she should inform her treating physician immediately.
+    [inclusion] * Ability to understand and the willingness to sign a written informed consent document
+    [exclusion] Exclusion Criteria:
+
+## R006
+Title: Zanzalintinib Maintenance in Patients With High Grade Neuroendocrine Neoplasms (HG-NENs)
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Note: Documentation may include review of medical records, medical examination, or medical history interview by study site staff.
+    [inclusion] * * Ability to understand and willingness to sign an IRB approved written informed consent document. Legally authorized representatives may sign and give informed consent on behalf of study participants.
+    [exclusion] Exclusion Criteria:
+    ...
+    [exclusion] * Note: Triplicate ECG evaluations will be performed and the average of these 3 consecutive results for QTcF will be used to determine eligibility.
+    [exclusion] * History of psychiatric illness likely to interfere with ability to comply with protocol requirements or give informed consent.
+    [exclusion] * Inability to swallow tablets or ingest a suspension either orally or by a nasogastric (NG) or gastrostomy (PEG) tube.
+
+## R007
+Title: Study of Pembrolizumab and Lenvatinib in Metastatic and Recurrent Cervix Cancer (LenPem Cervix)
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] Participants are eligible to be included in the study only if all the following criteria apply:
+    [inclusion] 1. Female participants who are at least 18 years of age on the day of signing informed consent.
+    [inclusion] 2. Histologically confirmed diagnosis of squamous, adenocarcinoma or adenosquamous cervical cancer, that is recurrent or metastatic.
+    ...
+    [inclusion] 10. Participants who have AEs due to previous anticancer therapies must have recovered to ≤Grade 1 or baseline. Participants with endocrine-related AEs who are adequately treated with hormone replacement or participants who have ≤Grade 2 neuropathy are eligible.
+    [inclusion] * 11. The participant (or legally acceptable representative if applicable) provides written informed consent for the trial.
+    [inclusion] 12. Have measurable disease based on RECIST 1.1. Lesions situated in a previously irradiated area are considered measurable if progression has been demonstrated in such lesions.
+    ...
+    [inclusion] 19. Have adequately controlled BP with or without antihypertensive medications, defined as BP ≤150/90 mmHg with no change in antihypertensive medications within 1 week prior to randomization.
+    [inclusion] 20. Ability to understand and the willingness to sign a written informed consent.
+    [exclusion] Exclusion Criteria:
+
+## R008
+Title: Serial MRI Scans During Radiation Therapy
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * ECOG performance status ≤2 (Karnofsky ≥60%)
+    [inclusion] * Ability to understand and the willingness to sign a written informed consent document.
+    [inclusion] * Any further criteria listed in the specific disease site subprotocol.
+    ...
+    [inclusion] * (Vulvar cohort) Patients with biopsy-proven locally advanced vulvar cancer for which definitive radiotherapy is planned.
+    [inclusion] * * (Pediatric glioma cohort) Patients age 18 or under (patients 18-30 years old are also eligible if the physician determines that based on genetics, the tumor biology is consistent with pediatric high grade glioma). Patients with a histologically confirmed newly diagnosed high-grade glioma (WHO grade III or IV) who will be undergoing radiation therapy as part of clinical care. Patients with DIPG are only eligible if biopsy-confirmed high grade DIPG is present. Ability to understand and/or willingness of their parent or legally authorized representative to sign a written informed consent document.
+    [inclusion] * (Sarcoma cohort) Patients with a histologically confirmed newly diagnosed high-grade glioma (WHO grade III or IV) who will be undergoing radiation therapy as part of clinical care.
+
+## R009
+Title: Characterize Tumor Hypoxia by Magnetic Resonance Imaging
+Ages: minimum 40 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Patients who will have a radical prostatectomy as standard of care.
+    [inclusion] * * Ability to understand and the willingness to sign an IRB-approved informed consent document (either directly or via a legally authorized representative).
+    [exclusion] Exclusion Criteria:
+
+## R010
+Title: MK-3475 Immunotherapy in Endometrial Carcinoma
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Sexually active women of childbearing potential must agree to contraceptive methods as described by the protocol prior to study entry, for the duration of pre-operative study participation and until definitive hysterectomy/bilateral salpingo-oophorectomy. Should a woman become pregnant or suspect she is pregnant while participating in this study, she must inform her treating physician immediately.
+    [inclusion] * * Ability to understand and willingness to sign an IRB approved written informed consent document (or that of legally authorized representative, if applicable).
+    [exclusion] Exclusion Criteria:
+
+## R011
+Title: Single-Port Versus Multi-Port Robotic Radical Prostatectomy
+Ages: minimum 19 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: surrogate
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Life expectancy greater than 10 years.
+    [inclusion] * * Participants must have ability to understand and the willingness to sign a written informed consent document or have a surrogate with the ability to understand and the willingness to sign a written informed consent for radical prostatectomy.
+    [exclusion] Exclusion Criteria:
+
+## R012
+Title: C2001P-CS3: Testing the Feasibility of Different HPV Screening and Care Strategies for Women Living With HIV
+Ages: minimum 25 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Aged 25 or older.
+    [inclusion] * * Ability to understand and the willingness to sign a written informed consent document by the participant or by the legal representative(s) of the participant.
+    [inclusion] * Have an intact cervix.
+
+## R013
+Title: Leveraging EA8191 to Assess AI-Augmented EHR Abstraction
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Patient must be a candidate for SOC post-prostatectomy radiation therapy (RT) to the prostate bed and pelvic nodes with androgen deprivation therapy (ADT)
+    [inclusion] * * Patient must have the ability to understand and the willingness to sign a written informed consent document. Patients with impaired decision-making capacity (IDMC) who have a legally authorized representative (LAR) or caregiver and/or family member available will also be considered eligible
+    [inclusion] * Patient must have an Eastern Cooperative Oncology Group (ECOG) performance status 0-2
+
+## R014
+Title: First Line Weekly Chemo/Immunotherapy for Metastatic Head/Neck Squamous Cell Carcinoma Patients
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Patients must have normal organ and marrow function as defined: Absolute neutrophil count greater than or equal to 1,000/mcL, platelets greater than or equal to 75,000/mcL, total bilirubin less than or equal to 2 mg/dL
+    [inclusion] * * Ability to understand and the willingness to sign an IRB-approved informed consent document (either directly or via a legally authorized representative).
+    [exclusion] Exclusion Criteria:
+
+## R015
+Title: Neoadjuvant Toripalimab or Toripalimab in Combination With Carboplatin and Nab-paclitaxel in Untreated HNSCC (HNSCC-002)
+Ages: minimum 18 Years; maximum 80 Years; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Men of reproductive potential who are sexually active with women of reproductive potential must use any contraceptive method with a failure rate of less than 1% per year; men who are receiving the study medications will be instructed to adhere to contraception for 31 weeks after the last dose of study drugs; men who are azoospermic do not require contraception.
+    [inclusion] * * Ability to understand and willingness to sign an IRB approved written informed consent document (or that of legally authorized representative, if applicable).
+    [inclusion] * Subject is willing and able to comply with the protocol for the duration of the study including undergoing treatment and scheduled visits and examinations including follow up.
+    [inclusion] * Subjects must agree to allow use of any pre-treatment tissue remaining after definitive diagnosis is made (ie, archival and or fresh tissue) for research purposes. In addition, subjects must consent to allow use of their residual post-operative tissue for research purposes.
+    [exclusion] Exclusion Criteria:
+
+## R016
+Title: Testing How the Body Responds to the Drug CBX-12 in Patients With Advanced Solid Cancers
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Willingness to provide biopsy samples for research purposes
+    [inclusion] * * Ability to understand and the willingness to sign a written informed consent document. Legally authorized representatives may sign and give informed consent on behalf of study participants
+    [exclusion] Exclusion Criteria:
+    ...
+    [exclusion] * Patients who are receiving any other investigational agents
+    [exclusion] * Patients taking medication known to prolong the QT interval, or receiving any medications or substances that are strong CYP3A4 or CYP1A2 inhibitors or inducers, and sensitive substrates of CYP3A or CYP2B6 with a narrow therapeutic index are ineligible, if they cannot be transferred to alternative medication. Patients on substrates of OATP1B1 and OATP1B3 should be excluded unless they can be transferred on alternative medication. Because the lists of these agents are constantly changing, it is important to regularly consult a frequently-updated medical reference. As part of the enrollment/informed consent procedures, the patient will be counseled on the risk of interactions with other agents, and what to do if new medications need to be prescribed or if the patient is considering a new over-the-counter medicine or herbal product
+    [exclusion] * History of allergic reactions attributed to compounds of similar chemical or biologic composition to CBX-12 (e.g., other topoisomerase I inhibitors) or the inactive ingredients in the drug product
+
+## R017
+Title: Testing the Combination of an Anti-Cancer Drug, Iadademstat, With Other Anti-Cancer Drugs (Venetoclax and Azacitidine) for Treating AML
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * The effects of iadademstat on the developing human fetus are unknown. For this reason and because LSD1 inhibitors as well as other therapeutic agents used in this trial are known to be teratogenic, females of child-bearing potential must agree to use adequate contraception (hormonal or barrier method of birth control; abstinence) prior to study entry, for the duration of study participation, and for 180 days after the last dose of study medication. Should a woman become pregnant or suspect she is pregnant while she or her partner is participating in this study, she should inform her treating physician immediately. Males with female partners of child-bearing potential treated or enrolled on this protocol must also agree to use adequate contraception prior to the study, for the duration of study participation, and 180 days after the last dose of study medication. Women of child-bearing potential agree not to donate or freeze egg(s) during the course of this study or within 180 days after receiving their last dose of study drug. Male patients agree not to donate sperm during the course of this study or within 180 days after receiving their last dose of study drug
+    [inclusion] * * Ability to understand and the willingness to sign a written informed consent document. Legally authorized representatives may sign and give informed consent on behalf of study participants
+    [exclusion] Exclusion Criteria:
+
+## R018
+Title: Youth Suicide Prevention: CAMS-BI vs. Safety Planning in a Randomized Trial
+Ages: minimum 12 Years; maximum 17 Years; age groups CHILD; adult-only: no
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Admitted to inpatient psychiatry for suicide attempt or active suicidal ideation.
+    [inclusion] * * English-speaking patient and parent/guardian.
+    [inclusion] * * Ability to understand and the willingness to sign a written informed assent document with a parent/guardian willing and able to sign a written informed consent.
+    [exclusion] Exclusion Criteria:
+
+## R019
+Title: Mobile Health for Adherence in Breast Cancer Patients
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * NOTE: Since mobile phones that are not smart phones cannot follow web links in a text message, people with non-smart mobile phones will also need an email address
+    [inclusion] * PATIENT STEP 0: Patient must have the ability to understand and the willingness to sign a written informed consent document
+    [inclusion] * * NOTE: Patients with impaired decision-making capacity (IDMC) who have a legally authorized representative (LAR) or caregiver and/or family member available are not eligible
+    [inclusion] * PATIENT STEP 0: Patient must not have an Eastern Cooperative Oncology Group (ECOG) performance status \>= 3 OR patient must not be deemed medically unable to participate in the study by the study investigators or an oncology clinician (i.e., referral to hospice)
+    ...
+    [inclusion] * PATIENT STEP 1: Patient must meet all the eligibility criteria for step 0
+    [inclusion] * PATIENT STEP 1: Patient must have signed a written informed consent form
+    [inclusion] * PATIENT STEP 1: Patient must have completed baseline survey within 30 days after Oncology Patient Enrollment Network (OPEN) screening registration (step 0)
+
+## R020
+Title: Study of Efficacy and Safety of Ribociclib (LEE011) in Combination With Topotecan and Temozolomide (TOTEM) in Pediatric Patients With Relapsed or Refractory Neuroblastoma and Other Solid Tumors
+Ages: minimum 12 Months; maximum 21 Years; age groups CHILD, ADULT; adult-only: no
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] Inclusion Criteria:
+    [inclusion] * 1. Participants and/or guardian have the ability to understand and the willingness to sign a written informed consent document.
+    [inclusion] 2. Age ≥ 12 months and ≤ 21 years at the time of signing consent form Note: The first dose level of Phase I - part A (dose finding) will enroll participants ≥ 12 years - 21 years old, and may expand to younger participants (≥ 12 months to \< 12 years) as determined by the data.
+    [inclusion] 3. Histologically or cytologically confirmed solid tumors listed below that have progressed despite standard therapy or for which no effective standard therapy exists.
+
+## R021
+Title: Zanzalintinib Combined With Eribulin in Advanced Liposarcoma and Leiomyosarcoma
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * The effects of zanzalintinib on the developing human fetus are unknown. For this reason, women of childbearing potential and men must agree to use adequate contraception prior to study entry, for the duration of study participation, and for 186 days after last dose of zanzalintinib (for women) or 96 days after last dose of zanzalintinib (for men). Should a woman become pregnant or suspect she is pregnant while participating in this study or should a man suspect he has fathered a child, s/he must inform her treating physician immediately.
+    [inclusion] * * Ability to understand and willingness to sign an IRB approved written informed consent document. Legally authorized representatives may sign and give informed consent on behalf of study participants.
+    [exclusion] Exclusion Criteria:
+    ...
+    [exclusion] * Note: triplicate ECG evaluations will be performed and the average of these 3 consecutive results for QTcF will be used to determine eligibility.
+    [exclusion] * History of psychiatric illness likely to interfere with ability to comply with protocol requirements or give informed consent.
+    [exclusion] * Pregnant and/or breastfeeding. Women of childbearing potential must have a negative pregnancy test within 14 days of study entry.
+
+## R022
+Title: Chlorpromazine and Standard of Care in Glioblastoma
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * AST ≤ 3 times the institutional upper limit of normal
+    [inclusion] * * Patient or patient's legally authorized representative's ability to understand and willingness to sign a written informed consent document.
+    [exclusion] Exclusion Criteria:
+
+## R023
+Title: Pulsed Abraxane and Radiotherapy for Improving and Maintaining Ambulation After Cancer-Related Cord Compression
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Male subjects must practice true abstinence or agree to use a condom during sexual contact with a pregnant female or a female of childbearing potential while participating in the study, during dose interruptions, and for 6 months following nab-paclitaxel discontinuation, even if he has undergone a successful vasectomy.
+    [inclusion] * * Ability to understand and willingness to sign an IRB approved written informed consent document (or that of legally authorized representative, if applicable).
+    [exclusion] Exclusion Criteria:
+
+## R024
+Title: Molecular and Clinical Risk-Directed Therapy for Infants and Young Children With Newly Diagnosed Medulloblastoma
+Ages: minimum not given; maximum 59 Months; age groups CHILD; adult-only: unknown
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Participant must be able to begin treatment as outlined in the protocol within 36 days of definitive surgery (day of surgery is Day 0). In case a second surgery is clinically indicated to remove the residual tumor prior to starting treatment, the second surgery will be considered as the definitive surgery (Day 0).
+    [inclusion] * * Parent or legal guardian can understand and is willing to sign a written informed consent document according to institutional guidelines.
+    [exclusion] Exclusion Criteria - Screening Phase
+    ...
+    [inclusion] * Age - 1 to \< 2yearsr; Maximum Serum Creatinine (mg/dl) - Male 0.8; Female 0.8
+    [inclusion] * * Participant's parent or legal guardian has the ability to understand and the willingness to sign a written informed consent document according to institutional guidelines.
+    [inclusion] Inclusion Criteria - Stratum S-2
+
+## R025
+Title: Testing the Safety and Effectiveness of Radiation-based Treatment (Lutetium Lu 177 Dotatate) for Metastatic Prostate Cancer That Has Neuroendocrine Cells
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Pregnancy Precaution: The effects of lutetium lu 177 dotatate on the developing human fetus are unknown. For this reason and because radionuclides are known to be teratogenic, male participants and their female partners must agree to use adequate contraception (hormonal or barrier method of birth control; abstinence) prior to study entry and for the duration of study participation. Should a woman become pregnant or suspect she is pregnant while her male partner is participating in this study, she should inform her treating physician immediately. Men treated or enrolled on this protocol must also agree to use adequate contraception prior to the study, for the duration of study participation, and 4 months after completion of lutetium lu 177 dotatate administration. Patients must not donate sperm during the study and for 3 months after the last study drug administration
+    [inclusion] * * Ability to understand and the willingness to sign a written informed consent document. Participants with impaired decision-making capacity who have a legally-authorized representative (LAR) and/or family member available will also be eligible
+    [inclusion] * Patients will undergo a Gallium 68 Dotatate PET scan after enrollment. The Gallium 68 Dotatate PET must be positive to proceed with lutetium Lu 177 dotatate therapy. A positive scan will be defined as at least one lesion with an maximum standardized uptake value (SUVmax) \> the average standardized uptake value (SUV) of normal liver. The positive lesion(s) can be in any location (bone metastases or visceral metastases). Patients with only bone metastases will be allowed
+
+## R026
+Title: M6620 (VX-970) in Selected Solid Tumors
+Ages: minimum 12 Years; maximum not given; age groups CHILD, ADULT, OLDER_ADULT; adult-only: no
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * The effects of M6620 on the developing human fetus are unknown. For this reason and because anti-cancer agents are known to be teratogenic, women of child-bearing potential and men must agree to use adequate contraception (hormonal or barrier method of birth control; abstinence) prior to study entry and for the duration of study participation. Should a woman become pregnant or suspect she is pregnant while she or her partner is participating in this study, she should inform her treating physician immediately. Men treated or enrolled on this protocol must also agree to use adequate contraception prior to the study, for the duration of study participation, and 6 months after completion of M6620 administration.
+    [inclusion] * * Ability to understand and the willingness to sign a written informed consent document (or parent or legally authorized representative, if minor).
+    [exclusion] Exclusion Criteria:
+
+## R027
+Title: Testing the Combination of Two Immunotherapy Drugs (Nivolumab and Ipilimumab) in Children, Adolescent, and Young Adult Patients With Relapsed/Refractory Cancers That Have an Increased Number of Genetic Changes, The 3CI Study
+Ages: minimum 12 Months; maximum 25 Years; age groups CHILD, ADULT; adult-only: no
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Tissue is preferred. However, if necessary, previously extracted DNA may be used with the approval of the protocol principal investigator if extracted in a clinically certified laboratory and prepared in an Foundation Medicine Inc. (FMI), TMB assay-compatible manner
+    [inclusion] * * PART 1: All patients and/or their parents or legally authorized representatives must have the ability to understand and the willingness to sign a written informed consent. Assent, where appropriate, will be obtained according to local policy. Patients with impaired decision-making capacity will not be excluded
+    [inclusion] * PART 2: Patients must have histologically or cytologically confirmed malignancy at the time of initial diagnosis, relapse, or recurrence. Patients must have recurrent or refractory cancer for which standard curative or palliative measures do not exist or are no longer effective
+    ...
+    [inclusion] * PART 2: Patients must provide a pre-treatment tumor tissue specimen (baseline sample) for correlative exploratory biology studies. The specimen may be archival or prospective, from a medically necessary surgery, biopsy, or excision. Tissue will not be obtained solely for this trial. A specimen from the time of most recent relapse/progression is preferred, but not mandatory. Submission of a representative sample from all available lesions (archival and prospective) is strongly encouraged. If available, residual tissue from Part 1 may be used to fulfill the baseline tissue sample requirement; however additional tissue may be required if residual tissue is insufficient
+    [inclusion] * * PART 2: All patients and/or their parents or legally authorized representatives must have the ability to understand and the willingness to sign a written informed consent. Assent, where appropriate, will be obtained according to local policy. Patients with impaired decision-making capacity will not be excluded
+    [exclusion] Exclusion Criteria:
+
+## R028
+Title: Testing the Use of Investigational Drugs Atezolizumab and/or Bevacizumab With or Without Standard Chemotherapy in the Second-Line Treatment of Advanced-Stage Head and Neck Cancers
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * NOTE: Patients must also not breastfeed while on treatment and for 2 months after the last dose of treatment for patients assigned to Arm A and for 6 months after the last dose of treatment for patients assigned to Arms B or C
+    [inclusion] * * Patient must have the ability to understand and the willingness to sign a written informed consent document. Patients with impaired decision-making capacity (IDMC) who have a legally authorized representative (LAR) or caregiver and/or family member available will also be considered eligible
+    [inclusion] * Leukocytes \>= 3,000/mcL (must be obtained =\< 14 days prior to protocol randomization)
+
+## R029
+Title: Pembrolizumab With or Without Anetumab Ravtansine in Treating Patients With Mesothelin-Positive Pleural Mesothelioma
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Hormonal contraceptive: oral contraceptive pill (estrogen/progestin pill or progestin-only pill), contraceptive skin patch, vaginal contraceptive ring, or subcutaneous contraceptive injection
+    [inclusion] * * Ability to understand and the willingness to sign a written informed consent document, unless patient is of impaired decision making capacity in which case patient may be eligible if they have a legal authorized representative or caretaker available
+    [exclusion] Exclusion Criteria:
+    ...
+    [exclusion] * Patients who are receiving any other investigational agents
+    [exclusion] * Patients with known brain metastases with progressive neurologic dysfunction, requirement of steroids and lack of improvement on head imaging obtained prior to consent to this clinical trial should be excluded because of their poor prognosis and because they would confound the evaluation of neurologic and other adverse events
+    [exclusion] * Note: Patients with previously treated brain metastases may participate provided they are stable (without evidence of progression by imaging using the identical imaging modality for each assessment, either magnetic resonance imaging \[MRI\] or computed tomography \[CT\] scan, for at least 4 weeks prior to the first dose of trial treatment and any neurologic symptoms have returned to baseline), have no evidence of new or enlarging brain metastases, and are not using steroids for at least 7 days prior to trial treatment
+
+## R030
+Title: Pembrolizumab and Hypofractionated Radiation Therapy for the Treatment of Mucosal Melanoma
+Ages: minimum 16 Years; maximum not given; age groups CHILD, ADULT, OLDER_ADULT; adult-only: no
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * The effects of pembrolizumab on the developing human fetus are unknown. For this reason, women of childbearing potential and men must agree to use adequate contraception (hormonal or barrier method of birth control, abstinence) prior to study entry, for the duration of study participation, and 6 months after last dose of pembrolizumab. Should a woman become pregnant or suspect she is pregnant while participating in this study, she must inform her treating physician immediately. Men treated or enrolled on this protocol must also agree to use adequate contraception prior to the study, for the duration of the study, and 6 months after last dose of pembrolizumab.
+    [inclusion] * * Ability to understand and willingness to sign an IRB approved written informed consent document (or that of legally authorized representative, if applicable).
+    [exclusion] Exclusion Criteria:
+
+## R031
+Title: Study of Targeted Therapy vs. Chemotherapy in Patients With Thyroid Cancer
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * NOTE: Patients of childbearing potential who are on hormonal contraceptives may be at risks because dabrafenib may decrease the efficacy of hormonal contraceptives. An effective non-hormonal contraception should be used during therapy and for 2 weeks following discontinuation of dabrafenib and at least 4 months following the last dose of trametinib and cabozantinib
+    [inclusion] * * Patient must have the ability to understand and the willingness to sign a written informed consent document. Patients with impaired decision-making capacity (IDMC) who have a legally authorized representative (LAR) or caregiver and/or family member available will also be considered eligible
+    [inclusion] * Hemoglobin (Hgb) ≥ 8 g/dL obtained ≤ 28 days prior to protocol randomization
+
+## R032
+Title: Axitinib and Pembrolizumab in Subjects With Advanced Alveolar Soft Part Sarcoma and Other Soft Tissue Sarcomas
+Ages: minimum 16 Years; maximum not given; age groups CHILD, ADULT, OLDER_ADULT; adult-only: no
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] 13. Eastern Cooperative Oncology Group (ECOG) performance status of 0 or 1.
+    [inclusion] 14. Patients must consent and be willing to undergo three core needle biopsies at baseline, prior to starting Cycle 3, and at off-study. At least one tumor site must be amenable to biopsy in the judgment of the interventional radiologist.
+    [inclusion] 15. Female subject of childbearing potential should have a negative urine or serum pregnancy within 72 hours prior to receiving the first dose of study medication. If the urine test is positive or cannot be confirmed as negative, a serum pregnancy test will be required.
+    [inclusion] 16. Females of child bearing potential that are sexually active must agree to either practice 2 medically accepted highly effective methods of contraception at the same time or abstain from heterosexual intercourse from the time of signing the informed consent through 120 days after the last dose of study drug. See Appendix G for protocol-approved highly effective methods of contraceptive combinations. Subjects of childbearing potential are those who have not been surgically sterilized or have not been free from menses for \> 1 year.
+    [inclusion] * Negative test for pregnancy is required of females of child-bearing potential; A female of child bearing potential is any woman, regardless of sexual orientation or whether they have undergone tubal ligation, who meets the following criteria: 1. has not undergone a hysterectomy or bilateral oophorectomy; or 2. has not been naturally postmenopausal for at least 24 consecutive months (i.e., has had menses at any time in the preceding 24 consecutive months or 730 days).
+    ...
+    [inclusion] 18. Suitable venous access to allow for all study related blood sampling
+    [inclusion] 19. Ability to understand and willingness to sign a written informed consent document.
+    [inclusion] * 20. For minors that are 16 to 18 years of age, assent and parental (or legally acceptable representative) written informed consent must be obtained.
+    [exclusion] Exclusion Criteria:
+
+## R033
+Title: Combining Radiation Therapy With Immunotherapy for the Treatment of Metastatic Squamous Cell Carcinoma of the Head and Neck
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Patient must have Eastern Cooperative Oncology Group (ECOG) performance status 0-1
+    [inclusion] * * Patient must have the ability to understand and the willingness to sign a written informed consent document. Patients with impaired decision-making capacity (IDMC) who have a legally authorized representative (LAR) or caregiver and/or family member available will also be considered eligible
+    [inclusion] * Patients must have measurable disease as follows:
+
+## R034
+Title: Gene Therapy and Combination Chemotherapy in Treating Patients With AIDS-Related Non-Hodgkin Lymphoma
+Ages: minimum 18 Years; maximum 65 Years; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Women of child-bearing potential and men must agree to use adequate contraception (hormonal or barrier method of birth control or abstinence) prior to study entry and for 12 months following stem cell infusion; should a woman become pregnant or suspect that she is pregnant while participating on the trial, she should inform her treating physician immediately
+    [inclusion] * All subjects must have the ability to understand and the willingness to sign a written informed consent
+    [inclusion] ELIGIBILITY CRITERIA FOR HSPC TRANSPLANTATION
+    ...
+    [exclusion] * Any history of HIV-associated encephalopathy; dementia of any kind; seizures in the past 12 months
+    [exclusion] * * Any perceived inability to directly provide informed consent (note: consent may not be obtained by means of a legal guardian)
+    [exclusion] * Any medical or physical contraindication or other inability to undergo HSPC collection
+
+## R035
+Title: Palliative Expeditiously Adaptive Quad Shot Radiation Therapy (PEAQ-RT)
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * At least 18 years of age.
+    [inclusion] * * Ability to understand and willingness to sign an IRB approved written informed consent document (or that of legally authorized representative, if applicable).
+    [exclusion] Exclusion Criteria:
+
+## R036
+Title: A Pilot Study Of Ga-68-DOTA-TOC Imaging In Participants With Small Bowel Carcinoid Tumors
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Have histologically or cytologically confirmed small bowel carcinoid tumor
+    [inclusion] * * Receiving a stable dose of octreotide LAR as a part of a treatment regimen for ≥3months
+    [inclusion] * Presently planned for ongoing octreotide according to current standard of care for at least 18 months (i.e. throughout the study follow-up period).
+    ...
+    [inclusion] * The effects of Ga-68-DOTA-TOC on the developing human fetus are unknown. For this reason and because PET imaging agents are known to be teratogenic, women of child-bearing potential and men must agree to use adequate contraception (hormonal or barrier method of birth control; abstinence) prior to study entry and for the duration of study participation. Should a woman become pregnant or suspect she is pregnant while she or her partner is participating in this study, she should inform her treating physician immediately. Men treated or enrolled on this protocol must also agree to use adequate contraception prior to the study, for the duration of study participation, and 4 months after completion of Ga-68-DOTA-TOC administration.
+    [inclusion] * Ability to understand and the willingness to sign a written informed consent document.
+    [exclusion] Exclusion Criteria:
+    ...
+    [exclusion] * Expected lifespan less than 18 months by investigator assessment
+    [exclusion] * * Previous hypersensitivity reaction to LAR octreotide
+    [exclusion] * Non-removable non-MR compatible placements including hearing aid or dentures, metal IUD, surgical aneurysm clips, cardiac pacemaker, prosthetic heart valve, neurostimulator, implanted pumps, cochlear implants, metal rods, plates or screws, surgery leaving implanted materials, metal injury to eye, metallic tattoos anywhere on the body, tattoos near the eye and transdermal patches
+
+## R037
+Title: CD-19 CAR-T Cell for Pediatric ALL or Lymphoma
+Ages: minimum 1 Year; maximum 17 Years; age groups CHILD; adult-only: no
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Prior therapy wash-out. At least 2 weeks or 5 half lives, whichever is shorter, must have elapsed since any prior systemic therapy at the time the subject is planned for leukapheresis.
+    [inclusion] * * Subjects' parent or legal guardian must have the ability to understand and the willingness to sign a written informed consent document.
+    [exclusion] Exclusion Criteria:
+
+## R038
+Title: Sotorasib in Combination With Trastuzumab Deruxtecan for the Treatment of Locally Advanced and Metastatic Non-small Cell Lung Cancer With a KRAS G12C Mutation
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Patients must have measurable disease, as defined by RECIST v1.1 using computed tomography (CT) or magnetic resonance imaging (MRI). Previously irradiated lesions cannot be counted as target lesions unless there has been demonstrated progression in the lesions since radiotherapy and no other lesions are available for selection as target lesions
+    [inclusion] * Age ≥ 18 years at date of informed consent form signature
+    [inclusion] * Because no dosing or adverse event data are currently available on the use of sotorasib (AMG-510) in combination with trastuzumab deruxtecan (DS-8201a) in patients \< 18 years of age, children are excluded from this study
+    ...
+    [inclusion] * Female subjects must not donate, or retrieve for their own use, ova from the time of screening and throughout the study treatment period, and for at least 7 months after the final study drug administration
+    [inclusion] * * Ability to understand and the willingness to sign a written informed consent document. Legally authorized representatives may sign and give informed consent on behalf of study participants
+    [exclusion] Exclusion Criteria:
+
+## R039
+Title: Vitamin B12 for Aromatase Inhibitors Associated Musculoskeletal Symptoms in Breast Cancer
+Ages: minimum 19 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Patients must have no known allergy or hypersensitivity to vitamin B12
+    [inclusion] * Must have completed the Brief Pain Inventory Short Form (BPI-SF) within 7 days of enrollment (after signing consent, but prior to starting treatment) and have an "average pain" score of at least 24.
+    [inclusion] * Patients must not have any contraindicated concurrent illnesses including:
+    ...
+    [inclusion] * Patients must be willing to submit blood samples for laboratory testing \[to test for Serum Vitamin B12, CRP, homocysteine level, complete blood count (CBC), potassium, and MMA\]. Baseline samples must be obtained prior to beginning protocol treatment.
+    [inclusion] * * All patients or their legally authorized representative must be informed of the investigational nature of this study and must sign and give written informed consent in accordance with institutional and federal guidelines.
+    [inclusion] * Subjects must have the ability to understand and the willingness to sign a written informed consent document.
+    [exclusion] Exclusion Criteria:
+
+## R040
+Title: DHEA in Synovial Sarcoma Patients
+Ages: minimum 16 Years; maximum not given; age groups CHILD, ADULT, OLDER_ADULT; adult-only: no
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Women of childbearing potential and men must agree to use adequate contraception prior to study entry and for the duration of study participation. Patients using antiestrogens for oral birth control are ineligible. Should a woman become pregnant or suspect she is pregnant while participating in this study, she must inform her treating physician immediately.
+    [inclusion] * * Ability to understand and willingness to sign an IRB approved written informed consent document (or that of legally authorized representative, if applicable).
+    [exclusion] Exclusion Criteria:
+
+## R041
+Title: Neoantigen DNA Vaccine in Combination With Nivolumab/Ipilimumab and PROSTVAC in Metastatic Hormone-Sensitive Prostate Cancer
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Creatinine ≤ 1.5 x ULN OR calculated creatinine clearance ≥ 40 mL/min using the Cockcroft-Gault formula
+    [inclusion] * * Ability to understand and willingness to sign an IRB approved written informed consent document (or that of legally authorized representative, if applicable).
+    [inclusion] * Must have a biopsy of a metastatic site of disease (may be archival) available and adequate for evaluation and determination of neoantigens by genomic analyses.
+
+## R042
+Title: Testing the Safety and Feasibility of Immunotherapy Drugs, Botensilimab and Balstilimab, Before Surgery for Clear Cell Renal Cell Carcinoma, NEO RoBOT Trial
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * The effects of botensilimab and balstilimab on the developing human fetus are unknown. For this reason, women of child-bearing potential and men must agree to use adequate contraception (hormonal or barrier method of birth control; abstinence) prior to study entry and for the duration of study participation and 4 months after completion of treatment. Should a woman become pregnant or suspect she is pregnant while she or her partner is participating in this study, she should inform her treating physician immediately. Men treated or enrolled on this protocol must also agree to use adequate contraception prior to the study, for the duration of study participation, and 4 months after completion of botensilimab and balstilimab administration. All patients of childbearing potential must undergo a blood or urine pregnancy test within 14 days prior to receiving the first dose of botensilimab and balstilimab to confirm they are not pregnant. If dosing is delayed beyond this window, the pregnancy test must be repeated to ensure results remain current
+    [inclusion] * * Ability to understand and the willingness to sign a written informed consent document. Legally authorized representatives may sign and give informed consent on behalf of study participants
+    [inclusion] * Availability of pre-treatment archival slides or tissue blocks is required for inclusion in the study
+
+## R043
+Title: Using the Anticancer Drug Olaparib to Treat Relapsed/Refractory Acute Myeloid Leukemia or Myelodysplastic Syndrome With an Isocitrate Dehydrogenase (IDH) Mutation
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative, guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Patient must have recovered from toxicities of any prior treatment regimen (no Common Terminology Criteria for Adverse Events \[CTCAE\] grading over 1 for non-hematological toxicities, return to baseline for hematological values).
+    [inclusion] * * Ability to understand and the willingness to sign a written informed consent document. Patients with impaired decision-making capacity may have a close relative, guardian, caregiver, or legally authorized representative consent on their behalf.
+    [inclusion] * Total bilirubin =\< 1.5 x institutional upper limit of normal (ULN) unless considered due to Gilbert's syndrome (measured within 28 days prior to administration of study treatment).
+    ...
+    [exclusion] * Active, uncontrolled infection. Patients with infection controlled with antibiotics are eligible.
+    [exclusion] * Patients considered a poor medical risk due to a serious, uncontrolled medical disorder, non-malignant systemic disease or active, uncontrolled infection. Examples include, but are not limited to, uncontrolled ventricular arrhythmia, recent (within 3 months) myocardial infarction, uncontrolled major seizure disorder, unstable spinal cord compression, superior vena cava syndrome, extensive interstitial bilateral lung disease on high resolution computed tomography (HRCT) scan or any psychiatric disorder that prohibits obtaining informed consent.
+    [exclusion] * Patients who are pregnant or nursing. Pregnant women are excluded from this study because olaparib is a PARP inhibitor with the potential for teratogenic or abortifacient effects. Because there is an unknown but potential risk for AEs in nursing infants secondary to treatment of the mother with olaparib, breastfeeding should be discontinued if the mother is treated with olaparib. These potential risks may also apply to other agents used in this study.
+
+## R044
+Title: The Role of B Cells in Kidney Allograft Dysfunction
+Ages: minimum 2 Years; maximum 85 Years; age groups CHILD, ADULT, OLDER_ADULT; adult-only: no
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] Inclusion Criteria:
+    [inclusion] * * Ability to understand and willingness to sign the written informed consent form (ICF). For pediatric patients, a parent or legal guardian must sign ICF
+    [inclusion] * Either a Kidney or Liver transplant patient: 1) on the waitlist or 2) transplanted
+
+## R045
+Title: Accuracy of Home Lactate Meter and Accu-chek Glucometer in Patients With Glycogen Storage Disease
+Ages: minimum not given; maximum 60 Years; age groups CHILD, ADULT; adult-only: unknown
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] 1. Patients with diagnosed/confirmed (by liver biopsy or genetic testing) Glycogen Storage Disease Type Ia/Ib (ICD 10 code: E74.01) or XI (74.09).
+    [inclusion] * 2. For pediatric participants: Ability of child's parent/legal guardian to understand and the willingness to sign a written informed consent document
+    [inclusion] 3. For adolescents: assent to participate
+    [inclusion] 4. For adults: Ability to understand and the willingness to sign a written informed consent
+    [exclusion] Exclusion Criteria:
+    ...
+    [exclusion] 2. Patients not meeting inclusion criteria
+    [exclusion] 3. Patients unable to provide consent
+    [exclusion] 4. Patients who decline to be in the study
+
+## R046
+Title: Testing the Addition of an Anti-cancer Drug, Triapine, to the Usual Radiation-Based Treatment (Lutetium Lu 177 Dotatate) for Neuroendocrine Tumors
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Pregnancy precaution: Men and women should avoid pregnancy for seven months after the date of their last treatment with lutetium Lu 177 dotatate. It is noteworthy that beta-human chorionic gonadotropin (HCG) may be secreted by a small percentage of neuroendocrine tumors (NETs), such that, in addition to being a pregnancy marker, it also is a tumor marker. Consequently, NET female patients with positive beta-HCG (\> 5 mIU/mL) at baseline can be eligible to enter the study and receive treatment if pregnancy can be excluded by lack of expected doubling of beta-HCG and negative pelvic ultrasound. Normally, in pregnant subjects beta-HCG doubles every 2 days during the first 4 weeks of pregnancy and every 3.5 days by weeks 6 to 7. Women of childbearing potential include any female who has experienced menarche and who has not undergone successful surgical sterilization (hysterectomy, bilateral tubal ligation, or bilateral ovariectomy) or is not postmenopausal (defined as amenorrhea \> 12 consecutive months, and for women on hormone replacement therapy, only with a documented plasma follicle-stimulating hormone \[FSH)\] level \> 35 mIU/mL). Even women who are using oral, implanted, or injected contraceptive hormones, an intrauterine device (IUD), or barrier methods (diaphragm, condoms, spermicidal) to prevent pregnancy, are practicing abstinence or where the partner is sterile (e.g., vasectomy) should be considered to be of childbearing potential. Postmenopausal women who have fertilized eggs implanted are also considered to be of childbearing potential. Acceptable methods of contraception may include total abstinence at the discretion of the Investigator in cases where the age, career, lifestyle, or sexual orientation of the patient ensures compliance. Periodic abstinence (e.g., calendar, ovulation, symptothermal, post-ovulation methods) and withdrawal are not acceptable methods of contraception. Reliable contraception (hormonal or barrier method of birth control; abstinence) should be maintained throughout the study and for 7 months after study treatment discontinuation. All women of childbearing potential and male partners must use a double-barrier method of birth control or practice continuous abstinence from heterosexual contact throughout the study and for seven months after the end of the last treatment
+    [inclusion] * * Ability to understand and the willingness to sign a written informed consent document. Participants with impaired decision-making capacity (IDMC) who have a legally-authorized representative (LAR) and/or family member available will also be eligible
+    [exclusion] Exclusion Criteria:
+
+## R047
+Title: Entrectinib as a Single Agent in Upfront Therapy for Children <3 Years of Age With NTRK1/2/3 or ROS1-FUSED CNS Tumors
+Ages: minimum not given; maximum 3 Years; age groups CHILD; adult-only: unknown
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Available tumor tissue for central review
+    [inclusion] * * Parent/guardian has the ability to understand and the willingness to sign a written informed consent document according to institutional guidelines
+    [exclusion] Exclusion Criteria: Screening Phase
+    ...
+    [inclusion] * Adequate cardiac function as defined by electrocardiogram (ECG) with Fridericia's corrected QT interval (QTc) ≤ 450 msec and echocardiogram left ventricular ejection fraction (LVEF) \>50%
+    [inclusion] * Screening and enrollment consents signed
+    [inclusion] * Willingness and ability to comply with treatment plan, scheduled visits, laboratory tests and other study procedures
+    ...
+    [inclusion] * Adequate cardiac function as defined by ECG with QTc ≤ 450 msec and echocardiogram LVEF \>50%
+    [inclusion] * Screening and enrollment consents signed
+    [inclusion] * Willingness and ability to comply with treatment plan, scheduled visits, laboratory tests and other study procedures
+
+## R048
+Title: Guadecitabine and Pembrolizumab in Treating Patients With Recurrent Ovarian, Primary Peritoneal, or Fallopian Tube Cancer
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * FOCBP must have a negative pregnancy test within 7 days prior to registration on study
+    [inclusion] * Patients must have the ability to understand and the willingness to sign a written informed consent prior to registration on study
+    [exclusion] Exclusion Criteria:
+    ...
+    [exclusion] * Female patients who are pregnant or nursing, or expecting to conceive within the projected duration of the trial, starting with the pre-screening or screening visit through 120 days after the last dose of trial treatment; subjects should not breast feed within 120 days of completing the trial
+    [exclusion] * * Is or has an immediate family member (e.g., spouse, parent/legal guardian, sibling or child) who is investigational site or sponsor staff directly involved with this trial, unless prospective Institutional Review Board (IRB) approval (by chair or designee) is given allowing exception to this criterion for a specific subject
+
+## R049
+Title: BLAST MRD AML-2: BLockade of PD-1 Added to Standard Therapy to Target Measurable Residual Disease in Acute Myeloid Leukemia 2- A Randomized Phase 2 Study of Anti-PD-1 Pembrolizumab in Combination With Azacitidine and Venetoclax as Frontline Therapy in Unfit Patients With Acute Myeloid Leukemia
+Ages: minimum 60 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] Inclusion Criteria:
+    [inclusion] * Newly diagnosed and pathologically-confirmed, previously untreated AML as defined by World Health Organization (WHO) criteria. Bone marrow biopsy, or aspirate or peripheral blood that were obtained up to 3 weeks before signing consent are allowed for purposes of confirming AML diagnosis for eligibility purposes. Secondary AML arising from prior myelodysplastic syndrome (MDS), as long as they have not received more than full cycle of hypomethylating agent therapy for MDS, and therapy related (t)-AML are also allowed. AML arising from antecedent hematologic disorders defined as prior MDS, myeloproliferative neoplasm (MPN), or aplastic anemia are allowed. Note 1: Patients must have evidence of bone marrow involvement on aspirate or biopsy. Patients with only extramedullary disease and no bone marrow involvement will be excluded. Note 2: Every effort should be made to get an aspirate for central flow assessment at screening and all subsequent required time points, but in cases where an aspirate cannot be collected-including dry taps-the patient will not be excluded and assessments will be performed on peripheral blood (PB) which should be collected at every time that bone marrow (BM) is collected. Note 3: Some patients with AML require initiation of therapy quickly after diagnosis, and full metaphase karyotype results in some centers can take 2-3 weeks to result. To avoid this issue being an impediment to accrual to study or to cause delays in initiation of therapy in patients who need fast initiation of therapy, we allow use of karyotype and/or fluorescence in situ hybridization (FISH) results on samples from blood or marrow that were obtained up to 3 weeks before signing consent for purposes of eligibility and stratification. In any case, results from FISH or karyotype should exclude presence of core-binding factor (CBF) abnormalities by time of randomization
+    [inclusion] * Age \>= 60 years
+    ...
+    [inclusion] * Hydroxyurea or leukopheresis are allowed for management of hyperleukocytosis, as well as ATRA, before initiation of study therapy. White blood cell (WBC) count must be \< 25 x 10\^9/L to start on study therapy per venetoclax label. Hydroxyurea and ATRA may be administered up to one day prior to start of study treatment
+    [inclusion] * Intermediate-risk or poor risk AML as well as favorable risk by National Comprehensive Cancer Network (NCCN)/European LeukemiaNet (ELN) with the exception of "good-risk" cytogenic profile (i.e., for eligibility patient should lack the presence of t(8;21), (inv\[16\] or t\[16;16\]), or t(15;17) by full cytogenetics or FISH). Clarification: We allow use of karyotype and/or FISH results (as well as FLT3 results) on samples from blood or marrow that were obtained up to 3 weeks before signing consent for purposes of eligibility and stratification. Adverse karyotype can be determined based on FISH results (e.g., loss of chromosome 7 or 5 or 3 or more abnormalities) based on the specific probes used in the FISH. If results of full metaphase karyotype are not available and the available FISH results do not suggest an adverse karyotype, and there is a need to initiate therapy before those full results are available, then the patient can be stratified into the unknown/intermediate NCCN cytogenetic group for randomization purposes. In any case, results from FISH or karyotype should show that core-binding factor (CBF) abnormalities are NOT present by at time of randomization as the presence of CBF abnormalities is an exclusion factor
+    [inclusion] * Creatinine =\< 1.5 x upper limit of normal (ULN) OR measured or calculated creatinine clearance (CrCl) \>= 60 mL/min for patient with creatinine levels \> 1.5 x institutional ULN
+    ...
+    [inclusion] * Female patients of childbearing potential must have a negative urine or serum pregnancy test within 72 hours prior to receiving the first dose of study medication. If the urine test is positi
+    [cut at 4000 characters]
+
+## R050
+Title: Testing the Addition of an Anti-cancer Drug, Navtemadlin, to the Usual Treatments (Cytarabine and Idarubicin) in Patients With Acute Myeloid Leukemia
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Female patients with child-bearing potential must have a negative serum pregnancy test within 72 hours prior to the first study drug administration.
+    [inclusion] * * Ability to understand and the willingness to sign a written informed consent document. Participants with impaired decision-making capacity (IDMC) who have a legally-authorized representative (LAR) and/or family member available will also be eligible.
+    [exclusion] Exclusion Criteria:
+
+## R051
+Title: Gene Therapy in Treating Patients With Human Immunodeficiency Virus-Related Lymphoma Receiving Stem Cell Transplant
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Life expectancy of greater than 3 months.
+    [inclusion] * Ability to understand and the willingness to sign a written informed consent document.
+    [inclusion] * Receipt of a stable ART regimen for at least 3 weeks prior to enrollment.
+    ...
+    [exclusion] * Active psychosocial condition that would hinder study compliance and follow-up.
+    [exclusion] * * Any perceived inability to directly (and without the means of a legal guardian) provide informed consent.
+    [exclusion] * Any medical or physical contraindication, or other inability to undergo HPC collection.
+
+## R052
+Title: Allogenic AD-MSC Transplantation in Idiopathic Nephrotic Syndrome (Focal Segmental Glomerulosclerosis)
+Ages: minimum 2 Years; maximum 14 Years; age groups CHILD; adult-only: no
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] \- Age 2-14 years at onset of signs or symptoms of FSGS 2- Primary FSGS involving either native kidneys or primary FSGS recurring after renal transplantation. Biopsy confirmed as primary FSGS (including all subtypes).
+    [inclusion] * 3-Estimated GFR ≥ 25 ml/min/1.73 m2 4- Up/c \> 1.0 (g protein/g creatinine) on first am void 5- Steroid and IS resistance as defined by primary physician (patients with little or no reduction in protein excretion at 12 to 16 weeks are considered to be steroid resistant --A relapse is return of proteinuria to ≥3.5 g/day in someone who had undergone a complete or partial remission- IS resistance: no response to IS in 8-12 weeks) 6-At least one month from last immunization received has passed 7- Ability to understand and willingness to sign consent by patient legal guardian
+    [exclusion] Exclusion Criteria:
+
+## R053
+Title: Studying the Safety and Determining the Optimal Dose of Novobiocin in Patients With Tumors That Have Alterations in DNA Repair Genes
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * The effects of novobiocin on the developing human fetus are unknown. For this reason and because polymerase theta (POLtheta) inhibitor agents have the potential to be teratogenic, women of child-bearing potential and men must agree to use adequate contraception (hormonal or barrier method of birth control; abstinence) prior to study entry and for the duration of study participation and 4 months after completion of novobiocin administration. Effective contraception is defined as a method that achieves a failure rate of less than 1% per year when used consistently and correctly. (Note: Because of a concern for decreased effectiveness of estrogen-containing oral agents when given with novobiocin, barrier methods and abstinence are the preferred methods for contraception). Should a woman become pregnant or suspect she is pregnant while she or her partner is participating in this study, she should inform her treating physician immediately
+    [inclusion] * * Ability to understand and the willingness to sign a written informed consent document. Participants with impaired decision-making capacity who have a legally-authorized representative (LAR) and/or family member available will also be eligible
+    [exclusion] Exclusion Criteria:
+    ...
+    [exclusion] * History of allergic reactions attributed to compounds of similar chemical or biologic composition to novobiocin
+    [exclusion] * Patients receiving any medications or substances that are strong inhibitors or inducers of CYP3A4/5 are ineligible. Patients receiving any medications or substances that are known to be substrates of breast cancer resistance protein (BCRP/ABCG2) and/or organic anion transporting polypeptides (OATP1B1, OATP1B3 and OATP2B1) and/or organic anion transporters (OAT1 and OAT3) within 14 days prior to the first dose of study drug are ineligible. Because the lists of these agents are constantly changing, it is important to regularly consult a frequently-updated medical reference. As part of the enrollment/informed consent procedures, the patient will be counseled on the risk of interactions with other agents, and what to do if new medications need to be prescribed or if the patient is considering a new over-the-counter medicine or herbal product
+    [exclusion] * Patients using herbal/dietary supplements with known hepatotoxicity risk are ineligible
+
+## R054
+Title: Testing the Addition of An Anti-cancer Drug, M3814 (Peposertib), to the Usual Radiation-Based Treatment (Lutetium Lu 177 Dotatate) for Pancreatic Neuroendocrine Tumors
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Pregnancy Precaution: Women should avoid pregnancy for seven months after the date of their last treatment with lutetium Lu 177 dotatate. Men should avoid fathering a child for 4 months after the last dose of Lutetium Lu 177 dotatate. It is noteworthy that beta-human chorionic gonadotropin (HCG) may be secreted by a small percentage of neuroendocrine tumor (NET)s, such that, in addition to being a pregnancy marker, it also is a tumor marker. Consequently, NET female patients with positive beta-HCG (\> 5 mIU/mL) at baseline can be eligible to enter the study and receive treatment if pregnancy can be excluded by lack of expected doubling of beta-HCG and negative pelvic ultrasound. Normally, in pregnant subjects beta-HCG doubles every 2 days during the first 4 weeks of pregnancy and every 3.5 days by Weeks 6 to 7. Women of childbearing potential include any female who has experienced menarche and who has not undergone successful surgical sterilization (hysterectomy, bilateral tubal ligation, or bilateral ovariectomy) or is not postmenopausal (defined as amenorrhea \> 12 consecutive months, and for women on hormone replacement therapy, only with a documented plasma follicle-stimulating hormone \[FSH\] level \> 35 mIU/mL). Even women who are using oral, implanted, or injected contraceptive hormones, an intrauterine device (IUD), or barrier methods (diaphragm, condoms, spermicidal) to prevent pregnancy, are practicing abstinence, or where the partner is sterile (e.g., vasectomy) should be considered to be of childbearing potential. Postmenopausal women who have fertilized eggs implanted are also considered to be of childbearing potential. Acceptable methods of contraception may include total abstinence at the discretion of the Investigator in cases where the age, career, lifestyle, or sexual orientation of the patient ensures compliance. Periodic abstinence (e.g., calendar, ovulation, symptothermal, post-ovulation methods) and withdrawal are not acceptable methods of contraception. Reliable contraception (hormonal or barrier method of birth control; abstinence) should be maintained throughout the study and for 7 months after study treatment discontinuation, for women, and for 4 months for men. All women of childbearing potential and male partners must use a double-barrier method of birth control or practice continuous abstinence from heterosexual contact throughout the study and for seven months after the end of the last treatment for women, and four months for men
+    [inclusion] * * Ability to understand and the willingness to sign a written informed consent document. Participants with impaired decision-making capacity (IDMC) who have a legally-authorized representative (LAR) and/or family member available will also be eligible.
+    [exclusion] Exclusion Criteria:
+    ...
+    [exclusion] * Strong inhibitors of CYP3A4/5, CYP2C9 and CYP2C19: \>= 1 week prior to study treatment
+    [exclusion] * Substrates of CYP3A4/5, 1A2, 2B6, 2C8, with a narrow therapeutic index: \>= 1 day prior to study treatment Because the lists of these agents are constantly changing, it is important to regularly consult a frequently-updated medical reference. As part of the enrollment/informed consent procedures, the patient will be counseled on the risk of interactions with other agents, and what to do if new medications need to be prescribed or if the patient is considering a new over-the-counter medicine or herbal product
+    [exclusion] * Patients who cannot discontinue concomitant proton-pump inhibitors (PPIs). Patients may confer with the study doctor to determine if such medications can be discontinued. These must be discontinued \>= 5 days prior to study treatment. Patients do not need to discontinue calcium carbonate
+
+## R055
+Title: MRI Assessment of Leukemia Response to Therapy
+Ages: minimum 8 Years; maximum 75 Years; age groups CHILD, ADULT, OLDER_ADULT; adult-only: no
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Women of childbearing potential must have negative serum pregnancy test performed within 7-days prior to start of study
+    [inclusion] * * The subject or subject's legal guardian has the ability to understand and the willingness to sign a written informed consent and/or assent document. A signed study-specific informed consent and/or assent must be obtained prior to any study specific procedures.
+    [exclusion] Exclusion Criteria:
+
+## R056
+Title: Treating Relapsed/Recurrent/Refractory Pediatric Solid Tumors With Sorafenib in Combination With Irinotecan
+Ages: minimum 24 Months; maximum 21 Years; age groups CHILD, ADULT; adult-only: no
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Women of childbearing potential and men must agree to use adequate contraception (hormonal or barrier method of birth control, abstinence) prior to study entry and for the duration of study participation. Should a woman become pregnant or suspect she is pregnant while participating in this study, she must inform her treating physician immediately.
+    [inclusion] * * Ability to understand and willingness to sign an IRB approved written informed consent document (or that of legally authorized representative, if applicable).
+    [exclusion] Exclusion Criteria:
+
+## R057
+Title: A Study Combining the Peposertib (M3814) Pill With Standard Chemotherapy in Patients With Ovarian Cancer With an Expansion in High Grade Serous Ovarian Cancer and Low Grade Serous Ovarian Cancer
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Patients with known history or current symptoms of cardiac disease, or history of treatment with cardiotoxic agents, should have a clinical risk assessment of cardiac function using the New York Heart Association Functional Classification. To be eligible for this trial, patients should be class 2B or better
+    [inclusion] * * Ability to understand and the willingness to sign a written informed consent document. Participants with impaired decision-making capacity (IDMC) who have a legally-authorized representative (LAR) and/or family member available will also be eligible
+    [inclusion] * Archival formalin-fixed paraffin-embedded (FFPE) tissue collected within the past 36 months prior to registration must be available for submission for deoxyribonucleic acid (DNA)/ribonucleic acid (RNA) analysis
+    ...
+    [exclusion] * Use caution with other substrates of CYP3A4/5, CYP1A2, CYP2B6, CYP2C8 and substrates of P-gp, BCRP, OCT1, OAT3, OATP1B1, OATP1B3, MATE1, and MATE-2K with a narrow therapeutic index. Close monitoring is advised
+    [exclusion] * Because the lists of these agents are constantly changing, it is important to regularly consult a frequently-updated medical reference. As part of the enrollment/informed consent procedures, the patient will be counseled on the risk of interactions with other agents, and what to do if new medications need to be prescribed or if the patient is considering a new over-the-counter medicine or herbal product. Patient Drug Interactions Handout and Wallet Card) should be provided to patients
+    [exclusion] * Patients who cannot discontinue concomitant proton-pump inhibitors (PPIs). Patients may confer with the study doctor to determine if such medications can be discontinued. These must be discontinued \>= 5 days prior to study treatment. Patients do not need to discontinue calcium carbonate
+
+## R058
+Title: A Phase 0/I Study of Ribociclib (LEE011) in Combination With Everolimus in Preoperative Recurrent High-Grade Glioma Patients Scheduled for Resection
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] 6. Patients ≥ 18 years of age
+    [inclusion] * 7. Ability to understand and the willingness to sign a written informed consent document. (personally or by the legally authorized representative, if applicable).
+    [inclusion] * 8. Patient has voluntarily agreed to participate by giving written informed consent.(personally or by the legally authorized representative, if applicable).
+    [inclusion] (Written informed consent for the protocol must be obtained prior to any screening procedures. If consent cannot be expressed in writing, it must be formally documented and witnessed, ideally via an independent trusted witness.)
+    [inclusion] 9. Willingness and ability to comply with scheduled visits, treatment plans, laboratory tests and other procedures.
+    ...
+    [exclusion] 26. Patient with a Child-Pugh score B or C
+    [exclusion] 27. Patient has a history of non-compliance to medical regimen or inability to grant consent
+    [exclusion] 28. Pregnant or nursing (lactating) women, where pregnancy is defined as the state of a female after conception and until the termination of gestation, confirmed by a positive hCG laboratory test.\]
+
+## R059
+Title: Genetically Modified Peripheral Blood Stem Cell Transplant in Treating Patients With HIV-Associated Non-Hodgkin or Hodgkin Lymphoma
+Ages: minimum 18 Years; maximum 66 Years; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Subjects must be on a prophylactic regimen for Pneumocystis carinii pneumonia, or agree to begin such treatment, if the cluster of differentiation (CD)4 counts are =\< 200
+    [inclusion] * Ability to understand and the willingness to sign a written informed consent document
+    [exclusion] Exclusion Criteria:
+    ...
+    [exclusion] * Malignancy other than lymphoma, unless 1) in complete remission and more than 5 years from last treatment), or 2) cervical/anal squamous cell carcinoma in situ or 3) superficial basal cell and squamous cell cancers of the skin
+    [exclusion] * * History of HIV-associated encephalopathy; dementia of any kind; seizures in the past 12 months; any perceived inability to directly provide informed consent (Note: Consent may not be obtained by means of a legal guardian)
+    [exclusion] * A medical history of noncompliance with highly active anti-retroviral therapy (HAART) or medical therapy
+
+## R060
+Title: Sorafenib Tosylate Following a Liver Transplant in Treating Patients With Liver Cancer
+Ages: minimum 19 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: surrogate
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] \* Additionally, the following will be included
+    [inclusion] * \*\* Patients with elevated surrogate markers (AFP \> 500 or PIVKA \> 400) pre transplant and with biopsy proven HCC prior to orthotopic liver transplantation (OLT) or on explant
+    [inclusion] * Eastern Cooperative Oncology Group (ECOG) performance status (PS) 0-2
+    ...
+    [inclusion] * Women of childbearing potential must have a negative serum pregnancy test performed within 7 days prior to the start of study drug; post-menopausal women (defined as no menses for at least 1 year) and surgically sterilized women are not required to undergo a pregnancy test
+    [inclusion] * Patients (men and women) of childbearing potential must agree to use adequate contraception beginning at the signing of the informed consent form (ICF) until at least 30 days after the last dose of study drug; the definition of adequate contraception will be based on the judgment of the principal investigator or a designated associate
+    [inclusion] * Patient must be able to swallow and retain oral medication
+    [inclusion] * Patient must exhibit the ability to understand and willingness to sign a written informed consent regarding the study and alternative treatments
+    [exclusion] Exclusion Criteria:
+
+## R061
+Title: Rehabilitation and Quality of Life Assessment for Soft Tissue Sarcoma Treated With Radiotherapy and Surgery
+Ages: minimum 14 Years; maximum not given; age groups CHILD, ADULT, OLDER_ADULT; adult-only: no
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Able to complete the cancer rehabilitation protocol safely, as determined by a treating physician.
+    [inclusion] * * Ability to understand and willingness to sign an IRB approved written informed consent document (or that of legally authorized representative, if applicable).
+    [exclusion] Exclusion Criteria:
+
+## R062
+Title: Mosunetuzumab and Polatuzumab Vedotin for Untreated Follicular Lymphoma
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * The effects of mosunetuzumab on the developing human fetus are unknown. For this reason, women of childbearing potential and men must agree to use adequate contraception prior to study entry, for the duration of study treatment, for 3 months following the final dose of mosunetuzumab, for 9 months after the final dose of polatuzumab vedotin, and for 3 months after the final dose of tocilizumab, as applicable. Should a woman become pregnant or suspect she is pregnant while participating in this study, she must inform her treating physician immediately. Men treated or enrolled on this protocol must also agree to use adequate contraception prior to the study, for the duration of study treatment, for 6 months after the final dose of polatuzumab vedotin, and for 2 months after the final dose of tocilizumab, as applicable.
+    [inclusion] * * Ability to understand and willingness to sign an IRB approved written informed consent document (or that of legally authorized representative, if applicable).
+    [exclusion] Exclusion Criteria:
+
+## R063
+Title: Venetoclax in Combination With ASTX727 for the Treatment of Chronic Myelomonocytic Leukemia and Other Myelodysplastic Syndrome/Myeloproliferative Neoplasm
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Patients with known history or current symptoms of cardiac disease, or history of treatment with cardiotoxic agents, should have a clinical risk assessment of cardiac function using the New York Heart Association Functional Classification. To be eligible for this trial, patients should be class 2B or better
+    [inclusion] * * Ability to understand and the willingness to sign a written informed consent document. Participants with impaired decision-making capacity (IDMC) who have a legally authorized representative (LAR) and/or family member available will also be eligible
+    [inclusion] * Ability to swallow pills
+
+## R064
+Title: Neoadjuvant Tislelizumab in Combination With Dasatinib and Quercetin in Resectable HNSCC (COIS-01)
+Ages: minimum 18 Years; maximum 80 Years; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] Men of reproductive potential who are sexually active with women of reproductive potential must use any contraceptive method with a failure rate of less than 1% per year; men who are receiving the study medications will be instructed to adhere to contraception for 31 weeks after the last dose of study drugs; men who are azoospermic do not require contraception.
+    [inclusion] * Ability to understand and willingness to sign an IRB approved written informed consent document (or that of legally authorized representative, if applicable).
+    [inclusion] Subject is willing and able to comply with the protocol for the duration of the study including undergoing treatment and scheduled visits and examinations including follow up.
+    [inclusion] Subjects must agree to allow use of any pre-treatment tissue remaining after definitive diagnosis is made (i.e., archival and or fresh tissue) for research purposes. In addition, subjects must consent to allow use of their residual post-operative tissue for research purposes.
+    [exclusion] Exclusion Criteria:
+
+## R065
+Title: Retinoblastoma Phase II Expanded Access Clinical Trial
+Ages: minimum not given; maximum 8 Years; age groups CHILD; adult-only: unknown
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] 4. Pregnancy prevention. Females of reproductive potential must agree to the use of highly effective contraception during study participation and for an additional 40 days after the end of Episcleral Topotecan administration.
+    [inclusion] * 5. Informed consent. All participants and/or their parents or legally authorized representatives must have the ability to understand and the willingness to sign a written informed consent. Assent, where appropriate, will also be obtained.
+    [exclusion] Exclusion Criteria:
+
+## R066
+Title: Tislelizumab Combined With Chemotherapy Followed by Surgery Versus Up-front Surgery in Resectable Clinically Node-negative Head and Neck Squamous Cell Carcinoma
+Ages: minimum 18 Years; maximum 75 Years; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] Men of reproductive potential who are sexually active with women of reproductive potential must use any contraceptive method with a failure rate of less than 1% per year; men who are receiving the study medications will be instructed to adhere to contraception for 31 weeks after the last dose of study drugs; men who are azoospermic do not require contraception.
+    [inclusion] * Ability to understand and willingness to sign an IRB approved written informed consent document (or that of legally authorized representative, if applicable).
+    [inclusion] Subject is willing and able to comply with the protocol for the duration of the study including undergoing treatment and scheduled visits and examinations including follow up.
+    [inclusion] Subjects must agree to allow use of any pre-treatment tissue remaining after definitive diagnosis is made (ie, archival and or fresh tissue) for research purposes. In addition, subjects must consent to allow use of their residual post-operative tissue for research purposes.
+    [exclusion] Exclusion Criteria:
+
+## R067
+Title: Interoceptive Awareness and Function in Adolescents With Chronic Pain
+Ages: minimum 11 Years; maximum 21 Years; age groups CHILD, ADULT; adult-only: no
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] 4. Between the ages of 11 and 21 years at time of enrollment.
+    [inclusion] 5. If over 18, the ability to understand and willingness to sign the informed consent document or the ability to use the short form process.
+    [inclusion] * 6. If under 18, the parent/legal guardian, has the ability to understand and willingness to sign the informed consent document or the ability to use the short form process.
+    [inclusion] 7. Adolescents between the ages of 11 and less than 18 years with the ability to understand and willingness to sign assent.
+
+## R068
+Title: Nivolumab or Nivolumab and Azacitidine in Patients With Recurrent, Resectable Osteosarcoma
+Ages: minimum not given; maximum 39 Years; age groups CHILD, ADULT; adult-only: unknown
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Participants must have normal organ and marrow function within 7 days of starting protocol therapy
+    [inclusion] * * All participants and/or their parents or legal guardians must have the ability to understand and the willingness to sign a written informed consent/assent document
+    [inclusion] * Additional criteria may apply
+
+## R069
+Title: EA2176: Phase 3 Clinical Trial of Carboplatin and Paclitaxel +/- Nivolumab in Metastatic Anal Cancer Patients
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Patients with known history or current symptoms of cardiac disease, should have a clinical risk assessment of cardiac function using the New York Heart Association Functional Classification. To be eligible for this trial, patients should be class 2B or better. Patients with a history of congestive heart failure (CHF) or who are at risk because of underlying cardiovascular disease or exposure to cardiotoxic drugs must be willing to undergo evaluation of cardiac function including electrocardiogram (EKG) and echocardiogram (ECHO) as clinically indicated
+    [inclusion] * * Patient must have the ability to understand and the willingness to sign a written informed consent document. Patients with impaired decision-making capacity (IDMC) who have a legally authorized representative (LAR) or caregiver and/or family member available will also be considered eligible
+    [inclusion] * Patient must not have had previous use of systemic chemotherapy or other investigational drugs for the treatment of inoperable recurrent or metastatic anal cancer (previous use of radiotherapy or chemoradiotherapy in this setting is not an exclusion criterion if: 1) non-irradiated target tumor lesions are present at randomization for the purpose of tumor response assessment or 2) in the absence of non-irradiated target tumor lesions, progression of the irradiated tumor lesions according to the RECIST criteria version 1.1 is documented)
+
+## R070
+Title: Somatostatin Analogues vs. Observation After Peptide Receptor Radionuclide Therapy (PRRT) in Nonfunctional Neuroendocrine Neoplasms
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * The effects of ethanol-stabilized Lu-177 dotatate and SSAs on the developing human fetus at the recommended therapeutic dose are unknown. For this reason and because radionucleotides and anti-angiogenic agents are known to be teratogenic, people of childbearing potential and people able to father a child must agree to use adequate contraception prior to study entry, for the duration of study participation, and for 4 months following last administration of PRRT for males and 7 months after last administration of PRRT for females, or 4 months after last day of SSA, whichever is later.
+    [inclusion] * * Ability to understand and willingness to sign an IRB approved written informed consent document. Legally authorized representatives may sign and give informed consent on behalf of study participants.
+    [exclusion] Exclusion Criteria:
+
+## R071
+Title: Testing the Combination of the Anti-cancer Drugs XL184 (Cabozantinib) and Nivolumab in Patients With Advanced Cancer and HIV
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Women of childbearing potential (WOCBP) is defined as any female who has experienced menarche and who has not undergone surgical sterilization (hysterectomy or bilateral oophorectomy) or who is not postmenopausal. Menopause is defined clinically as 12 months of amenorrhea in a woman over 45 in the absence of other biological or physiological causes. In addition, women under the age of 55 must have a documented serum follicle stimulating hormone (FSH) level less than 40 mIU/mL
+    [inclusion] * * Ability to understand and the willingness to sign a written informed consent document. Subjects with impaired decision-making capacity (IDMC) who have a legally-authorized representative (LAR) and/or family member available will also be eligible
+    [exclusion] Exclusion Criteria:
+
+## R072
+Title: Imatinib and Rituximab in Treating Cutaneous Sclerosis in Patients With Chronic Graft-Versus-Host Disease
+Ages: minimum 2 Years; maximum not given; age groups CHILD, ADULT, OLDER_ADULT; adult-only: no
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * All females of childbearing potential must agree to use a form of Food and Drug Administration (FDA) approved contraception from enrollment to one month after study treatment ends
+    [inclusion] * Subject has the ability to understand and willingness to sign a written informed consent document
+    [exclusion] Exclusion Criteria:
+    ...
+    [exclusion] * History of psychiatric disorder that would interfere with normal participation in this study
+    [exclusion] * * Inability or unwillingness of subject and/or parent guardian to provide informed consent or comply with study protocol
+    [exclusion] * Use of non-FDA approved drugs within 4 weeks of participation
+
+## R073
+Title: Study of Adoptive Cellular Therapy Using Autologous T Cells Transduced With Lentivirus to Express a CD33 Specific Chimeric Antigen Receptor in Patients With Relapsed or Refractory CD33-Positive Acute Myeloid Leukemia
+Ages: minimum 1 Year; maximum 80 Years; age groups CHILD, ADULT, OLDER_ADULT; adult-only: no
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] 12. Patients who have undergone allo-SCT are eligible if they are at least 3 months post SCT, have relapsed AML, are not on treatment or prophylaxis for GVHD, and have no active GVHD.
+    [inclusion] * 13. All patients or legally responsible parent or guardian must have the ability to understand and willingness to sign a written informed consent
+    [exclusion] Exclusion Criteria:
+    ...
+    [exclusion] 9. Pregnant and lactating women are excluded from this study
+    [exclusion] * 10. Failure of research participant or legally responsible parent or guardian to understand the basic elements of the protocol and/or the risks/benefits of participating in this phase I study.
+    [exclusion] 11. History of allergic reactions attributed to compounds of similar chemical or biological composition to cetuximab (anti-EGFR).
+
+## R074
+Title: A Phase I Study of Hyper-CVAD In Combination With Venetoclax In Pediatric Patients With Relapsed or Refractory Acute Leukemias That Are of the Lymphoid Lineage Including Bi-Phenotypic or Undifferentiated Leukemias
+Ages: minimum 2 Years; maximum 21 Years; age groups CHILD, ADULT; adult-only: no
+Path terms in today's text: surrogate
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] 2. Participants have adequate performance status (ECOG ≤2) for patients ≥16 years old, Lansky score \>50 for patients \<16 years old.
+    [inclusion] * 3. Participants must be ≥ 2 years old or less than or equal to 21 years of age at time of signing/or having proxy sign the informed consent to be enrolled on study.
+    [inclusion] 4. Participants with asymptomatic CNS disease are eligible.
+    ...
+    [inclusion] 10. Participants with a history of hepatitis C virus (HCV) infection must have been treated and cured. For participants with HCV infection who are currently on treatment, they are eligible if they have an undetectable HCV viral load.
+    [inclusion] 11. Ability to understand and the willingness to sign a written informed consent document.
+    [inclusion] 12. Participants with CD19+ B-ALL need to have received CD19-directed therapy prior to being considered for enrollment on this study.
+
+## R075
+Title: An Extended Follow-Up Study of the HPV Vaccine Delayed Booster Trial
+Ages: minimum not given; maximum not given; age groups CHILD, ADULT, OLDER_ADULT; adult-only: unknown
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Study participants who received one booster dose of Gardasil 9 at month 24 and elected not to receive the second booster at month 30 in the original "HPV vaccine delayed booster trial"
+    [inclusion] * * Ability to understand and the willingness to sign a written informed consent document by the legal representative(s) of the participant.
+    [inclusion] * Ability to understand and the willingness to sign a written assent document by the participant.
+
+## R076
+Title: Acceptance and Commitment Therapy for Adolescents and Young Adults With Neurofibromatosis and Chronic Pain
+Ages: minimum 12 Years; maximum 99 Years; age groups CHILD, ADULT, OLDER_ADULT; adult-only: no
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] Response of 3 or higher on a pain item (1 5 scale) from a self-report quality of life measure (Impact of Pediatric Illness Scale) assessing the extent to which pain has interfered with the patient s daily functioning over the past month.
+    [inclusion] * Ability of subject or Legally Authorized Representative (LAR) to understand and the willingness to sign a written informed consent document.
+    [inclusion] Subjects may be participating in other medical interventions for the treatment of their disease, or standard care techniques for pain management.
+    ...
+    [inclusion] Ability to read and comprehend the English language.
+    [inclusion] Ability to understand and the willingness to sign a written informed consent document.
+    [inclusion] If a minor patient meets all eligibility criteria but his or her parent does not (i.e., in the case where a parent does not speak English), the patient will not be allowed to participate.
+
+## R077
+Title: Prospective Laboratory Study Biologic Specimens and Tumor Tissue of Patients With Cancer
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: surrogate
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Patients must be suspected of having a pathological diagnosis or clinical suspicion of ovarian cancer and be scheduled for surgery for tumor resection.
+    [inclusion] * Ability to understand and the willingness to sign a written informed consent document.
+    [inclusion] * Pathologic confirmation of a diagnosis of epithelial adenocarcinoma of the ovary, fallopian tube, or primary peritoneal cancer (serous, mucinous, clear cell, endometrioid, undifferentiated, mixed, transitional cell)
+    ...
+    [exclusion] Exclusion Criteria:
+    [exclusion] * * We do not intend to include participants if they are unable to provide informed consent for this study themselves (e.g. mentally ill patients who require health care proxies to consent for any medical intervention), or vulnerable populations such as prisoners.
+    [exclusion] * Minors under age eighteen.
+
+## R078
+Title: Feasibility Study of Low Level Light Therapy for Prevention of Oropharyngeal Mucositis in Pediatric Transplants Patients
+Ages: minimum 4 Years; maximum 25 Years; age groups CHILD, ADULT; adult-only: no
+Path terms in today's text: representative, guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * WHO Oral Toxicity score of 0 at baseline evaluation (first day of conditioning).
+    [inclusion] * * Ability to understand and the willingness to sign a written informed consent document (for patients under the age of 18 this applies to parent/guardian)
+    [inclusion] * * Ability to understand and/or the willingness of their parent or legally authorized representative to sign a written informed consent document.
+    [exclusion] Exclusion Criteria:
+
+## R079
+Title: Motixafortide and Natalizumab to Mobilize CD34+ Hematopoietic Stem Cells for Gene Therapies in Sickle Cell Disease (SCD)
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * The effects of motixafortide and natalizumab on the developing human fetus are unknown. For this reason, women of childbearing potential and men must agree to use adequate contraception (hormonal or barrier method of birth control, abstinence) prior to study entry and for the duration of study participation, and 3 months after completion of the study. Should a woman become pregnant or suspect she is pregnant while participating in this study, she must inform her treating physician immediately. Men treated or enrolled on this protocol must also agree to use adequate contraception prior to the study, for the duration of the study, and 3 months after completion of the study.
+    [inclusion] * * Ability to understand and willingness to sign an IRB approved written informed consent document (or that of legally authorized representative, if applicable).
+    [exclusion] Exclusion Criteria:
+
+## R080
+Title: Acalabrutinib With Bendamustine / Rituximab Followed by Cytarabine / Rituximab for Untreated Mantle Cell Lymphoma
+Ages: minimum 18 Years; maximum 70 Years; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Women of childbearing potential and men must agree to use adequate contraception (hormonal or barrier method of birth control, abstinence) prior to study entry and for the duration of study participation. Should a woman become pregnant or suspect she is pregnant while participating in this study, she must inform her treating physician immediately.
+    [inclusion] * * Ability to understand and willingness to sign an IRB approved written informed consent document (or that of legally authorized representative, if applicable).
+    [exclusion] Exclusion Criteria:
+
+## R081
+Title: Imetelstat Combinations in Relapsed AML
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] Inclusion Criteria In order to be eligible for participation in this trial,
+    [inclusion] * Participants must be ≥18 years of age at time of signing the Informed Consent Form (ICF).
+    [inclusion] * Participants must voluntarily sign an ICF.
+    ...
+    [inclusion] * Ability to adhere to the study visit schedule and all protocol requirements.
+    [inclusion] * Ability to understand and the willingness to sign a written informed consent.
+    [exclusion] Exclusion Criteria The participant must be excluded from participating in the trial if the participant:
+    ...
+    [exclusion] * Presence of active serious infection. a. If a participant is identified to have COVID-19 during the screening period, participants may be considered eligible if in the opinion of the investigator there are no COVID-19 sequelae that may place the participant at a higher risk of receiving investigational treatment
+    [exclusion] * Any serious, unstable medical or psychiatric condition that would prevent, (as judged by the Investigator) the participant from signing the informed consent form or any condition, including the presence of laboratory abnormalities, which places the participant at unacceptable risk if he/she were to participate in the study or confounds the ability to interpret data from the study.
+    [exclusion] * Known history of uncontrolled human immunodeficiency virus (HIV)
+    [exclusion] * Active known systemic hepatitis A, B, or C infection requiring therapy or known cirrhosis.
+    [exclusion] * * Is or has an immediate family member (e.g., spouse, parent/legal guardian, sibling, or child) who is investigational site or pharmaceutical sponsor staff directly involved with this trial, unless prospective IRB approval (by chair or designee) is given allowing exception to this criterion for a specific participant.
+    [exclusion] * Organ transplant recipients other than bone marrow transplant.
+
+## R082
+Title: Personalized Therapeutic Anti-tumor Vaccine With Pembrolizumab and Standard of Care Chemotherapy in Squamous Non-Small Cell Lung Cancer and Extensive Stage Small Cell Lung Cancer
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Measurable disease by RECIST 1.1. Lesions situated in a previously irradiated area are considered measurable if progression has been demonstrated in such lesions.
+    [inclusion] * At least 18 years of age on the day of signing informed consent.
+    [inclusion] * Eastern Cooperative Oncology Group (ECOG) performance status of 0 or 1
+    ...
+    [inclusion] * Female Patients: A female patient is eligible to participate if she is not pregnant, not breastfeeding, and at least one of the following conditions applies: A woman of childbearing potential who agrees to follow the contraceptive guidance during the treatment period and for at least 120 days (corresponding to time needed to eliminate any study treatment(s). Should a woman become pregnant or suspect she is pregnant while participating in this study, she must inform her treating physician immediately.
+    [inclusion] * * Ability to understand and willingness to sign an IRB approved written informed consent document (or that of legally authorized representative, if applicable).
+    [exclusion] Exclusion Criteria:
+
+## R083
+Title: Testing the Combination of an Anti-cancer Drug, Iadademstat, With Other Anti-cancer Drugs (Atezolizumab or Durvalumab) at Improving Outcomes for Small Cell Lung Cancer
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Because there is an unknown but potential risk for adverse events in nursing infants secondary to treatment of the mother with atezolizumab and durvalumab, female participants who are breastfeeding must agree to discontinue breastfeeding. These potential risks may also apply to iadademstat
+    [inclusion] * * Ability to understand and the willingness to sign a written informed consent document. Legally authorized representatives may sign and give informed consent on behalf of study participants
+    [exclusion] Exclusion Criteria:
+
+## R084
+Title: Testing the Combination of New Anti-cancer Drug Peposertib With Avelumab and Radiation Therapy for Advanced/Metastatic Solid Tumors and Hepatobiliary Malignancies
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Patients with at least 1 Response Evaluation Criteria in Solid Tumors (RECIST) measurable lesion (to be unirradiated) (defined as those accurately measured in at least one dimension, with the longest diameter to be recorded for non-nodal lesions and the shortest diameter for nodal lesions). Measurable is defined as at least 10 mm in longest diameter for solid tumors, at least 15 mm in shortest diameter for lymph nodes
+    [inclusion] * Patients must be willing to undergo fresh biopsies at baseline (as opposed to using archival tissue), in the event their baseline tissue was obtained \> 12 months prior to study consent and/or they are randomized to the gamma H2AX, pNBS1 and pKAP1 IFA with beta CATN segmentation assay
+    [inclusion] * Absolute neutrophil count (ANC) \>= 1,500/mcL
+    ...
+    [inclusion] * Female patients of childbearing potential must have a negative urine or serum pregnancy test. If the urine test is positive or cannot be confirmed as negative, a serum pregnancy test will be required. The effects of peposertib (M3814) and avelumab on the developing human fetus are unknown and there is the potential for teratogenic or abortifacient effects. For this reason, women and men of child-bearing potential must agree to use adequate contraception (hormonal or barrier method of birth control; abstinence) prior to study entry, for the duration of study treatment, and for 6 months after completion of peposertib (M3814) and avelumab administration. Should a woman become pregnant or suspect she is pregnant while she or her partner is participating in this study, she should inform her treating physician immediately. Because there is an unknown but potential risk for adverse events in nursing infants secondary to treatment of the mother with peposertib (M3814) and avelumab, breastfeeding should be discontinued if the mother is treated with peposertib (M3814) and avelumab
+    [inclusion] * * Ability to understand and the willingness to sign a written informed consent document. Participants with impaired decision-making capacity (IDMC) who have a close caregiver or legally authorized representative (LAR) and/or family member available will also be eligible
+    [exclusion] Exclusion Criteria:
+    ...
+    [exclusion] * History of allergic reactions attributed to compounds of similar chemical or biologic composition to peposertib (M3814) or avelumab
+    [exclusion] * Patients unable to discontinue medications or substances that are potent inhibitors, inducers or sensitive substrates of CYP3A4/5 or CYP2C19 prior to starting peposertib (M3814) and avelumab are ineligible. Medications or substances that are strong inhibitors of CYP3A4/5 or CYP2C19 must be discontinued at least 1 week prior to first peposertib (M3814) dose. Strong inducers of CYP3A4/5 or CYP2C19 must be stopped at least 3 weeks prior to the first dose. Drugs mainly metabolized by CYP3A with a narrow therapeutic index as judged by the investigator must stop at least 1 day prior to first peposertib (M3814) dose. Because the lists of these agents are constantly changing, it is important to regularly consult a frequently updated medical reference. As part of the enrollment/informed consent procedures, the patient will be counseled on the risk of interactions with other agents, and what to do if new medications need to be prescribed or if the patient is considering a new over-the-counter medicine or herbal product. The primary elimination mechanism of avelumab is proteolytic degradation, thus there are no contraindicated medications with respect to avelumab
+    [exclusion] * Patients who cannot discontinue concomitant proton-pump inhibitors (PPIs) prior to starting peposertib (M3814) and avelumab. These must be discontinued \>= 5 days prior to starting peposertib (M3814) and avelumab. Patients do not need to discontinue calcium carbonate. H2 blockers are allowed provided they are taken at least 2 hours after peposertib (M3814) dose
+
+## R085
+Title: Testing the Investigational Medication Combination of Azacitidine, Venetoclax, and Quizartinib Compared to the Usual Treatment of Cytarabine, Daunorubicin, and Quizartinib for Patients With FLT3-ITD Mutant Acute Myeloid Leukemia (A MyeloMATCH Treatment Trial)
+Ages: minimum 18 Years; maximum 59 Years; age groups ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * 6 months after the last dose of azacitidine for patients of childbearing potential and for 4 months after the last dose of azacitidine for patients who are able to father children In addition, patient must not breastfeed during treatment and for 1 month after treatment ends
+    [inclusion] * * Patient must have the ability to understand and the willingness to sign a written informed consent document. Patients with impaired decision-making capacity (IDMC) who have a legally authorized representative (LAR) or caregiver and/or family member available will also be considered eligible
+    [inclusion] * Total bilirubin ≤ 2 x institutional upper limit of normal (ULN). Patients with Gilbert's Syndrome must have total bilirubin ≤ 3 x institutional ULN (labs must be obtained ≤ 7 days prior to protocol randomization)
+
+## R086
+Title: Optimization of Cervical Cancer Screening Among Women Living With HIV in Latin American Countries
+Ages: minimum 25 Years; maximum 65 Years; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Aged 25 to 65.
+    [inclusion] * * Ability to understand and the willingness to sign a written informed consent document by the participant or by the legal representative(s) of the participant.
+    [exclusion] Exclusion Criteria
+
+## R087
+Title: Sipuleucel-T (Sip-T) in Combination With N-803 in Metastatic Androgen Pathway Modulation Resistant (mAPMR) Prostate Cancer
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * PSA ≤ 200 ng/mL.
+    [inclusion] * * Ability to understand and willingness to sign an IRB approved written informed consent document. Legally authorized representatives may sign and give informed consent on behalf of study participants
+    [exclusion] Exclusion Criteria:
+
+## R088
+Title: Peds CHAMP1ON - Hematopoietic Stem Cell And Monoclonal Antibody PD-1 Blockade for RecurreNt Pediatric High-Grade Glioma
+Ages: minimum 4 Years; maximum 26 Years; age groups CHILD, ADULT; adult-only: no
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] Female subjects of childbearing potential must not be pregnant or breast-feeding. Female patients of childbearing potential must have a negative serum or urine pregnancy test within 72 hours prior to receiving the first dose of study medication. If the urine test is positive or cannot be confirmed as negative, a serum pregnancy test will be required.
+    [inclusion] * \- Ability to understand and the willingness to sign a written informed consent document. Parents/Legally authorized representatives may sign and give informed consent on behalf of study participants.
+    [exclusion] Exclusion Criteria:
+
+## R089
+Title: Ixazomib and Pevonedistat in Treating Patients With Multiple Myeloma That Has Come Back or Does Not Respond to Treatment
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Surgically sterile, OR
+    [inclusion] * If of childbearing potential, agree to practice 1 highly effective method and 1 additional (barrier) method of contraception, at the same time, from the time of signing the informed consent until 4 months after the last dose of the ixazomib and pevonedistat (female and male condoms should not be used together), or agree to abstain from heterosexual intercourse, when this is in line with the preferred and usual lifestyle of the subject (Periodic abstinence \[e.g,, calendar, ovulation, symptothermal, postovulation methods\] withdrawal, spermicides only, and lactational amenorrhea are not acceptable methods of contraception)
+    [inclusion] * Male patients, even if surgically sterilized, who:
+    ...
+    [inclusion] * Should a woman become pregnant or suspect she is pregnant while she or her partner is participating in this study, she should inform her treating physician immediately
+    [inclusion] * * Ability to understand and the willingness to sign a written informed consent document. Participants with impaired decision-making capacity (IDMC) who have a legally-authorized representative (LAR) and/or family member available will also be eligible
+    [exclusion] Exclusion Criteria:
+
+## R090
+Title: Vosaroxin and Azacitidine in Treating Patients With Myelodysplastic Syndromes
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * ECOG performance status ≤2
+    [inclusion] * * Ability to understand and willingness to sign an IRB approved written informed consent document (or that of legally authorized representative, if applicable).
+    [inclusion] * Females must be surgically or biologically sterile or postmenopausal or if of childbearing potential, must agree to use an adequate method of contraception during the study until 30 days after the last treatment. Males must be surgically or biologically sterile or agree to use an adequate method of contraception during the study until 30 days after the last treatment. Should a woman become pregnant or suspect she is pregnant while participating in this study, she must inform her treating physician immediately.
+    [inclusion] * Patients may have received up to 3 prior cycles of hypomethylator therapy (i.e. decitabine or azacitidine) prior to enrollment and may have received supportive care measures (growth factors, erythropoietin stimulating agents, transfusion, etc.
+    [inclusion] * Either enrolled in HRPO# 201011766 ("Tissue Acquisition for Analysis of Genetic Progression Factors in Hematologic Diseases"), which facilitates collection of blood, bone marrow, and skin for correlative studies, or consents to collection of blood, bone marrow, and skin as part of this protocol.
+    [exclusion] Exclusion Criteria:
+
+## R091
+Title: Total Neoadjuvant Therapy With Short Course Radiation Therapy in Gastric Cancer
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * The effects of the various chemotherapy agents used in this study on the developing human fetus are unknown. For this reason, women of childbearing potential and men must agree to use adequate contraception (hormonal or barrier method of birth control, abstinence) prior to study entry and for the duration of study participation. Should a woman become pregnant or suspect she is pregnant while participating in this study, she must inform her treating physician immediately. Men treated or enrolled on this protocol must also agree to use adequate contraception prior to the study, for the duration of the study, and one month after completion of the study.
+    [inclusion] * * Ability to understand and willingness to sign an IRB approved written informed consent document. Legally authorized representatives may sign and give informed consent on behalf of study participants.
+    [exclusion] Exclusion Criteria:
+
+## R092
+Title: Topotecan Episcleral Plaque for Treatment of Retinoblastoma
+Ages: minimum not given; maximum 17 Years; age groups CHILD; adult-only: unknown
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] 7. Pregnancy prevention. Females of reproductive potential must agree to the use of highly effective contraception during study participation and for an additional 40 days after the end of the Chemoplaque administration
+    [inclusion] * 8. Informed consent. All participants and/or their parents or legally authorized representatives must have the ability to understand and the willingness to sign a written informed consent. Assent, where appropriate, will also be obtained.
+    [exclusion] Exclusion Criteria:
+
+## R093
+Title: RO4929097, Temozolomide, and Radiation Therapy in Treating Patients With Newly Diagnosed Malignant Glioma
+Ages: minimum 19 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * The patient is medically confirmed to be menopausal (no menstrual period) for 24 consecutive months
+    [inclusion] * * Pre-pubertal females; the parent or guardian of young female patients who have not yet started menstruation should verify that menstruation has not begun. If a young female patient reaches menarche during the study, then she is to be considered as a woman of childbearing potential from that time forward
+    [inclusion] * Ability to understand and the willingness to sign a written informed consent document
+    [exclusion] Exclusion Criteria:
+
+## R094
+Title: Testing the Addition of the Anti-cancer Drug, Tazemetostat, to the Usual Treatment (Dabrafenib and Trametinib) for Metastatic Melanoma That Has Progressed on the Usual Treatment
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * The reliability of sexual abstinence should be evaluated in relation to the duration of the clinical study and the preferred and usual lifestyle of the patient. Periodic abstinence and withdrawal are not acceptable methods of contraception
+    [inclusion] * * Ability to understand and the willingness to sign a written informed consent document. Participants with impaired decision-making capacity (IDMC) who have a legally-authorized representative (LAR) and/or family member available will also be eligible
+    [inclusion] * Have progressed on, been intolerant to, is ineligible for, or has refused prior standard of care anti-PD-1 based immunotherapy
+
+## R095
+Title: Enhanced Assistance During Radiotherapy for Unmet Essential Needs
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Planned to receive or currently receiving a protracted course of curative-intent (neoadjuvant, definitive, or postoperative) radiotherapy.
+    [inclusion] * For the purposes of this study, radiotherapy must consist of \>10 fractions (if radiotherapy not yet initiated) or \>15 additional fractions after the date of consent (if radiotherapy initiated prior to study consent).
+    [inclusion] * Be willing to undergo radiotherapy at the Barnes-Jewish Hospital location.
+    ...
+    [inclusion] * Have unmet essential needs that will not be able to be fully addressed by standard assistance. This determination can be made by the assigned social worker or by the patient after they meet with the social worker.
+    [inclusion] * * Ability to understand and willingness to sign an IRB approved written informed consent document. Legally authorized representatives may sign and give informed consent on behalf of study participants.
+    [exclusion] Exclusion Criteria:
+    [exclusion] * Planned or scheduled to undergo radiotherapy simulation more than 28 days from the date of consent.
+    [exclusion] * Admitted to the hospital and not expected to undergo \>10 fractions of radiotherapy as an outpatient.
+
+## R096
+Title: Sipuleucel-T With or Without Tasquinimod in Treating Patients With Metastatic Hormone-Resistant Prostate Cancer
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Central nervous system (CNS): no recent history (within 6 month) of cerebrovascular accident, transient ischemic attacks, central nervous system or brain metastases
+    [inclusion] * Ability to understand and the willingness to sign a written informed consent document
+    [inclusion] * Patient verbalizes the ability to swallow and retain oral medication
+    [inclusion] * * Subject or legal representative must understand the investigational nature of this study and sign an Independent Ethics Committee/Institutional Review Board approved written informed consent form prior to receiving any study related procedure
+    [exclusion] Exclusion Criteria:
+
+## R097
+Title: Genetically Modified T-cell Infusion Following Peripheral Blood Stem Cell Transplant in Treating Patients With Recurrent or High-Risk Non-Hodgkin Lymphoma
+Ages: minimum 18 Years; maximum not given; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Research participant has an indication to be considered for autologous stem cell transplantation
+    [inclusion] * All patients must have the ability to understand and the willingness to sign a written informed consent
+    [inclusion] ELIGIBILITY TO UNDERGO AUTOLOGOUS MYELOABLATIVE TRANSPLANTATION WITH HEMATOPOETIC PROGENITOR CELL (HPC)A RESCUE
+    ...
+    [exclusion] * Research participants with presence of other malignancy or history of prior malignancy within 5 years of study entry; although patients treated with curative intent within 5 year are eligible; this exclusion rule does not apply to non-melanoma skin tumors and in-situ cervical cancer
+    [exclusion] * * Failure of research participant to understand the basic elements of the protocol and/or the risks/benefits of participating in this phase I/II study; a legal guardian may substitute for the research participant
+    [exclusion] * History of allogeneic HSCT or prior autologous HSCT
+
+## R098
+Title: Response Prediction for Anti-angiogenic Treatment in Recurrent Glioblastoma
+Ages: minimum 18 Years; maximum 80 Years; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] 2. Patients were more than 3 months from chemoradiotherapy to avoid the confounding factor of radiation necrosis (pseudoprogression);
+    [inclusion] * 3. Ability to understand and the willingness to sign a written informed consent document; all patients, or their legal guardians, must sign a written informed consent and Health Insurance Portability and Accountability Act (HIPAA) authorization in accordance with institutional guidelines
+    [exclusion] Exclusion Criteria:
+
+## R099
+Title: An Investigational Scan (rhPSMA-7.3 PET/CT) for Detecting Biochemically Recurrent Prostate Cancer, ENLIGHTEN Trial
+Ages: minimum not given; maximum not given; age groups CHILD, ADULT, OLDER_ADULT; adult-only: unknown
+Path terms in today's text: representative
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * Non-castrate testosterone (testosterone \[T\] \> 50ng/dL) within 90 days of study entry
+    [inclusion] * * Institutional Review Board (IRB)-/Independent Ethics Committee (IEC)-approved written informed consent and privacy language as per national regulations must be obtained from the subject or legally authorized representative prior to any study-related procedures
+    [inclusion] * Patients must have the ability to understand and the willingness to sign a written informed consent prior to registration on the study
+    [inclusion] * Concurrent diseases and malignancies are permitted
+
+## R100
+Title: Memory-Enriched T Cells in Treating Patients With Recurrent or Refractory Grade III-IV Glioma
+Ages: minimum 18 Years; maximum 75 Years; age groups ADULT, OLDER_ADULT; adult-only: yes
+Path terms in today's text: guardian
+Excerpt (* = names a representative, guardian or surrogate):
+    [inclusion] * City of Hope (COH) Clinical Pathology confirms HER2+ tumor expression by immunohistochemistry (\>= 20%, 1+)
+    [inclusion] * All research participants must have the ability to understand and the willingness to sign a written informed consent
+    [inclusion] * Note: For research participants who do not speak English, a short form consent may be used with a COH certified interpreter/translator to proceed with screening and leukapheresis, while the request for a translated full consent is processed; however, the research participant is allowed to proceed with rickham placement and CAR T cell infusion only after the translated full consent form is signed
+    [inclusion] * ELIGIBILITY TO PROCEED WITH PERIPHERAL BLOOD MONONUCLEAR CELL (PBMC) COLLECTION
+    ...
+    [exclusion] * Research participant has uncontrolled seizure activity and/or clinically evident progressive encephalopathy
+    [exclusion] * * Failure of research participant to understand the basic elements of the protocol and/or the risks/benefits of participating in this phase I study; a legal guardian may substitute for the research participant
+    [exclusion] * Research participants with any non-malignant intercurrent illness which is either poorly controlled with currently available treatment, or which is of such severity that the investigators deem it unwise to enter the research participant on protocol shall be ineligible
