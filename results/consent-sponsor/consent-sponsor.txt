@@ -1,0 +1,23 @@
+consent_sponsor 0.1.0, table sha256 c7f87d926976
+gates: G1_table=True, G2_population=True, G3_adult_path=True, G4_coverage=True
+counts: {"coverage": 1.0, "covered": 5436, "exact": 4059, "header_as_published": true, "population": 5436, "rows": 5473}
+group all: 666 of 5436 (12.2%; 11.4-13.2)
+group nci_linked: 278 of 1570 (17.7%; 15.9-19.7)
+group washu_led: 165 of 224 (73.7%; 67.5-79.0)
+group both: 18 of 24 (75.0%; 55.1-88.0)
+group neither: 241 of 3666 (6.6%; 5.8-7.4)
+group template_owner: 425 of 1770 (24.0%; 22.1-26.1)
+lead class INDUSTRY: 31 of 493 (6.3%; 4.5-8.8)
+lead class NIH: 171 of 741 (23.1%; 20.2-26.2)
+lead class OTHER: 436 of 4136 (10.5%; 9.6-11.5)
+lead class OTHER_KINDS: 28 of 66 (42.4%; 31.2-54.4)
+neither, lead class INDUSTRY: 30 of 481 (6.2%; 4.4-8.8)
+neither, lead class OTHER: 200 of 3138 (6.4%; 5.6-7.3)
+neither, start <=2019: 62 of 1953 (3.2%; 2.5-4.0)
+neither, start 2020-2026: 174 of 1663 (10.5%; 9.1-12.0)
+RR nci vs neither: 2.69 (2.29-3.17)
+RR washu vs neither: 11.21 (9.69-12.95)
+RR neither late vs early: 3.30 (2.48-4.37)
+template owners: 425 of 666 paths (0.6381), 0.3256 of trials
+adult-only: RR nci 3.20 (2.66-3.86); RR washu 14.24 (12.03-16.86); owners 0.6808 of paths
+predictions: P1=True, P2=True, P3=False, P4=False, P5=False

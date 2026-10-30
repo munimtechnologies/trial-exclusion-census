@@ -1,0 +1,535 @@
+{
+ "version": "0.1.0",
+ "csv_url": "https://raw.githubusercontent.com/munimtechnologies/trial-exclusion-census/c4c0ded776cdb43101b881c88f7de31fde2facdc/results/consent-phrase/consent-phrase-trials.csv",
+ "csv_sha256": "c7f87d926976bfe0b9ae3bb8a062d19d1f953adfe0e7e512904d8baee14dfd1f",
+ "gates": {
+  "G1_table": true,
+  "G2_population": true,
+  "G3_adult_path": true,
+  "G4_coverage": true
+ },
+ "counts": {
+  "rows": 5473,
+  "header_as_published": true,
+  "population": 5436,
+  "exact": 4059,
+  "covered": 5436,
+  "coverage": 1.0
+ },
+ "analysis": {
+  "groups": {
+   "all": {
+    "trials": 5436,
+    "with_path": 666,
+    "share": 0.1225,
+    "ci": [
+     0.1141,
+     0.1315
+    ]
+   },
+   "nci_linked": {
+    "trials": 1570,
+    "with_path": 278,
+    "share": 0.1771,
+    "ci": [
+     0.159,
+     0.1967
+    ]
+   },
+   "washu_led": {
+    "trials": 224,
+    "with_path": 165,
+    "share": 0.7366,
+    "ci": [
+     0.6753,
+     0.79
+    ]
+   },
+   "both": {
+    "trials": 24,
+    "with_path": 18,
+    "share": 0.75,
+    "ci": [
+     0.551,
+     0.88
+    ]
+   },
+   "neither": {
+    "trials": 3666,
+    "with_path": 241,
+    "share": 0.0657,
+    "ci": [
+     0.0582,
+     0.0742
+    ]
+   },
+   "template_owner": {
+    "trials": 1770,
+    "with_path": 425,
+    "share": 0.2401,
+    "ci": [
+     0.2208,
+     0.2606
+    ]
+   }
+  },
+  "lead_class": {
+   "INDUSTRY": {
+    "trials": 493,
+    "with_path": 31,
+    "share": 0.0629,
+    "ci": [
+     0.0446,
+     0.0879
+    ]
+   },
+   "NIH": {
+    "trials": 741,
+    "with_path": 171,
+    "share": 0.2308,
+    "ci": [
+     0.2019,
+     0.2624
+    ]
+   },
+   "OTHER": {
+    "trials": 4136,
+    "with_path": 436,
+    "share": 0.1054,
+    "ci": [
+     0.0964,
+     0.1151
+    ]
+   },
+   "OTHER_KINDS": {
+    "trials": 66,
+    "with_path": 28,
+    "share": 0.4242,
+    "ci": [
+     0.3124,
+     0.5444
+    ]
+   }
+  },
+  "neither_lead_class": {
+   "INDUSTRY": {
+    "trials": 481,
+    "with_path": 30,
+    "share": 0.0624,
+    "ci": [
+     0.044,
+     0.0876
+    ]
+   },
+   "OTHER": {
+    "trials": 3138,
+    "with_path": 200,
+    "share": 0.0637,
+    "ci": [
+     0.0557,
+     0.0728
+    ]
+   }
+  },
+  "neither_period": {
+   "<=2019": {
+    "trials": 1953,
+    "with_path": 62,
+    "share": 0.0317,
+    "ci": [
+     0.0248,
+     0.0405
+    ]
+   },
+   "2020-2026": {
+    "trials": 1663,
+    "with_path": 174,
+    "share": 0.1046,
+    "ci": [
+     0.0908,
+     0.1203
+    ]
+   }
+  },
+  "by_period": {
+   "<=2019": {
+    "nci_linked": {
+     "trials": 1051,
+     "with_path": 70,
+     "share": 0.0666,
+     "ci": [
+      0.0531,
+      0.0833
+     ]
+    },
+    "washu_led": {
+     "trials": 76,
+     "with_path": 59,
+     "share": 0.7763,
+     "ci": [
+      0.6707,
+      0.8554
+     ]
+    },
+    "neither": {
+     "trials": 1953,
+     "with_path": 62,
+     "share": 0.0317,
+     "ci": [
+      0.0248,
+      0.0405
+     ]
+    }
+   },
+   "2020-2026": {
+    "nci_linked": {
+     "trials": 499,
+     "with_path": 195,
+     "share": 0.3908,
+     "ci": [
+      0.349,
+      0.4343
+     ]
+    },
+    "washu_led": {
+     "trials": 148,
+     "with_path": 106,
+     "share": 0.7162,
+     "ci": [
+      0.6388,
+      0.7827
+     ]
+    },
+    "neither": {
+     "trials": 1663,
+     "with_path": 174,
+     "share": 0.1046,
+     "ci": [
+      0.0908,
+      0.1203
+     ]
+    }
+   }
+  },
+  "rr_nci_vs_neither": {
+   "rr": 2.694,
+   "low": 2.291,
+   "high": 3.167
+  },
+  "rr_washu_vs_neither": {
+   "rr": 11.205,
+   "low": 9.693,
+   "high": 12.953
+  },
+  "rr_neither_late_vs_early": {
+   "rr": 3.296,
+   "low": 2.485,
+   "high": 4.371
+  },
+  "template_owner_share_of_paths": 0.6381,
+  "template_owner_paths": 425,
+  "paths": 666,
+  "template_owner_share_of_trials": 0.3256
+ },
+ "predictions": {
+  "P1": true,
+  "P2": true,
+  "P3": false,
+  "P4": false,
+  "P5": false
+ },
+ "secondary_adult_only": {
+  "groups": {
+   "all": {
+    "trials": 5099,
+    "with_path": 542,
+    "share": 0.1063,
+    "ci": [
+     0.0981,
+     0.1151
+    ]
+   },
+   "nci_linked": {
+    "trials": 1468,
+    "with_path": 236,
+    "share": 0.1608,
+    "ci": [
+     0.1429,
+     0.1804
+    ]
+   },
+   "washu_led": {
+    "trials": 207,
+    "with_path": 148,
+    "share": 0.715,
+    "ci": [
+     0.65,
+     0.7721
+    ]
+   },
+   "both": {
+    "trials": 21,
+    "with_path": 15,
+    "share": 0.7143,
+    "ci": [
+     0.5004,
+     0.8619
+    ]
+   },
+   "neither": {
+    "trials": 3445,
+    "with_path": 173,
+    "share": 0.0502,
+    "ci": [
+     0.0434,
+     0.058
+    ]
+   },
+   "template_owner": {
+    "trials": 1654,
+    "with_path": 369,
+    "share": 0.2231,
+    "ci": [
+     0.2037,
+     0.2438
+    ]
+   }
+  },
+  "lead_class": {
+   "INDUSTRY": {
+    "trials": 457,
+    "with_path": 19,
+    "share": 0.0416,
+    "ci": [
+     0.0268,
+     0.064
+    ]
+   },
+   "NIH": {
+    "trials": 700,
+    "with_path": 151,
+    "share": 0.2157,
+    "ci": [
+     0.1868,
+     0.2477
+    ]
+   },
+   "OTHER": {
+    "trials": 3885,
+    "with_path": 349,
+    "share": 0.0898,
+    "ci": [
+     0.0812,
+     0.0992
+    ]
+   },
+   "OTHER_KINDS": {
+    "trials": 57,
+    "with_path": 23,
+    "share": 0.4035,
+    "ci": [
+     0.2862,
+     0.533
+    ]
+   }
+  },
+  "neither_lead_class": {
+   "INDUSTRY": {
+    "trials": 447,
+    "with_path": 18,
+    "share": 0.0403,
+    "ci": [
+     0.0256,
+     0.0628
+    ]
+   },
+   "OTHER": {
+    "trials": 2955,
+    "with_path": 146,
+    "share": 0.0494,
+    "ci": [
+     0.0422,
+     0.0578
+    ]
+   }
+  },
+  "neither_period": {
+   "<=2019": {
+    "trials": 1838,
+    "with_path": 38,
+    "share": 0.0207,
+    "ci": [
+     0.0151,
+     0.0282
+    ]
+   },
+   "2020-2026": {
+    "trials": 1563,
+    "with_path": 133,
+    "share": 0.0851,
+    "ci": [
+     0.0723,
+     0.1
+    ]
+   }
+  },
+  "by_period": {
+   "<=2019": {
+    "nci_linked": {
+     "trials": 974,
+     "with_path": 48,
+     "share": 0.0493,
+     "ci": [
+      0.0374,
+      0.0647
+     ]
+    },
+    "washu_led": {
+     "trials": 68,
+     "with_path": 51,
+     "share": 0.75,
+     "ci": [
+      0.6356,
+      0.8377
+     ]
+    },
+    "neither": {
+     "trials": 1838,
+     "with_path": 38,
+     "share": 0.0207,
+     "ci": [
+      0.0151,
+      0.0282
+     ]
+    }
+   },
+   "2020-2026": {
+    "nci_linked": {
+     "trials": 474,
+     "with_path": 175,
+     "share": 0.3692,
+     "ci": [
+      0.327,
+      0.4135
+     ]
+    },
+    "washu_led": {
+     "trials": 139,
+     "with_path": 97,
+     "share": 0.6978,
+     "ci": [
+      0.617,
+      0.768
+     ]
+    },
+    "neither": {
+     "trials": 1563,
+     "with_path": 133,
+     "share": 0.0851,
+     "ci": [
+      0.0723,
+      0.1
+     ]
+    }
+   }
+  },
+  "rr_nci_vs_neither": {
+   "rr": 3.201,
+   "low": 2.657,
+   "high": 3.857
+  },
+  "rr_washu_vs_neither": {
+   "rr": 14.238,
+   "low": 12.026,
+   "high": 16.855
+  },
+  "rr_neither_late_vs_early": {
+   "rr": 4.116,
+   "low": 2.888,
+   "high": 5.865
+  },
+  "template_owner_share_of_paths": 0.6808,
+  "template_owner_paths": 369,
+  "paths": 542,
+  "template_owner_share_of_trials": 0.3244
+ },
+ "top_leads": [
+  {
+   "lead": "National Cancer Institute (NCI)",
+   "trials": 725,
+   "with_path": 170
+  },
+  {
+   "lead": "Washington University School of Medicine",
+   "trials": 224,
+   "with_path": 165
+  },
+  {
+   "lead": "Wake Forest University Health Sciences",
+   "trials": 136,
+   "with_path": 25
+  },
+  {
+   "lead": "ECOG-ACRIN Cancer Research Group",
+   "trials": 20,
+   "with_path": 18
+  },
+  {
+   "lead": "City of Hope Medical Center",
+   "trials": 123,
+   "with_path": 17
+  },
+  {
+   "lead": "M.D. Anderson Cancer Center",
+   "trials": 265,
+   "with_path": 14
+  },
+  {
+   "lead": "H. Lee Moffitt Cancer Center and Research Institute",
+   "trials": 77,
+   "with_path": 11
+  },
+  {
+   "lead": "Fred Hutchinson Cancer Center",
+   "trials": 28,
+   "with_path": 10
+  },
+  {
+   "lead": "Northwestern University",
+   "trials": 107,
+   "with_path": 9
+  },
+  {
+   "lead": "Sun Yat-Sen Memorial Hospital of Sun Yat-Sen University",
+   "trials": 20,
+   "with_path": 9
+  },
+  {
+   "lead": "Dana-Farber Cancer Institute",
+   "trials": 231,
+   "with_path": 7
+  },
+  {
+   "lead": "Memorial Sloan Kettering Cancer Center",
+   "trials": 60,
+   "with_path": 7
+  },
+  {
+   "lead": "Nader Sanai",
+   "trials": 7,
+   "with_path": 7
+  },
+  {
+   "lead": "Case Comprehensive Cancer Center",
+   "trials": 102,
+   "with_path": 6
+  },
+  {
+   "lead": "Gradalis, Inc.",
+   "trials": 15,
+   "with_path": 5
+  }
+ ],
+ "started_utc": "2026-10-30T08:31:35Z",
+ "finished_utc": "2026-10-30T08:32:16Z"
+}
