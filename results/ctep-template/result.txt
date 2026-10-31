@@ -1,0 +1,36 @@
+ctep_template 0.1.0
+gates: G1_live_control=True, G2_usable=True, G3_both_sides=True, G4_bracket_narrow=True, P0_prereg_public=True
+live (direct): kind docx, usable True, sentence True, adjacent True, clause False, lar_near True
+cdx ctep.cancer.gov/protocoldevelopment/docs/: {'rows': 4235, 'complete': True}
+cdx dctd.cancer.gov/research/ctep-trials/trial-development/: {'rows': 804, 'complete': True}
+template captures 49, distinct files 28, downloaded 28, usable files 28, usable captures 49
+bracket: last without 20220709191528, first with 20231115213455, days 494; without after first with: 0 urls
+predictions: T1=True, T2=True, T3=True, T4=True
+  20110403..20110403 x1 Generic_Protocol_Template.docx docx usable=True sentence=False clause=False lar_near=False 
+  20111015..20111015 x1 Generic_Protocol_Template.docx docx usable=True sentence=False clause=False lar_near=False 
+  20130216..20130216 x1 Generic_Protocol_Template_for_Cancer_Treatment_Trial.docx docx usable=True sentence=False clause=False lar_near=False December 20, 2012; March 16, 2012
+  20150221..20150221 x1 CTEP_Generic_Protocol_Template_for_Cancer_Treatment_Trial.docx docx usable=True sentence=False clause=False lar_near=False March 16, 2012; November 26, 2014
+  20150225..20150225 x1 CTEP_Organ_Dysfunction_Protocol_Template.docx docx usable=True sentence=False clause=False lar_near=False March 16, 2012; November 26, 2014
+  20150905..20161221 x4 CTEP_Organ_Dysfunction_Protocol_Template.docx docx usable=True sentence=False clause=False lar_near=False June 5, 2015; March 16, 2012
+  20150905..20150905 x1 CTEP_Generic_Protocol_Template_for_Cancer_Treatment_Trial.docx docx usable=True sentence=False clause=False lar_near=False June 22, 2015; March 16, 2012
+  20161204..20170201 x4 CTEP_Generic_Protocol_Template_for_Cancer_Treatment_Trial.docx docx usable=True sentence=False clause=False lar_near=False April 15, 2016; March 16, 2012
+  20161221..20170201 x3 etctn_protocol_template_for_cancer_treatment_trial.docx docx usable=True sentence=False clause=False lar_near=False July 16, 2014; March 16, 2012
+  20201030..20201030 x1 CTEP_Generic_Protocol_Template_for_Cancer_Treatment_Trial.docx docx usable=True sentence=False clause=False lar_near=False March 16, 2012; September 2, 2020
+  20201031..20210318 x2 CTEP_Organ_Dysfunction_Protocol_Template.docx docx usable=True sentence=False clause=False lar_near=False March 16, 2012; September 2, 2020
+  20210318..20210318 x1 CTEP_Generic_Protocol_Template_for_Cancer_Treatment_Trial.docx docx usable=True sentence=False clause=False lar_near=False December 18, 2020; March 16, 2012
+  20220121..20220121 x1 CTEP_Organ_Dysfunction_Protocol_Template.docx docx usable=True sentence=False clause=False lar_near=False March 16, 2012; May 5, 2021
+  20220523..20220523 x1 CTEP_Generic_Protocol_Template_for_Cancer_Treatment_Trial.docx docx usable=True sentence=False clause=False lar_near=False April 11, 2022; March 16, 2012
+  20220709..20220709 x2 CTEP_Generic_Protocol_Template_for_Cancer_Treatment_Trial.docx docx usable=True sentence=False clause=False lar_near=False June 13, 2022; March 16, 2012
+  20220709..20220709 x1 CTEP_Organ_Dysfunction_Protocol_Template.docx docx usable=True sentence=False clause=False lar_near=False February 10, 2022; March 16, 2012
+  20231115..20231116 x3 CTEP_Organ_Dysfunction_Protocol_Template.docx docx usable=True sentence=True clause=False lar_near=True August 4, 2023; March 16, 2012
+  20231204..20231204 x1 CTEP_Generic_Protocol_Template_for_Cancer_Treatment_Trial.docx docx usable=True sentence=True clause=False lar_near=True August 4, 2023; March 16, 2012
+  20240526..20240811 x2 CTEP_Generic_Protocol_Template_for_Cancer_Treatment_Trial.docx docx usable=True sentence=True clause=False lar_near=True February 5, 2024; March 16, 2012
+  20240526..20240811 x2 CTEP_Organ_Dysfunction_Protocol_Template.docx docx usable=True sentence=True clause=False lar_near=True February 5, 2024; March 16, 2012
+  20240927..20240927 x1 CTEP_Generic_Protocol_Template_for_Cancer_Treatment_Trial.docx docx usable=True sentence=True clause=False lar_near=True August 22, 2024; March 16, 2012
+  20240927..20240927 x1 CTEP_Organ_Dysfunction_Protocol_Template.docx docx usable=True sentence=True clause=False lar_near=True August 22, 2024; March 16, 2012
+  20241128..20250206 x3 CTEP_Generic_Protocol_Template_for_Cancer_Treatment_Trial.docx docx usable=True sentence=True clause=False lar_near=True March 16, 2012; October 16, 2024
+  20241128..20250203 x2 CTEP_Organ_Dysfunction_Protocol_Template.docx docx usable=True sentence=True clause=False lar_near=True March 16, 2012; October 16, 2024
+  20250222..20250526 x2 CTEP_Organ_Dysfunction_Protocol_Template.docx docx usable=True sentence=True clause=False lar_near=True February 12, 2025; March 16, 2012
+  20250223..20250526 x3 CTEP_Generic_Protocol_Template_for_Cancer_Treatment_Trial.docx docx usable=True sentence=True clause=False lar_near=True February 12, 2025; March 16, 2012
+  20250718..20250827 x2 etctn-protocol-template.docx docx usable=True sentence=True clause=False lar_near=True July 14, 2025; March 16, 2012
+  20260723..20260723 x1 etctn-protocol-template.docx docx usable=True sentence=True clause=False lar_near=True July 16, 2026; March 16, 2012
