@@ -1,0 +1,691 @@
+{
+ "version": "0.1.0",
+ "script_sha256": "069ddbe740aa8dca5f302dbd9a1ca2c3435b03c103c80f4d2f78b8eedfe2807d",
+ "gates": {
+  "P0_prereg_public": true,
+  "S1_table": true,
+  "S2_washu_counts": true,
+  "S3_seen": true,
+  "S4_fetched": true,
+  "S5_enough": true
+ },
+ "polls": 1,
+ "sponsor_sha256": "d56316c74fcff23192e7316fa9e266a38253e3542b2b8912ec7aee3f290ce628",
+ "fetched_utc": "2026-10-31T05:53:44Z",
+ "unseen": {
+  "early": {
+   "trials": 149,
+   "clause": [
+    100,
+    0.6711,
+    [
+     0.5922,
+     0.7414
+    ]
+   ],
+   "sentence": [
+    3,
+    0.0201,
+    [
+     0.0069,
+     0.0575
+    ]
+   ],
+   "both_wordings": 0,
+   "neither_wording": 46
+  },
+  "late": {
+   "trials": 55,
+   "clause": [
+    6,
+    0.1091,
+    [
+     0.051,
+     0.2183
+    ]
+   ],
+   "sentence": [
+    32,
+    0.5818,
+    [
+     0.4503,
+     0.7026
+    ]
+   ],
+   "both_wordings": 0,
+   "neither_wording": 17
+  }
+ },
+ "predictions": {
+  "W1": true,
+  "W2": false,
+  "W3": false,
+  "W4": true,
+  "W5": true
+ },
+ "diff_clause_early_minus_late": [
+  0.5621,
+  0.4274,
+  0.6533
+ ],
+ "fetched": 224,
+ "described": {
+  "by_prefix": {
+   "NCT00": {
+    "trials": 5,
+    "clause": [
+     0,
+     0.0,
+     [
+      -0.0,
+      0.4345
+     ]
+    ],
+    "sentence": [
+     0,
+     0.0,
+     [
+      -0.0,
+      0.4345
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 5
+   },
+   "NCT01": {
+    "trials": 8,
+    "clause": [
+     4,
+     0.5,
+     [
+      0.2152,
+      0.7848
+     ]
+    ],
+    "sentence": [
+     0,
+     0.0,
+     [
+      0.0,
+      0.3244
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 4
+   },
+   "NCT02": {
+    "trials": 34,
+    "clause": [
+     27,
+     0.7941,
+     [
+      0.632,
+      0.8965
+     ]
+    ],
+    "sentence": [
+     0,
+     0.0,
+     [
+      0.0,
+      0.1015
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 7
+   },
+   "NCT03": {
+    "trials": 34,
+    "clause": [
+     29,
+     0.8529,
+     [
+      0.6987,
+      0.9355
+     ]
+    ],
+    "sentence": [
+     0,
+     0.0,
+     [
+      0.0,
+      0.1015
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 5
+   },
+   "NCT04": {
+    "trials": 46,
+    "clause": [
+     34,
+     0.7391,
+     [
+      0.5974,
+      0.844
+     ]
+    ],
+    "sentence": [
+     2,
+     0.0435,
+     [
+      0.012,
+      0.1453
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 10
+   },
+   "NCT05": {
+    "trials": 35,
+    "clause": [
+     19,
+     0.5429,
+     [
+      0.3819,
+      0.6953
+     ]
+    ],
+    "sentence": [
+     1,
+     0.0286,
+     [
+      0.0051,
+      0.1453
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 15
+   },
+   "NCT06": {
+    "trials": 31,
+    "clause": [
+     6,
+     0.1935,
+     [
+      0.0919,
+      0.3628
+     ]
+    ],
+    "sentence": [
+     15,
+     0.4839,
+     [
+      0.3197,
+      0.6516
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 10
+   },
+   "NCT07": {
+    "trials": 31,
+    "clause": [
+     0,
+     0.0,
+     [
+      -0.0,
+      0.1103
+     ]
+    ],
+    "sentence": [
+     24,
+     0.7742,
+     [
+      0.6019,
+      0.8861
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 7
+   }
+  },
+  "by_start_year": {
+   "2005": {
+    "trials": 2,
+    "clause": [
+     0,
+     0.0,
+     [
+      0.0,
+      0.6576
+     ]
+    ],
+    "sentence": [
+     0,
+     0.0,
+     [
+      0.0,
+      0.6576
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 2
+   },
+   "2006": {
+    "trials": 1,
+    "clause": [
+     0,
+     0.0,
+     [
+      0.0,
+      0.7935
+     ]
+    ],
+    "sentence": [
+     0,
+     0.0,
+     [
+      0.0,
+      0.7935
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 1
+   },
+   "2007": {
+    "trials": 1,
+    "clause": [
+     0,
+     0.0,
+     [
+      0.0,
+      0.7935
+     ]
+    ],
+    "sentence": [
+     0,
+     0.0,
+     [
+      0.0,
+      0.7935
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 1
+   },
+   "2009": {
+    "trials": 1,
+    "clause": [
+     0,
+     0.0,
+     [
+      0.0,
+      0.7935
+     ]
+    ],
+    "sentence": [
+     0,
+     0.0,
+     [
+      0.0,
+      0.7935
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 1
+   },
+   "2010": {
+    "trials": 1,
+    "clause": [
+     0,
+     0.0,
+     [
+      0.0,
+      0.7935
+     ]
+    ],
+    "sentence": [
+     0,
+     0.0,
+     [
+      0.0,
+      0.7935
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 1
+   },
+   "2013": {
+    "trials": 4,
+    "clause": [
+     2,
+     0.5,
+     [
+      0.15,
+      0.85
+     ]
+    ],
+    "sentence": [
+     0,
+     0.0,
+     [
+      0.0,
+      0.4899
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 2
+   },
+   "2014": {
+    "trials": 7,
+    "clause": [
+     4,
+     0.5714,
+     [
+      0.2505,
+      0.8418
+     ]
+    ],
+    "sentence": [
+     0,
+     0.0,
+     [
+      0.0,
+      0.3543
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 3
+   },
+   "2015": {
+    "trials": 13,
+    "clause": [
+     10,
+     0.7692,
+     [
+      0.4974,
+      0.9182
+     ]
+    ],
+    "sentence": [
+     0,
+     0.0,
+     [
+      0.0,
+      0.2281
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 3
+   },
+   "2016": {
+    "trials": 12,
+    "clause": [
+     10,
+     0.8333,
+     [
+      0.552,
+      0.953
+     ]
+    ],
+    "sentence": [
+     0,
+     0.0,
+     [
+      0.0,
+      0.2425
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 2
+   },
+   "2017": {
+    "trials": 9,
+    "clause": [
+     9,
+     1.0,
+     [
+      0.7008,
+      1.0
+     ]
+    ],
+    "sentence": [
+     0,
+     0.0,
+     [
+      0.0,
+      0.2992
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 0
+   },
+   "2018": {
+    "trials": 12,
+    "clause": [
+     11,
+     0.9167,
+     [
+      0.6461,
+      0.9851
+     ]
+    ],
+    "sentence": [
+     0,
+     0.0,
+     [
+      0.0,
+      0.2425
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 1
+   },
+   "2019": {
+    "trials": 13,
+    "clause": [
+     11,
+     0.8462,
+     [
+      0.5776,
+      0.9567
+     ]
+    ],
+    "sentence": [
+     0,
+     0.0,
+     [
+      0.0,
+      0.2281
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 2
+   },
+   "2020": {
+    "trials": 18,
+    "clause": [
+     14,
+     0.7778,
+     [
+      0.5478,
+      0.91
+     ]
+    ],
+    "sentence": [
+     0,
+     0.0,
+     [
+      0.0,
+      0.1759
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 4
+   },
+   "2021": {
+    "trials": 23,
+    "clause": [
+     15,
+     0.6522,
+     [
+      0.4489,
+      0.8119
+     ]
+    ],
+    "sentence": [
+     2,
+     0.087,
+     [
+      0.0242,
+      0.268
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 6
+   },
+   "2022": {
+    "trials": 18,
+    "clause": [
+     12,
+     0.6667,
+     [
+      0.4375,
+      0.8372
+     ]
+    ],
+    "sentence": [
+     0,
+     0.0,
+     [
+      0.0,
+      0.1759
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 6
+   },
+   "2023": {
+    "trials": 15,
+    "clause": [
+     8,
+     0.5333,
+     [
+      0.3012,
+      0.7519
+     ]
+    ],
+    "sentence": [
+     1,
+     0.0667,
+     [
+      0.0119,
+      0.2982
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 6
+   },
+   "2024": {
+    "trials": 22,
+    "clause": [
+     10,
+     0.4545,
+     [
+      0.2692,
+      0.6534
+     ]
+    ],
+    "sentence": [
+     4,
+     0.1818,
+     [
+      0.0731,
+      0.3852
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 8
+   },
+   "2025": {
+    "trials": 19,
+    "clause": [
+     3,
+     0.1579,
+     [
+      0.0552,
+      0.3757
+     ]
+    ],
+    "sentence": [
+     10,
+     0.5263,
+     [
+      0.3171,
+      0.7267
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 6
+   },
+   "2026": {
+    "trials": 33,
+    "clause": [
+     0,
+     0.0,
+     [
+      0.0,
+      0.1043
+     ]
+    ],
+    "sentence": [
+     25,
+     0.7576,
+     [
+      0.5898,
+      0.8717
+     ]
+    ],
+    "both_wordings": 0,
+    "neither_wording": 8
+   }
+  },
+  "nci_linked": {
+   "trials": 24,
+   "clause": [
+    11,
+    0.4583,
+    [
+     0.2789,
+     0.6493
+    ]
+   ],
+   "sentence": [
+    7,
+    0.2917,
+    [
+     0.1491,
+     0.4917
+    ]
+   ],
+   "both_wordings": 0,
+   "neither_wording": 6
+  },
+  "seen": {
+   "trials": 20,
+   "clause": [
+    13,
+    0.65,
+    [
+     0.4329,
+     0.8188
+    ]
+   ],
+   "sentence": [
+    7,
+    0.35,
+    [
+     0.1812,
+     0.5671
+    ]
+   ],
+   "both_wordings": 0,
+   "neither_wording": 0
+  },
+  "last_clause_id": "NCT06648434",
+  "first_sentence_id": "NCT04462328",
+  "ids_in_overlap": 52
+ },
+ "status": "graded"
+}

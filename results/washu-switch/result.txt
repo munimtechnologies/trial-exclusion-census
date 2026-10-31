@@ -1,0 +1,15 @@
+washu_switch 0.1.0
+gates: P0_prereg_public=True, S1_table=True, S2_washu_counts=True, S3_seen=True, S4_fetched=True, S5_enough=True
+unseen early: 149 trials, clause [100, 0.6711, [0.5922, 0.7414]], sentence [3, 0.0201, [0.0069, 0.0575]], both 0, neither 46
+unseen late: 55 trials, clause [6, 0.1091, [0.051, 0.2183]], sentence [32, 0.5818, [0.4503, 0.7026]], both 0, neither 17
+diff clause early - late: [0.5621, 0.4274, 0.6533]
+predictions: W1=True, W2=False, W3=False, W4=True, W5=True
+last clause id NCT06648434, first sentence id NCT04462328, ids in overlap 52
+  NCT00: 5 trials, clause 0, sentence 0
+  NCT01: 8 trials, clause 4, sentence 0
+  NCT02: 34 trials, clause 27, sentence 0
+  NCT03: 34 trials, clause 29, sentence 0
+  NCT04: 46 trials, clause 34, sentence 2
+  NCT05: 35 trials, clause 19, sentence 1
+  NCT06: 31 trials, clause 6, sentence 15
+  NCT07: 31 trials, clause 0, sentence 24
