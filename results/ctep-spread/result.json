@@ -1,0 +1,242 @@
+{
+ "version": "0.1.0",
+ "script_sha256": "38234e4c87b44ff89fc51726fcbf12e740163e67475d9a4a247d3a7bd94e5651",
+ "gates": {
+  "P0_prereg_public": true,
+  "A1_table": true,
+  "A2_searches_complete": true,
+  "A3_recall": true
+ },
+ "polls": 1,
+ "phrase_sha256": "c7f87d926976bfe0b9ae3bb8a062d19d1f953adfe0e7e512904d8baee14dfd1f",
+ "phrase_rows": 5473,
+ "anchors": 102,
+ "fetched_utc": "2026-11-01T06:23:27Z",
+ "searches": [
+  {
+   "term": "AREA[EligibilityCriteria](\"may sign and give informed consent\")",
+   "total": 147,
+   "received": 147,
+   "sentence": 147
+  },
+  {
+   "term": "AREA[EligibilityCriteria](\"legally authorized representatives may sign\")",
+   "total": 143,
+   "received": 143,
+   "sentence": 142
+  },
+  {
+   "term": "AREA[EligibilityCriteria](\"legally authorized representative\" AND \"sign and give\")",
+   "total": 34,
+   "received": 34,
+   "sentence": 4
+  }
+ ],
+ "recall": {
+  "anchors": 102,
+  "anchors_fetched": 102,
+  "anchors_current": 102,
+  "anchors_found": 102,
+  "missed": [],
+  "recall": 1.0
+ },
+ "sentence_trials": 147,
+ "described": {
+  "by_group": {
+   "nci": 86,
+   "washu": 39,
+   "both": 7,
+   "neither": 15
+  },
+  "by_period": {
+   "pre": {
+    "nci": 10,
+    "washu": 2,
+    "both": 0,
+    "neither": 0
+   },
+   "gap": {
+    "nci": 17,
+    "washu": 1,
+    "both": 0,
+    "neither": 0
+   },
+   "post": {
+    "nci": 59,
+    "washu": 36,
+    "both": 7,
+    "neither": 15
+   },
+   "none": {
+    "nci": 0,
+    "washu": 0,
+    "both": 0,
+    "neither": 0
+   }
+  },
+  "by_submit_year": {
+   "2018": {
+    "nci": 2,
+    "washu": 0,
+    "both": 0,
+    "neither": 0
+   },
+   "2019": {
+    "nci": 2,
+    "washu": 0,
+    "both": 0,
+    "neither": 0
+   },
+   "2020": {
+    "nci": 2,
+    "washu": 1,
+    "both": 0,
+    "neither": 0
+   },
+   "2021": {
+    "nci": 2,
+    "washu": 1,
+    "both": 0,
+    "neither": 0
+   },
+   "2022": {
+    "nci": 7,
+    "washu": 1,
+    "both": 0,
+    "neither": 0
+   },
+   "2023": {
+    "nci": 20,
+    "washu": 0,
+    "both": 0,
+    "neither": 0
+   },
+   "2024": {
+    "nci": 20,
+    "washu": 7,
+    "both": 2,
+    "neither": 0
+   },
+   "2025": {
+    "nci": 17,
+    "washu": 15,
+    "both": 3,
+    "neither": 11
+   },
+   "2026": {
+    "nci": 14,
+    "washu": 14,
+    "both": 2,
+    "neither": 4
+   }
+  },
+  "top_neither_sponsors": [
+   [
+    "Fred Hutchinson Cancer Center",
+    3
+   ],
+   [
+    "Montefiore Medical Center",
+    2
+   ],
+   [
+    "SWOG Cancer Research Network",
+    2
+   ],
+   [
+    "Curis, Inc.",
+    1
+   ],
+   [
+    "Dan Feng",
+    1
+   ],
+   [
+    "Jordan Kharofa",
+    1
+   ],
+   [
+    "University of Cincinnati",
+    1
+   ],
+   [
+    "University of Florida",
+    1
+   ],
+   [
+    "University of Kentucky",
+    1
+   ],
+   [
+    "Virginia Commonwealth University",
+    1
+   ],
+   [
+    "Zulfa Omer",
+    1
+   ]
+  ],
+  "first_submitted": {
+   "nci": "2018-01-02",
+   "washu": "2020-07-02",
+   "both": "2024-07-26",
+   "neither": "2025-06-02"
+  },
+  "outside_frame": 42,
+  "with_stock": 104,
+  "with_clause": 0,
+  "by_lead_class": {
+   "INDUSTRY": 1,
+   "NETWORK": 26,
+   "NIH": 60,
+   "OTHER": 60
+  }
+ },
+ "measures": {
+  "R1_neither_of_post": [
+   15,
+   117,
+   0.1282,
+   [
+    0.0793,
+    0.2008
+   ]
+  ],
+  "R2_pre_of_dated_neither": [
+   0,
+   15,
+   0.0,
+   [
+    -0.0,
+    0.2039
+   ]
+  ],
+  "R3_industry_of_all": [
+   1,
+   147,
+   0.0068,
+   [
+    0.0012,
+    0.0375
+   ]
+  ],
+  "R4_stock_of_neither": [
+   11,
+   15,
+   0.7333,
+   [
+    0.4805,
+    0.891
+   ]
+  ],
+  "R5_neither_lead_sponsors": 11
+ },
+ "predictions": {
+  "R1": false,
+  "R2": true,
+  "R3": true,
+  "R4": false,
+  "R5": true
+ },
+ "status": "graded"
+}

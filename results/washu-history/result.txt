@@ -1,0 +1,18 @@
+washu_history 0.1.0
+gates: A1_table=True, A2_coverage=True, A3_complete=False, P0_prereg_public=True
+trials 224, boundary 9, cdx queries 162 (errors 3), pages downloaded 85 (errors 1), elapsed 9140s
+pre-template pages (on or before 20220709): usable 75, with sentence none
+clause today with a usable pre-template page 56, clause then 56
+H2 graded on none; sentence on first page: none
+predictions: not graded
+pre -> today: clause->clause 56, neither->neither 19
+earliest page with the sentence: none
+  NCT04462328: no pages
+  NCT04852328: no pages
+  NCT05521984: no pages
+  NCT06063564: no pages
+  NCT06185751: no pages
+  NCT06397729: no pages
+  NCT06523699: no pages
+  NCT06538181: no pages
+  NCT06648434: no pages

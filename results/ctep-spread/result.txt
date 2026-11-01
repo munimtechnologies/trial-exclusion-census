@@ -1,0 +1,17 @@
+ctep_spread 0.1.0
+gates: A1_table=True, A2_searches_complete=True, A3_recall=True, P0_prereg_public=True
+searches (total, received, kept with sentence): 1 147/147/147; 2 143/143/142; 3 34/34/4
+anchors 102, fetched 102, still with sentence 102, found 102, recall 1.0
+trials with the sentence: 147
+  R1_neither_of_post: [15, 117, 0.1282, [0.0793, 0.2008]]
+  R2_pre_of_dated_neither: [0, 15, 0.0, [-0.0, 0.2039]]
+  R3_industry_of_all: [1, 147, 0.0068, [0.0012, 0.0375]]
+  R4_stock_of_neither: [11, 15, 0.7333, [0.4805, 0.891]]
+  R5_neither_lead_sponsors: 11
+predictions: R1=False, R2=True, R3=True, R4=False, R5=True
+by group: {'nci': 86, 'washu': 39, 'both': 7, 'neither': 15}
+  pre: {'nci': 10, 'washu': 2, 'both': 0, 'neither': 0}
+  gap: {'nci': 17, 'washu': 1, 'both': 0, 'neither': 0}
+  post: {'nci': 59, 'washu': 36, 'both': 7, 'neither': 15}
+  none: {'nci': 0, 'washu': 0, 'both': 0, 'neither': 0}
+outside the 2026-10-16 frame 42, with stock line 104, with WashU clause 0

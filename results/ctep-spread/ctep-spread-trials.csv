@@ -1,0 +1,148 @@
+nct_id,submitted,period,group,nci_linked,washu_led,lead_sponsor,lead_class,stock,clause,in_frame,anchor,searches
+NCT03418961,2018-01-02,pre,nci,True,False,SWOG Cancer Research Network,NETWORK,False,False,False,False,1+2
+NCT03598244,2018-07-24,pre,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT03816319,2019-01-24,pre,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT03907488,2019-04-08,pre,nci,True,False,National Cancer Institute (NCI),NIH,False,False,False,False,1+2
+NCT04462328,2020-07-02,pre,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT04548752,2020-09-12,pre,nci,True,False,National Cancer Institute (NCI),NIH,False,False,False,False,1+2
+NCT04625647,2020-11-06,pre,nci,True,False,SWOG Cancer Research Network,NETWORK,False,False,False,False,1+2
+NCT04840602,2021-04-09,pre,nci,True,False,National Cancer Institute (NCI),NIH,False,False,False,False,1+2
+NCT04852328,2021-04-15,pre,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT04989283,2021-08-03,pre,nci,True,False,National Cancer Institute (NCI),NIH,False,False,False,False,1+2
+NCT05411081,2022-06-07,pre,nci,True,False,National Cancer Institute (NCI),NIH,False,False,False,False,1+2
+NCT05455606,2022-07-06,pre,nci,True,False,SWOG Cancer Research Network,NETWORK,False,False,False,False,1+3
+NCT05521984,2022-08-26,gap,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT05554406,2022-09-22,gap,nci,True,False,National Cancer Institute (NCI),NIH,False,False,False,False,1+2
+NCT05561387,2022-09-27,gap,nci,True,False,SWOG Cancer Research Network,NETWORK,False,False,False,False,1+2
+NCT05633615,2022-11-21,gap,nci,True,False,SWOG Cancer Research Network,NETWORK,False,False,False,False,1+2
+NCT05642572,2022-11-30,gap,nci,True,False,SWOG Cancer Research Network,NETWORK,False,False,False,False,1+2
+NCT05642611,2022-11-30,gap,nci,True,False,SWOG Cancer Research Network,NETWORK,False,False,False,False,1+2
+NCT05691517,2023-01-18,gap,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT05803382,2023-04-06,gap,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT05806515,2023-03-28,gap,nci,True,False,SWOG Cancer Research Network,NETWORK,False,False,False,False,1+2
+NCT05807126,2023-04-08,gap,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT05828082,2023-04-22,gap,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT05859334,2023-05-13,gap,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT05886036,2023-06-01,gap,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT05886049,2023-06-01,gap,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT05890352,2023-05-25,gap,nci,True,False,SWOG Cancer Research Network,NETWORK,False,False,False,False,1+2
+NCT05896839,2023-06-08,gap,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT05929768,2023-06-01,gap,nci,True,False,SWOG Cancer Research Network,NETWORK,False,False,False,False,1+2
+NCT05947500,2023-07-13,gap,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT06015880,2023-08-26,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT06022939,2023-08-11,post,nci,True,False,SWOG Cancer Research Network,NETWORK,False,False,False,False,1+2
+NCT06031688,2023-08-28,post,nci,True,False,SWOG Cancer Research Network,NETWORK,False,False,False,False,1+2
+NCT06050252,2023-09-21,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT06058377,2023-09-27,post,nci,True,False,National Cancer Institute (NCI),NIH,False,False,False,False,1+2
+NCT06102902,2023-10-25,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT06116682,2023-10-30,post,nci,True,False,SWOG Cancer Research Network,NETWORK,False,False,False,False,1+2
+NCT06169215,2023-12-05,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT06203600,2024-01-10,post,nci,True,False,National Cancer Institute (NCI),NIH,False,False,False,False,1+2
+NCT06240754,2024-01-16,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT06287775,2024-02-29,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT06311227,2024-03-13,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT06337318,2024-03-27,post,nci,True,False,National Cancer Institute (NCI),NIH,False,False,False,False,1+2
+NCT06364410,2024-04-12,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT06439836,2024-05-31,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT06465316,2024-06-17,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT06470243,2024-06-17,post,nci,True,False,SWOG Cancer Research Network,NETWORK,False,False,False,False,1+2
+NCT06483100,2024-06-25,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT06484062,2024-06-29,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT06498635,2024-07-10,post,nci,True,False,National Cancer Institute (NCI),NIH,False,False,False,False,1+2
+NCT06498648,2024-07-10,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT06514261,2024-07-20,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT06529809,2024-07-26,post,both,True,True,Washington University School of Medicine,OTHER,True,False,True,True,1+3
+NCT06529822,2024-07-26,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT06582849,2024-08-30,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT06590558,2024-09-06,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT06606990,2024-09-20,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT06616584,2024-08-27,post,nci,True,False,SWOG Cancer Research Network,NETWORK,False,False,False,False,1+2
+NCT06617923,2024-09-19,post,nci,True,False,Sidney Kimmel Comprehensive Cancer Center at Johns Hopkins,OTHER,True,False,True,True,1+2
+NCT06623630,2024-09-30,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT06639607,2024-10-07,post,both,True,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT06654037,2024-10-22,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT06661915,2024-10-25,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT06672146,2024-11-01,post,nci,True,False,National Cancer Institute (NCI),NIH,False,False,False,False,1+2
+NCT06687772,2024-11-12,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT06702033,2024-11-19,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT06730100,2024-12-11,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT06769126,2025-01-02,post,nci,True,False,SWOG Cancer Research Network,NETWORK,False,False,False,False,1+2
+NCT06771739,2025-01-08,post,nci,True,False,Fred Hutchinson Cancer Center,OTHER,True,False,True,True,1+2
+NCT06795009,2025-01-23,post,both,True,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT06802523,2025-01-29,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT06807437,2025-01-29,post,nci,True,False,SWOG Cancer Research Network,NETWORK,False,False,False,False,1+2
+NCT06811116,2025-02-05,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT06831526,2025-02-12,post,washu,False,True,Washington University School of Medicine,OTHER,False,False,False,False,1+2
+NCT06844669,2025-02-17,post,washu,False,True,Washington University School of Medicine,OTHER,False,False,True,True,1+2
+NCT06860594,2025-03-05,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT06888323,2025-03-20,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT06904378,2025-03-24,post,both,True,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT06926634,2025-04-10,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT06957431,2025-04-25,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT06965114,2025-05-08,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,False,1
+NCT06968988,2025-05-05,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT06980038,2025-05-16,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT06998940,2025-05-21,post,nci,True,False,SWOG Cancer Research Network,NETWORK,False,False,False,False,1+2
+NCT07003295,2025-06-03,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT07012031,2025-05-29,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT07031765,2025-06-02,post,neither,False,False,University of Florida,OTHER,True,False,True,True,1+2
+NCT07039760,2025-06-17,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT07046078,2025-06-04,post,neither,False,False,Fred Hutchinson Cancer Center,OTHER,True,False,True,True,1+2
+NCT07052305,2025-06-26,post,both,True,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT07061964,2025-07-11,post,nci,True,False,National Cancer Institute (NCI),NIH,False,False,False,False,1+2
+NCT07062354,2025-07-02,post,neither,False,False,SWOG Cancer Research Network,NETWORK,False,False,False,False,1+2+3
+NCT07092514,2025-07-21,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT07101666,2025-07-28,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT07107750,2025-07-30,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT07108998,2025-07-21,post,neither,False,False,Zulfa Omer,OTHER,True,False,True,True,1+2
+NCT07109817,2025-07-31,post,neither,False,False,Montefiore Medical Center,OTHER,True,False,True,True,1+2
+NCT07126158,2025-08-10,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT07137416,2025-08-19,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,False,1
+NCT07147231,2025-08-28,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT07155200,2025-08-26,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT07156227,2025-09-04,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT07181941,2025-09-12,post,neither,False,False,Fred Hutchinson Cancer Center,OTHER,True,False,True,True,1+2
+NCT07200089,2025-09-22,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT07200102,2025-09-22,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT07209371,2025-10-01,post,neither,False,False,Fred Hutchinson Cancer Center,OTHER,True,False,True,True,1+2
+NCT07213934,2025-09-30,post,neither,False,False,University of Cincinnati,OTHER,True,False,True,True,1+2
+NCT07221825,2025-10-25,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT07225036,2025-10-29,post,neither,False,False,Jordan Kharofa,OTHER,True,False,True,True,1+2
+NCT07271667,2025-11-26,post,neither,False,False,"Curis, Inc.",INDUSTRY,True,False,True,True,1+2
+NCT07277322,2025-12-02,post,neither,False,False,Dan Feng,OTHER,False,False,True,True,1+2
+NCT07281417,2025-12-12,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT07300475,2025-12-09,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT07332507,2026-01-09,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT07355205,2026-01-19,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT07379125,2026-01-23,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT07383441,2026-01-26,post,nci,True,False,SWOG Cancer Research Network,NETWORK,False,False,False,False,1+2
+NCT07392957,2026-01-29,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT07419464,2026-02-11,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT07422363,2026-02-19,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,False,1
+NCT07437950,2026-02-26,post,nci,True,False,National Cancer Institute (NCI),NIH,False,False,False,False,1+2
+NCT07444710,2026-02-28,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT07498205,2026-03-20,post,neither,False,False,SWOG Cancer Research Network,NETWORK,False,False,False,False,1+2+3
+NCT07516366,2026-04-07,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT07545954,2026-04-15,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT07551596,2026-04-24,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT07552558,2026-04-20,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT07578116,2026-05-04,post,nci,True,False,SWOG Cancer Research Network,NETWORK,False,False,False,False,1+2
+NCT07594002,2026-05-11,post,neither,False,False,University of Kentucky,OTHER,True,False,True,True,1+2
+NCT07615049,2026-05-11,post,nci,True,False,SWOG Cancer Research Network,NETWORK,False,False,False,False,1+2
+NCT07617363,2026-05-20,post,both,True,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT07619365,2026-05-21,post,both,True,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT07619521,2026-05-30,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT07620548,2026-05-26,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT07636564,2026-05-22,post,nci,True,False,SWOG Cancer Research Network,NETWORK,False,False,False,False,1+2
+NCT07638722,2026-06-05,post,nci,True,False,SWOG Cancer Research Network,NETWORK,False,False,False,False,1+2
+NCT07662031,2026-06-17,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT07662928,2026-06-17,post,nci,True,False,AIDS Malignancy Consortium,NETWORK,True,False,True,True,1+2
+NCT07680127,2026-06-25,post,neither,False,False,Virginia Commonwealth University,OTHER,False,False,True,True,1+2
+NCT07682792,2026-06-26,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT07686367,2026-07-03,post,nci,True,False,National Cancer Institute (NCI),NIH,True,False,True,True,1+2
+NCT07715734,2026-07-11,post,washu,False,True,Washington University School of Medicine,OTHER,False,False,False,False,1+2
+NCT07756593,2026-08-06,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT07842172,2026-09-20,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,True,True,1+2
+NCT07866430,2026-09-14,post,neither,False,False,Montefiore Medical Center,OTHER,True,False,True,True,1+2
+NCT07886905,2026-10-14,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,False,False,1+2
+NCT07901803,2026-10-22,post,washu,False,True,Washington University School of Medicine,OTHER,True,False,False,False,1+2
