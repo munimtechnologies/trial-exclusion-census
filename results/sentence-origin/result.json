@@ -1,0 +1,781 @@
+{
+ "version": "0.1.0",
+ "script_sha256": "489fec512f157f44b9283ea24757060b620fbf8f960611a7f80f0007d34a2607",
+ "gates": {
+  "P0_prereg_public": true,
+  "A1_table": true,
+  "A2_usable": true,
+  "A3_complete": true,
+  "A4_stock_seen": true
+ },
+ "polls": 1,
+ "fetched_utc": "2026-11-01T15:29:26Z",
+ "table_sha256": "4c8e18481819aa47733c66784bfa745e05bc6093f56d87b697442bb3efffbc39",
+ "cdx_queries": 60,
+ "cdx_errors": 4,
+ "downloaded": 42,
+ "download_errors": 0,
+ "trials": 30,
+ "order": [
+  "NCT04462328",
+  "NCT04852328",
+  "NCT05521984",
+  "NCT03418961",
+  "NCT04625647",
+  "NCT05455606",
+  "NCT05561387",
+  "NCT05633615",
+  "NCT05642572",
+  "NCT05642611",
+  "NCT05806515",
+  "NCT05890352",
+  "NCT05929768",
+  "NCT03598244",
+  "NCT03816319",
+  "NCT03907488",
+  "NCT04548752",
+  "NCT04840602",
+  "NCT04989283",
+  "NCT05411081",
+  "NCT05554406",
+  "NCT05691517",
+  "NCT05803382",
+  "NCT05807126",
+  "NCT05828082",
+  "NCT05859334",
+  "NCT05886036",
+  "NCT05886049",
+  "NCT05896839",
+  "NCT05947500"
+ ],
+ "cdx": {
+  "NCT04462328": {
+   "rows": [
+    5,
+    0
+   ],
+   "captures": 5
+  },
+  "NCT04852328": {
+   "rows": [
+    5,
+    1
+   ],
+   "captures": 6
+  },
+  "NCT05521984": {
+   "rows": [
+    0,
+    0
+   ],
+   "captures": 0
+  },
+  "NCT03418961": {
+   "rows": [
+    24,
+    9
+   ],
+   "captures": 33
+  },
+  "NCT04625647": {
+   "rows": [
+    16,
+    1
+   ],
+   "captures": 17
+  },
+  "NCT05455606": {
+   "rows": [
+    3,
+    0
+   ],
+   "captures": 3
+  },
+  "NCT05561387": {
+   "rows": [
+    3,
+    0
+   ],
+   "captures": 3
+  },
+  "NCT05633615": {
+   "rows": [
+    1,
+    0
+   ],
+   "captures": 1
+  },
+  "NCT05642572": {
+   "rows": [
+    "<HTTPError 503: 'Service Unavailable'>",
+    "<HTTPError 503: 'Service Unavailable'>"
+   ],
+   "captures": 0
+  },
+  "NCT05642611": {
+   "rows": [
+    0,
+    0
+   ],
+   "captures": 0
+  },
+  "NCT05806515": {
+   "rows": [
+    0,
+    0
+   ],
+   "captures": 0
+  },
+  "NCT05890352": {
+   "rows": [
+    0,
+    0
+   ],
+   "captures": 0
+  },
+  "NCT05929768": {
+   "rows": [
+    "<HTTPError 503: 'Service Unavailable'>",
+    0
+   ],
+   "captures": 0
+  },
+  "NCT03598244": {
+   "rows": [
+    10,
+    0
+   ],
+   "captures": 10
+  },
+  "NCT03816319": {
+   "rows": [
+    5,
+    0
+   ],
+   "captures": 5
+  },
+  "NCT03907488": {
+   "rows": [
+    40,
+    8
+   ],
+   "captures": 48
+  },
+  "NCT04548752": {
+   "rows": [
+    18,
+    0
+   ],
+   "captures": 18
+  },
+  "NCT04840602": {
+   "rows": [
+    8,
+    0
+   ],
+   "captures": 8
+  },
+  "NCT04989283": {
+   "rows": [
+    10,
+    0
+   ],
+   "captures": 10
+  },
+  "NCT05411081": {
+   "rows": [
+    9,
+    0
+   ],
+   "captures": 9
+  },
+  "NCT05554406": {
+   "rows": [
+    8,
+    0
+   ],
+   "captures": 8
+  },
+  "NCT05691517": {
+   "rows": [
+    0,
+    0
+   ],
+   "captures": 0
+  },
+  "NCT05803382": {
+   "rows": [
+    0,
+    0
+   ],
+   "captures": 0
+  },
+  "NCT05807126": {
+   "rows": [
+    2,
+    0
+   ],
+   "captures": 2
+  },
+  "NCT05828082": {
+   "rows": [
+    0,
+    0
+   ],
+   "captures": 0
+  },
+  "NCT05859334": {
+   "rows": [
+    0,
+    0
+   ],
+   "captures": 0
+  },
+  "NCT05886036": {
+   "rows": [
+    0,
+    "<HTTPError 503: 'Service Unavailable'>"
+   ],
+   "captures": 0
+  },
+  "NCT05886049": {
+   "rows": [
+    0,
+    0
+   ],
+   "captures": 0
+  },
+  "NCT05896839": {
+   "rows": [
+    0,
+    0
+   ],
+   "captures": 0
+  },
+  "NCT05947500": {
+   "rows": [
+    0,
+    0
+   ],
+   "captures": 0
+  }
+ },
+ "elapsed_seconds": 2561,
+ "complete": {
+  "NCT04462328": true,
+  "NCT04852328": true,
+  "NCT05521984": true,
+  "NCT03418961": true,
+  "NCT04625647": true,
+  "NCT05455606": true,
+  "NCT05561387": true,
+  "NCT05633615": true,
+  "NCT05642572": false,
+  "NCT05642611": true,
+  "NCT05806515": true,
+  "NCT05890352": true,
+  "NCT05929768": false,
+  "NCT03598244": true,
+  "NCT03816319": true,
+  "NCT03907488": true,
+  "NCT04548752": true,
+  "NCT04840602": true,
+  "NCT04989283": true,
+  "NCT05411081": true,
+  "NCT05554406": true,
+  "NCT05691517": true,
+  "NCT05803382": true,
+  "NCT05807126": true,
+  "NCT05828082": true,
+  "NCT05859334": true,
+  "NCT05886036": false,
+  "NCT05886049": true,
+  "NCT05896839": true,
+  "NCT05947500": true
+ },
+ "usable_trials": 16,
+ "complete_trials": 27,
+ "S1": {
+  "graded_on": [
+   "NCT04462328",
+   "NCT04852328",
+   "NCT03418961",
+   "NCT04625647",
+   "NCT03598244",
+   "NCT03816319",
+   "NCT03907488",
+   "NCT04548752",
+   "NCT04840602",
+   "NCT04989283",
+   "NCT05411081"
+  ],
+  "with_sentence": [
+   "NCT04625647",
+   "NCT03907488",
+   "NCT04548752",
+   "NCT04840602",
+   "NCT04989283",
+   "NCT05411081"
+  ]
+ },
+ "S2": {
+  "graded_on": [
+   "NCT03418961",
+   "NCT04625647",
+   "NCT05455606",
+   "NCT05561387",
+   "NCT05633615"
+  ],
+  "with_sentence": [
+   "NCT04625647",
+   "NCT05455606",
+   "NCT05561387",
+   "NCT05633615"
+  ]
+ },
+ "S3": {
+  "graded_on": [
+   "NCT03598244",
+   "NCT03816319",
+   "NCT03907488",
+   "NCT04548752",
+   "NCT04840602",
+   "NCT04989283",
+   "NCT05411081",
+   "NCT05554406",
+   "NCT05807126"
+  ],
+  "with_sentence": [
+   "NCT04989283",
+   "NCT05411081",
+   "NCT05807126"
+  ]
+ },
+ "S4": {
+  "graded_on": [
+   "NCT04462328",
+   "NCT04852328"
+  ],
+  "with_sentence": []
+ },
+ "predictions": {
+  "S1": true,
+  "S2": true,
+  "S3": true,
+  "S4": true
+ },
+ "described": {
+  "trials": {
+   "NCT04462328": {
+    "kind": "washu",
+    "submitted": "2020-07-02",
+    "pages": {
+     "oldest": [
+      "20201027",
+      "neither"
+     ],
+     "newest_pre": [
+      "20210410",
+      "neither"
+     ],
+     "newest_early": [
+      "20220822",
+      "neither"
+     ]
+    }
+   },
+   "NCT04852328": {
+    "kind": "washu",
+    "submitted": "2021-04-15",
+    "pages": {
+     "oldest": [
+      "20211129",
+      "clause"
+     ],
+     "newest_pre": [
+      "20220122",
+      "clause"
+     ],
+     "newest_early": [
+      "20230330",
+      "clause"
+     ]
+    }
+   },
+   "NCT05521984": {
+    "kind": "washu",
+    "submitted": "2022-08-26",
+    "pages": {
+     "oldest": null,
+     "newest_pre": null,
+     "newest_early": null
+    }
+   },
+   "NCT03418961": {
+    "kind": "swog",
+    "submitted": "2018-01-02",
+    "pages": {
+     "oldest": [
+      "20190820",
+      "neither"
+     ],
+     "newest_pre": [
+      "20220628",
+      "neither"
+     ],
+     "newest_early": [
+      "20230603",
+      "neither"
+     ]
+    }
+   },
+   "NCT04625647": {
+    "kind": "swog",
+    "submitted": "2020-11-06",
+    "pages": {
+     "oldest": [
+      "20201113",
+      "sentence"
+     ],
+     "newest_pre": [
+      "20220526",
+      "sentence"
+     ],
+     "newest_early": [
+      "20230605",
+      "sentence"
+     ]
+    }
+   },
+   "NCT05455606": {
+    "kind": "swog",
+    "submitted": "2022-07-06",
+    "pages": {
+     "oldest": [
+      "20220823",
+      "sentence"
+     ],
+     "newest_pre": null,
+     "newest_early": [
+      "20221210",
+      "sentence"
+     ]
+    }
+   },
+   "NCT05561387": {
+    "kind": "swog",
+    "submitted": "2022-09-27",
+    "pages": {
+     "oldest": [
+      "20220930",
+      "sentence"
+     ],
+     "newest_pre": null,
+     "newest_early": [
+      "20220930",
+      "sentence"
+     ]
+    }
+   },
+   "NCT05633615": {
+    "kind": "swog",
+    "submitted": "2022-11-21",
+    "pages": {
+     "oldest": [
+      "20230405",
+      "sentence"
+     ],
+     "newest_pre": null,
+     "newest_early": [
+      "20230405",
+      "sentence"
+     ]
+    }
+   },
+   "NCT05642572": {
+    "kind": "swog",
+    "submitted": "2022-11-30",
+    "pages": {
+     "oldest": null,
+     "newest_pre": null,
+     "newest_early": null
+    }
+   },
+   "NCT05642611": {
+    "kind": "swog",
+    "submitted": "2022-11-30",
+    "pages": {
+     "oldest": null,
+     "newest_pre": null,
+     "newest_early": null
+    }
+   },
+   "NCT05806515": {
+    "kind": "swog",
+    "submitted": "2023-03-28",
+    "pages": {
+     "oldest": null,
+     "newest_pre": null,
+     "newest_early": null
+    }
+   },
+   "NCT05890352": {
+    "kind": "swog",
+    "submitted": "2023-05-25",
+    "pages": {
+     "oldest": null,
+     "newest_pre": null,
+     "newest_early": null
+    }
+   },
+   "NCT05929768": {
+    "kind": "swog",
+    "submitted": "2023-06-01",
+    "pages": {
+     "oldest": null,
+     "newest_pre": null,
+     "newest_early": null
+    }
+   },
+   "NCT03598244": {
+    "kind": "nci",
+    "submitted": "2018-07-24",
+    "pages": {
+     "oldest": [
+      "20190824",
+      "neither"
+     ],
+     "newest_pre": [
+      "20220516",
+      "neither"
+     ],
+     "newest_early": [
+      "20230608",
+      "sentence"
+     ]
+    }
+   },
+   "NCT03816319": {
+    "kind": "nci",
+    "submitted": "2019-01-24",
+    "pages": {
+     "oldest": [
+      "20201102",
+      "neither"
+     ],
+     "newest_pre": [
+      "20220313",
+      "neither"
+     ],
+     "newest_early": [
+      "20220802",
+      "neither"
+     ]
+    }
+   },
+   "NCT03907488": {
+    "kind": "nci",
+    "submitted": "2019-04-08",
+    "pages": {
+     "oldest": [
+      "20190919",
+      "neither"
+     ],
+     "newest_pre": [
+      "20220701",
+      "sentence"
+     ],
+     "newest_early": [
+      "20230611",
+      "sentence"
+     ]
+    }
+   },
+   "NCT04548752": {
+    "kind": "nci",
+    "submitted": "2020-09-12",
+    "pages": {
+     "oldest": [
+      "20201102",
+      "neither"
+     ],
+     "newest_pre": [
+      "20220616",
+      "sentence"
+     ],
+     "newest_early": [
+      "20230329",
+      "sentence"
+     ]
+    }
+   },
+   "NCT04840602": {
+    "kind": "nci",
+    "submitted": "2021-04-09",
+    "pages": {
+     "oldest": [
+      "20210625",
+      "neither"
+     ],
+     "newest_pre": [
+      "20220629",
+      "sentence"
+     ],
+     "newest_early": [
+      "20230609",
+      "sentence"
+     ]
+    }
+   },
+   "NCT04989283": {
+    "kind": "nci",
+    "submitted": "2021-08-03",
+    "pages": {
+     "oldest": [
+      "20210804",
+      "sentence"
+     ],
+     "newest_pre": [
+      "20211109",
+      "sentence"
+     ],
+     "newest_early": [
+      "20221222",
+      "sentence"
+     ]
+    }
+   },
+   "NCT05411081": {
+    "kind": "nci",
+    "submitted": "2022-06-07",
+    "pages": {
+     "oldest": [
+      "20220609",
+      "sentence"
+     ],
+     "newest_pre": [
+      "20220609",
+      "sentence"
+     ],
+     "newest_early": [
+      "20230322",
+      "sentence"
+     ]
+    }
+   },
+   "NCT05554406": {
+    "kind": "nci",
+    "submitted": "2022-09-22",
+    "pages": {
+     "oldest": [
+      "20220926",
+      "neither"
+     ],
+     "newest_pre": null,
+     "newest_early": [
+      "20220926",
+      "neither"
+     ]
+    }
+   },
+   "NCT05691517": {
+    "kind": "nci",
+    "submitted": "2023-01-18",
+    "pages": {
+     "oldest": null,
+     "newest_pre": null,
+     "newest_early": null
+    }
+   },
+   "NCT05803382": {
+    "kind": "nci",
+    "submitted": "2023-04-06",
+    "pages": {
+     "oldest": null,
+     "newest_pre": null,
+     "newest_early": null
+    }
+   },
+   "NCT05807126": {
+    "kind": "nci",
+    "submitted": "2023-04-08",
+    "pages": {
+     "oldest": [
+      "20230615",
+      "sentence"
+     ],
+     "newest_pre": null,
+     "newest_early": [
+      "20230615",
+      "sentence"
+     ]
+    }
+   },
+   "NCT05828082": {
+    "kind": "nci",
+    "submitted": "2023-04-22",
+    "pages": {
+     "oldest": null,
+     "newest_pre": null,
+     "newest_early": null
+    }
+   },
+   "NCT05859334": {
+    "kind": "nci",
+    "submitted": "2023-05-13",
+    "pages": {
+     "oldest": null,
+     "newest_pre": null,
+     "newest_early": null
+    }
+   },
+   "NCT05886036": {
+    "kind": "nci",
+    "submitted": "2023-06-01",
+    "pages": {
+     "oldest": null,
+     "newest_pre": null,
+     "newest_early": null
+    }
+   },
+   "NCT05886049": {
+    "kind": "nci",
+    "submitted": "2023-06-01",
+    "pages": {
+     "oldest": null,
+     "newest_pre": null,
+     "newest_early": null
+    }
+   },
+   "NCT05896839": {
+    "kind": "nci",
+    "submitted": "2023-06-08",
+    "pages": {
+     "oldest": null,
+     "newest_pre": null,
+     "newest_early": null
+    }
+   },
+   "NCT05947500": {
+    "kind": "nci",
+    "submitted": "2023-07-13",
+    "pages": {
+     "oldest": null,
+     "newest_pre": null,
+     "newest_early": null
+    }
+   }
+  },
+  "earliest_sentence_page": [
+   "NCT04625647",
+   "20201113061505"
+  ],
+  "gained_before_cutoff": [
+   "NCT03598244",
+   "NCT03907488",
+   "NCT04548752",
+   "NCT04840602"
+  ]
+ },
+ "status": "graded"
+}

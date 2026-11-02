@@ -1,0 +1,40 @@
+sentence_origin 0.1.0
+gates: A1_table=True, A2_usable=True, A3_complete=True, A4_stock_seen=True, P0_prereg_public=True
+trials 30, complete 27, with a usable page 16; cdx queries 60 (errors 4), pages downloaded 42 (errors 0), elapsed 2561s
+  S1 graded on 11, with the sentence 6: NCT04625647 NCT03907488 NCT04548752 NCT04840602 NCT04989283 NCT05411081
+  S2 graded on 5, with the sentence 4: NCT04625647 NCT05455606 NCT05561387 NCT05633615
+  S3 graded on 9, with the sentence 3: NCT04989283 NCT05411081 NCT05807126
+  S4 graded on 2, with the sentence 0: -
+predictions: S1=True, S2=True, S3=True, S4=True
+earliest page with the sentence: ['NCT04625647', '20201113061505']
+gained it between oldest and newest early page: NCT03598244 NCT03907488 NCT04548752 NCT04840602
+  NCT04462328 washu 2020-07-02: oldest 20201027 neither; newest_pre 20210410 neither; newest_early 20220822 neither
+  NCT04852328 washu 2021-04-15: oldest 20211129 clause; newest_pre 20220122 clause; newest_early 20230330 clause
+  NCT05521984 washu 2022-08-26: oldest -; newest_pre -; newest_early -
+  NCT03418961 swog 2018-01-02: oldest 20190820 neither; newest_pre 20220628 neither; newest_early 20230603 neither
+  NCT04625647 swog 2020-11-06: oldest 20201113 sentence; newest_pre 20220526 sentence; newest_early 20230605 sentence
+  NCT05455606 swog 2022-07-06: oldest 20220823 sentence; newest_pre -; newest_early 20221210 sentence
+  NCT05561387 swog 2022-09-27: oldest 20220930 sentence; newest_pre -; newest_early 20220930 sentence
+  NCT05633615 swog 2022-11-21: oldest 20230405 sentence; newest_pre -; newest_early 20230405 sentence
+  NCT05642572 swog 2022-11-30: oldest -; newest_pre -; newest_early -
+  NCT05642611 swog 2022-11-30: oldest -; newest_pre -; newest_early -
+  NCT05806515 swog 2023-03-28: oldest -; newest_pre -; newest_early -
+  NCT05890352 swog 2023-05-25: oldest -; newest_pre -; newest_early -
+  NCT05929768 swog 2023-06-01: oldest -; newest_pre -; newest_early -
+  NCT03598244 nci 2018-07-24: oldest 20190824 neither; newest_pre 20220516 neither; newest_early 20230608 sentence
+  NCT03816319 nci 2019-01-24: oldest 20201102 neither; newest_pre 20220313 neither; newest_early 20220802 neither
+  NCT03907488 nci 2019-04-08: oldest 20190919 neither; newest_pre 20220701 sentence; newest_early 20230611 sentence
+  NCT04548752 nci 2020-09-12: oldest 20201102 neither; newest_pre 20220616 sentence; newest_early 20230329 sentence
+  NCT04840602 nci 2021-04-09: oldest 20210625 neither; newest_pre 20220629 sentence; newest_early 20230609 sentence
+  NCT04989283 nci 2021-08-03: oldest 20210804 sentence; newest_pre 20211109 sentence; newest_early 20221222 sentence
+  NCT05411081 nci 2022-06-07: oldest 20220609 sentence; newest_pre 20220609 sentence; newest_early 20230322 sentence
+  NCT05554406 nci 2022-09-22: oldest 20220926 neither; newest_pre -; newest_early 20220926 neither
+  NCT05691517 nci 2023-01-18: oldest -; newest_pre -; newest_early -
+  NCT05803382 nci 2023-04-06: oldest -; newest_pre -; newest_early -
+  NCT05807126 nci 2023-04-08: oldest 20230615 sentence; newest_pre -; newest_early 20230615 sentence
+  NCT05828082 nci 2023-04-22: oldest -; newest_pre -; newest_early -
+  NCT05859334 nci 2023-05-13: oldest -; newest_pre -; newest_early -
+  NCT05886036 nci 2023-06-01: oldest -; newest_pre -; newest_early -
+  NCT05886049 nci 2023-06-01: oldest -; newest_pre -; newest_early -
+  NCT05896839 nci 2023-06-08: oldest -; newest_pre -; newest_early -
+  NCT05947500 nci 2023-07-13: oldest -; newest_pre -; newest_early -
