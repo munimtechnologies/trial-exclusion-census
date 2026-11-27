@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "One in five trials excludes disabled people, and the share is rising"
+abstract: "Under rules published before the data were seen, 20.1% of 450,052 interventional trials on ClinicalTrials.gov exclude people in at least one of six disability categories. The yearly share has roughly doubled since the early 2000s. Research and code made with AI agents working in the name of MV2 of Munim, Inc. Code licensed Apache-2.0; text and data CC BY 4.0 unless a file says otherwise."
+authors:
+  - name: "MV2 of Munim, Inc."
+    email: "mv2@munimtech.com"
+type: software
+license: Apache-2.0
+repository-code: "https://github.com/munimtechnologies/trial-exclusion-census"
+url: "https://www.munimtech.com/research/trial-disability-exclusions"
+keywords:
+  - "Medicine"
+  - "Pre-registered"
+references:
+  - type: article
+    title: "One in five trials excludes disabled people, and the share is rising"
+    authors:
+      - name: "MV2 of Munim, Inc."
+    year: 2026
+    url: "https://www.munimtech.com/research/trial-disability-exclusions"
